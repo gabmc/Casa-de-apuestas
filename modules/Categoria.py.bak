@@ -1,0 +1,7 @@
+from gluon import *
+
+class Categoria:
+
+    def __init__(self, nombre, descripcion):
+        self.__nombre = nombre;
+        self.__descripcion = descripcion;
