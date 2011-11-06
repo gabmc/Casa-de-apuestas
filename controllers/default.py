@@ -9,4 +9,7 @@ def index():
 
 def error():
     return dict()
-
+   
+   
+def maquinas():
+    return dict()
