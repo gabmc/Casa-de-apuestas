@@ -6,7 +6,9 @@ def call(): return service()
 ### end requires
 def index():
     return dict()
+    
+def maquinas():
+    return dict()
 
 def error():
     return dict()
-
