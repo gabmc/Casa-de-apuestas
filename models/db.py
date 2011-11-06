@@ -7,7 +7,70 @@
 
 if not request.env.web2py_runtime_gae:     
     ## if NOT running on Google App Engine use SQLite or other DB
-    db = DAL('sqlite://storage.sqlite') 
+    db = DAL('sqlite://storage.sqlite')
+    db.define_table('categorias',
+        Field('nombre'),
+        Field('descripcion', 'text'))
+    db.define_table('eventos',    
+       Field('categoria_id', db.categorias),
+       Field('nombre'),
+       Field('fecha','date'),
+       Field('descripcion', 'text'),
+       Field('relacionpago','string'))
+  ##  db.image.title.requires = IS_NOT_IN_DB(db, db.image.title)
+  
+    db.define_table('participantes',
+        Field('nombre'),
+        Field('descripcion','text')
+    )
+    
+    db.define_table('eventos_participantes',
+        Field('eventos_id',db.eventos),
+        Field('participantes_id',db.participantes),
+        Field('limite_apuesta','integer'),
+        primarykey=['eventos_id','participantes_id'],
+        migrate=False
+
+    )
+    
+    db.define_table('usuarios',
+        Field('nombre'),
+        Field('apellido'),
+        Field('correo'),
+        Field('password','password')
+    )
+    
+    db.define_table('maquinas',
+        Field('usuario_id',db.usuarios),
+        Field('estado','boolean'),
+        Field('ubicacion','string'),
+        Field('anho','integer'),
+        Field('descripcion','text')
+    )
+    
+      
+  
+    db.eventos.categoria_id.requires = IS_IN_DB(db, db.categorias.id, '%(nombre)s')
+    db.eventos.nombre.requires = IS_NOT_EMPTY()
+    db.eventos.fecha.requires = IS_NOT_EMPTY()
+    db.eventos.descripcion.requires = IS_NOT_EMPTY()
+    db.eventos.relacionpago.requires = IS_NOT_EMPTY()
+    
+    
+    db.participantes.nombre.requires = IS_NOT_EMPTY()
+    db.participantes.descripcion.requires = IS_NOT_EMPTY()
+    
+    db.usuarios.nombre.requires = IS_NOT_EMPTY()
+    db.usuarios.apellido.requires = IS_NOT_EMPTY()
+    db.usuarios.correo.requires = IS_NOT_EMPTY()
+    db.usuarios.correo.requires = IS_EMAIL()    
+    db.usuarios.password.requires = IS_NOT_EMPTY()
+    
+    db.maquinas.usuario_id.requires = IS_IN_DB(db, db.usuarios.id, '%(correo)s')
+    db.maquinas.estado.requires = IS_NOT_EMPTY()    
+    db.maquinas.ubicacion.requires = IS_NOT_EMPTY()
+    db.maquinas.anho.requires = IS_NOT_EMPTY()
+    db.maquinas.descripcion.requires = IS_NOT_EMPTY() 
 else:
     ## connect to Google BigTable (optional 'google:datastore://namespace')
     db = DAL('google:datastore') 
