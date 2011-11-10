@@ -6,17 +6,17 @@ class Categoria:
         self.__nombre = nombre
         self.__descripcion = descripcion
         
-    def setNombre(nombre):
+    def setNombre(self, nombre):
         self.__nombre = nombre
         
-    def getNombre():
+    def getNombre(self):
         return self.__nombre
     
-    def setDescripcion(descripcion):
+    def setDescripcion(self, descripcion):
         self.__descripcion = descripcion
     
-    def getDescripcion():
+    def getDescripcion(self):
         return self.__descripcion
     
-    def getScore():
+    def getScore(self, participantes):
         pass

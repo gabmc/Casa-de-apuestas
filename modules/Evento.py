@@ -9,20 +9,20 @@ class Evento:
         self.__fecha = fecha
         self.__descripcion = descripcion
     
-    def setNombre(nombre):
+    def setNombre(self, nombre):
         self.__nombre = nombre
     
-    def setFecha(fecha):
+    def setFecha(self, fecha):
         self.__fecha = fecha
         
-    def setDescripcion(descripcion):
+    def setDescripcion(self, descripcion):
         self.__descrupcion = descripcion
         
-    def getNombre():
+    def getNombre(self):
         return self.__nombre
     
-    def getFecha():
+    def getFecha(self):
         return self.__fecha
         
-    def getDescripcion():
+    def getDescripcion(self):
         return self.__descripcion
