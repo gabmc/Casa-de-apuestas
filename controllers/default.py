@@ -13,3 +13,8 @@ def error():
    
 def maquinas():
     return dict()
+
+
+def crearCategoria():
+    form = crud.create(db.categorias)
+    return dict(form=form)
