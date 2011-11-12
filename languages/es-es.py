@@ -182,6 +182,7 @@
 'edit': 'editar',
 'edit controller': 'editar controlador',
 'edit profile': 'editar perfil',
+'enter a value': 'enter a value',
 'enter an integer between %(min)g and %(max)g': 'enter an integer between %(min)g and %(max)g',
 'errors': 'errores',
 'export as csv file': 'exportar como archivo CSV',
