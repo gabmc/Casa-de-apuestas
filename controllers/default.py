@@ -18,10 +18,7 @@ def maquinas():
 def crearCategoria():
     categorias = db().select(db.categorias.ALL)
     form = crud.create(db.categorias)
-<<<<<<< HEAD
     return dict(form=form, categorias=categorias)
-=======
-    return dict(form=form)
 
 def crearEvento():
     form = crud.create(db.eventos)
@@ -42,4 +39,3 @@ def crearUsuarios():
 def crearMaquina():
     form = crud.create(db.maquinas)
     return dict(form=form)
->>>>>>> origin/origin
