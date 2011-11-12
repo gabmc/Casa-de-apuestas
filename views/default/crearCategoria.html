@@ -24,7 +24,9 @@
       </h2>
       <ul align="center">
          {{for cat in categorias:}}
-         {{=T(cat.nombre)}}
+         <li>
+         {{=cat.nombre}}
+         </li>
          {{pass}}
       </ul>
     </li>
