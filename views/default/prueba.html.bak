@@ -1,0 +1,7 @@
+Pudrete CHino
+{{from Categoria import *
+
+a = Categoria("Hector", "Cara Rota")
+
+print(a.getDescripcion())
+}}
