@@ -22,9 +22,11 @@
       <h2>
        Categorias Agregadas
       </h2>
-      <ul>
+      <ul align="center">
          {{for cat in categorias:}}
-         {{=T(cat.nombre)}}
+         <li>
+         {{=cat.nombre}}
+         </li>
          {{pass}}
       </ul>
     </li>
