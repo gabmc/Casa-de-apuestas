@@ -98,3 +98,59 @@ CREATE TABLE maquinas(
     descripcion TEXT
 );
 success!
+timestamp: 2011-11-12T17:50:18.024000
+CREATE TABLE categorias(
+    id INT AUTO_INCREMENT NOT NULL,
+    nombre VARCHAR(255),
+    descripcion LONGTEXT,
+    PRIMARY KEY(id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+timestamp: 2011-11-12T17:50:20.134000
+CREATE TABLE categorias(
+    id INT AUTO_INCREMENT NOT NULL,
+    nombre VARCHAR(255),
+    descripcion LONGTEXT,
+    PRIMARY KEY(id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+timestamp: 2011-11-12T17:50:20.901000
+CREATE TABLE categorias(
+    id INT AUTO_INCREMENT NOT NULL,
+    nombre VARCHAR(255),
+    descripcion LONGTEXT,
+    PRIMARY KEY(id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+timestamp: 2011-11-12T17:50:21.312000
+CREATE TABLE categorias(
+    id INT AUTO_INCREMENT NOT NULL,
+    nombre VARCHAR(255),
+    descripcion LONGTEXT,
+    PRIMARY KEY(id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+timestamp: 2011-11-12T17:50:21.564000
+CREATE TABLE categorias(
+    id INT AUTO_INCREMENT NOT NULL,
+    nombre VARCHAR(255),
+    descripcion LONGTEXT,
+    PRIMARY KEY(id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+timestamp: 2011-11-12T17:50:21.879000
+CREATE TABLE categorias(
+    id INT AUTO_INCREMENT NOT NULL,
+    nombre VARCHAR(255),
+    descripcion LONGTEXT,
+    PRIMARY KEY(id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+timestamp: 2011-11-12T17:50:22.133000
+CREATE TABLE categorias(
+    id INT AUTO_INCREMENT NOT NULL,
+    nombre VARCHAR(255),
+    descripcion LONGTEXT,
+    PRIMARY KEY(id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+timestamp: 2011-11-12T17:51:12.293000
+CREATE TABLE categorias(
+    id INT AUTO_INCREMENT NOT NULL,
+    nombre VARCHAR(255),
+    descripcion LONGTEXT,
+    PRIMARY KEY(id)
+) ENGINE=InnoDB CHARACTER SET utf8;
