@@ -60,6 +60,9 @@ if not request.env.web2py_runtime_gae:
     db.participantes.nombre.requires = IS_NOT_EMPTY()
     db.participantes.descripcion.requires = IS_NOT_EMPTY()
     
+    db.eventos_participantes.eventos_id.requires = IS_IN_DB(db, db.eventos.id, '%(nombre)s')
+    db.eventos_participantes.participantes_id.requires = IS_IN_DB(db, db.participantes.id, '%(nombre)s')
+    
     db.usuarios.nombre.requires = IS_NOT_EMPTY()
     db.usuarios.apellido.requires = IS_NOT_EMPTY()
     db.usuarios.correo.requires = IS_NOT_EMPTY()
