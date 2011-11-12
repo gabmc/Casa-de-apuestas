@@ -17,4 +17,4 @@ def maquinas():
 
 def crearCategoria():
     form = crud.create(db.categorias)
-    return dict(form)
+    return dict(form=form)
