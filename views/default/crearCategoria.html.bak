@@ -1,4 +1,40 @@
-
 {{extend 'layout.html'}}
-<h1>This is the default/crearCategoria.html template</h1>
-{{=BEAUTIFY(response._vars)}}
+<div id="content">
+    <div class="post greenbox">
+           <div class="title">
+                <h1>Insertar Categoria</h1>
+           </div>
+           <div class="entry">
+                    {{=form}}
+           </div>
+           <div class="btm">
+              <div class="l">
+                  <div class="r">
+                       <small>*Por favor llenar todos los campos solicitados</small>
+                  </div>
+              </div>
+           </div>
+     </div>
+</div>
+<div id="sidebar">
+  <ul>
+    <li>
+      <h2>
+       Categorias Agregadas
+      </h2>
+      <ul>
+         {{for cat in categorias:}}
+         {{=T(cat.nombre)}}
+         {{pass}}
+      </ul>
+    </li>
+     
+     <!--<h2>
+      Titulo2
+     </h2>
+     <ul>
+      Mundo
+     </ul>
+   </ul>-->
+</div>
+{{pass}}
