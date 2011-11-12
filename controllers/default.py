@@ -50,12 +50,10 @@ def generar_xml(rows):
     #return str(estrin)
     
 def prueba_xml():
-    import md5
-    codificador = md5.new()
-    codificador1 = md5.new()
-    codificador1.update(generar_xml(db().select(db.participantes.ALL)))
+    import hashlib
+    codificador = hashlib.md5()
     response.headers['Content-Type']='application/xml'
     #a = generar_xml(db().select(db.participantes.ALL));
     codificador.update(generar_xml(db().select(db.participantes.ALL)))
     #return generar_xml(db().select(db.participantes.ALL))
-    return dict(var=codificador.hexdigest(), var1=codificador1.hexdigest())
+    return dict(var=codificador.hexdigest())
