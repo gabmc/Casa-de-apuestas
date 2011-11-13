@@ -56,7 +56,6 @@ def prueba_xml():
     #a = generar_xml(db().select(db.participantes.ALL));
     codificador.update(generar_xml(db().select(db.participantes.ALL)))
     #return generar_xml(db().select(db.participantes.ALL))
-<<<<<<< HEAD
     return dict(var=codificador.hexdigest(), var1=codificador1.hexdigest())
 
 
@@ -76,6 +75,3 @@ def mostrarCategoria():
 def showCategoria():
     form = crud.update(db.categorias,request.args(0),next=URL('mostrarCategoria'))
     return dict(form=form)
-=======
-    return dict(var=codificador.hexdigest())
->>>>>>> origin/origin

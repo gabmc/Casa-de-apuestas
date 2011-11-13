@@ -154,3 +154,9 @@ CREATE TABLE categorias(
     descripcion LONGTEXT,
     PRIMARY KEY(id)
 ) ENGINE=InnoDB CHARACTER SET utf8;
+timestamp: 2011-11-13T17:36:04.474000
+ALTER TABLE auth_user ADD apellido CHAR(512);
+timestamp: 2011-11-13T17:36:04.646000
+ALTER TABLE auth_user ADD nick CHAR(512);
+timestamp: 2011-11-13T17:36:04.839000
+ALTER TABLE auth_user ADD nombre CHAR(512);
