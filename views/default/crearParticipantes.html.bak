@@ -7,7 +7,7 @@
            <div class="entry">
                     {{=form}}
            </div>
-           <div class="btm" align="center">
+           <div class="btm">
               <div class="l">
                   <div class="r">
                        <small>*Por favor llenar todos los campos solicitados</small>
@@ -16,27 +16,3 @@
            </div>
      </div>
 </div>
-<div id="sidebar">
-  <ul>
-    <li>
-      <h2>
-       Categorias Agregadas
-      </h2>
-      <ul align="center">
-         {{for cat in categorias:}}
-         <li>
-         {{=cat.nombre}}
-         </li>
-         {{pass}}
-      </ul>
-    </li>
-     
-     <!--<h2>
-      Titulo2
-     </h2>
-     <ul>
-      Mundo
-     </ul>
-   </ul>-->
-</div>
-{{pass}}
