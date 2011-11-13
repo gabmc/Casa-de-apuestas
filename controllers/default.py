@@ -8,42 +8,36 @@ def call(): return service()
 @auth.requires_login()
 def index():
     return dict()
-    
-@auth.requires_login()
+
 def error():
     return dict()
 
-@auth.requires_login()
+
 def maquinas():
     return dict()
 
-@auth.requires_login()
+
 def crearCategoria():
     categorias = db().select(db.categorias.ALL)
     form = crud.create(db.categorias)
     return dict(form=form, categorias=categorias)
 
-@auth.requires_login()
 def crearEvento():
     form = crud.create(db.eventos)
     return dict(form=form)
 
-@auth.requires_login()
 def crearParticipantes():
     form = crud.create(db.participantes)
     return dict(form=form)
 
-@auth.requires_login()
 def crearEventosParticipantes():
     form = crud.create(db.evetos_participantes)
     return dict(form=form)
 
-@auth.requires_login()
 def crearUsuarios():
     form = crud.create(db.usuarios)
     return dict(form=form)
 
-@auth.requires_login()
 def crearMaquina():
     form = crud.create(db.maquinas)
     return dict(form=form)
@@ -66,22 +60,44 @@ def prueba_xml():
     #return generar_xml(db().select(db.participantes.ALL))
     return dict(var=codificador.hexdigest(), var1=codificador1.hexdigest())
 
-@auth.requires_login()
-def eliminarCategoria():
-    form = crud.delete(db.categorias)
-    return dict(form=form)
-
-@auth.requires_login()
-def actualizarCategoria():
-    form = crud.update(db.categorias,7)
-    return dict(form=form)
-
-@auth.requires_login()
 def mostrarCategoria():
     categorias= db().select(db.categorias.ALL, orderby=db.categorias.id)
     return dict(categorias=categorias)
 
-@auth.requires_login()
 def showCategoria():
     form = crud.update(db.categorias,request.args(0),next=URL('mostrarCategoria'))
+    return dict(form=form)
+
+
+def mostrarEvento():
+    eventos= db().select(db.eventos.ALL, orderby=db.eventos.id)
+    return dict(eventos=eventos)
+
+def showEvento():
+    form = crud.update(db.eventos,request.args(0),next=URL('mostrarEvento'))
+    return dict(form=form)
+
+
+def mostrarParticipante():
+    participantes= db().select(db.participantes.ALL, orderby=db.participantes.id)
+    return dict(participantes=participantes)
+
+def showParticipante():
+    form = crud.update(db.participantes,request.args(0),next=URL('mostrarParticipante'))
+    return dict(form=form)
+    
+def mostrarMaquina():
+    maquinas= db().select(db.maquinas.ALL, orderby=db.maquinas.id)
+    return dict(maquinas=maquinas)
+
+def showMaquinas():
+    form = crud.update(db.maquinas,request.args(0),next=URL('mostrarMaquina'))
+    return dict(form=form)
+    
+def mostrarUsuario():
+    usuarios= db().select(db.auth_user.ALL, orderby=db.auth_user.id)
+    return dict(usuarios=usuarios)
+
+def showUsuario():
+    form = crud.update(db.auth_user,request.args(0),next=URL('mostrarUsuario'))
     return dict(form=form)
