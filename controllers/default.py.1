@@ -9,8 +9,8 @@ def index():
 
 def error():
     return dict()
-
-
+   
+   
 def maquinas():
     return dict()
 
@@ -23,7 +23,7 @@ def crearCategoria():
 def crearEvento():
     form = crud.create(db.eventos)
     return dict(form=form)
-
+    
 def crearParticipantes():
     form = crud.create(db.participantes)
     return dict(form=form)
@@ -35,20 +35,20 @@ def crearEventosParticipantes():
 def crearUsuarios():
     form = crud.create(db.usuarios)
     return dict(form=form)
-
+    
 def crearMaquina():
     form = crud.create(db.maquinas)
     return dict(form=form)
-
+    
 def generar_xml(rows):
     idx=range(len(rows.colnames))
     colnames=[item.replace('.','_') for item in rows.colnames]
     records=[]
-    for row in rows.response:
+    for row in rows.response: 
         records.append(TAG['record'](*[TAG[colnames[i]](row[i]) for i in idx]))
     return str(TAG['records'](*records))
     #return str(estrin)
-
+    
 def prueba_xml():
     import md5
     codificador = md5.new()
@@ -59,8 +59,8 @@ def prueba_xml():
     codificador.update(generar_xml(db().select(db.participantes.ALL)))
     #return generar_xml(db().select(db.participantes.ALL))
     return dict(var=codificador.hexdigest(), var1=codificador1.hexdigest())
-
-
+    
+    
 def eliminarCategoria():
     form = crud.delete(db.categorias)
     return dict(form=form)
@@ -73,7 +73,6 @@ def actualizarCategoria():
 def mostrarCategoria():
     categorias= db().select(db.categorias.ALL, orderby=db.categorias.id)
     return dict(categorias=categorias)
-
+    
 def showCategoria():
     form = crud.update(db.categorias,request.args(0),next=URL('mostrarCategoria'))
-    return dict(form=form)

@@ -1,0 +1,7 @@
+{{extend 'layout.html'}}
+<h1>This is the default/mostrarCategoria.html template</h1>
+<ul>
+{{for categoria in categorias:}}
+{{=LI(A(categoria.nombre, _href=URL("showCategoria", args=categoria.id)))}}
+{{pass}}
+</ul>
