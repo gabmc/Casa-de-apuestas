@@ -1,4 +1,38 @@
-
 {{extend 'layout.html'}}
-<h1>This is the default/crearUsuario.html template</h1>
-{{=BEAUTIFY(response._vars)}}
+<div id="content">
+    <div class="post greenbox">
+           <div class="title">
+                <h1>Insertar Usuario</h1>
+           </div>
+           <div class="entry">
+                    {{=form}}
+           </div>
+           <div class="btm" align="center">
+              <div class="l">
+                  <div class="r">
+                       <small>*Por favor llenar todos los campos solicitados</small>
+                  </div>
+              </div>
+           </div>
+     </div>
+</div>
+<div id="sidebar">
+  <ul>
+    <li>
+      <h2>
+       Usuarios Agregados
+      </h2>
+      <ul align="center">
+        {{cont = 0}}
+        {{for usuario in usuarios:}}
+        {{cont += 1}} 
+        {{if (cont < 5):}}
+        {{=LI(A(usuario.nick, _href=URL("showUsuario", args=usuario.id)))}}
+        {{pass}}
+        {{else:}}
+        <small> {{=LI(A("Ver Mas", _href=(URL("mostrarUsuario"))))}}</small>
+        {{pass}}        
+      </ul>
+    </li>
+</div>
+{{pass}}

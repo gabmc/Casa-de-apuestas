@@ -23,11 +23,15 @@
        Categorias Agregadas
       </h2>
       <ul align="center">
-         {{for cat in categorias:}}
-         <li>
-         {{=cat.nombre}}
-         </li>
-         {{pass}}
+        {{cont = 0}}
+        {{for cat in categorias:}}
+        {{cont += 1}} 
+        {{if (cont < 5):}}
+        {{=LI(A(cat.nombre, _href=URL("showCategoria", args=cat.id)))}}
+        {{pass}}
+        {{else:}}
+        <small> {{=LI(A("Ver Mas", _href=(URL("mostrarCategoria"))))}}</small>
+        {{pass}}        
       </ul>
     </li>
      
