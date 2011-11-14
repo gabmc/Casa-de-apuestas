@@ -1,0 +1,7 @@
+{{extend 'layout.html'}}
+<h1>This is the default/mostrarParticipante.html template</h1>
+<ul>
+{{for participante in participantes:}}
+{{=LI(A(participante.nombre, _href=URL("showParticipante", args=participante.id)))}}
+{{pass}}
+</ul>

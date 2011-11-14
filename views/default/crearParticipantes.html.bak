@@ -1,0 +1,18 @@
+{{extend 'layout.html'}}
+<div id="content">
+    <div class="post greenbox">
+           <div class="title">
+                <h1>Insertar Categoria</h1>
+           </div>
+           <div class="entry">
+                    {{=form}}
+           </div>
+           <div class="btm">
+              <div class="l">
+                  <div class="r">
+                       <small>*Por favor llenar todos los campos solicitados</small>
+                  </div>
+              </div>
+           </div>
+     </div>
+</div>
