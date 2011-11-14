@@ -1,4 +1,7 @@
-
 {{extend 'layout.html'}}
 <h1>This is the default/mostrarUsuario.html template</h1>
-{{=BEAUTIFY(response._vars)}}
+<ul>
+{{for usuario in usuarios:}}
+{{=LI(A(usuario.nombre, _href=URL("showUsuario", args=usuario.id)))}}
+{{pass}}
+</ul>

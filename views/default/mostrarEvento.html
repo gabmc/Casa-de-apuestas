@@ -1,7 +1,35 @@
 {{extend 'layout.html'}}
-<h1>This is the default/mostrarEvento.html template</h1>
-<ul>
-{{for evento in eventos:}}
-{{=LI(A(evento.nombre, _href=URL("showEvento", args=evento.id)))}}
+<div id="content">
+    <div class="post greenbox">
+           <div class="title">
+                <h1>Listado de Eventos</h1>
+           </div>
+           <div class="entry">
+               <ul>
+               {{for evento in eventos:}}
+               {{=LI(A(evento.nombre, _href=URL("showEvento", args=evento.id)))}}
+               {{pass}}
+               </ul>
+           </div>
+           <div class="btm" align="center">
+              <div class="l">
+                  <div class="r">
+                       &nbsp;
+                  </div>
+              </div>
+           </div>
+     </div>
+</div>
+<div id="sidebar">
+  <ul>
+    <li>
+      <h2>
+       Información
+      </h2>
+      <ul>
+        En esta sección, podrá modificar o eliminar
+        los eventos que esten en la Base de Datos
+      </ul>
+    </li>
+</div>
 {{pass}}
-</ul>

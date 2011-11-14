@@ -1,7 +1,35 @@
 {{extend 'layout.html'}}
-<h1>This is the default/mostrarParticipante.html template</h1>
-<ul>
-{{for participante in participantes:}}
-{{=LI(A(participante.nombre, _href=URL("showParticipante", args=participante.id)))}}
+<div id="content">
+    <div class="post greenbox">
+           <div class="title">
+                <h1>Listado de Participantes</h1>
+           </div>
+           <div class="entry">
+               <ul>
+               {{for participante in participantes:}}
+               {{=LI(A(participante.nombre, _href=URL("showParticipante", args=participante.id)))}}
+               {{pass}}
+               </ul>          
+           </div>
+           <div class="btm" align="center">
+              <div class="l">
+                  <div class="r">
+                       &nbsp;
+                  </div>
+              </div>
+           </div>
+     </div>
+</div>
+<div id="sidebar">
+  <ul>
+    <li>
+      <h2>
+       Información
+      </h2>
+      <ul>
+        En esta sección, podrá modificar o eliminar
+        los participantes por eventos que esten en la Base de Datos
+      </ul>
+    </li>
+</div>
 {{pass}}
-</ul>

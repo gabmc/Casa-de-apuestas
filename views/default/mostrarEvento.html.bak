@@ -1,4 +1,7 @@
-
 {{extend 'layout.html'}}
 <h1>This is the default/mostrarEvento.html template</h1>
-{{=BEAUTIFY(response._vars)}}
+<ul>
+{{for evento in eventos:}}
+{{=LI(A(evento.nombre, _href=URL("showEvento", args=evento.id)))}}
+{{pass}}
+</ul>

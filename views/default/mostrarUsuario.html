@@ -1,7 +1,37 @@
 {{extend 'layout.html'}}
-<h1>This is the default/mostrarUsuario.html template</h1>
-<ul>
-{{for usuario in usuarios:}}
-{{=LI(A(usuario.nombre, _href=URL("showUsuario", args=usuario.id)))}}
+<div id="content">
+    <div class="post greenbox">
+           <div class="title">
+                <h1>Listado de Usuarios</h1>
+           </div>
+           <div class="entry">
+               <ul>
+               {{for usuario in usuarios:}}
+               {{=LI(A(usuario.nombre, _href=URL("showUsuario", args=usuario.id)))}}
+               {{pass}}
+               </ul>
+           </div>
+           <div class="btm" align="center">
+              <div class="l">
+                  <div class="r">
+                       &nbsp;
+                  </div>
+              </div>
+           </div>
+     </div>
+</div>
+<div id="sidebar">
+  <ul>
+    <li>
+      <h2>
+       Información
+      </h2>
+      <ul>
+        <b>Precaución: </b> Los usuarios que se
+        encuentran en este listado, tienen permisos
+        de modificación. Debe tener cuidado con los
+        cambios que puedan suscitarse en este apartado. 
+      </ul>
+    </li>
+</div>
 {{pass}}
-</ul>

@@ -1,7 +1,36 @@
 {{extend 'layout.html'}}
-<h1>This is the default/mostrarCategoria.html template</h1>
-<ul>
-{{for categoria in categorias:}}
-{{=LI(A(categoria.nombre, _href=URL("showCategoria", args=categoria.id)))}}
+<div id="content">
+    <div class="post greenbox">
+           <div class="title">
+                <h1>Listado de Categorias</h1>
+           </div>
+           <div class="entry">
+               <ul>
+               {{for categoria in categorias:}}
+               {{=LI(A(categoria.nombre, _href=URL("showCategoria", args=categoria.id)))}}
+               {{pass}}
+               </ul>
+           </div>
+           <div class="btm" align="center">
+              <div class="l">
+                  <div class="r">
+                       &nbsp;
+                  </div>
+              </div>
+           </div>
+     </div>
+</div>
+<div id="sidebar">
+  <ul>
+    <li>
+      <h2>
+       Información
+      </h2>
+      <ul>
+        Es importante tener en cuenta 
+        que la categoria incide directamente
+        con la apuesta
+      </ul>
+    </li>
+</div>
 {{pass}}
-</ul>
