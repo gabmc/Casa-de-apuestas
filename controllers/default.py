@@ -23,24 +23,29 @@ def crearCategoria():
     return dict(form=form, categorias=categorias)
 
 def crearEvento():
+    eventos= db().select(db.eventos.ALL)
     form = crud.create(db.eventos)
-    return dict(form=form)
+    return dict(form=form,eventos=eventos)
 
-def crearParticipantes():
+def crearParticipante():
+    participantes= db().select(db.participantes.ALL)
     form = crud.create(db.participantes)
-    return dict(form=form)
+    return dict(form=form,participantes=participantes)
 
-def crearEventosParticipantes():
-    form = crud.create(db.evetos_participantes)
-    return dict(form=form)
+def crearEventoParticipante():
+    eventosparticipantes= db().select(db.eventos_participantes.ALL)
+    form = crud.create(db.eventos_participantes)
+    return dict(form=form,eventosparticipantes=eventosparticipantes)
 
-def crearUsuarios():
-    form = crud.create(db.usuarios)
-    return dict(form=form)
+def crearUsuario():
+    usuarios= db().select(db.auth_user.ALL)
+    form = crud.create(db.auth_user)
+    return dict(form=form,usuarios=usuarios)
 
 def crearMaquina():
+    maquinas= db().select(db.maquinas.ALL)
     form = crud.create(db.maquinas)
-    return dict(form=form)
+    return dict(form=form,maquinas=maquinas)
 
 def generar_xml(rows):
     idx=range(len(rows.colnames))
