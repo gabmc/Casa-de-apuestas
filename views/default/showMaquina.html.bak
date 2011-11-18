@@ -1,4 +1,3 @@
-
 {{extend 'layout.html'}}
 <h1>This is the default/showMaquina.html template</h1>
-{{=BEAUTIFY(response._vars)}}
+{{=form}}

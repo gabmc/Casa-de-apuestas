@@ -1,0 +1,11 @@
+#!/usr/bin/env python
+# coding: utf8
+from gluon import *
+
+class Servicio:
+
+    def __init__(self, atributo):
+        self.atr = atributo
+        
+    def hacerQuery(self):
+        return self.atr().select(db.auth_user.ALL, orderby=db.auth_user.id)

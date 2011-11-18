@@ -4,24 +4,24 @@ from gluon import *
 
 class Participante:
    def __init__(self,nombreParticipante,descripcionParticipante,limiteParticipante):
-       self.nombre=nombre
-       self.descripcion=descripcionParticipante
-       self.limite=limiteParticipante
+       self.__nombre = nombre
+       self.__descripcion = descripcionParticipante
+       self.__limite = limiteParticipante
    
    def setNombre(self,nombreParticipante):
-       self.nombre=nombreParticipante
+       self.__nombre = nombreParticipante
    
    def getNombre(self):
-       return self.nombre
+       return self.__nombre
    
    def setDescripcion(self,descripcionParticipante):
-       self.descripcion=descripcionParticipante
+       self.__descripcion = descripcionParticipante
    
    def getDescripcion(self):
-       return self.descripcion
+       return self.__descripcion
        
    def setLimite(self,limiteParticipante):
-       self.limite=limiteParticipante
+       self.__limite = limiteParticipante
    
    def getLimite(self):
-       return self.limite
+       return self.__limite
