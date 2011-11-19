@@ -17,7 +17,7 @@ if not request.env.web2py_runtime_gae:
        Field('nombre'),
        Field('fecha','date'),
        Field('descripcion', 'text'),
-       Field('relacionpago','string'))
+       Field('relacionpago'))
   ##  db.image.title.requires = IS_NOT_IN_DB(db, db.image.title)
   
     db.define_table('participantes',
@@ -28,10 +28,10 @@ if not request.env.web2py_runtime_gae:
     db.define_table('eventosparticipantes',
         Field('eventos_id',db.eventos),
         Field('participantes_id',db.participantes),
-        Field('limite_apuesta','integer'),
-        primarykey=['eventos_id','participantes_id'],
-        migrate=False
-
+        Field('limite_apuesta')
+      ##  primarykey=['eventos_id','participantes_id'],
+      ##  migrate=False
+##MALDITA PK !!!, HABRA QUE PONERLE ID PARA QUE FUNCIONE, MALA PRACTICA :(
     )
     
       
@@ -41,7 +41,7 @@ if not request.env.web2py_runtime_gae:
     db.eventos.nombre.requires = IS_NOT_EMPTY()
     db.eventos.fecha.requires = IS_NOT_EMPTY()
     db.eventos.descripcion.requires = IS_NOT_EMPTY()
-    db.eventos.relacionpago.requires = IS_NOT_EMPTY()
+    db.eventos.relacionpago.requires = IS_IN_SET(['1 a 1', '2 a 1', ' 3 a 1'])
     
     
     db.participantes.nombre.requires = IS_NOT_EMPTY()
@@ -49,6 +49,7 @@ if not request.env.web2py_runtime_gae:
     
     db.eventosparticipantes.eventos_id.requires = IS_IN_DB(db, db.eventos.id, '%(nombre)s')
     db.eventosparticipantes.participantes_id.requires = IS_IN_DB(db, db.participantes.id, '%(nombre)s')
+
     
 else:
     ## connect to Google BigTable (optional 'google:datastore://namespace')
