@@ -168,3 +168,52 @@ CREATE TABLE eventosparticipantes(
     limite_apuesta INTEGER
 );
 success!
+timestamp: 2011-11-20T12:20:32.237000
+CREATE TABLE eventosparticipantes(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    eventos_id INTEGER REFERENCES eventos(id) ON DELETE CASCADE,
+    participantes_id INTEGER REFERENCES participantes(id) ON DELETE CASCADE,
+    limite_apuesta INTEGER
+);
+timestamp: 2011-11-20T12:22:16.651000
+CREATE TABLE eventosparticipantes(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    eventos_id INTEGER REFERENCES eventos(id) ON DELETE CASCADE,
+    participantes_id INTEGER REFERENCES participantes(id) ON DELETE CASCADE,
+    limite_apuesta INTEGER
+);
+timestamp: 2011-11-20T12:22:46.689000
+CREATE TABLE eventosparticipantes(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    eventos_id INTEGER REFERENCES eventos(id) ON DELETE CASCADE,
+    participantes_id INTEGER REFERENCES participantes(id) ON DELETE CASCADE,
+    limite_apuesta INTEGER
+);
+timestamp: 2011-11-20T12:25:29.294000
+CREATE TABLE eventosparticipantes(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    eventos_id INTEGER REFERENCES eventos(id) ON DELETE CASCADE,
+    participantes_id INTEGER REFERENCES participantes(id) ON DELETE CASCADE,
+    limite_apuesta INTEGER
+);
+timestamp: 2011-11-20T12:26:21.878000
+CREATE TABLE eventosparticipantes(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    eventos_id INTEGER REFERENCES eventos(id) ON DELETE CASCADE,
+    participantes_id INTEGER REFERENCES participantes(id) ON DELETE CASCADE,
+    limite_apuesta INTEGER
+);
+timestamp: 2011-11-20T12:26:44.962000
+CREATE TABLE eventosparticipantes(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    eventos_id INTEGER REFERENCES eventos(id) ON DELETE CASCADE,
+    participantes_id INTEGER REFERENCES participantes(id) ON DELETE CASCADE,
+    limite_apuesta INTEGER
+);
+timestamp: 2011-11-20T12:27:48.112000
+CREATE TABLE eventosparticipantes(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    eventos_id INTEGER REFERENCES eventos(id) ON DELETE CASCADE,
+    participantes_id INTEGER REFERENCES participantes(id) ON DELETE CASCADE,
+    limite_apuesta INTEGER
+);
