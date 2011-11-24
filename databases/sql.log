@@ -217,3 +217,21 @@ CREATE TABLE eventosparticipantes(
     participantes_id INTEGER REFERENCES participantes(id) ON DELETE CASCADE,
     limite_apuesta INTEGER
 );
+timestamp: 2011-11-23T22:18:32.569000
+ALTER TABLE eventos ADD permiteempate CHAR(1);
+timestamp: 2011-11-23T22:18:32.661000
+ALTER TABLE eventos ADD admitetablaresultado CHAR(1);
+timestamp: 2011-11-23T22:18:32.726000
+ALTER TABLE eventos ADD horainicio TIME;
+timestamp: 2011-11-23T22:18:32.856000
+ALTER TABLE eventosparticipantes ADD relacionpago CHAR(512);
+timestamp: 2011-11-23T22:18:32.996000
+CREATE TABLE resultados(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    puntaje_posicion INTEGER,
+    eventos_id INTEGER REFERENCES eventos(id) ON DELETE CASCADE,
+    participantes_id INTEGER REFERENCES participantes(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2011-11-23T22:25:00.856000
+ALTER TABLE participantes ADD categoria_id INTEGER REFERENCES categorias(id) ON DELETE CASCADE;
