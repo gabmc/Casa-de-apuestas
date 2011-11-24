@@ -235,3 +235,13 @@ CREATE TABLE resultados(
 success!
 timestamp: 2011-11-23T22:25:00.856000
 ALTER TABLE participantes ADD categoria_id INTEGER REFERENCES categorias(id) ON DELETE CASCADE;
+timestamp: 2011-11-23T22:39:10.939000
+ALTER TABLE maquinas ADD latitud CHAR(512);
+timestamp: 2011-11-23T22:39:11.122000
+ALTER TABLE maquinas ADD capacidadmemoriaram CHAR(512);
+timestamp: 2011-11-23T22:39:11.277000
+ALTER TABLE maquinas ADD procesador CHAR(512);
+timestamp: 2011-11-23T22:39:11.408000
+ALTER TABLE maquinas ADD capacidaddiscoduro CHAR(512);
+timestamp: 2011-11-23T22:39:11.575000
+ALTER TABLE maquinas ADD longitud CHAR(512);

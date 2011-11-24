@@ -43,31 +43,9 @@ div.error { background-color: red; color: white; padding: 3px; }
   <!-- start page -->
   <div id="page">
    <!-- start content -->
-   <!--<div id="content">
-    <div class="flash">{{=response.flash or ''}}</div>
-    {{include}}
-   </div>-->
    <!-- end content -->
    {{include}}
    <!-- start sidebar -->
-   <div id="sidebar">
-    <ul>
-     <li>
-      <h2>
-       Titulo1
-      </h2>
-      <ul>
-         Hola
-      </ul>
-     
-      <h2>
-       Titulo2
-      </h2>
-      <ul>
-       Mundo
-      </ul>
-    </ul>
-   </div>
    <!-- end sidebar -->
   </div>
   <!-- end page -->
