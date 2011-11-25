@@ -1,16 +1,40 @@
 {{extend 'layout.html'}}
-<div class="post greenbox">
-            <div class="title">
-                <h1>Posicionamiento Global de Maquinas</h1>
-            </div>
-            <div class="entry">
-                <div class="map" style="width: 500px; height: 300px"></div>
-            </div>
-           <div class="btm">
-                <div class="l">
-                    <div class="r">
+<div id="content">
+    <div class="post greenbox">
+           <div class="title">
+                <h1>Posicionamiento Global de Máquinas</h1>
+           </div>
+           <div class="entry">
+                 <div class="map" style="width: 600px; height: 300px"></div>
+           </div>
+           <div class="btm" align="center">
+              <div class="l">
+                  <div class="r">
                        &nbsp;
-                    </div>
+                  </div>
+              </div>
+           </div>
+     </div>
+     <div class="two-columns">
+            <div class="columnA">
+                <div class="title red">
+                    <h2>Agregar</h2>
+                </div>
+                <div class="content">
+                    <ul>
+                        <button type="button" onclick="cambiarEstadoAgregar()">Agregar</button>
+                    </ul>
                 </div>
             </div>
+            <div class="columnB">
+                <div class="title blue">
+                    <h2>Eliminar</h2>
+                </div>
+                <div class="content">
+                    <ul>
+                        <button type="button" onclick="cambiarEstadoEliminar()">Eliminar</button>
+                    </ul>
+                </div>
+            </div>
+     </div>
 </div>
