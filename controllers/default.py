@@ -14,9 +14,9 @@ def error():
 
 
 def maquinas():
-    form =sqlform(db.maquinas)
+    form =crud.create(db.maquinas)
     maquinas=db().select(db.maquinas.ALL)
-    return dict(form,maquinas)
+    return dict(form=form,maquinas=maquinas)
 
 
 def crearCategoria():
@@ -100,7 +100,11 @@ def mostrarUsuario():
 def showUsuario():
     form = crud.update(db.auth_user,request.args(0),next=URL('mostrarUsuario'))
     return dict(form=form)
-    
-def verResultados():
-    resultados = db((db.resultados.eventos_id==db.eventos.id)& (db.resultados.participantes_id==db.participantes.id)).select()
+
+def verResultado1():
+    eventos= db().select(db.eventos.ALL, orderby=db.eventos.id)
+    return dict(eventos=eventos)
+        
+def verResultado2():
+    eventos= db((db.resultados.eventos_id==request.args(0))& (db.resultados.participantes_id==db.participantes.id)).select()
     return dict(resultados=resultados)
