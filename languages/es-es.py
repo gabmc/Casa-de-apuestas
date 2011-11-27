@@ -17,7 +17,6 @@
 'Admin is disabled because unsecure channel': 'Admin deshabilitado, el canal no es seguro',
 'Administrative interface': 'Interfaz administrativa',
 'Administrator Password:': 'Contraseña del Administrador:',
-'Apellido': 'Apellido',
 'Are you sure you want to delete file "%s"?': '¿Está seguro que desea eliminar el archivo "%s"?',
 'Are you sure you want to delete this object?': 'Are you sure you want to delete this object?',
 'Are you sure you want to uninstall application "%s"': '¿Está seguro que desea desinstalar la aplicación "%s"',
@@ -96,10 +95,12 @@
 'Name': 'Nombre',
 'Nascar': 'Nascar',
 'New Record': 'Registro nuevo',
-'Nick': 'Nick',
 'No databases in this application': 'No hay bases de datos en esta aplicación',
+<<<<<<< HEAD
 'No puede estar vacío': 'No puede estar vacío',
 'Nombre': 'Nombre',
+=======
+>>>>>>> origin/origin
 'Object or table name': 'Object or table name',
 'Online examples': 'Ejemplos en línea',
 'Origin': 'Origen',

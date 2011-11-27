@@ -1,4 +1,5 @@
 {{extend 'layout.html'}}
+{{=H1('Eventos Realizados')}}
                {{for evento in eventos:}}
                {{=LI(A(evento.nombre, _href=URL("verResultado2", args=evento.id)))}}
                {{pass}}
