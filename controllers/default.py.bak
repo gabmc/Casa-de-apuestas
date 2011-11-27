@@ -16,7 +16,7 @@ def error():
 def maquinas():
     form =sqlform(db.maquinas)
     maquinas=db().select(db.maquinas.ALL)
-    return dict()
+    return dict(form,maquinas)
 
 
 def crearCategoria():
