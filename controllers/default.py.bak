@@ -14,6 +14,8 @@ def error():
 
 
 def maquinas():
+    form =sqlform(db.maquinas)
+    maquinas=db().select(db.maquinas.ALL)
     return dict()
 
 
@@ -98,3 +100,7 @@ def mostrarUsuario():
 def showUsuario():
     form = crud.update(db.auth_user,request.args(0),next=URL('mostrarUsuario'))
     return dict(form=form)
+    
+def verResultados():
+    resultados = db((db.resultados.eventos_id==db.eventos.id)& (db.resultados.participantes_id==db.participantes.id)).select()
+    return dict(resultados=resultados)
