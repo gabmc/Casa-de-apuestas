@@ -1,40 +1,157 @@
-{{extend 'layout_maquinas.html'}}
-<div id="content">
-    <div class="post greenbox">
-           <div class="title">
-                <h1>Posicionamiento Global de Máquinas</h1>
-           </div>
-           <div class="entry">
-                 <div class="map" style="width: 600px; height: 300px"></div>
-           </div>
-           <div class="btm" align="center">
-              <div class="l">
-                  <div class="r">
-                       &nbsp;
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title>
+   {{=response.title or request.application}}
+  </title>
+  {{response.files.append(URL(request.application,'static','plugin_layouts/layouts/Balanced/default.css'))}}
+  {{response.files.append(URL('static','plugin_layouts/superfish.js'))}}
+  {{include 'web2py_ajax.html'}}
+  <style>
+ul.web2py-menu-vertical { width: 150px; position: relative; top:1em; left:1em;  z-index:30; border:0; margin:0; padding: 0; list-style: none; text-decoration: none;}
+ul.web2py-menu-vertical li { margin:0; padding:0; border:0; width: 150px; background: black; text-align:left;}
+ul.web2py-menu-vertical li a { margin:0; padding: 1px 3px 1px 3px; border:0; width: 144px; color: white; font-size:12px;}
+div.flash { position: fixed; float: right; padding: 10px; top: 10px; right: 30px; opacity: 0.75; margin: 10px 10px 10px 10px; text-align: center; clear: both; color: #fff; font-size: 11pt; text-align: center; vertical-align: middle; cursor: pointer; background: black; border: 2px solid #fff; -moz-border-radius: 5px; -webkit-border-radius: 5px; z-index: 2; }
+div.error { background-color: red; color: white; padding: 3px; }
+.auth_navbar { text-align:right; z-index:20; position: absolute; top: 2px; right:30px; border:0; padding:0 }
+  </style>
+  <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;hl=es&amp;key=ABQIAAAA30JtKUU8se-7KKPRGSfCMBT2yXp_ZAY8_ufC3CFXhHIE1NvwkxRZNdns2BwZvEY-V68DvlyUYwi1-Q" type="text/javascript"></script>
+<script type="text/javascript">
+agregando = false;
+eliminando = false;
+function load() {
+  if (GBrowserIsCompatible()) {
+    // Variables para el mapa
+    var lat = 6.000000;
+    var lon = -68.000;
+    var zoom = 5;
+ 
+    // Crear un nuevo mapa
+   var map = new GMap(document.getElementsByClassName("map")[0]);
+ 
+    // Centrarlo en un punto geográfico y con un nivel de zoom
+    map.setCenter(new GLatLng(lat, lon), zoom);
+ 
+    // Añadir los controles de zoom y de tipo de mapa
+    map.addControl(new GSmallMapControl());
+    map.addControl(new GMapTypeControl());
+    
+    GEvent.addListener(map, "click", function(marcador, punto) {
+      // Crear el nuevo marcador y mostrar sus coordenadas
+      if (agregando == true){
+          var nuevoMarcador = new GMarker(punto);
+          GEvent.addListener(nuevoMarcador, "click", function() {
+            this.openInfoWindowHtml("Lat: " + this.getPoint().lat() + "<br/>Lon: " + this.getPoint().lng() + "<br />Esto es una prueba de fusilamiento de código");
+          });
+          map.addOverlay(nuevoMarcador);
+       }
+       else if (eliminando == true){
+           if (marcador){
+               map.removeOverlay(marcador);
+           }
+       }
+    });
+  }
+}
+
+function cambiarEstadoAgregar()
+{
+    agregando = !agregando;
+    if (agregando == true)
+    {
+        if (eliminando == true)
+        {
+            cambiarEstadoEliminar();
+        }
+    }
+}
+
+function cambiarEstadoEliminar()
+{
+    eliminando = !eliminando;
+    if (eliminando == true)
+    {
+        if (agregando == true)
+        {
+            cambiarEstadoAgregar();         
+        }
+    }
+}
+ 
+window.onload = load;
+window.onunload = GUnload;
+ 
+</script>
+<style type="text/css">
+  .map {border:1px solid black;}
+</style>
+ </head>
+ <body>
+  <!-- start header -->
+  {{try:}}{{=auth.navbar(action=URL('default','user'))}}{{except:pass}}
+
+  <!-- start header -->
+  <div id="header">
+   <div id="logo">
+    <h1>
+     Sistema de Gestión 1.0
+    </h1>
+   </div>
+  </div>
+  <!-- end header -->
+  <!-- start page -->
+  <div id="page">
+   <!-- start content -->
+   <!-- end content -->
+      <div id="content">
+          <div class="post greenbox">
+              <div class="title">
+                   <h1>Posicionamiento Global de Máquinas</h1>
+              </div>
+              <div class="entry">
+                    <div class="map" style="width: 600px; height: 300px"></div>
+              </div>
+              <div class="btm" align="center">
+                  <div class="l">
+                      <div class="r">
+                           &nbsp;
+                      </div>
                   </div>
               </div>
-           </div>
-     </div>
-     <div class="two-columns">
-            <div class="columnA">
-                <div class="title red">
-                    <h2>Agregar</h2>
-                </div>
-                <div class="content">
-                    <ul>
-                        <button type="button" onclick="cambiarEstadoAgregar()">Agregar</button>
-                    </ul>
-                </div>
-            </div>
-            <div class="columnB">
-                <div class="title blue">
-                    <h2>Eliminar</h2>
-                </div>
-                <div class="content">
-                    <ul>
-                        <button type="button" onclick="cambiarEstadoEliminar()">Eliminar</button>
-                    </ul>
-                </div>
-            </div>
-     </div>
-</div>
+         </div>
+         <div class="two-columns">
+               <div class="columnA">
+                   <div class="title red">
+                       <h2>Agregar</h2>
+                   </div>
+                   <div class="content">
+                       <ul>
+                           <button type="button" onclick="cambiarEstadoAgregar()">Agregar</button>
+                       </ul>
+                   </div>
+               </div>
+               <div class="columnB">
+                   <div class="title blue">
+                       <h2>Eliminar</h2>
+                   </div>
+                   <div class="content">
+                       <ul>
+                           <button type="button" onclick="cambiarEstadoEliminar()">Eliminar</button>
+                       </ul>
+                   </div>
+               </div>
+         </div>
+      </div>
+   <!-- start sidebar -->
+   <!-- end sidebar -->
+  </div>
+  <!-- end page -->
+  <div style="clear: both;">
+   &nbsp;
+  </div>
+  <div id="footer">
+   <p>
+    &copy;2011 All Rights Reserved. &nbsp;&bull;&nbsp; Design by JSG Systems
+   </p>
+  </div>
+ </body>
+</html>

@@ -1,4 +1,4 @@
-{{extend 'layout.html'}}
+{{extend 'layout_maquinas.html'}}
 <div id="content">
     <div class="post greenbox">
            <div class="title">
