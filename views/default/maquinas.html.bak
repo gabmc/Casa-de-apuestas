@@ -1,40 +1,158 @@
-{{extend 'layout_maquinas.html'}}
-<div id="content">
-    <div class="post greenbox">
-           <div class="title">
-                <h1>Posicionamiento Global de Máquinas</h1>
-           </div>
-           <div class="entry">
-                 <div class="map" style="width: 600px; height: 300px"></div>
-           </div>
-           <div class="btm" align="center">
-              <div class="l">
-                  <div class="r">
-                       &nbsp;
+{{extend 'layout.html'}}
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;hl=es&amp;key=ABQIAAAA30JtKUU8se-7KKPRGSfCMBT2yXp_ZAY8_ufC3CFXhHIE1NvwkxRZNdns2BwZvEY-V68DvlyUYwi1-Q" type="text/javascript"></script>
+<script type="text/javascript">
+agregando = false;
+eliminando = false;
+
+function setMensaje(info){
+    var fragmentoInfo = info.split("|");
+    var mensaje = "<b>Información General:</b><br/><br/>";
+    for (i = 0; i < fragmentoInfo.length; i++){
+        mensaje += fragmentoInfo[i] + "<br/>";
+    }
+    return mensaje;
+}
+
+function agregarMarcador(map, punto, mensaje){
+    var nuevoMarcador = new GMarker(punto);
+    GEvent.addListener(nuevoMarcador, "click", function() {
+        this.openInfoWindowHtml("Lat: " + this.getPoint().lat()
+                                 + "<br/>Lon: " + this.getPoint().lng() + "<br/><br/>" + mensaje);
+    });   
+    map.addOverlay(nuevoMarcador);
+}
+
+function cargarMarcadores(map){
+    {{for maquina in maquinas:}}
+    var lat = {{=T(maquina.latitud)}};
+    var lon = {{=T(maquina.longitud)}};
+    var punto = new GLatLng(lat, lon);
+    var procesador = "<b>Procesador:</b> {{=T(maquina.procesador)}}";
+    var capacidadRam = "<b>Capacidad Ram:</b> {{=T(maquina.capacidadMemoriaRam)}}";
+    var capacidadDisco = "<b>Capacidad Disco:</b> {{=T(maquina.capacidadDiscoDuro)}}";
+    var info = procesador + "|" + capacidadRam + "|" + capacidadDisco;
+    var mensaje = setMensaje(info);
+    agregarMarcador(map,punto,mensaje);
+    {{pass}}
+}
+
+function desplegarFormulario(){
+    //document.getElementById("sidebar").innerHTML = "{{=form}}";
+}
+
+function load() {
+  if (GBrowserIsCompatible()) {
+    // Variables para el mapa
+    var lat = 6.000000;
+    var lon = -68.000;
+    var zoom = 5;
+ 
+    // Crear un nuevo mapa
+   var map = new GMap(document.getElementsByClassName("map")[0]);
+ 
+    // Centrarlo en un punto geográfico y con un nivel de zoom
+    map.setCenter(new GLatLng(lat, lon), zoom);
+ 
+    // Añadir los controles de zoom y de tipo de mapa
+    map.addControl(new GSmallMapControl());
+    map.addControl(new GMapTypeControl());
+    
+    GEvent.addListener(map, "click", function(marcador, punto) {
+      // Crear el nuevo marcador y mostrar sus coordenadas
+      if (agregando == true){
+          var mensaje = "Hola Mundo";
+          desplegarFormulario();
+          agregarMarcador(map,punto, mensaje);
+       }
+       else if (eliminando == true){
+           if (marcador){
+               map.removeOverlay(marcador);
+           }
+       }
+    });
+    cargarMarcadores(map);
+  }
+}
+
+function cambiarEstadoAgregar()
+{
+    agregando = !agregando;
+    if (agregando == true)
+    {
+        if (eliminando == true)
+        {
+            cambiarEstadoEliminar();
+        }
+    }
+}
+
+function cambiarEstadoEliminar()
+{
+    eliminando = !eliminando;
+    if (eliminando == true)
+    {
+        if (agregando == true)
+        {
+            cambiarEstadoAgregar();         
+        }
+    }
+}
+ 
+window.onload = load;
+window.onunload = GUnload;
+ 
+</script>
+<style type="text/css">
+  .map {border:1px solid black;}
+</style>
+      <div id="content">
+          <div class="post greenbox">
+              <div class="title">
+                   <h1>Posicionamiento Global de Máquinas</h1>
+              </div>
+              <div class="entry">
+                    <div class="map" style="width: 600px; height: 300px"></div>
+              </div>
+              <div class="btm" align="center">
+                  <div class="l">
+                      <div class="r">
+                           &nbsp;
+                      </div>
                   </div>
               </div>
-           </div>
-     </div>
-     <div class="two-columns">
-            <div class="columnA">
-                <div class="title red">
-                    <h2>Agregar</h2>
-                </div>
-                <div class="content">
-                    <ul>
-                        <button type="button" onclick="cambiarEstadoAgregar()">Agregar</button>
-                    </ul>
-                </div>
-            </div>
-            <div class="columnB">
-                <div class="title blue">
-                    <h2>Eliminar</h2>
-                </div>
-                <div class="content">
-                    <ul>
-                        <button type="button" onclick="cambiarEstadoEliminar()">Eliminar</button>
-                    </ul>
-                </div>
-            </div>
-     </div>
-</div>
+         </div>
+         <div class="two-columns">
+               <div class="columnA">
+                   <div class="title red">
+                       <h2>Agregar</h2>
+                   </div>
+                   <div class="content">
+                       <ul>
+                           <button type="button" onclick="cambiarEstadoAgregar()">Agregar</button>
+                       </ul>
+                   </div>
+               </div>
+               <div class="columnB">
+                   <div class="title blue">
+                       <h2>Eliminar</h2>
+                   </div>
+                   <div class="content">
+                       <ul>
+                           <button type="button" onclick="cambiarEstadoEliminar()">Eliminar</button>
+                       </ul>
+                   </div>
+               </div>
+         </div>
+      </div>
+      <div id="sidebar">
+          <ul>
+              <li>
+                  <h2>
+                   Formulario
+                  </h2>
+                  <ul>
+                      {{=form}}
+                  </ul>
+              </li>
+          <ul>
+      </div>
