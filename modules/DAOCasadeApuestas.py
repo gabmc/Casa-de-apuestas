@@ -19,7 +19,15 @@ class DAOCasadeApuestas:
     def generarMensajeMD5(self, rows):
         self.__codificador.update(self.generarFormatoXml(rows))
         return (self.__codificador.hexdigest())
-    
+        
+    def generarArchivoActualizacion(self, eventos, categorias, participantes, eventosparticipantes):
+        f = open ("D:/archivo", "w")
+        f.write(eventos + "\n")
+        f.write(categorias + "\n")
+        f.write(participantes + "\n")
+        f.write(eventosparticipantes + "\n")
+        f.close()
+     
     def insertar(self):
         pass
         

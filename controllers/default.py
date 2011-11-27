@@ -14,9 +14,9 @@ def error():
 
 
 def maquinas():
-    form =crud.create(db.maquinas)
+    form =SQLFORM(db.maquinas)
     maquinas=db().select(db.maquinas.ALL)
-    return dict(form=form, maquinas=maquinas)
+    return dict(maquinas=maquinas)
 
 
 def crearCategoria():
@@ -108,3 +108,16 @@ def verResultado1():
 def verResultado2():
     resultados= db((db.resultados.eventos_id==request.args(0))& (db.resultados.participantes_id==db.participantes.id)).select()
     return dict(resultados=resultados)
+    
+def mostrar():
+    from DAOCasadeApuestas import *
+    dao = DAOCasadeApuestas()
+    dao2 = DAOCasadeApuestas()
+    dao3 = DAOCasadeApuestas()
+    dao4 = DAOCasadeApuestas()
+    dao.generarArchivoActualizacion(dao.generarMensajeMD5(db().select(db.eventos.ALL)), dao2.generarMensajeMD5(db().select(db.categorias.ALL)), dao3.generarMensajeMD5(db().select(db.participantes.ALL)), dao4.generarMensajeMD5(db().select(db.eventosparticipantes.ALL)))
+    
+    #xml.generarMensajeMD5(db().select(db.eventos.ALL))
+   # return dict(var = dao.generarMensajeMD5(db((db.categorias.ALL) &(db.eventos.ALL) &(db.participantes.ALL)&(db.eventosparticipantes.ALL)).select()))
+    #return dict(var = dao.generarMensajeMD5(db().select(db.eventos.ALL,db.categorias.ALL,db.participantes.ALL,db.eventosparticipantes.ALL)))
+    return dict(eventosMD5 = dao.generarMensajeMD5(db().select(db.eventos.ALL)), categoriasMD5 = dao.generarMensajeMD5(db().select(db.categorias.ALL)), participantesMD5 = dao.generarMensajeMD5(db().select(db.participantes.ALL)), eventosparticipantesMD5 = dao.generarMensajeMD5(db().select(db.eventosparticipantes.ALL)), eventos = dao.generarFormatoXml(db().select(db.eventos.ALL)), categorias = dao.generarFormatoXml(db().select(db.categorias.ALL)))

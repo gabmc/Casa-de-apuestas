@@ -9,7 +9,6 @@ class DAOCasadeApuestas:
         self.__codificador = hashlib.md5()
         
     def generarFormatoXml(self, rows):
-        response.headers['Content-Type']='application/xml'
         idx=range(len(rows.colnames))
         colnames=[item.replace('.','_') for item in rows.colnames]
         records=[]
@@ -20,7 +19,15 @@ class DAOCasadeApuestas:
     def generarMensajeMD5(self, rows):
         self.__codificador.update(self.generarFormatoXml(rows))
         return (self.__codificador.hexdigest())
-    
+        
+    def generarArchivoActualizacion(self, eventos, categorias, participantes, eventosparticipantes):
+        f = open ("D:/archivo", "w")
+        f.write("eventos: " + eventos)
+        f.write("categorias: " + categorias)
+        f.write("participantes: " + participantes)
+        f.write("eventosparticipantes: " + eventosparticipantes)
+        f.close()
+     
     def insertar(self):
         pass
         
