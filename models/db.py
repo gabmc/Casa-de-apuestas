@@ -128,6 +128,7 @@ db.define_table('auth_user',
     migrate=settings.migrate)
 
 db.define_table('maquinas',
+<<<<<<< HEAD
         Field('usuario_id',db.auth_user,label=T('Administrador')),
         Field('estado','boolean',label=T('Habilitada')),
         Field('latitud','string',label=T('Latitud')),
@@ -135,6 +136,15 @@ db.define_table('maquinas',
         Field('procesador','string',label=T('Procesador')),                
         Field('capacidadMemoriaRam','string',label=T('Capacidad Memoria Ram')),
         Field('capacidadDiscoDuro','string',label=T('Capacidad Disco Duro'))
+=======
+        Field('usuario_id',db.auth_user),
+        Field('estado','boolean'),
+        Field('latitud','string'),
+        Field('longitud','string'),        
+        Field('procesador','string'),                
+        Field('capacidadMemoriaRam','string'),
+        Field('capacidadDiscoDuro','string'),                                
+>>>>>>> origin/origin
     )
     
 db.maquinas.usuario_id.requires = IS_IN_DB(db, db.auth_user.id, '%(email)s')
@@ -144,7 +154,10 @@ db.maquinas.longitud.requires = IS_NOT_EMPTY()
 db.maquinas.procesador.requires = IS_NOT_EMPTY()
 db.maquinas.capacidadMemoriaRam.requires = IS_NOT_EMPTY()
 db.maquinas.capacidadDiscoDuro.requires = IS_NOT_EMPTY()
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/origin
 
 db.auth_user.nombre.requires = IS_NOT_EMPTY(error_message=auth.messages.is_empty)
 db.auth_user.apellido.requires = IS_NOT_EMPTY(error_message=auth.messages.is_empty)
