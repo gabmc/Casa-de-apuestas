@@ -1,6 +1,18 @@
 {{extend 'layout.html'}}
 
+{{for j in evento:}}
+{{=P(j.nombre)}}
+{{=P(j.descripcion)}}
+{{=P(j.fecha)}}
+{{=P(j.horaInicio)}}
+{{=P(j.admiteTablaResultado)}}
+{{=P(j.permiteEmpate)}}
+
+{{pass}}
+
 {{for i in resultados:}}
+
+
 {{=P(i.participantes.nombre)}}
-{{=i.resultados.puntaje_posicion}}
+{{=P(i.resultados.puntaje_posicion)}}
 {{pass}}

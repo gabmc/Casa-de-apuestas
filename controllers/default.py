@@ -102,9 +102,12 @@ def showUsuario():
     return dict(form=form)
 
 def verResultado1():
-    eventos= db().select(db.eventos.ALL, orderby=db.eventos.id)
+    import datetime
+    fechaActual=datetime.datetime.now()
+    eventos =db(db.eventos.fecha <fechaActual).select()
     return dict(eventos=eventos)
         
 def verResultado2():
     resultados= db((db.resultados.eventos_id==request.args(0))& (db.resultados.participantes_id==db.participantes.id)).select()
-    return dict(resultados=resultados)
+    evento=db(db.eventos.id==request.args(0)).select()
+    return dict(resultados=resultados,evento=evento)
