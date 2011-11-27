@@ -1,4 +1,6 @@
-
 {{extend 'layout.html'}}
-<h1>This is the default/verResultado2.html template</h1>
-{{=BEAUTIFY(response._vars)}}
+
+{{for i in eventos:}}
+{{=i.participante.nombre}}
+{{=i.resultados.puntaje_posicion}}
+{{pass}}

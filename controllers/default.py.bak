@@ -14,7 +14,7 @@ def error():
 
 
 def maquinas():
-    form =sqlform(db.maquinas)
+    form =crud.create(db.maquinas)
     maquinas=db().select(db.maquinas.ALL)
     return dict(form=form,maquinas=maquinas)
 
