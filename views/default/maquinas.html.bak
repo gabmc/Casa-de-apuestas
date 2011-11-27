@@ -36,10 +36,6 @@ function cargarMarcadores(map){
     {{pass}}
 }
 
-function desplegarFormulario(){
-    //document.getElementById("sidebar").innerHTML = "{{=form}}";
-}
-
 function load() {
   if (GBrowserIsCompatible()) {
     // Variables para el mapa
@@ -145,14 +141,4 @@ window.onunload = GUnload;
          </div>
       </div>
       <div id="sidebar">
-          <ul>
-              <li>
-                  <h2>
-                   Formulario
-                  </h2>
-                  <ul>
-                      {{=form}}
-                  </ul>
-              </li>
-          <ul>
       </div>

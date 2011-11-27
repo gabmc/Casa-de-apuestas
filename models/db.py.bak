@@ -136,7 +136,7 @@ db.define_table('maquinas',
         Field('descripcion','text')
     )
     
-db.maquinas.usuario_id.requires = IS_IN_DB(db, db.auth_user.id, '%(correo)s')
+db.maquinas.usuario_id.requires = IS_IN_DB(db, db.auth_user.id, '%(email)s')
 db.maquinas.estado.requires = IS_NOT_EMPTY()    
 db.maquinas.latitud.requires = IS_NOT_EMPTY()
 db.maquinas.longitud.requires = IS_NOT_EMPTY()

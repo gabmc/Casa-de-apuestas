@@ -36,10 +36,6 @@ function cargarMarcadores(map){
     {{pass}}
 }
 
-function desplegarFormulario(){
-    //document.getElementById("sidebar").innerHTML = "{{=form}}";
-}
-
 function load() {
   if (GBrowserIsCompatible()) {
     // Variables para el mapa
@@ -61,7 +57,7 @@ function load() {
       // Crear el nuevo marcador y mostrar sus coordenadas
       if (agregando == true){
           var mensaje = "Hola Mundo";
-          desplegarFormulario();
+          //desplegarFormulario();
           agregarMarcador(map,punto, mensaje);
        }
        else if (eliminando == true){
@@ -112,7 +108,6 @@ window.onunload = GUnload;
               </div>
               <div class="entry">
                     <div class="map" style="width: 600px; height: 300px"></div>
-                    {{=form}}
               </div>
               <div class="btm" align="center">
                   <div class="l">

@@ -129,22 +129,18 @@ db.define_table('maquinas',
         Field('estado','boolean'),
         Field('latitud','string'),
         Field('longitud','string'),        
-        Field('anho','integer'),
         Field('procesador','string'),                
         Field('capacidadMemoriaRam','string'),
         Field('capacidadDiscoDuro','string'),                                
-        Field('descripcion','text')
     )
     
 db.maquinas.usuario_id.requires = IS_IN_DB(db, db.auth_user.id, '%(email)s')
 db.maquinas.estado.requires = IS_NOT_EMPTY()    
 db.maquinas.latitud.requires = IS_NOT_EMPTY()
 db.maquinas.longitud.requires = IS_NOT_EMPTY()
-db.maquinas.anho.requires = IS_NOT_EMPTY()
 db.maquinas.procesador.requires = IS_NOT_EMPTY()
 db.maquinas.capacidadMemoriaRam.requires = IS_NOT_EMPTY()
 db.maquinas.capacidadDiscoDuro.requires = IS_NOT_EMPTY()
-db.maquinas.descripcion.requires = IS_NOT_EMPTY() 
 
 db.auth_user.nombre.requires = IS_NOT_EMPTY(error_message=auth.messages.is_empty)
 db.auth_user.apellido.requires = IS_NOT_EMPTY(error_message=auth.messages.is_empty)
