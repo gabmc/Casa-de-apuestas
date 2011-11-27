@@ -106,5 +106,5 @@ def verResultado1():
     return dict(eventos=eventos)
         
 def verResultado2():
-    eventos= db((db.resultados.eventos_id==request.args(0))& (db.resultados.participantes_id==db.participantes.id)).select()
+    resultados= db((db.resultados.eventos_id==request.args(0))& (db.resultados.participantes_id==db.participantes.id)).select()
     return dict(resultados=resultados)
