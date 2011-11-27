@@ -12,44 +12,60 @@ if not request.env.web2py_runtime_gae:
     db.define_table('categorias',
         Field('nombre'),
         Field('descripcion', 'text'))
+        
     db.define_table('eventos',    
        Field('categoria_id', db.categorias),
        Field('nombre'),
        Field('fecha','date'),
        Field('descripcion', 'text'),
-       Field('relacionpago'))
+       Field('horaInicio','time'),
+       Field('admiteTablaResultado','boolean'),
+       Field('permiteEmpate','boolean'))
   ##  db.image.title.requires = IS_NOT_IN_DB(db, db.image.title)
   
     db.define_table('participantes',
         Field('nombre'),
-        Field('descripcion','text')
+        Field('descripcion','text'),
+        Field('categoria_id', db.categorias)
     )
     
     db.define_table('eventosparticipantes',
         Field('eventos_id',db.eventos),
         Field('participantes_id',db.participantes),
-        Field('limite_apuesta')
+        Field('relacionpago'),
+        Field('limite_apuesta','integer')
       ##  primarykey=['eventos_id','participantes_id'],
       ##  migrate=False
 ##MALDITA PK !!!, HABRA QUE PONERLE ID PARA QUE FUNCIONE, MALA PRACTICA :(
     )
     
+    db.define_table('resultados',
+        Field('eventos_id',db.eventos),
+        Field('participantes_id',db.participantes),
+        Field('puntaje_posicion','integer')
+    )
+    
       
-      
+    db.categorias.nombre.requires = IS_NOT_EMPTY()
+    db.categorias.descripcion.requires= IS_NOT_EMPTY()      
   
     db.eventos.categoria_id.requires = IS_IN_DB(db, db.categorias.id, '%(nombre)s')
     db.eventos.nombre.requires = IS_NOT_EMPTY()
     db.eventos.fecha.requires = IS_NOT_EMPTY()
     db.eventos.descripcion.requires = IS_NOT_EMPTY()
-    db.eventos.relacionpago.requires = IS_IN_SET(['1 a 1', '2 a 1', ' 3 a 1'])
+ #  db.eventos.relacionpago.requires = IS_IN_SET(['1 a 1', '2 a 1', ' 3 a 1'])
     
     
     db.participantes.nombre.requires = IS_NOT_EMPTY()
     db.participantes.descripcion.requires = IS_NOT_EMPTY()
+    db.participantes.categoria_id.requires = IS_IN_DB(db, db.categorias.id, '%(nombre)s')
     
     db.eventosparticipantes.eventos_id.requires = IS_IN_DB(db, db.eventos.id, '%(nombre)s')
     db.eventosparticipantes.participantes_id.requires = IS_IN_DB(db, db.participantes.id, '%(nombre)s')
-
+    db.eventosparticipantes.relacionpago.requires = IS_IN_SET(['1 a 1', '2 a 1', ' 3 a 1'])
+    
+    db.resultados.eventos_id.requires = IS_IN_DB(db, db.eventos.id, '%(nombre)s')
+    db.resultados.participantes_id.requires = IS_IN_DB(db, db.participantes.id, '%(nombre)s')
     
 else:
     ## connect to Google BigTable (optional 'google:datastore://namespace')
@@ -111,15 +127,23 @@ db.define_table('auth_user',
 db.define_table('maquinas',
         Field('usuario_id',db.auth_user),
         Field('estado','boolean'),
-        Field('ubicacion','string'),
+        Field('latitud','string'),
+        Field('longitud','string'),        
         Field('anho','integer'),
+        Field('procesador','string'),                
+        Field('capacidadMemoriaRam','string'),
+        Field('capacidadDiscoDuro','string'),                                
         Field('descripcion','text')
     )
     
 db.maquinas.usuario_id.requires = IS_IN_DB(db, db.auth_user.id, '%(correo)s')
 db.maquinas.estado.requires = IS_NOT_EMPTY()    
-db.maquinas.ubicacion.requires = IS_NOT_EMPTY()
+db.maquinas.latitud.requires = IS_NOT_EMPTY()
+db.maquinas.longitud.requires = IS_NOT_EMPTY()
 db.maquinas.anho.requires = IS_NOT_EMPTY()
+db.maquinas.procesador.requires = IS_NOT_EMPTY()
+db.maquinas.capacidadMemoriaRam.requires = IS_NOT_EMPTY()
+db.maquinas.capacidadDiscoDuro.requires = IS_NOT_EMPTY()
 db.maquinas.descripcion.requires = IS_NOT_EMPTY() 
 
 db.auth_user.nombre.requires = IS_NOT_EMPTY(error_message=auth.messages.is_empty)

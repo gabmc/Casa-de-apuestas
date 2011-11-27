@@ -1,0 +1,6 @@
+{{extend 'layout.html'}}
+
+{{for i in resultados:}}
+{{=P(i.participantes.nombre)}}
+{{=i.resultados.puntaje_posicion}}
+{{pass}}

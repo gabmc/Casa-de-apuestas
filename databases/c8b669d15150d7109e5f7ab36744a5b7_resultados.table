@@ -13,48 +13,37 @@ sS'sql'
 p7
 S'INTEGER REFERENCES eventos(id) ON DELETE CASCADE'
 p8
-ssS'relacionpago'
+ssS'id'
 p9
 (dp10
 g4
-S'string'
+S'id'
 p11
 sg6
-I4
+I1
 sg7
-S'CHAR(512)'
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
 p12
-ssS'limite_apuesta'
+ssS'puntaje_posicion'
 p13
 (dp14
 g4
 S'integer'
 p15
 sg6
-I5
+I4
 sg7
 S'INTEGER'
 p16
-ssS'id'
+ssS'participantes_id'
 p17
 (dp18
 g4
-S'id'
-p19
-sg6
-I1
-sg7
-S'INTEGER PRIMARY KEY AUTOINCREMENT'
-p20
-ssS'participantes_id'
-p21
-(dp22
-g4
 S'reference participantes'
-p23
+p19
 sg6
 I3
 sg7
 S'INTEGER REFERENCES participantes(id) ON DELETE CASCADE'
-p24
+p20
 ss.

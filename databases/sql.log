@@ -168,3 +168,80 @@ CREATE TABLE eventosparticipantes(
     limite_apuesta INTEGER
 );
 success!
+timestamp: 2011-11-20T12:20:32.237000
+CREATE TABLE eventosparticipantes(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    eventos_id INTEGER REFERENCES eventos(id) ON DELETE CASCADE,
+    participantes_id INTEGER REFERENCES participantes(id) ON DELETE CASCADE,
+    limite_apuesta INTEGER
+);
+timestamp: 2011-11-20T12:22:16.651000
+CREATE TABLE eventosparticipantes(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    eventos_id INTEGER REFERENCES eventos(id) ON DELETE CASCADE,
+    participantes_id INTEGER REFERENCES participantes(id) ON DELETE CASCADE,
+    limite_apuesta INTEGER
+);
+timestamp: 2011-11-20T12:22:46.689000
+CREATE TABLE eventosparticipantes(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    eventos_id INTEGER REFERENCES eventos(id) ON DELETE CASCADE,
+    participantes_id INTEGER REFERENCES participantes(id) ON DELETE CASCADE,
+    limite_apuesta INTEGER
+);
+timestamp: 2011-11-20T12:25:29.294000
+CREATE TABLE eventosparticipantes(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    eventos_id INTEGER REFERENCES eventos(id) ON DELETE CASCADE,
+    participantes_id INTEGER REFERENCES participantes(id) ON DELETE CASCADE,
+    limite_apuesta INTEGER
+);
+timestamp: 2011-11-20T12:26:21.878000
+CREATE TABLE eventosparticipantes(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    eventos_id INTEGER REFERENCES eventos(id) ON DELETE CASCADE,
+    participantes_id INTEGER REFERENCES participantes(id) ON DELETE CASCADE,
+    limite_apuesta INTEGER
+);
+timestamp: 2011-11-20T12:26:44.962000
+CREATE TABLE eventosparticipantes(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    eventos_id INTEGER REFERENCES eventos(id) ON DELETE CASCADE,
+    participantes_id INTEGER REFERENCES participantes(id) ON DELETE CASCADE,
+    limite_apuesta INTEGER
+);
+timestamp: 2011-11-20T12:27:48.112000
+CREATE TABLE eventosparticipantes(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    eventos_id INTEGER REFERENCES eventos(id) ON DELETE CASCADE,
+    participantes_id INTEGER REFERENCES participantes(id) ON DELETE CASCADE,
+    limite_apuesta INTEGER
+);
+timestamp: 2011-11-23T22:18:32.569000
+ALTER TABLE eventos ADD permiteempate CHAR(1);
+timestamp: 2011-11-23T22:18:32.661000
+ALTER TABLE eventos ADD admitetablaresultado CHAR(1);
+timestamp: 2011-11-23T22:18:32.726000
+ALTER TABLE eventos ADD horainicio TIME;
+timestamp: 2011-11-23T22:18:32.856000
+ALTER TABLE eventosparticipantes ADD relacionpago CHAR(512);
+timestamp: 2011-11-23T22:18:32.996000
+CREATE TABLE resultados(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    puntaje_posicion INTEGER,
+    eventos_id INTEGER REFERENCES eventos(id) ON DELETE CASCADE,
+    participantes_id INTEGER REFERENCES participantes(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2011-11-23T22:25:00.856000
+ALTER TABLE participantes ADD categoria_id INTEGER REFERENCES categorias(id) ON DELETE CASCADE;
+timestamp: 2011-11-23T22:39:10.939000
+ALTER TABLE maquinas ADD latitud CHAR(512);
+timestamp: 2011-11-23T22:39:11.122000
+ALTER TABLE maquinas ADD capacidadmemoriaram CHAR(512);
+timestamp: 2011-11-23T22:39:11.277000
+ALTER TABLE maquinas ADD procesador CHAR(512);
+timestamp: 2011-11-23T22:39:11.408000
+ALTER TABLE maquinas ADD capacidaddiscoduro CHAR(512);
+timestamp: 2011-11-23T22:39:11.575000
+ALTER TABLE maquinas ADD longitud CHAR(512);

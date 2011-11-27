@@ -14,7 +14,9 @@ def error():
 
 
 def maquinas():
-    return dict()
+    form =crud.create(db.maquinas)
+    maquinas=db().select(db.maquinas.ALL)
+    return dict(form=form, maquinas=maquinas)
 
 
 def crearCategoria():
@@ -47,23 +49,15 @@ def crearMaquina():
     form = crud.create(db.maquinas)
     return dict(form=form,maquinas=maquinas)
 
-def generar_xml(rows):
-    idx=range(len(rows.colnames))
-    colnames=[item.replace('.','_') for item in rows.colnames]
-    records=[]
-    for row in rows.response:
-        records.append(TAG['record'](*[TAG[colnames[i]](row[i]) for i in idx]))
-    return str(TAG['records'](*records))
-    #return str(estrin)
-
 def prueba_xml():
-    import hashlib
-    codificador = hashlib.md5()
-    response.headers['Content-Type']='application/xml'
+    from DAOCasadeApuestas import *
+    #response.headers['Content-Type']='application/xml'
+    archivo = DAOCasadeApuestas()
+    var = archivo.generarMensajeMD5(db().select(db.participantes.ALL))
     #a = generar_xml(db().select(db.participantes.ALL));
-    codificador.update(generar_xml(db().select(db.participantes.ALL)))
+    #codificador.update(generar_xml(db().select(db.participantes.ALL)))
     #return generar_xml(db().select(db.participantes.ALL))
-    return dict(var=codificador.hexdigest(), var1=codificador1.hexdigest())
+    return dict(var=var)
 
 def mostrarCategoria():
     categorias= db().select(db.categorias.ALL, orderby=db.categorias.id)
@@ -106,3 +100,11 @@ def mostrarUsuario():
 def showUsuario():
     form = crud.update(db.auth_user,request.args(0),next=URL('mostrarUsuario'))
     return dict(form=form)
+
+def verResultado1():
+    eventos= db().select(db.eventos.ALL, orderby=db.eventos.id)
+    return dict(eventos=eventos)
+        
+def verResultado2():
+    resultados= db((db.resultados.eventos_id==request.args(0))& (db.resultados.participantes_id==db.participantes.id)).select()
+    return dict(resultados=resultados)

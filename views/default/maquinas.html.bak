@@ -1,17 +1,40 @@
-{{extend 'layout.html'}}
-<div class="post greenbox">
-            <div class="title">
-                <h1>Posicionamiento Global de Maquinas</h1>
-            </div>
-            <div class="entry">
-                
-                <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.co.ve/maps/ms?hl=es&amp;vpsrc=1&amp;ctz=270&amp;ie=UTF8&amp;msa=0&amp;msid=205416656466292905167.0004b0b0753613ee59efd&amp;t=m&amp;ll=10.490122,-66.941221&amp;spn=0.013145,0.009313&amp;output=embed"></iframe><br />
-            </div>
-           <div class="btm">
-                <div class="l">
-                    <div class="r">
-                       <small align="center">Ver <a href="http://maps.google.co.ve/maps/ms?hl=es&amp;vpsrc=1&amp;ctz=270&amp;ie=UTF8&amp;msa=0&amp;msid=205416656466292905167.0004b0b0753613ee59efd&amp;t=m&amp;ll=10.490122,-66.941221&amp;spn=0.013145,0.009313&amp;source=embed" style="color:#0000FF;text-align:left">Proyecto Apuestas</a> en un mapa más grande</small>
-                    </div>
+{{extend 'layout_maquinas.html'}}
+<div id="content">
+    <div class="post greenbox">
+           <div class="title">
+                <h1>Posicionamiento Global de Máquinas</h1>
+           </div>
+           <div class="entry">
+                 <div class="map" style="width: 600px; height: 300px"></div>
+           </div>
+           <div class="btm" align="center">
+              <div class="l">
+                  <div class="r">
+                       &nbsp;
+                  </div>
+              </div>
+           </div>
+     </div>
+     <div class="two-columns">
+            <div class="columnA">
+                <div class="title red">
+                    <h2>Agregar</h2>
+                </div>
+                <div class="content">
+                    <ul>
+                        <button type="button" onclick="cambiarEstadoAgregar()">Agregar</button>
+                    </ul>
                 </div>
             </div>
+            <div class="columnB">
+                <div class="title blue">
+                    <h2>Eliminar</h2>
+                </div>
+                <div class="content">
+                    <ul>
+                        <button type="button" onclick="cambiarEstadoEliminar()">Eliminar</button>
+                    </ul>
+                </div>
+            </div>
+     </div>
 </div>
