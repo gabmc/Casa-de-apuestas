@@ -8,7 +8,7 @@ S'string'
 p5
 sS'sortable'
 p6
-I4
+I5
 sS'sql'
 p7
 S'CHAR(512)'
@@ -89,7 +89,7 @@ p37
 g4
 g5
 sg6
-I6
+I4
 sg7
 S'CHAR(512)'
 p39
@@ -121,7 +121,7 @@ p48
 g4
 g5
 sg6
-I5
+I6
 sg7
 S'CHAR(512)'
 p50

@@ -128,36 +128,13 @@ db.define_table('auth_user',
     migrate=settings.migrate)
 
 db.define_table('maquinas',
-<<<<<<< HEAD
-        Field('usuario_id',db.auth_user,label=T('Administrador')),
-        Field('estado','boolean',label=T('Habilitada')),
-        Field('latitud','string',label=T('Latitud')),
-        Field('longitud','string',label=T('Longitud')),        
-        Field('procesador','string',label=T('Procesador')),                
-        Field('capacidadMemoriaRam','string',label=T('Capacidad Memoria Ram')),
-        Field('capacidadDiscoDuro','string',label=T('Capacidad Disco Duro'))
-=======
-        Field('usuario_id',db.auth_user),
-        Field('estado','boolean'),
-        Field('latitud','string'),
-        Field('longitud','string'),        
-        Field('procesador','string'),                
-        Field('capacidadMemoriaRam','string'),
-        Field('capacidadDiscoDuro','string'),                                
->>>>>>> origin/origin
-    )
-    
-db.maquinas.usuario_id.requires = IS_IN_DB(db, db.auth_user.id, '%(email)s')
-db.maquinas.estado.requires = IS_NOT_EMPTY()    
-db.maquinas.latitud.requires = IS_NOT_EMPTY()
-db.maquinas.longitud.requires = IS_NOT_EMPTY()
-db.maquinas.procesador.requires = IS_NOT_EMPTY()
-db.maquinas.capacidadMemoriaRam.requires = IS_NOT_EMPTY()
-db.maquinas.capacidadDiscoDuro.requires = IS_NOT_EMPTY()
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/origin
+        Field('usuario_id',db.auth_user,requires=IS_NOT_EMPTY()),
+        Field('estado','boolean',requires=IS_NOT_EMPTY()),
+        Field('procesador','string',requires=IS_NOT_EMPTY()),
+        Field('latitud','string',requires=IS_NOT_EMPTY()),
+        Field('longitud','string',requires=IS_NOT_EMPTY()),
+        Field('capacidadMemoriaRam','string',requires=IS_NOT_EMPTY()),
+        Field('capacidadDiscoDuro','string',requires=IS_NOT_EMPTY()))
 
 db.auth_user.nombre.requires = IS_NOT_EMPTY(error_message=auth.messages.is_empty)
 db.auth_user.apellido.requires = IS_NOT_EMPTY(error_message=auth.messages.is_empty)

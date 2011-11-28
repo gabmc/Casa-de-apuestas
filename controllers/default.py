@@ -15,8 +15,10 @@ def error():
 
 
 def maquinas():
-    form =SQLFORM(db.maquinas)
-    maquinas=db().select(db.maquinas.ALL)
+    form = SQLFORM(db.maquinas)
+    if form.accepts(request.vars, formname=None):
+        response.flash = 'form accepted'
+    maquinas = db().select(db.maquinas.ALL)
     return dict(maquinas=maquinas)
 
 

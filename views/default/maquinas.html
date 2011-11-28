@@ -20,6 +20,7 @@ function agregarMarcador(map, punto, mensaje){
                                  + "<br/>Lon: " + this.getPoint().lng() + "<br/><br/>" + mensaje);
     });   
     map.addOverlay(nuevoMarcador);
+    //Nuevo
 }
 
 function cargarMarcadores(map){
@@ -34,10 +35,6 @@ function cargarMarcadores(map){
     var mensaje = setMensaje(info);
     agregarMarcador(map,punto,mensaje);
     {{pass}}
-}
-
-function desplegarFormulario(){
-    //document.getElementById("sidebar").innerHTML = "{{=form}}";
 }
 
 function load() {
@@ -61,8 +58,10 @@ function load() {
       // Crear el nuevo marcador y mostrar sus coordenadas
       if (agregando == true){
           var mensaje = "Hola Mundo";
-          desplegarFormulario();
           agregarMarcador(map,punto, mensaje);
+          //Nuevo, hay que poner una marca de que está insertando y una sola marca por vez (controlar eso)
+          document.forms[0].latitud.value = punto.lat();
+          document.forms[0].longitud.value = punto.lng();
        }
        else if (eliminando == true){
            if (marcador){
@@ -112,7 +111,18 @@ window.onunload = GUnload;
               </div>
               <div class="entry">
                     <div class="map" style="width: 600px; height: 300px"></div>
-                    {{=form}}
+                    <form>
+                        <ul align="center"><!--Poner Bonito-->
+                        Procesador: <input name="procesador" /><br/>
+                        Memoria Ram: <input name="capacidadMemoriaRam" /><br/>
+                        Disco Duro: <input name="capacidadDiscoDuro" /><br/>
+                        <input type="submit" />
+                        <input type="hidden" name="usuario_id" value="11" />
+                        <input type="hidden" name="estado" value="True" />
+                        <input type="hidden" name="latitud" value="" />
+                        <input type="hidden" name="longitud" value="" />
+                        <ul>
+                    </form>
               </div>
               <div class="btm" align="center">
                   <div class="l">
