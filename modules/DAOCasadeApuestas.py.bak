@@ -21,12 +21,15 @@ class DAOCasadeApuestas:
         return (self.__codificador.hexdigest())
         
     def generarArchivoActualizacion(self, eventos, categorias, participantes, eventosparticipantes):
+        import logging
+        logging.basicConfig(filename='D:/Casa_de_Apuestas.log',level=logging.INFO)
         f = open ("D:/archivo", "w")
-        f.write("eventos: " + eventos)
-        f.write("categorias: " + categorias)
-        f.write("participantes: " + participantes)
-        f.write("eventosparticipantes: " + eventosparticipantes)
+        f.write(eventos + "\n")
+        f.write(categorias + "\n")
+        f.write(participantes + "\n")
+        f.write(eventosparticipantes + "\n")
         f.close()
+        logging.info('Archivo de actualización MD5 creado')
      
     def insertar(self):
         pass

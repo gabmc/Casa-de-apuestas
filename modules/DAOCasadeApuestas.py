@@ -27,7 +27,7 @@ class DAOCasadeApuestas:
         f.write(participantes + "\n")
         f.write(eventosparticipantes + "\n")
         f.close()
-     
+             
     def insertar(self):
         pass
         

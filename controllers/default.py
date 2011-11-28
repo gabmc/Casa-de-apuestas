@@ -3,6 +3,7 @@
 def user(): return dict(form=auth())
 def download(): return response.download(request,db)
 def call(): return service()
+import logging
 ### end requires
 
 @auth.requires_login()
@@ -112,14 +113,12 @@ def verResultado2():
     return dict(resultados=resultados)
     
 def mostrar():
+    logging.basicConfig(filename='D:/myapp.log', level=logging.INFO)
     from DAOCasadeApuestas import *
     dao = DAOCasadeApuestas()
     dao2 = DAOCasadeApuestas()
     dao3 = DAOCasadeApuestas()
     dao4 = DAOCasadeApuestas()
     dao.generarArchivoActualizacion(dao.generarMensajeMD5(db().select(db.eventos.ALL)), dao2.generarMensajeMD5(db().select(db.categorias.ALL)), dao3.generarMensajeMD5(db().select(db.participantes.ALL)), dao4.generarMensajeMD5(db().select(db.eventosparticipantes.ALL)))
-    
-    #xml.generarMensajeMD5(db().select(db.eventos.ALL))
-   # return dict(var = dao.generarMensajeMD5(db((db.categorias.ALL) &(db.eventos.ALL) &(db.participantes.ALL)&(db.eventosparticipantes.ALL)).select()))
-    #return dict(var = dao.generarMensajeMD5(db().select(db.eventos.ALL,db.categorias.ALL,db.participantes.ALL,db.eventosparticipantes.ALL)))
+    logging.info('Hola')
     return dict(eventosMD5 = dao.generarMensajeMD5(db().select(db.eventos.ALL)), categoriasMD5 = dao.generarMensajeMD5(db().select(db.categorias.ALL)), participantesMD5 = dao.generarMensajeMD5(db().select(db.participantes.ALL)), eventosparticipantesMD5 = dao.generarMensajeMD5(db().select(db.eventosparticipantes.ALL)), eventos = dao.generarFormatoXml(db().select(db.eventos.ALL)), categorias = dao.generarFormatoXml(db().select(db.categorias.ALL)))
