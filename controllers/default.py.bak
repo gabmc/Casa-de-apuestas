@@ -101,7 +101,8 @@ def verResultado1():
         
 def verResultado2():
     resultados= db((db.resultados.eventos_id==request.args(0))& (db.resultados.participantes_id==db.participantes.id)).select()
-    return dict(resultados=resultados)
+    evento=db(db.eventos.id==request.args(0)).select()
+    return dict(resultados=resultados,evento=evento)
     
 def mostrar():
     from DAOCasadeApuestas import *
@@ -111,3 +112,16 @@ def mostrar():
     dao4 = DAOCasadeApuestas()
     dao.generarArchivoActualizacion(dao.generarMensajeMD5(db().select(db.eventos.ALL)), dao2.generarMensajeMD5(db().select(db.categorias.ALL)), dao3.generarMensajeMD5(db().select(db.participantes.ALL)), dao4.generarMensajeMD5(db().select(db.eventosparticipantes.ALL)))
     return dict(eventosMD5 = dao.generarMensajeMD5(db().select(db.eventos.ALL)), categoriasMD5 = dao.generarMensajeMD5(db().select(db.categorias.ALL)), participantesMD5 = dao.generarMensajeMD5(db().select(db.participantes.ALL)), eventosparticipantesMD5 = dao.generarMensajeMD5(db().select(db.eventosparticipantes.ALL)), eventos = dao.generarFormatoXml(db().select(db.eventos.ALL)), categorias = dao.generarFormatoXml(db().select(db.categorias.ALL)))
+    
+    
+def verProximosEventos1():
+    import datetime
+    fechaActual=datetime.datetime.now()
+    eventos =db(db.eventos.fecha>fechaActual).select()
+    return dict(eventos=eventos)
+    
+def verProximosEventos2():
+    evento_participante= db((db.eventosparticipantes.eventos_id==request.args(0))& (db.participantes.id==db.eventosparticipantes.participantes_id)).select()
+    evento = db(db.eventos.id==request.args(0)).select()
+    categoria = db((db.categorias.id==db.evento.categoria_id)& (db.eventos.id==request.args(0))).select()
+    return dict(evento_participante=evento_participante,evento=evento,categoria=categoria)

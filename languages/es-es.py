@@ -1,5 +1,6 @@
 # coding: utf8
 {
+<<<<<<< HEAD
 '"update" is an optional expression like "field1=\'newvalue\'". You cannot update or delete the results of a JOIN': '"update" is an optional expression like "field1=\'newvalue\'". You cannot update or delete the results of a JOIN',
 '%Y-%m-%d': '%Y-%m-%d',
 '%Y-%m-%d %H:%M:%S': '%Y-%m-%d %H:%M:%S',
@@ -80,4 +81,33 @@
 'register': 'register',
 'selected': 'selected',
 'value already in database or empty': 'value already in database or empty',
+=======
+'%Y-%m-%d': '%d/%m/%Y',
+'%Y-%m-%d %H:%M:%S': '%d-%m-%Y %H:%M:%S',
+'Apellido': 'Apellido',
+'Are you sure you want to delete this object?': 'Esta seguro que quiere eliminar este objeto?',
+'Cannot be empty': 'No puede estar vacio',
+'Client IP': 'IP de Cliente',
+'Created On': 'Creado En',
+'Description': 'Descripcion',
+'Email': 'Correo Electronico',
+'Group ID': 'ID de Grupo',
+'Invalid email': 'Correo Electronico Invalido',
+'Modified On': 'Modificado En',
+'Name': 'Nombre',
+'Nick': 'Nick',
+'Nombre': 'Nombre',
+'Object or table name': 'Objeto o nombre de tabla',
+'Origin': 'Origen',
+'Password': 'Contrasena',
+'Record ID': 'ID de Record',
+'Role': 'Rol',
+'Timestamp': 'Timestamp',
+'User ID': 'ID de Usuario',
+'Welcome': 'Bienvenido',
+'enter an integer between %(min)g and %(max)g': 'Inserte un entero entre %(min)g y%(max)g',
+'login': 'login',
+'lost password?': 'Olvido su contrasena?',
+'register': 'registrar',
+>>>>>>> origin/origin
 }

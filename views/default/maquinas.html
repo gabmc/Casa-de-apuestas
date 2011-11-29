@@ -3,6 +3,7 @@
 <script type="text/javascript">
 agregando = false;
 eliminando = false;
+map = null;
 
 function setMensaje(info){
     var fragmentoInfo = info.split("|");
@@ -13,6 +14,18 @@ function setMensaje(info){
     return mensaje;
 }
 
+function centrarMapa(lat, lon){
+    var zoom = 5;
+    var punto = new GLatLng(lat, lon);
+    map.setCenter(punto, zoom);
+}
+
+/*
+* @param Mapa provisto por Google Maps, punto geográfico, mensaje a desplegar
+* Agrega el marcador en el mapa en el punto geografico dado.
+* Asimismo, le coloca un mensaje de descripción a este.
+*/
+
 function agregarMarcador(map, punto, mensaje){
     var nuevoMarcador = new GMarker(punto);
     GEvent.addListener(nuevoMarcador, "click", function() {
@@ -20,11 +33,16 @@ function agregarMarcador(map, punto, mensaje){
                                  + "<br/>Lon: " + this.getPoint().lng() + "<br/><br/>" + mensaje);
     });   
     map.addOverlay(nuevoMarcador);
-    //Nuevo
 }
 
+/*
+* @param Mapa Provisto por Google Maps
+* Carga las posiciones de las maquinas de apuestas
+* registradas en la Base de Datos
+*/
+
 function cargarMarcadores(map){
-    {{for maquina in maquinas:}}
+    {{for i, maquina in enumerate(maquinas):}}
     var lat = {{=T(maquina.latitud)}};
     var lon = {{=T(maquina.longitud)}};
     var punto = new GLatLng(lat, lon);
@@ -37,6 +55,11 @@ function cargarMarcadores(map){
     {{pass}}
 }
 
+/*
+* Función de carga del mapa en la Interfaz.
+* Agrega también la funcionalidad de los eventos asociados.
+*/
+
 function load() {
   if (GBrowserIsCompatible()) {
     // Variables para el mapa
@@ -45,7 +68,9 @@ function load() {
     var zoom = 5;
  
     // Crear un nuevo mapa
-   var map = new GMap(document.getElementsByClassName("map")[0]);
+   //var map = new GMap(document.getElementsByClassName("map")[0]);
+     
+     map = new GMap(document.getElementsByClassName("map")[0]);
  
     // Centrarlo en un punto geográfico y con un nivel de zoom
     map.setCenter(new GLatLng(lat, lon), zoom);
@@ -65,6 +90,7 @@ function load() {
        }
        else if (eliminando == true){
            if (marcador){
+               //Agregar Menu de Eliminar
                map.removeOverlay(marcador);
            }
        }
@@ -72,6 +98,11 @@ function load() {
     cargarMarcadores(map);
   }
 }
+
+/*
+* Función que cambia el estado de la variable controladora
+* que otorga la funcionalidad de agregar
+*/
 
 function cambiarEstadoAgregar()
 {
@@ -84,6 +115,12 @@ function cambiarEstadoAgregar()
         }
     }
 }
+
+
+/*
+* Función que cambia el estado de la variable controladora
+* que otorga la funcionalidad de eliminar
+*/
 
 function cambiarEstadoEliminar()
 {
@@ -135,7 +172,7 @@ window.onunload = GUnload;
          <div class="two-columns">
                <div class="columnA">
                    <div class="title red">
-                       <h2>Agregar</h2>
+                       <h2 align="center">Agregar</h2>
                    </div>
                    <div class="content">
                        <ul>
@@ -145,7 +182,7 @@ window.onunload = GUnload;
                </div>
                <div class="columnB">
                    <div class="title blue">
-                       <h2>Eliminar</h2>
+                       <h2 align="center">Modificar o Eliminar</h2>
                    </div>
                    <div class="content">
                        <ul>
@@ -156,4 +193,20 @@ window.onunload = GUnload;
          </div>
       </div>
       <div id="sidebar">
+      <ul>
+          <li>
+              <h2>Buscador</h2>
+              <ul>
+              En construcción
+              </ul>
+          </li>
+          <li>
+              <h2>Lista de Maquinas</h2>
+              <ul align="center">
+              {{for maquina in maquinas:}}
+              {{url = "javascript:centrarMapa("+maquina.latitud+","+maquina.longitud+")"}}
+              {{=LI(A(maquina.id, _href=url))}}
+              {{pass}}
+              </ul>
+          </li>
       </div>

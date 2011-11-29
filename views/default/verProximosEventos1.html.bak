@@ -1,0 +1,4 @@
+{{extend 'layout.html'}}
+{{for evento in eventos:}}
+{{ =P(evento.nombre)}}
+{{pass}}
