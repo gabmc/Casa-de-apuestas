@@ -14,11 +14,6 @@ function setMensaje(info){
     return mensaje;
 }
 
-function buscarEnMapa(direccion){
-    {{from gluon.tools import geocode}}
-    var punto = new GLatLng({{geocode(direccion)}});
-}
-
 function centrarMapa(lat, lon){
     var zoom = 5;
     var punto = new GLatLng(lat, lon);
