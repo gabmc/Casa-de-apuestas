@@ -1,0 +1,19 @@
+{{extend 'layout.html'}}
+{{for j in categoria:}}
+{{=H1('Categoria:',j.categorias.nombre)}}
+{{pass}}
+{{for i in evento:}}
+{{=H1('Nombre:',i.nombre)}}
+{{=H1('Descripcion:',i.descripcion)}}
+{{=H1('Fecha:',i.fecha)}}
+{{=H1('Hora Inicio:',i.horaInicio)}}
+{{=H1('Admite Tabla Resultado:',i.admiteTablaResultado)}}
+{{=H1('Permite Empate:',i.permiteEmpate)}}
+{{pass}}
+
+{{=H1('Participantes:')}}
+{{for eventoParticipante in evento_participante:}}
+{{=P(eventoParticipante.participantes.nombre)}}
+{{=P('Relacion Pago:',eventoParticipante.eventosparticipantes.relacionpago)}}
+{{=P('Relacion Pago:',eventoParticipante.eventosparticipantes.limite_apuesta)}}
+{{pass}}
