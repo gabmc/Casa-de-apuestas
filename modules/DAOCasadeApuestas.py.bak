@@ -7,6 +7,7 @@ class DAOCasadeApuestas:
 
     def __init__(self):
         self.__codificador = hashlib.md5()
+        __path = "D:/archivoActualizacion.des"
         
     def generarFormatoXml(self, rows):
         idx=range(len(rows.colnames))
@@ -22,7 +23,7 @@ class DAOCasadeApuestas:
 
         
     def generarArchivoActualizacion(self, eventos, categorias, participantes, eventosparticipantes):
-        f = open ("archivo", "w")
+        f = open (__path, "w")
         f.write(eventos + "\n")
         f.write(categorias + "\n")
         f.write(participantes + "\n")

@@ -114,3 +114,7 @@ class Servicio:
     def showParticipante(self, request):
         form = self.__crud.update(self.__baseDeDatos.participantes, request.args(0),next = URL('mostrarParticipante'))
         return dict(form = form)
+        
+    def showUsuario(self, request):
+        form = self.__crud.update(self.__baseDeDatos.auth_user, request.args(0), next = URL('mostrarUsuario'))
+        return dict(form = form)

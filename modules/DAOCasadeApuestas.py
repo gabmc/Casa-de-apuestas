@@ -22,7 +22,7 @@ class DAOCasadeApuestas:
 
         
     def generarArchivoActualizacion(self, eventos, categorias, participantes, eventosparticipantes):
-        f = open ("D:/archivo", "w")
+        f = open ("D:/archivoActualizacion.des", "w")
         f.write(eventos + "\n")
         f.write(categorias + "\n")
         f.write(participantes + "\n")

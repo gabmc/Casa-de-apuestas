@@ -5,8 +5,13 @@ from datetime import *
 from time import *
 
 class log:
+    def __init__(self):
+        self.__path = "D:/bitacora.log"
 
     def logear(self, info):
-        f = open("D:/bitacora.log", "a")
+        try:
+            f = open(self.__path, "a")
+        except(IOError), e:
+            f = open(self.__path, "w")
         f.write(strftime("%Y-%b-%d %H:%M:%S",localtime()) + " ---   " + info + "\n")
         f.close()

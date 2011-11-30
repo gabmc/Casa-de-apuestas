@@ -80,7 +80,7 @@ def showMaquinas():
     return dict(form=form)
     
 def showUsuario():
-    return service.showUsuario()
+    return service.showUsuario(request)
 
 
 def verResultado1():

@@ -29,7 +29,7 @@ class Servicio:
         categorias = self.__baseDeDatos().select(self.__baseDeDatos.categorias.ALL)
         form = self.__crud.create(self.__baseDeDatos.categorias)
         if form.process().accepted:
-            self.__log.logear("Categoría creada")
+            self.__log.logear("Categoría creada: "+form.vars.nombre)
         elif form.errors:
             self.__log.logear("Error creando categoría")
         return dict(form=form, categorias=categorias)
