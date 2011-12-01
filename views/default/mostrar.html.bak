@@ -1,0 +1,6 @@
+{{extend 'layout.html'}}
+<h1>Esta es la plantilla default/mostrar.html</h1>
+{{=BEAUTIFY(response._vars)}}
+
+
+<a href="/Casa_de_Apuestas/static/archivoActualizacion.des?attachment">Download</a>
