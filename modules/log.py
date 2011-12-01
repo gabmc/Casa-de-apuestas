@@ -6,7 +6,7 @@ from time import *
 
 class log:
     def __init__(self):
-        self.__path = "D:/bitacora.log"
+        self.__path = "C:/Users/Gary/Desktop/web2py/applications/Casa_de_Apuestas/static/bitacora.log"
 
     def logear(self, info):
         try:

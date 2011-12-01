@@ -65,6 +65,9 @@
 'Welcome': 'Welcome',
 'enter an integer between %(min)g and %(max)g': 'enter an integer between %(min)g and %(max)g',
 'login': 'login',
+'logout': 'logout',
 'lost password?': 'lost password?',
+'password': 'password',
+'profile': 'profile',
 'register': 'register',
 }

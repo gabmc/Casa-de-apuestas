@@ -7,7 +7,6 @@ class DAOCasadeApuestas:
 
     def __init__(self):
         self.__codificador = hashlib.md5()
-        __path = "D:/archivoActualizacion.des"
         
     def generarFormatoXml(self, rows):
         idx=range(len(rows.colnames))
@@ -22,17 +21,31 @@ class DAOCasadeApuestas:
         return (self.__codificador.hexdigest())
 
         
-    def generarArchivoActualizacion(self, eventos, categorias, participantes, eventosparticipantes):
-        f = open (__path, "w")
+    def generarArchivoActualizacionMD5(self, eventos, categorias, participantes, eventosparticipantes, usuarios):
+        f = open ("C:/Users/Gary/Desktop/web2py/applications/Casa_de_Apuestas/static/archivoActualizacion.md5", "w")
         f.write(eventos + "\n")
         f.write(categorias + "\n")
         f.write(participantes + "\n")
         f.write(eventosparticipantes + "\n")
+        f.write(usuarios + "\n")
         f.close()
         from log import *
         l = log()
         l.logear("Archivo de actualización creado")
-             
+        return ("C:/Users/Gary/Desktop/web2py/applications/Casa_de_Apuestas/static/archivoActualizacion.md5.xml")  
+        
+    def generarArchivoActualizacionXML(self, eventos, categorias, participantes, eventosparticipantes, usuarios):
+        f = open ("C:/Users/Gary/Desktop/web2py/applications/Casa_de_Apuestas/static/archivoActualizacionXML.des", "w")
+        f.write(eventos + "\n")
+        f.write(categorias + "\n")
+        f.write(participantes + "\n")
+        f.write(eventosparticipantes + "\n")
+        f.write(usuarios + "\n")
+        f.close()
+        from log import *
+        l = log()
+        l.logear("Archivo de actualización creado")
+        return ("C:/Users/Gary/Desktop/web2py/applications/Casa_de_Apuestas/static/archivoActualizacion.xml")           
 
     def insertar(self):
         pass

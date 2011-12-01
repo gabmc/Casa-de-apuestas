@@ -6,12 +6,12 @@ from time import *
 
 class log:
     def __init__(self):
-        __path = "D:/bitacora.log"
+        self.__path = "C:/Users/Gary/Desktop/web2py/applications/Casa_de_Apuestas/archivos/bitacora.log"
 
     def logear(self, info):
         try:
-            f = open(__path, "a")
+            f = open(self.__path, "a")
         except(IOError), e:
-            f = open(__path, "w")
+            f = open(self.__path, "w")
         f.write(strftime("%Y-%b-%d %H:%M:%S",localtime()) + " ---   " + info + "\n")
         f.close()
