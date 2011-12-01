@@ -25,7 +25,7 @@ def maquinas():
             if (i == request.args(0)):
                 break
         coordenadas = dict(lon=maquina.longitud,lat=maquina.latitud)                    
-    return dict(form=form, maquinas=maquinas)#, coordenadas=coordenadas)
+    return dict(form=form, maquinas=maquinas, coordenadas=coordenadas)
 
 def crearCategoria():
     return service.crearCategoria()
