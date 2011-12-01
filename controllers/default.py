@@ -17,11 +17,15 @@ def error():
     return dict()
 
 def maquinas():
-    form = SQLFORM(db.maquinas)
-    if form.accepts(request.vars, formname=None):
-        response.flash = 'form accepted'
+    form = crud.update(db.maquinas, request.args(0),next=URL('maquinas'))
     maquinas = db().select(db.maquinas.ALL)
-    return dict(maquinas=maquinas)
+    coordenadas = False
+    if (request.args(0)):
+        for i, maquina in enumerate(maquinas):
+            if (i == request.args(0)):
+                break
+        coordenadas = dict(lon=maquina.longitud,lat=maquina.latitud)                    
+    return dict(form=form, maquinas=maquinas, coordenadas=coordenadas)
 
 def crearCategoria():
     return service.crearCategoria()
@@ -41,12 +45,10 @@ def crearUsuario():
 def crearMaquina():
     from log import *
     maquinas= db().select(db.maquinas.ALL)
-    form = crud.create(db.maquinas)
+    
     log = log()
     log.logear("Máquina creada")
     return dict(form=form,maquinas=maquinas)
-
-
 
 def mostrarCategoria():
     return service.mostrarCategoria()
@@ -100,8 +102,8 @@ def mostrar():
     dao2 = DAOCasadeApuestas()
     dao3 = DAOCasadeApuestas()
     dao4 = DAOCasadeApuestas()
-    dao.generarArchivoActualizacion(dao.generarMensajeMD5(db().select(db.eventos.ALL)), dao2.generarMensajeMD5(db().select(db.categorias.ALL)), dao3.generarMensajeMD5(db().select(db.participantes.ALL)), dao4.generarMensajeMD5(db().select(db.eventosparticipantes.ALL)))
-    return dict(eventosMD5 = dao.generarMensajeMD5(db().select(db.eventos.ALL)), categoriasMD5 = dao.generarMensajeMD5(db().select(db.categorias.ALL)), participantesMD5 = dao.generarMensajeMD5(db().select(db.participantes.ALL)), eventosparticipantesMD5 = dao.generarMensajeMD5(db().select(db.eventosparticipantes.ALL)), eventos = dao.generarFormatoXml(db().select(db.eventos.ALL)), categorias = dao.generarFormatoXml(db().select(db.categorias.ALL)))
+    archivo = dao.generarArchivoActualizacion(dao.generarMensajeMD5(db().select(db.eventos.ALL)), dao2.generarMensajeMD5(db().select(db.categorias.ALL)), dao3.generarMensajeMD5(db().select(db.participantes.ALL)), dao4.generarMensajeMD5(db().select(db.eventosparticipantes.ALL)))
+    return dict(eventosMD5 = dao.generarMensajeMD5(db().select(db.eventos.ALL)), categoriasMD5 = dao.generarMensajeMD5(db().select(db.categorias.ALL)), participantesMD5 = dao.generarMensajeMD5(db().select(db.participantes.ALL)), eventosparticipantesMD5 = dao.generarMensajeMD5(db().select(db.eventosparticipantes.ALL)), eventos = dao.generarFormatoXml(db().select(db.eventos.ALL)), categorias = dao.generarFormatoXml(db().select(db.categorias.ALL)), archivo = archivo)
     
     
 def verProximosEventos1():

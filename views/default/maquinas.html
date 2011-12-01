@@ -15,9 +15,9 @@ function setMensaje(info){
 }
 
 function centrarMapa(lat, lon){
-    var zoom = 5;
-    var punto = new GLatLng(lat, lon);
-    map.setCenter(punto, zoom);
+      var zoom = 5;
+      var punto = new GLatLng(lat, lon);
+      map.setCenter(punto, zoom);
 }
 
 /*
@@ -42,14 +42,15 @@ function agregarMarcador(map, punto, mensaje){
 */
 
 function cargarMarcadores(map){
-    {{for i, maquina in enumerate(maquinas):}}
+    {{for maquina in maquinas:}}
     var lat = {{=T(maquina.latitud)}};
     var lon = {{=T(maquina.longitud)}};
     var punto = new GLatLng(lat, lon);
+    var maquina = "<b>Maquina:</b> {{=T(str(maquina.id))}}";
     var procesador = "<b>Procesador:</b> {{=T(maquina.procesador)}}";
     var capacidadRam = "<b>Capacidad Ram:</b> {{=T(maquina.capacidadMemoriaRam)}}";
     var capacidadDisco = "<b>Capacidad Disco:</b> {{=T(maquina.capacidadDiscoDuro)}}";
-    var info = procesador + "|" + capacidadRam + "|" + capacidadDisco;
+    var info = maquina + "|" + procesador + "|" + capacidadRam + "|" + capacidadDisco;
     var mensaje = setMensaje(info);
     agregarMarcador(map,punto,mensaje);
     {{pass}}
@@ -85,8 +86,8 @@ function load() {
           var mensaje = "Hola Mundo";
           agregarMarcador(map,punto, mensaje);
           //Nuevo, hay que poner una marca de que está insertando y una sola marca por vez (controlar eso)
-          document.forms[0].latitud.value = punto.lat();
-          document.forms[0].longitud.value = punto.lng();
+          document.forms[0].maquinas_latitud.value = punto.lat();
+          document.forms[0].maquinas_longitud.value = punto.lng();
        }
        else if (eliminando == true){
            if (marcador){
@@ -148,18 +149,24 @@ window.onunload = GUnload;
               </div>
               <div class="entry">
                     <div class="map" style="width: 600px; height: 300px"></div>
-                    <form>
-                        <ul align="center"><!--Poner Bonito-->
-                        Procesador: <input name="procesador" /><br/>
-                        Memoria Ram: <input name="capacidadMemoriaRam" /><br/>
-                        Disco Duro: <input name="capacidadDiscoDuro" /><br/>
-                        <input type="submit" />
-                        <input type="hidden" name="usuario_id" value="11" />
-                        <input type="hidden" name="estado" value="True" />
-                        <input type="hidden" name="latitud" value="" />
-                        <input type="hidden" name="longitud" value="" />
-                        <ul>
-                    </form>
+                    {{=form.custom.begin}}
+                    Procesador: {{=form.custom.widget.procesador}}
+                    Memoria Ram: {{=form.custom.widget.capacidadMemoriaRam}}</br>
+                    Disco Duro: {{=form.custom.widget.capacidadDiscoDuro}}
+                    {{=form.custom.submit}}
+                    <input type="hidden" id="maquinas_usuario_id" name="usuario_id" value="11" />
+                    <input type="hidden" id="maquinas_estado" name="estado" value="True" />
+                    {{if (request.args(0)):}}
+                    {{longitud = coordenadas["lon"]}}
+                    {{latitud = coordenadas["lat"]}}
+                    <input type="hidden" id="maquinas_latitud" name="latitud" value="{{=latitud}}" />
+                    <input type="hidden" id="maquinas_longitud" name="longitud" value="{{=longitud}}" />
+                    <br/>Click aqui para borrar: {{=form.custom.deletable}}
+                    {{else:}}
+                    <input type="hidden" id="maquinas_latitud" name="latitud" value="" />
+                    <input type="hidden" id="maquinas_longitud" name="longitud" value="" />
+                    {{pass}}
+                    {{=form.custom.end}}
               </div>
               <div class="btm" align="center">
                   <div class="l">
@@ -169,43 +176,30 @@ window.onunload = GUnload;
                   </div>
               </div>
          </div>
-         <div class="two-columns">
-               <div class="columnA">
-                   <div class="title red">
-                       <h2 align="center">Agregar</h2>
-                   </div>
-                   <div class="content">
-                       <ul>
-                           <button type="button" onclick="cambiarEstadoAgregar()">Agregar</button>
-                       </ul>
-                   </div>
-               </div>
-               <div class="columnB">
-                   <div class="title blue">
-                       <h2 align="center">Modificar o Eliminar</h2>
-                   </div>
-                   <div class="content">
-                       <ul>
-                           <button type="button" onclick="cambiarEstadoEliminar()">Eliminar</button>
-                       </ul>
-                   </div>
-               </div>
-         </div>
       </div>
       <div id="sidebar">
       <ul>
           <li>
-              <h2>Buscador</h2>
-              <ul>
-              En construcción
+              <h2 align="center">Gestor Maquinas</h2>
+              <ul align="center">
+                  <li>
+                      <button type="button" onclick="cambiarEstadoAgregar()">Agregar Marcador</button>
+                  </li>
+                  <li>
+                  Recuerde que debe seleccionar una coordenada
+                  </li>
               </ul>
           </li>
           <li>
               <h2>Lista de Maquinas</h2>
               <ul align="center">
+              {{def direccion(atributo):}}
+              {{direc = "maquinas/"+str(atributo)}}
+              {{return direc}}
+              {{pass}}
               {{for maquina in maquinas:}}
               {{url = "javascript:centrarMapa("+maquina.latitud+","+maquina.longitud+")"}}
-              {{=LI(A(maquina.id, _href=url))}}
+              {{=LI(A("Editar: ", _href=direccion(maquina.id)),A(maquina.id, _href=url))}}
               {{pass}}
               </ul>
           </li>
