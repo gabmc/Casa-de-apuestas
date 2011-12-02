@@ -1,0 +1,24 @@
+{{extend 'layout.html'}}
+{{extend 'layout.html'}}
+<div id="content">
+    <div class="post greenbox">
+           <div class="title">
+                <h1>Listado de EventosParticipantes</h1>
+           </div>
+           <div class="entry">
+               <ul>
+               {{for eventospart in eventosparticipantes:}}
+               {{=LI(A(eventospart.eventos_id, _href=URL("showEventosParticipantes", args=eventospart.id)))}}
+               {{pass}}
+               </ul>
+           </div>
+           <div class="btm" align="center">
+              <div class="l">
+                  <div class="r">
+                                       <small>{{=A('Regresar', _href=URL("index"))}}</small>
+                  </div>
+              </div>
+           </div>
+     </div>
+</div>
+{{pass}}
