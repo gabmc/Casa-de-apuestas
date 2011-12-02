@@ -22,7 +22,7 @@ class DAOCasadeApuestas:
 
         
     def generarArchivoActualizacionMD5(self, eventos, categorias, participantes, eventosparticipantes, usuarios):
-        f = open ("C:/Users/Gary/Desktop/web2py/applications/Casa_de_Apuestas/static/archivoActualizacion.md5", "w")
+        f = open ("C:/Python32/web2py_win/web2py/applications/Casa_de_Apuestas/static/archivoActualizacion.md5", "w")
         f.write(eventos + "\n")
         f.write(categorias + "\n")
         f.write(participantes + "\n")
@@ -32,10 +32,10 @@ class DAOCasadeApuestas:
         from log import *
         l = log()
         l.logear("Archivo de actualización creado")
-        return ("C:/Users/Gary/Desktop/web2py/applications/Casa_de_Apuestas/static/archivoActualizacion.md5")  
+        return ("C:/Python32/web2py_win/web2py/applications/Casa_de_Apuestas/static/archivoActualizacion.md5")  
         
     def generarArchivoActualizacionXML(self, eventos, categorias, participantes, eventosparticipantes, usuarios):
-        f = open ("C:/Users/Gary/Desktop/web2py/applications/Casa_de_Apuestas/static/archivoActualizacion.xml", "w")
+        f = open ("C:/Python32/web2py_win/web2py/applications/Casa_de_Apuestas/static/archivoActualizacion.xml", "w")
         f.write(eventos + "\n")
         f.write(categorias + "\n")
         f.write(participantes + "\n")
@@ -45,7 +45,7 @@ class DAOCasadeApuestas:
         from log import *
         l = log()
         l.logear("Archivo de actualización creado")
-        return ("C:/Users/Gary/Desktop/web2py/applications/Casa_de_Apuestas/static/archivoActualizacion.xml")           
+        return ("C:/Python32/web2py_win/web2py/applications/Casa_de_Apuestas/static/archivoActualizacion.xml")           
 
     def insertar(self):
         pass

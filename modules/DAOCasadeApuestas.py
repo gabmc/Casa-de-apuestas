@@ -5,9 +5,17 @@ import hashlib
 
 class DAOCasadeApuestas:
 
+    """
+    Constructor de la Clase DAO
+    """
     def __init__(self):
         self.__codificador = hashlib.md5()
         
+    """
+    Genera un xml del resultado del query pasado por parametros
+    
+    @param rows: Las columnas generadas por un query
+    """
     def generarFormatoXml(self, rows):
         idx=range(len(rows.colnames))
         colnames=[item.replace('.','_') for item in rows.colnames]
@@ -16,10 +24,30 @@ class DAOCasadeApuestas:
             records.append(TAG['record'](*[TAG[colnames[i]](row[i]) for i in idx]))
         return str(TAG['records'](*records))
         
+    """
+    Genera un hash MD5 del mensaje, resultado del query pasado por parametros
+    
+    @param rows: Las columnas generadas por un query
+    """
+       
     def generarMensajeMD5(self, rows):
         self.__codificador.update(self.generarFormatoXml(rows))
         return (self.__codificador.hexdigest())
 
+    """
+    Genera un hash MD5 del mensaje, resultado del query pasado por parametros
+    
+    @param eventos: hash MD5, correspondiente a la estructura XML de 
+                    los eventos
+           categorias: hash MD5, correspondiente a la estructura XML
+                       de las categorias
+           participantes: hash MD5, correspondiente a la estructura 
+                          XML de las participantes
+           eventosparticipantes: hash MD5, correspondiente a la 
+                                 estructura XML de los eventosparticipantes
+           usuarios: hash MD5, correspondiente a la estructura XML de las 
+                     usuarios
+    """
         
     def generarArchivoActualizacionMD5(self, eventos, categorias, participantes, eventosparticipantes, usuarios):
         f = open ("C:/Python32/web2py_win/web2py/applications/Casa_de_Apuestas/static/archivoActualizacion.md5", "w")
@@ -33,6 +61,17 @@ class DAOCasadeApuestas:
         l = log()
         l.logear("Archivo de actualización creado")
         return ("C:/Python32/web2py_win/web2py/applications/Casa_de_Apuestas/static/archivoActualizacion.md5")  
+    
+    """
+    Genera un hash MD5 del mensaje, resultado del query pasado por parametros
+    
+    @param eventos: estructura XML correspondiente a los eventos
+           categorias: estructura XML correspondiente a las categorias
+           participantes: estructura XML correspondiente a los participantes
+           eventosparticipantes: estructura XML correspondiente a los 
+                                 eventosparticipantes
+           usuarios: lestructura XML correspondiente a los usuarios
+    """
         
     def generarArchivoActualizacionXML(self, eventos, categorias, participantes, eventosparticipantes, usuarios):
         f = open ("C:/Python32/web2py_win/web2py/applications/Casa_de_Apuestas/static/archivoActualizacion.xml", "w")
@@ -45,16 +84,4 @@ class DAOCasadeApuestas:
         from log import *
         l = log()
         l.logear("Archivo de actualización creado")
-        return ("C:/Python32/web2py_win/web2py/applications/Casa_de_Apuestas/static/archivoActualizacion.xml")           
-
-    def insertar(self):
-        pass
-        
-    def eliminar(self):
-        pass
-        
-    def seleccionar(self):
-        pass
-        
-    def modificar(self):
-        pass
+        return ("C:/Python32/web2py_win/web2py/applications/Casa_de_Apuestas/static/archivoActualizacion.xml")
