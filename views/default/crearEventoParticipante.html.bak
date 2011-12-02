@@ -1,3 +1,19 @@
 {{extend 'layout.html'}}
-{{}}
-{{=form}}
+
+<div id="content">
+    <div class="post greenbox">
+           <div class="title">
+                <h1>Crear EventoParticipante</h1>
+           </div>
+           <div class="entry">
+                    {{=form}}
+           </div>
+           <div class="btm" align="center">
+              <div class="l">
+                  <div class="r">
+                       <small>*Por favor llenar todos los campos solicitados</small>
+                  </div>
+              </div>
+           </div>
+     </div>
+</div>

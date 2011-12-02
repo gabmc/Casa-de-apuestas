@@ -98,6 +98,10 @@ class Servicio:
     def mostrarCategoria(self):
         categorias = self.__baseDeDatos().select(self.__baseDeDatos.categorias.ALL, orderby = self.__baseDeDatos.categorias.id)
         return dict(categorias = categorias)
+        
+    def mostrarEventosParticipantes(self):
+        eventosparticipantes = self.__baseDeDatos().select(self.__baseDeDatos.eventosparticipantes.ALL,orderby = self.__baseDeDatos.eventosparticipantes.id)
+        return dict(eventosparticipantes= eventosparticipantes)
     
     def mostrarUsuario(self):
         usuarios = self.__baseDeDatos().select(self.__baseDeDatos.auth_user.ALL, orderby = self.__baseDeDatos.auth_user.id)

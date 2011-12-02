@@ -1,18 +1,62 @@
 {{extend 'layout.html'}}
 
-{{for j in algo:}}
-{{=P(j.nombre)}}
-{{=P(j.descripcion)}}
-{{=P(j.fecha)}}
-{{=P(j.horaInicio)}}
-{{=P(j.admiteTablaResultado)}}
-{{=P(j.permiteEmpate)}}
+<div id="content">
+    <div class="post greenbox">
+           <div class="title">
+                <h1>Detalle Evento Realizado</h1>
+           </div>
+           <div class="entry">
+           
+            {{for j in evento:}}
+            {{=H1(j.nombre)}}
+            {{=H3(j.descripcion)}}
+            {{=H3('Fecha Evento: ',j.fecha)}}
+            {{=H3('Hora de Inicio: ',j.horaInicio)}}
+            {{if (j.admiteTablaResultado==True):}}
+                {{=H3('Admite Tabla de Resultado')}}
+             {{else:}}
+                {{=H3('No admite tabla de resultado')}}             
+             {{pass}}
+            {{if (j.permiteEmpate==True):}}
+                {{=H3('Admite Empate')}}
+             {{else:}}
+                {{=H3('No admite empate')}}             
+             {{pass}}
+            {{pass}}
+<center>
+{{if (j.admiteTablaResultado==True):}}
+                    {{=H3('Participante y Posicion')}}
+{{else:}}                  
+                {{=H3('Participante y Puntaje:')}}
+{{pass}}                
 
-{{pass}}
-
-{{for i in resultados:}}
 
 
-{{=P(i.participantes.nombre)}}
-{{=P(i.resultados.puntaje_posicion)}}
-{{pass}}
+
+
+<table style="border:1px solid black; background:black">
+         
+
+
+
+           {{for i in resultados:}}
+       <tr style="border:1px solid black; background:white">    
+            <td style="border:1px solid black">
+                {{=P(i.participantes.nombre)}}
+            </td>
+            <td style="border:1px solid black">
+                {{=P(i.resultados.puntaje_posicion)}}
+            </td>
+         
+            {{pass}}
+         </tr>
+</table>
+</center>      
+           </div>
+           <div class="btm" align="center">
+              <div class="l">
+{{=A('Regresar',_href=URL("verResultado1"))}}          
+</div>
+           </div>
+     </div>
+</div>

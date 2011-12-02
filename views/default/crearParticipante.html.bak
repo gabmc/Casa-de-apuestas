@@ -24,7 +24,7 @@
       </h2>
       <ul align="center">
         {{cont = 0}}
-        {{for participante in partipantes:}}
+        {{for participante in participantes:}}
         {{cont += 1}} 
         {{if (cont < 5):}}
         {{=LI(A(participante.nombre, _href=URL("showParticipante", args=participante.id)))}}

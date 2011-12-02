@@ -1,3 +1,19 @@
 {{extend 'layout.html'}}
-<h1>This is the default/showUsuario.html template</h1>
-{{=form}}
+<div id="content">
+    <div class="post greenbox">
+           <div class="title">
+                <h1>Mostrar Usuario</h1>
+           </div>
+           <div class="entry">
+                    {{=form}}
+           </div>
+           <div class="btm" align="center">
+              <div class="l">
+                  <div class="r">
+                       &nbsp;
+                  </div>
+              </div>
+           </div>
+     </div>
+</div>
+{{pass}}

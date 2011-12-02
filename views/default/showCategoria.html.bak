@@ -2,7 +2,7 @@
 <div id="content">
     <div class="post greenbox">
            <div class="title">
-                <h1>{{=T(form.nombre)}}</h1>
+                <h1>Mostrar Categoria</h1>
            </div>
            <div class="entry">
                     {{=form}}
@@ -15,15 +15,5 @@
               </div>
            </div>
      </div>
-</div>
-<div id="sidebar">
-  <ul>
-    <li>
-      <h2>
-       No se que colocar aquí
-      </h2>
-      <ul align="center">
-      </ul>
-    </li>
 </div>
 {{pass}}

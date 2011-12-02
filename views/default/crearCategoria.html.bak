@@ -11,6 +11,7 @@
               <div class="l">
                   <div class="r">
                        <small>*Por favor llenar todos los campos solicitados</small>
+                                       <small>{{=A('Regresar', _href=URL("index"))}}</small>
                   </div>
               </div>
            </div>
@@ -34,13 +35,5 @@
         {{pass}}        
       </ul>
     </li>
-     
-     <!--<h2>
-      Titulo2
-     </h2>
-     <ul>
-      Mundo
-     </ul>
-   </ul>-->
 </div>
 {{pass}}

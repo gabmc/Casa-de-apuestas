@@ -26,76 +26,6 @@ div.flash { position: fixed; float: right; padding: 10px; top: 10px; right: 30px
 div.error { background-color: red; color: white; padding: 3px; }
 .auth_navbar { text-align:right; z-index:20; position: absolute; top: 2px; right:30px; border:0; padding:0 }
   </style>
-  <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;hl=es&amp;key=ABQIAAAA30JtKUU8se-7KKPRGSfCMBT2yXp_ZAY8_ufC3CFXhHIE1NvwkxRZNdns2BwZvEY-V68DvlyUYwi1-Q" type="text/javascript"></script>
-<script type="text/javascript">
-agregando = false;
-eliminando = false;
-function load() {
-  if (GBrowserIsCompatible()) {
-    // Variables para el mapa
-    var lat = 6.000000;
-    var lon = -68.000;
-    var zoom = 5;
- 
-    // Crear un nuevo mapa
-   var map = new GMap(document.getElementsByClassName("map")[0]);
- 
-    // Centrarlo en un punto geográfico y con un nivel de zoom
-    map.setCenter(new GLatLng(lat, lon), zoom);
- 
-    // Añadir los controles de zoom y de tipo de mapa
-    map.addControl(new GSmallMapControl());
-    map.addControl(new GMapTypeControl());
-    
-    GEvent.addListener(map, "click", function(marcador, punto) {
-      // Crear el nuevo marcador y mostrar sus coordenadas
-      if (agregando == true){
-          var nuevoMarcador = new GMarker(punto);
-          GEvent.addListener(nuevoMarcador, "click", function() {
-            this.openInfoWindowHtml("Lat: " + this.getPoint().lat() + "<br/>Lon: " + this.getPoint().lng() + "<br />Esto es una prueba de fusilamiento de código");
-          });
-          map.addOverlay(nuevoMarcador);
-       }
-       else if (eliminando == true){
-           if (marcador){
-               map.removeOverlay(marcador);
-           }
-       }
-    });
-  }
-}
-
-function cambiarEstadoAgregar()
-{
-    agregando = !agregando;
-    if (agregando == true)
-    {
-        if (eliminando == true)
-        {
-            cambiarEstadoEliminar();
-        }
-    }
-}
-
-function cambiarEstadoEliminar()
-{
-    eliminando = !eliminando;
-    if (eliminando == true)
-    {
-        if (agregando == true)
-        {
-            cambiarEstadoAgregar();         
-        }
-    }
-}
- 
-window.onload = load;
-window.onunload = GUnload;
- 
-</script>
-<style type="text/css">
-  .map {border:1px solid black;}
-</style>
  </head>
  <body>
   <!-- start header -->
@@ -105,7 +35,7 @@ window.onunload = GUnload;
   <div id="header">
    <div id="logo">
     <h1>
-     Sistema de Gestión 1.0
+Sistema de Gestión 1.0
     </h1>
    </div>
   </div>

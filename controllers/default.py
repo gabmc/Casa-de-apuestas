@@ -42,13 +42,6 @@ def crearEventoParticipante():
 def crearUsuario():
     return service.crearUsuario()
     
-def crearMaquina():
-    from log import *
-    maquinas= db().select(db.maquinas.ALL)
-    
-    log = log()
-    log.logear("Máquina creada")
-    return dict(form=form,maquinas=maquinas)
 
 def mostrarCategoria():
     return service.mostrarCategoria()
@@ -58,10 +51,9 @@ def mostrarEvento():
 
 def mostrarParticipante():
     return service.mostrarParticipante()
-    
-def mostrarMaquina():
-    maquinas= db().select(db.maquinas.ALL, orderby=db.maquinas.id)
-    return dict(maquinas=maquinas)
+
+def mostrarEventosParticipantes():
+    return service.mostrarEventosParticipantes()
     
 def mostrarUsuario():
     return service.mostrarUsuario()
@@ -76,10 +68,9 @@ def showCategoria():
 
 def showParticipante():
     return service.showParticipante(request)
-    
-def showMaquinas():
-    form = crud.update(db.maquinas,request.args(0),next=URL('mostrarMaquina'))
-    return dict(form=form)
+
+def showEventoParticipante():
+    return service.showEventoParticipante(request)
     
 def showUsuario():
     return service.showUsuario(request)

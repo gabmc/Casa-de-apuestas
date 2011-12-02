@@ -32,10 +32,10 @@ class DAOCasadeApuestas:
         from log import *
         l = log()
         l.logear("Archivo de actualización creado")
-        return ("C:/Users/Gary/Desktop/web2py/applications/Casa_de_Apuestas/static/archivoActualizacion.md5.xml")  
+        return ("C:/Users/Gary/Desktop/web2py/applications/Casa_de_Apuestas/static/archivoActualizacion.md5")  
         
     def generarArchivoActualizacionXML(self, eventos, categorias, participantes, eventosparticipantes, usuarios):
-        f = open ("C:/Users/Gary/Desktop/web2py/applications/Casa_de_Apuestas/static/archivoActualizacionXML.des", "w")
+        f = open ("C:/Users/Gary/Desktop/web2py/applications/Casa_de_Apuestas/static/archivoActualizacion.xml", "w")
         f.write(eventos + "\n")
         f.write(categorias + "\n")
         f.write(participantes + "\n")

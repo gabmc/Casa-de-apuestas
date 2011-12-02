@@ -1,4 +1,22 @@
 {{extend 'layout.html'}}
-{{for evento in eventos:}}
-{{ =P(evento.nombre)}}
+<div id="content">
+    <div class="post greenbox">
+           <div class="title">
+                <h1>Ver Proximos Eventos</h1>
+           </div>
+           <div class="entry">
+            {{for evento in eventos:}}
+              {{=LI(A(evento.nombre, _href=URL("verProximosEventos2", args=evento.id)))}}
+              {{pass}}
+           </div>
+           <div class="btm" align="center">
+              <div class="l">
+                  <div class="r">
+                       <small>{{=A('Regresar',_href=URL("verResultado1"))}} </small>
+                  </div>
+              </div>
+           </div>
+     </div>
+</div>
+
 {{pass}}
