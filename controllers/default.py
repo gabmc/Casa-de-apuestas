@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
 ### required - do no delete
+"""
+Este Modulo corresponde al de controladores segun MVC, los metodos aqui contenidos
+son los encargados de invocar a las vistas, eso esta configurado en el framework
+"""
 from Servicio import *
 service = Servicio(db, crud)
 
@@ -30,7 +34,7 @@ def maquinas():
 def crearCategoria():
         categorias = db().select(db.categorias.ALL)
         form = crud.create(db.categorias)
-        if form.process().accepted:
+        if form.accepts(request.vars, formname=None):
             db.commit()
             from log import *
             log = log()
@@ -40,7 +44,7 @@ def crearCategoria():
 def crearEvento():
         eventos = db().select(db.eventos.ALL)
         form = crud.create(db.eventos)
-        if form.process().accepted:
+        if form.accepts(request.vars, formname=None):
             db.commit()        
             from log import *
             log = log()
@@ -50,7 +54,7 @@ def crearEvento():
 def crearParticipante():
         participantes = db().select(db.participantes.ALL)
         form = crud.create(db.participantes)
-        if form.process().accepted:
+        if form.accepts(request.vars, formname=None):
             db.commit()        
             from log import *
             log = log()
@@ -60,7 +64,7 @@ def crearParticipante():
 def crearEventoParticipante():
         eventosparticipantes = db().select(db.eventosparticipantes.ALL)
         form = crud.create(db.eventosparticipantes)
-        if form.process().accepted:
+        if form.accepts(request.vars, formname=None):
             db.commit()        
             from log import *
             log = log()
@@ -70,7 +74,7 @@ def crearEventoParticipante():
 def crearUsuario():
         usuarios = db().select(db.auth_user.ALL)
         form = crud.create(db.auth_user)
-        if form.process().accepted:
+        if form.accepts(request.vars, formname=None):
             db.commit()        
             from log import *
             log = log()
@@ -173,3 +177,6 @@ def verProximosEventos2():
     evento = db(db.eventos.id==request.args(0)).select()
     categoria = db((db.categorias.id==db.eventos.categoria_id)& (db.eventos.id==request.args(0))).select()
     return dict(evento_participante=evento_participante,evento=evento,categoria=categoria)
+    
+def indexPublico():
+    return dict()

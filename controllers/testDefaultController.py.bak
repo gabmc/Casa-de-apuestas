@@ -106,7 +106,6 @@ class TestDefaultController(unittest.TestCase):
        password = 'infamee')
         self.controller.crearUsuario()
         form = self.controller.response._vars['form']
-        print (form)
         self.assertEqual(form.errors, control)
         
     def testMostrarCategoria(self):
@@ -127,6 +126,11 @@ class TestDefaultController(unittest.TestCase):
         pass
         
     def mostrar():
+        pass
+    
+    def verProximosEventos1():
+        pass
+    def verProximosEventos2():
         pass
 
 def suite():

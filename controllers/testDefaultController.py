@@ -1,6 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-#from Servicio import *
+"""
+Modulo de pruebas realizado por: Juan Perozo, Gary Bustillos y Hector Sam
+"""
 
 import sys
 import os
@@ -106,7 +108,6 @@ class TestDefaultController(unittest.TestCase):
        password = 'infamee')
         self.controller.crearUsuario()
         form = self.controller.response._vars['form']
-        print (form)
         self.assertEqual(form.errors, control)
         
     def testMostrarCategoria(self):
