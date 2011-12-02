@@ -40,28 +40,36 @@ def crearEvento():
         eventos = db().select(db.eventos.ALL)
         form = crud.create(db.eventos)
         if form.process().accepted:
-            log.logear("Evento creado")
+            from log import *
+            log = log()
+            log.logear("Evento creado: "+form.vars.nombre)
         return response.render(dict(form=form,eventos=eventos))
 
 def crearParticipante():
         participantes = db().select(db.participantes.ALL)
         form = crud.create(db.participantes)
         if form.process().accepted:
-            self.__log.logear("Participante creado")
+            from log import *
+            log = log()
+            log.logear("Participante creado: "+form.vars.nombre)
         return response.render(dict(form=form,participantes=participantes))
 
 def crearEventoParticipante():
         eventosparticipantes = db().select(db.eventosparticipantes.ALL)
         form = crud.create(db.eventosparticipantes)
         if form.process().accepted:
-            self.__log.logear("EventoParticipante creado")
+            from log import *
+            log = log()
+            log.logear("EventoParticipante creado")
         return response.render(dict(form=form,eventosparticipantes=eventosparticipantes))
 
 def crearUsuario():
         usuarios = db().select(db.auth_user.ALL)
         form = crud.create(db.auth_user)
         if form.process().accepted:
-            self.__log.logear("Usuario creado")
+            from log import *
+            log = log()
+            log.logear("Usuario creado: "+form.vars.nombre)
         return response.render(dict(form=form,usuarios=usuarios))
     
 
@@ -89,14 +97,26 @@ def mostrarUsuario():
     
 def showEvento():
         form = crud.update(db.eventos, request.args(0),next = URL('mostrarEvento'))
+        if form.accepts(request.vars,formname=None):
+            from log import *
+            log = log()
+            log.logear("Evento modificado: "+form.vars.nombre)            
         return response.render(dict(form = form))
 
 def showCategoria():
         form =crud.update(db.categorias, request.args(0), next = URL('mostrarCategoria'))
+        if form.accepts(request.vars,formname=None):
+            from log import *
+            log = log()
+            log.logear("Categoría modificada: "+form.vars.nombre)            
         return response.render(dict(form = form))
 
 def showParticipante():
         form = crud.update(db.participantes, request.args(0),next = URL('mostrarParticipante'))
+        if form.accepts(request.vars,formname=None):
+            from log import *
+            log = log()
+            log.logear("Participante modificado: "+form.vars.nombre)            
         return response.render(dict(form = form)) 
 
 def showEventosParticipantes():
@@ -104,6 +124,10 @@ def showEventosParticipantes():
     
 def showUsuario():
         form = crud.update(db.auth_user, request.args(0), next = URL('mostrarUsuario'))
+        if form.accepts(request.vars,formname=None):
+            from log import *
+            log = log()
+            log.logear("Usuario modificado: "+form.vars.nombre)            
         return response.render(dict(form = form))
 
 

@@ -28,52 +28,91 @@ def maquinas():
     return dict(form=form, maquinas=maquinas, coordenadas=coordenadas)
 
 def crearCategoria():
-    return service.crearCategoria()
+        categorias = db().select(db.categorias.ALL)
+        form = crud.create(db.categorias)
+        if form.process().accepted:
+            from log import *
+            log = log()
+            log.logear("Categoría creada: "+form.vars.nombre)
+        return response.render(dict(form=form, categorias=categorias))
 
 def crearEvento():
-    return service.crearEvento()
+        eventos = db().select(db.eventos.ALL)
+        form = crud.create(db.eventos)
+        if form.process().accepted:
+            from log import *
+            log = log()
+            log.logear("Evento creado: "+form.vars.nombre)
+        return response.render(dict(form=form,eventos=eventos))
 
 def crearParticipante():
-    return service.crearParticipante()
+        participantes = db().select(db.participantes.ALL)
+        form = crud.create(db.participantes)
+        if form.process().accepted:
+            from log import *
+            log = log()
+            log.logear("Participante creado: "+form.vars.nombre)
+        return response.render(dict(form=form,participantes=participantes))
 
 def crearEventoParticipante():
-    return service.crearEventoParticipante()
+        eventosparticipantes = db().select(db.eventosparticipantes.ALL)
+        form = crud.create(db.eventosparticipantes)
+        if form.process().accepted:
+            from log import *
+            log = log()
+            log.logear("EventoParticipante creado")
+        return response.render(dict(form=form,eventosparticipantes=eventosparticipantes))
 
 def crearUsuario():
-    return service.crearUsuario()
+        usuarios = db().select(db.auth_user.ALL)
+        form = crud.create(db.auth_user)
+        if form.process().accepted:
+            from log import *
+            log = log()
+            log.logear("Usuario creado: "+form.vars.nombre)
+        return response.render(dict(form=form,usuarios=usuarios))
     
 
 def mostrarCategoria():
-    return service.mostrarCategoria()
+        categorias = db().select(db.categorias.ALL, orderby = db.categorias.id)
+        return response.render(dict(categorias = categorias))
 
 def mostrarEvento():
-    return service.mostrarEvento()
+        eventos = db().select(db.eventos.ALL, orderby = db.eventos.id)
+        return response.render(dict(eventos = eventos))
 
 def mostrarParticipante():
-    return service.mostrarParticipante()
+        participantes = db().select(db.participantes.ALL, orderby = db.participantes.id)
+        return response.render(dict(participantes = participantes))
 
 def mostrarEventosParticipantes():
-    return service.mostrarEventosParticipantes()
+        eventosparticipantes = db().select(db.eventosparticipantes.ALL,orderby = db.eventosparticipantes.id)
+        return response.render(dict(eventosparticipantes= eventosparticipantes))
     
 def mostrarUsuario():
-    return service.mostrarUsuario()
+        usuarios = db().select(db.auth_user.ALL, orderby = db.auth_user.id)
+        return response.render(dict(usuarios = usuarios))
     
     
     
 def showEvento():
-    return service.showEvento(request)
+        form = crud.update(db.eventos, request.args(0),next = URL('mostrarEvento'))
+        return response.render(dict(form = form))
 
 def showCategoria():
-    return service.showCategoria(request)
+        form =crud.update(db.categorias, request.args(0), next = URL('mostrarCategoria'))
+        return response.render(dict(form = form))
 
 def showParticipante():
-    return service.showParticipante(request)
+        form = crud.update(db.participantes, request.args(0),next = URL('mostrarParticipante'))
+        return response.render(dict(form = form)) 
 
-def showEventoParticipante():
+def showEventosParticipantes():
     return service.showEventoParticipante(request)
     
 def showUsuario():
-    return service.showUsuario(request)
+        form = crud.update(db.auth_user, request.args(0), next = URL('mostrarUsuario'))
+        return response.render(dict(form = form))
 
 
 def verResultado1():
@@ -96,7 +135,7 @@ def mostrar():
     dao5 = DAOCasadeApuestas()
     q = dao.generarArchivoActualizacionMD5(dao.generarMensajeMD5(db().select(db.eventos.ALL)), dao2.generarMensajeMD5(db().select(db.categorias.ALL)), dao3.generarMensajeMD5(db().select(db.participantes.ALL)), dao4.generarMensajeMD5(db().select(db.eventosparticipantes.ALL)), dao5.generarMensajeMD5(db().select(db.auth_user.ALL)))
     s = dao.generarArchivoActualizacionXML(dao.generarFormatoXml(db().select(db.eventos.ALL)), dao2.generarFormatoXml(db().select(db.categorias.ALL)), dao3.generarFormatoXml(db().select(db.participantes.ALL)), dao4.generarFormatoXml(db().select(db.eventosparticipantes.ALL)), dao5.generarFormatoXml(db().select(db.auth_user.ALL)))
-    return dict(q = q, s = s)   
+    return response.render(dict(q = q, s = s))   
     
 def verProximosEventos1():
     import datetime
