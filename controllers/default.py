@@ -6,6 +6,8 @@ son los encargados de invocar a las vistas, eso esta configurado en el framework
 """
 from Servicio import *
 service = Servicio(db, crud)
+from log import *
+log = log()
 
 def user(): return dict(form=auth())
 def download(): return response.download(request,db)
@@ -34,11 +36,13 @@ def maquinas():
 def crearCategoria():
         categorias = db().select(db.categorias.ALL)
         form = crud.create(db.categorias)
-        if form.accepts(request.vars, formname=None):
-            db.commit()
-            from log import *
-            log = log()
-            log.logear("Categoría creada: "+form.vars.nombre)
+        if (request.args(0)):
+            if form.accepts(request.vars, formname=None):
+                log.logear("Prueba Exitosa")
+        else:
+            if form.process().accepted:
+                log.logear("Categoría creada: "+form.vars.nombre)
+        db.commit()
         return response.render(dict(form=form, categorias=categorias))
 
 def crearEvento():
