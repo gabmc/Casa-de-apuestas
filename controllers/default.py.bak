@@ -36,43 +36,48 @@ def maquinas():
 def crearCategoria():
         categorias = db().select(db.categorias.ALL)
         form = crud.create(db.categorias)
-        if (request.args(0)):
-            if form.accepts(request.vars, formname=None):
-                log.logear("Prueba Exitosa")
-        else:
-            if form.process().accepted:
-                log.logear("Categoría creada: "+form.vars.nombre)
-        db.commit()
+        #if form.accepts(request.vars, formname=None):
+        if form.process().accepted:
+            db.commit()        
+            from log import *
+            log = log()
+            log.logear("Usuario creado: "+form.vars.nombre)
         return response.render(dict(form=form, categorias=categorias))
 
 def crearEvento():
         eventos = db().select(db.eventos.ALL)
         form = crud.create(db.eventos)
-        if form.accepts(request.vars, formname=None):
-            db.commit()        
-            from log import *
-            log = log()
-            log.logear("Evento creado: "+form.vars.nombre)
+        if (request.args(0)):
+            if form.accepts(request.vars, formname=None):
+                log.logear("Prueba Exitosa")
+        else:
+            if form.process().accepted:
+                log.logear("Evento creado: "+form.vars.nombre)
+        db.commit()            
         return response.render(dict(form=form,eventos=eventos))
 
 def crearParticipante():
         participantes = db().select(db.participantes.ALL)
         form = crud.create(db.participantes)
-        if form.accepts(request.vars, formname=None):
-            db.commit()        
-            from log import *
-            log = log()
-            log.logear("Participante creado: "+form.vars.nombre)
+        if (request.args(0)):
+            if form.accepts(request.vars, formname=None):
+                log.logear("Prueba Exitosa")
+        else:
+            if form.process().accepted:
+                log.logear("Participante creado: "+form.vars.nombre)        
+        db.commit()         
         return response.render(dict(form=form,participantes=participantes))
 
 def crearEventoParticipante():
         eventosparticipantes = db().select(db.eventosparticipantes.ALL)
         form = crud.create(db.eventosparticipantes)
-        if form.accepts(request.vars, formname=None):
-            db.commit()        
-            from log import *
-            log = log()
-            log.logear("EventoParticipante creado")
+        if (request.args(0)):
+            if form.accepts(request.vars, formname=None):
+                log.logear("Prueba Exitosa")
+        else:
+            if form.process().accepted:
+                log.logear("Participante creado: "+form.vars.nombre)
+        db.commit()        
         return response.render(dict(form=form,eventosparticipantes=eventosparticipantes))
 
 def crearUsuario():

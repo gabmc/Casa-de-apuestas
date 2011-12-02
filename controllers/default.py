@@ -36,19 +36,19 @@ def maquinas():
 def crearCategoria():
         categorias = db().select(db.categorias.ALL)
         form = crud.create(db.categorias)
-        if (request.args(0)):
-            if form.accepts(request.vars, formname=None):
-                log.logear("Prueba Exitosa")
-        else:
-            if form.process().accepted:
-                log.logear("Categoría creada: "+form.vars.nombre)
-        db.commit()
+        #if form.accepts(request.vars, formname=None):
+        if form.process().accepted:
+            db.commit()        
+            from log import *
+            log = log()
+            log.logear("Categoria creada: "+form.vars.nombre)
         return response.render(dict(form=form, categorias=categorias))
 
 def crearEvento():
         eventos = db().select(db.eventos.ALL)
         form = crud.create(db.eventos)
-        if form.accepts(request.vars, formname=None):
+        #if form.accepts(request.vars, formname=None):
+        if form.process().accepted:
             db.commit()        
             from log import *
             log = log()
@@ -58,7 +58,8 @@ def crearEvento():
 def crearParticipante():
         participantes = db().select(db.participantes.ALL)
         form = crud.create(db.participantes)
-        if form.accepts(request.vars, formname=None):
+        #if form.accepts(request.vars, formname=None):
+        if form.process().accepted:
             db.commit()        
             from log import *
             log = log()
@@ -68,17 +69,19 @@ def crearParticipante():
 def crearEventoParticipante():
         eventosparticipantes = db().select(db.eventosparticipantes.ALL)
         form = crud.create(db.eventosparticipantes)
-        if form.accepts(request.vars, formname=None):
+        #if form.accepts(request.vars, formname=None):
+        if form.process().accepted:
             db.commit()        
             from log import *
             log = log()
-            log.logear("EventoParticipante creado")
+            log.logear("EventoParticipante creado: "+form.vars.nombre)
         return response.render(dict(form=form,eventosparticipantes=eventosparticipantes))
 
 def crearUsuario():
         usuarios = db().select(db.auth_user.ALL)
         form = crud.create(db.auth_user)
-        if form.accepts(request.vars, formname=None):
+        #if form.accepts(request.vars, formname=None):
+        if form.process().accepted:
             db.commit()        
             from log import *
             log = log()
@@ -110,25 +113,28 @@ def mostrarUsuario():
     
 def showEvento():
         form = crud.update(db.eventos, request.args(0),next = URL('mostrarEvento'))
-        if form.accepts(request.vars,formname=None):
-            db.commit()            
+        #if form.accepts(request.vars, formname=None):
+        if form.process().accepted:
+            db.commit()        
             from log import *
             log = log()
-            log.logear("Evento modificado: "+form.vars.nombre)            
+            log.logear("Evento modificado: "+form.vars.nombre)           
         return response.render(dict(form = form))
 
 def showCategoria():
         form =crud.update(db.categorias, request.args(0), next = URL('mostrarCategoria'))
-        if form.accepts(request.vars,formname=None):
+        #if form.accepts(request.vars, formname=None):
+        if form.process().accepted:
             db.commit()        
             from log import *
             log = log()
-            log.logear("Categoría modificada: "+form.vars.nombre)            
+            log.logear("Categoria modificada: "+form.vars.nombre)          
         return response.render(dict(form = form))
 
 def showParticipante():
         form = crud.update(db.participantes, request.args(0),next = URL('mostrarParticipante'))
-        if form.accepts(request.vars,formname=None):
+        #if form.accepts(request.vars, formname=None):
+        if form.process().accepted:
             db.commit()        
             from log import *
             log = log()
@@ -140,11 +146,12 @@ def showEventosParticipantes():
     
 def showUsuario():
         form = crud.update(db.auth_user, request.args(0), next = URL('mostrarUsuario'))
-        if form.accepts(request.vars,formname=None):
+        #if form.accepts(request.vars, formname=None):
+        if form.process().accepted:
             db.commit()        
             from log import *
             log = log()
-            log.logear("Usuario modificado: "+form.vars.nombre)            
+            log.logear("Usuario modificado: "+form.vars.nombre)           
         return response.render(dict(form = form))
 
 
