@@ -53,7 +53,7 @@ def mostrarParticipante():
     return service.mostrarParticipante()
 
 def mostrarEventosParticipantes():
-    return service.mostrarEventoParticipante()
+    return service.mostrarEventosParticipantes()
     
 def mostrarUsuario():
     return service.mostrarUsuario()
