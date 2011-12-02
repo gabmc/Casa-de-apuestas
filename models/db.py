@@ -55,6 +55,7 @@ if not request.env.web2py_runtime_gae:
     db.eventos.nombre.requires = IS_NOT_EMPTY()
     db.eventos.fecha.requires = IS_NOT_EMPTY()
     db.eventos.descripcion.requires = IS_NOT_EMPTY()
+    db.eventos.nombre.requires = IS_NOT_IN_DB(db, db.eventos.nombre)
  #  db.eventos.relacionpago.requires = IS_IN_SET(['1 a 1', '2 a 1', ' 3 a 1'])
     
     
