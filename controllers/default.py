@@ -46,6 +46,8 @@ def crearCategoria():
             log = log()
             log.logear("Categoria creada: "+form.vars.nombre)
             response.flash = 'Categoria Creada'
+        elif form.errors:
+            response.flash = 'Error en el formulario'
         return response.render(dict(form=form, categorias=categorias))
 
 def crearEvento():
@@ -58,6 +60,8 @@ def crearEvento():
             log = log()
             log.logear("Evento creado: "+form.vars.nombre)
             response.flash = 'Evento Creado'
+        elif form.errors:
+            response.flash = 'Error en el formulario'
         return response.render(dict(form=form,eventos=eventos))
 
 def crearParticipante():
@@ -70,6 +74,8 @@ def crearParticipante():
             log = log()
             log.logear("Participante creado: "+form.vars.nombre)
             response.flash = 'Participante Creado'
+        elif form.errors:
+            response.flash = 'Error en el formulario'
         return response.render(dict(form=form,participantes=participantes))
 
 def crearEventoParticipante():
@@ -82,6 +88,8 @@ def crearEventoParticipante():
             log = log()
             log.logear("EventoParticipante creado: "+form.vars.nombre)
             response.flash = 'EventoParticipante Creado'
+        elif form.errors:
+            response.flash = 'Error en el formulario'
         return response.render(dict(form=form,eventosparticipantes=eventosparticipantes))
 
 def crearUsuario():
@@ -94,6 +102,8 @@ def crearUsuario():
             log = log()
             log.logear("Usuario creado: "+form.vars.nombre)
             response.flash = 'Usuario Creado'
+        elif form.errors:
+            response.flash = 'Error en el formulario'
         return response.render(dict(form=form,usuarios=usuarios))
     
 
@@ -127,6 +137,8 @@ def showEvento():
             from log import *
             log = log()
             log.logear("Evento modificado: "+form.vars.nombre)           
+        elif form.errors:
+            response.flash = 'Error en el formulario'
         return response.render(dict(form = form))
 
 def showCategoria():
@@ -137,6 +149,8 @@ def showCategoria():
             from log import *
             log = log()
             log.logear("Categoria modificada: "+form.vars.nombre)          
+        elif form.errors:
+            response.flash = 'Error en el formulario'
         return response.render(dict(form = form))
 
 def showParticipante():
@@ -147,6 +161,8 @@ def showParticipante():
             from log import *
             log = log()
             log.logear("Participante modificado: "+form.vars.nombre)            
+        elif form.errors:
+            response.flash = 'Error en el formulario'
         return response.render(dict(form = form)) 
 
 def showEventosParticipantes():
@@ -160,6 +176,8 @@ def showUsuario():
             from log import *
             log = log()
             log.logear("Usuario modificado: "+form.vars.nombre)           
+        elif form.errors:
+            response.flash = 'Error en el formulario'
         return response.render(dict(form = form))
 
 
