@@ -15,8 +15,11 @@ def call(): return service()
 
 ### end requires
 
-@auth.requires_login()
 def index():
+    return dict()
+    
+@auth.requires_login()
+def indexAdmin():
     return dict()
 
 def error():
@@ -42,6 +45,7 @@ def crearCategoria():
             from log import *
             log = log()
             log.logear("Categoria creada: "+form.vars.nombre)
+            response.flash = 'Categoria Creada'
         return response.render(dict(form=form, categorias=categorias))
 
 def crearEvento():
@@ -53,6 +57,7 @@ def crearEvento():
             from log import *
             log = log()
             log.logear("Evento creado: "+form.vars.nombre)
+            response.flash = 'Evento Creado'
         return response.render(dict(form=form,eventos=eventos))
 
 def crearParticipante():
@@ -64,6 +69,7 @@ def crearParticipante():
             from log import *
             log = log()
             log.logear("Participante creado: "+form.vars.nombre)
+            response.flash = 'Participante Creado'
         return response.render(dict(form=form,participantes=participantes))
 
 def crearEventoParticipante():
@@ -75,6 +81,7 @@ def crearEventoParticipante():
             from log import *
             log = log()
             log.logear("EventoParticipante creado: "+form.vars.nombre)
+            response.flash = 'EventoParticipante Creado'
         return response.render(dict(form=form,eventosparticipantes=eventosparticipantes))
 
 def crearUsuario():
@@ -86,6 +93,7 @@ def crearUsuario():
             from log import *
             log = log()
             log.logear("Usuario creado: "+form.vars.nombre)
+            response.flash = 'Usuario Creado'
         return response.render(dict(form=form,usuarios=usuarios))
     
 
@@ -188,6 +196,3 @@ def verProximosEventos2():
     evento = db(db.eventos.id==request.args(0)).select()
     categoria = db((db.categorias.id==db.eventos.categoria_id)& (db.eventos.id==request.args(0))).select()
     return dict(evento_participante=evento_participante,evento=evento,categoria=categoria)
-    
-def indexPublico():
-    return dict()

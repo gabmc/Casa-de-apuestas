@@ -8,7 +8,7 @@
            <div class="entry">
                <ul>
                {{for eventospart in eventosparticipantes:}}
-               {{=LI(A(evento.nombre, _href=URL("showEvento", args=evento.id)))}}
+               {{=LI(A(eventospart.eventos_id, _href=URL("showEventosParticipantes", args=eventospart.id)))}}
                {{pass}}
                </ul>
            </div>

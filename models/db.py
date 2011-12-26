@@ -100,6 +100,12 @@ from gluon.tools import Auth, Crud, Service, PluginManager, prettydate
 auth = Auth(db, hmac_key=Auth.get_or_create_key()) 
 crud, service, plugins = Crud(db), Service(), PluginManager()
 
+crud.messages.submit_button = 'Enviar'
+crud.messages.delete_label = 'Click para Eliminar'
+crud.messages.record_created = 'Registro Creado'
+crud.messages.record_updated = 'Registro Actualizado'
+crud.messages.record_deleted = 'Registro Eliminado'
+
 ## create all tables needed by auth if not custom tables
 
 ########################################

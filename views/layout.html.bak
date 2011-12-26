@@ -28,6 +28,7 @@ div.error { background-color: red; color: white; padding: 3px; }
   </style>
  </head>
  <body>
+  <div class="flash">{{=response.flash or ''}}</div> <!-- notification div -->
   <!-- start header -->
   {{try:}}{{=auth.navbar(action=URL('default','user'))}}{{except:pass}}
 
@@ -35,7 +36,7 @@ div.error { background-color: red; color: white; padding: 3px; }
   <div id="header">
    <div id="logo">
     <h1>
-Sistema de Gestión 1.0
+                <small>{{=A('Sistema de Gestión 1.0', _href=URL("index"))}}</small>     
     </h1>
    </div>
   </div>
@@ -55,7 +56,8 @@ Sistema de Gestión 1.0
   <div id="footer">
    <p>
     &copy;2011 All Rights Reserved. &nbsp;&bull;&nbsp; Design by JSG Systems
-   </p>
+   </p> 
+   <a href="../indexAdmin">Administrar</a>
   </div>
  </body>
 </html>
