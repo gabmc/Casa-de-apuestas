@@ -1,7 +1,0 @@
-{{extend 'layout.html'}}
-<h1>This is the default/mostrarMaquina.html template</h1>
-<ul>
-{{for maquina in maquinas:}}
-{{=LI(A(maquina.nombre, _href=URL("showMaquina", args=maquina.id)))}}
-{{pass}}
-</ul>
