@@ -8,5 +8,6 @@ package Logica;
  *
  * @author Usuario
  */
-public class Evento {   
+public class Participante {
+    
 }
