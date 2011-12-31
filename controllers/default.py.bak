@@ -119,9 +119,10 @@ def mostrarParticipante():
         participantes = db().select(db.participantes.ALL, orderby = db.participantes.id)
         return response.render(dict(participantes = participantes))
 
-def mostrarEventosParticipantes():
-        eventosparticipantes = db().select(db.eventosparticipantes.ALL,orderby = db.eventosparticipantes.id)
-        return response.render(dict(eventosparticipantes= eventosparticipantes))
+def mostrarEventoParticipante():
+        eventos = db().select(db.eventos.ALL, orderby = db.eventos.id)
+        return response.render(dict(eventos= eventos))
+        
     
 def mostrarUsuario():
         usuarios = db().select(db.auth_user.ALL, orderby = db.auth_user.id)
@@ -165,8 +166,20 @@ def showParticipante():
             response.flash = 'Error en el formulario'
         return response.render(dict(form = form)) 
 
-def showEventosParticipantes():
-    return service.showEventoParticipante(request)
+def showEventoParticipante1():
+    participantes= db((db.eventosparticipantes.eventos_id == request.args(0)) & (db.participantes.id==db.eventosparticipantes.participantes_id)).select()
+    return dict(participantes=participantes,evento_id=request.args(0))
+    
+def showEventoParticipante2():
+    form = crud.update(db.eventosparticipantes,request.args(0),next=URL('mostrarEventoParticipante'))
+    if form.process().accepted:
+            db.commit()        
+            from log import *
+            log = log()
+            log.logear("Participante modificado: "+form.vars.nombre)            
+    elif form.errors:
+            response.flash = 'Error en el formulario'
+    return response.render(dict(form = form)) 
     
 def showUsuario():
         form = crud.update(db.auth_user, request.args(0), next = URL('mostrarUsuario'))

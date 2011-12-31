@@ -1,78 +1,222 @@
 # -*- coding: utf-8 -*-
 ### required - do no delete
+"""
+Este Modulo corresponde al de controladores segun MVC, los metodos aqui contenidos
+son los encargados de invocar a las vistas, eso esta configurado en el framework
+"""
+from Servicio import *
+service = Servicio(db, crud)
+from log import *
+log = log()
+
 def user(): return dict(form=auth())
 def download(): return response.download(request,db)
 def call(): return service()
+
 ### end requires
 
-@auth.requires_login()
 def index():
+    return dict()
+    
+@auth.requires_login()
+def indexAdmin():
     return dict()
 
 def error():
     return dict()
 
-
 def maquinas():
-    return dict()
-
+    form = crud.update(db.maquinas, request.args(0),next=URL('maquinas'))
+    maquinas = db().select(db.maquinas.ALL)
+    coordenadas = False
+    if (request.args(0)):
+        for i, maquina in enumerate(maquinas):
+            if (i == request.args(0)):
+                break
+        coordenadas = dict(lon=maquina.longitud,lat=maquina.latitud)                    
+    return dict(form=form, maquinas=maquinas, coordenadas=coordenadas)
 
 def crearCategoria():
-    categorias = db().select(db.categorias.ALL)
-    form = crud.create(db.categorias)
-    return dict(form=form, categorias=categorias)
+        categorias = db().select(db.categorias.ALL)
+        form = crud.create(db.categorias)
+        #if form.accepts(request.vars, formname=None):
+        if form.process().accepted:
+            db.commit()        
+            from log import *
+            log = log()
+            log.logear("Categoria creada: "+form.vars.nombre)
+            response.flash = 'Categoria Creada'
+        elif form.errors:
+            response.flash = 'Error en el formulario'
+        return response.render(dict(form=form, categorias=categorias))
 
 def crearEvento():
-    form = crud.create(db.eventos)
-    return dict(form=form)
+        eventos = db().select(db.eventos.ALL)
+        form = crud.create(db.eventos)
+        #if form.accepts(request.vars, formname=None):
+        if form.process().accepted:
+            db.commit()        
+            from log import *
+            log = log()
+            log.logear("Evento creado: "+form.vars.nombre)
+            response.flash = 'Evento Creado'
+        elif form.errors:
+            response.flash = 'Error en el formulario'
+        return response.render(dict(form=form,eventos=eventos))
 
-def crearParticipantes():
-    form = crud.create(db.participantes)
-    return dict(form=form)
+def crearParticipante():
+        participantes = db().select(db.participantes.ALL)
+        form = crud.create(db.participantes)
+        #if form.accepts(request.vars, formname=None):
+        if form.process().accepted:
+            db.commit()        
+            from log import *
+            log = log()
+            log.logear("Participante creado: "+form.vars.nombre)
+            response.flash = 'Participante Creado'
+        elif form.errors:
+            response.flash = 'Error en el formulario'
+        return response.render(dict(form=form,participantes=participantes))
 
-def crearEventosParticipantes():
-    form = crud.create(db.evetos_participantes)
-    return dict(form=form)
+def crearEventoParticipante():
+        eventosparticipantes = db().select(db.eventosparticipantes.ALL)
+        form = crud.create(db.eventosparticipantes)
+        #if form.accepts(request.vars, formname=None):
+        if form.process().accepted:
+            db.commit()        
+            from log import *
+            log = log()
+            log.logear("EventoParticipante creado: "+form.vars.nombre)
+            response.flash = 'EventoParticipante Creado'
+        elif form.errors:
+            response.flash = 'Error en el formulario'
+        return response.render(dict(form=form,eventosparticipantes=eventosparticipantes))
 
-def crearUsuarios():
-    form = crud.create(db.usuarios)
-    return dict(form=form)
-
-def crearMaquina():
-    form = crud.create(db.maquinas)
-    return dict(form=form)
-
-def generar_xml(rows):
-    idx=range(len(rows.colnames))
-    colnames=[item.replace('.','_') for item in rows.colnames]
-    records=[]
-    for row in rows.response:
-        records.append(TAG['record'](*[TAG[colnames[i]](row[i]) for i in idx]))
-    return str(TAG['records'](*records))
-    #return str(estrin)
-
-def prueba_xml():
-    import hashlib
-    codificador = hashlib.md5()
-    response.headers['Content-Type']='application/xml'
-    #a = generar_xml(db().select(db.participantes.ALL));
-    codificador.update(generar_xml(db().select(db.participantes.ALL)))
-    #return generar_xml(db().select(db.participantes.ALL))
-    return dict(var=codificador.hexdigest(), var1=codificador1.hexdigest())
+def crearUsuario():
+        usuarios = db().select(db.auth_user.ALL)
+        form = crud.create(db.auth_user)
+        #if form.accepts(request.vars, formname=None):
+        if form.process().accepted:
+            db.commit()        
+            from log import *
+            log = log()
+            log.logear("Usuario creado: "+form.vars.nombre)
+            response.flash = 'Usuario Creado'
+        elif form.errors:
+            response.flash = 'Error en el formulario'
+        return response.render(dict(form=form,usuarios=usuarios))
+    
 
 def mostrarCategoria():
-    categorias= db().select(db.categorias.ALL, orderby=db.categorias.id)
-    return dict(categorias=categorias)
-
-def showCategoria():
-    form = crud.update(db.categorias,request.args(0),next=URL('mostrarCategoria'))
-    return dict(form=form)
-
+        categorias = db().select(db.categorias.ALL, orderby = db.categorias.id)
+        return response.render(dict(categorias = categorias))
 
 def mostrarEvento():
-    eventos= db().select(db.eventos.ALL, orderby=db.eventos.id)
-    return dict(eventos=eventos)
+        eventos = db().select(db.eventos.ALL, orderby = db.eventos.id)
+        return response.render(dict(eventos = eventos))
 
+def mostrarParticipante():
+        participantes = db().select(db.participantes.ALL, orderby = db.participantes.id)
+        return response.render(dict(participantes = participantes))
+
+def mostrarEventoParticipante():
+        eventos = db().select(db.eventos.ALL, orderby = db.eventos.id)
+        return response.render(dict(eventos= eventos))
+        
+    
+def mostrarUsuario():
+        usuarios = db().select(db.auth_user.ALL, orderby = db.auth_user.id)
+        return response.render(dict(usuarios = usuarios))
+    
+    
+    
 def showEvento():
-    form = crud.update(db.eventos,request.args(0),next=URL('mostrarEvento'))
-    return dict(form=form)
+        form = crud.update(db.eventos, request.args(0),next = URL('mostrarEvento'))
+        #if form.accepts(request.vars, formname=None):
+        if form.process().accepted:
+            db.commit()        
+            from log import *
+            log = log()
+            log.logear("Evento modificado: "+form.vars.nombre)           
+        elif form.errors:
+            response.flash = 'Error en el formulario'
+        return response.render(dict(form = form))
+
+def showCategoria():
+        form =crud.update(db.categorias, request.args(0), next = URL('mostrarCategoria'))
+        #if form.accepts(request.vars, formname=None):
+        if form.process().accepted:
+            db.commit()        
+            from log import *
+            log = log()
+            log.logear("Categoria modificada: "+form.vars.nombre)          
+        elif form.errors:
+            response.flash = 'Error en el formulario'
+        return response.render(dict(form = form))
+
+def showParticipante():
+        form = crud.update(db.participantes, request.args(0),next = URL('mostrarParticipante'))
+        #if form.accepts(request.vars, formname=None):
+        if form.process().accepted:
+            db.commit()        
+            from log import *
+            log = log()
+            log.logear("Participante modificado: "+form.vars.nombre)            
+        elif form.errors:
+            response.flash = 'Error en el formulario'
+        return response.render(dict(form = form)) 
+
+def showEventoParticipante1():
+    participantes= db((db.eventosparticipantes.eventos_id == request.args(0)) & (db.participantes.id==db.eventosparticipantes.participantes_id)).select()
+    return dict(participantes=participantes,evento_id=request.args(0))
+    
+def showEventoParticipante2():
+    form = crud.update(db.eventosparticipantes,request.args(0,1),next=URL('mostrarEventoParticipante'))
+    return dict(form=form)    
+    
+def showUsuario():
+        form = crud.update(db.auth_user, request.args(0), next = URL('mostrarUsuario'))
+        #if form.accepts(request.vars, formname=None):
+        if form.process().accepted:
+            db.commit()        
+            from log import *
+            log = log()
+            log.logear("Usuario modificado: "+form.vars.nombre)           
+        elif form.errors:
+            response.flash = 'Error en el formulario'
+        return response.render(dict(form = form))
+
+
+def verResultado1():
+    import datetime
+    fechaActual=datetime.datetime.now()
+    eventos =db(db.eventos.fecha <fechaActual).select()
+    return dict(eventos=eventos)
+        
+def verResultado2():
+    resultados= db((db.resultados.eventos_id==request.args(0))& (db.resultados.participantes_id==db.participantes.id)).select()
+    evento=db(db.eventos.id==request.args(0)).select()
+    return dict(resultados=resultados,evento=evento)
+    
+def mostrar():
+    from DAOCasadeApuestas import *
+    dao = DAOCasadeApuestas()
+    dao2 = DAOCasadeApuestas()
+    dao3 = DAOCasadeApuestas()
+    dao4 = DAOCasadeApuestas()
+    dao5 = DAOCasadeApuestas()
+    q = dao.generarArchivoActualizacionMD5(dao.generarMensajeMD5(db().select(db.eventos.ALL)), dao2.generarMensajeMD5(db().select(db.categorias.ALL)), dao3.generarMensajeMD5(db().select(db.participantes.ALL)), dao4.generarMensajeMD5(db().select(db.eventosparticipantes.ALL)), dao5.generarMensajeMD5(db().select(db.auth_user.ALL)))
+    s = dao.generarArchivoActualizacionXML(dao.generarFormatoXml(db().select(db.eventos.ALL)), dao2.generarFormatoXml(db().select(db.categorias.ALL)), dao3.generarFormatoXml(db().select(db.participantes.ALL)), dao4.generarFormatoXml(db().select(db.eventosparticipantes.ALL)), dao5.generarFormatoXml(db().select(db.auth_user.ALL)))
+    return response.render(dict(q = q, s = s))   
+    
+def verProximosEventos1():
+    import datetime
+    fechaActual=datetime.datetime.now()
+    eventos =db(db.eventos.fecha>fechaActual).select()
+    return dict(eventos=eventos)
+    
+def verProximosEventos2():
+    evento_participante= db((db.eventosparticipantes.eventos_id==request.args(0))& (db.participantes.id==db.eventosparticipantes.participantes_id)).select()
+    evento = db(db.eventos.id==request.args(0)).select()
+    categoria = db((db.categorias.id==db.eventos.categoria_id)& (db.eventos.id==request.args(0))).select()
+    return dict(evento_participante=evento_participante,evento=evento,categoria=categoria)

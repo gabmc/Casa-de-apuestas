@@ -57,7 +57,7 @@ div.error { background-color: red; color: white; padding: 3px; }
    <p>
     &copy;2011 All Rights Reserved. &nbsp;&bull;&nbsp; Design by JSG Systems
    </p> 
-   <a href="../indexAdmin">Administrar</a>
+   <a href="./indexAdmin">Administrar</a>
   </div>
  </body>
 </html>

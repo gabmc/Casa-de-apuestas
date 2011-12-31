@@ -33,9 +33,9 @@ if not request.env.web2py_runtime_gae:
         Field('eventos_id',db.eventos,label=T('Evento')),
         Field('participantes_id',db.participantes,label=T('Participante')),
         Field('relacionpago',label=T('Relacion/Pago')),
-        Field('limite_apuesta','integer',label=T('Limite Apuesta Bs')),
-        primarykey=['eventos_id','participantes_id'],
-        migrate=False)
+        Field('limite_apuesta','integer',label=T('Limite Apuesta Bs')))
+ #       primarykey=['eventos_id','participantes_id'],
+#        migrate=False)
 ##MALDITA PK !!!, HABRA QUE PONERLE ID PARA QUE FUNCIONE, MALA PRACTICA :(
 #    )
     
