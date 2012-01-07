@@ -1,11 +1,44 @@
 {{extend 'layout.html'}}
+<style>
+#sugerencias { position: relative; }
+.sugerencias { background: white; border: solid 1px #55A6C8; }
+.sugerencias DIV { padding: 2px 4px 2px 4px; }
+</style>
 <div id="content">
     <div class="post greenbox">
            <div class="title">
                 <h1>Insertar Participante</h1>
            </div>
            <div class="entry">
-                    {{=form}}
+           {{=form.custom.begin}}
+              <table width="600" border="0">
+              <tr>
+              <td scope="row" align="left">Nombre Participante</td>
+              <td scope="row" align="left">{{=form.custom.widget.nombre}}</td>
+              </tr>
+              <tr>
+              <td scope="row" align="left">Descripcion Participante</td>
+              <td scope="row" align="left">{{=form.custom.widget.descripcion}}</td>
+              </tr>
+              <tr>
+              <td scope="row" align="left">Categoría</td>
+              <td align="left">
+              <input type="text" name="categorias" id="categorias" /><br />
+              <div style="position: absolute;" id="sugerencias"
+              class="sugerencias"></div>
+              <script>
+              jQuery("#categorias").keyup(function(){
+                    ajax('obtenerCategoria', ['categorias'], 'sugerencias')});
+              </script>
+              <input type="hidden" id="eventos_categoria_id" name="categoria_id" value=""/>
+              <td>
+              </tr>
+              <tr>
+              <td scope="row" align="left">&nbsp</td>
+              <td scope="row" align="left">{{=form.custom.submit}}</td>
+              </tr>
+              </table>
+           {{=form.custom.end}}
            </div>
            <div class="btm" align="center">
               <div class="l">
