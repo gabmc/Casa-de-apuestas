@@ -1,11 +1,9 @@
 #!/usr/bin/env python
 # coding: utf8
-from gluon import *
+from gluon.tools import Service
+service = Service()
 
-class Transmisor:
+class ServicioWeb:
 
-    def __init__(self):
-        pass
-        
-    def enviarDatos(self, datos):
-        pass
+    def __init__(self,db):
+        self.__db = db
