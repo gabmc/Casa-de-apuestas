@@ -4,6 +4,7 @@
  */
 package Logica;
 
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -15,17 +16,17 @@ public class Apuesta {
     private String apellidoApostador;
     private int cedulaApostador;
     private float montoApuesta;
-    private Date fechaApuesta;
+    private Calendar fechaApuesta;
     private int idEvento;
     private int idParticipante;
     private int idMaquina;
 
-    public Apuesta(String nombreApostador, String apellidoApostador, int cedulaApostador, float montoApuesta, Date fechaApuesta, int idEvento, int idParticipante) {
+    public Apuesta(String nombreApostador, String apellidoApostador, int cedulaApostador, float montoApuesta, int idEvento, int idParticipante) {
         this.nombreApostador = nombreApostador;
         this.apellidoApostador = apellidoApostador;
         this.cedulaApostador = cedulaApostador;
         this.montoApuesta = montoApuesta;
-        this.fechaApuesta = fechaApuesta;
+        this.fechaApuesta = Calendar.getInstance();
         this.idEvento = idEvento;
         this.idParticipante = idParticipante;
         this.idMaquina = Logica.dameLogica().getID();
@@ -47,12 +48,25 @@ public class Apuesta {
         this.cedulaApostador = cedulaApostador;
     }
 
-    public Date getFechaApuesta() {
+    public Calendar getFechaApuesta() {
         return fechaApuesta;
     }
+
+    public String getFechaApuestaString(){
+        String fecha = String.valueOf(fechaApuesta.get(Calendar.YEAR)) + "-";
+        if (fechaApuesta.get(Calendar.MONTH) < 9)
+            fecha += "0" + String.valueOf(fechaApuesta.get(Calendar.MONTH)+1) + "-";
+        else
+            fecha += String.valueOf(fechaApuesta.get(Calendar.MONTH)+1) + "-";
+        if (fechaApuesta.get(Calendar.DATE) < 10)
+            fecha += "0" + String.valueOf(fechaApuesta.get(Calendar.DATE));
+        else
+            fecha += String.valueOf(fechaApuesta.get(Calendar.DATE));
+        return fecha;
+    }
     
-    public void setFechaApuesta(Date fechaApuesta) {
-        this.fechaApuesta = fechaApuesta;
+    public void setFechaApuesta() {
+        this.fechaApuesta = Calendar.getInstance();
     }
 
     public float getMontoApuesta() {
