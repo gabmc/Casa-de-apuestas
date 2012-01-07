@@ -1,16 +1,65 @@
 {{extend 'layout.html'}}
+<style>
+#sugerencias { position: relative; }
+.sugerencias { background: white; border: solid 1px #55A6C8; }
+.sugerencias DIV { padding: 2px 4px 2px 4px; }
+</style>
 <div id="content">
     <div class="post greenbox">
            <div class="title">
                 <h1>Insertar Evento</h1>
            </div>
            <div class="entry">
-                    {{=form}}
+           {{=form.custom.begin}}
+           <table width="600" border="0">
+                    <tr>
+                    <td scope="row" align="left">Categoría</td>
+                    <td align="left">
+                    <input type="text" name="categorias" id="categorias" /><br />
+                    <div style="position: absolute;" id="sugerencias"
+                    class="sugerencias"></div>
+                    <script>
+                    jQuery("#categorias").keyup(function(){
+                          ajax('obtenerCategoria', ['categorias'], 'sugerencias')});
+                    </script>
+                    <input type="hidden" id="eventos_categoria_id" name="categoria_id" value=""/>
+                    </td>
+                    </tr>
+                    <tr>
+                    <td scope="row" align="left">Nombre Evento</td>
+                    <td align="left">{{=form.custom.widget.nombre}}</td>
+                    </tr>
+                    <tr>
+                    <td scope="row" align="left">Fecha Evento</td>
+                    <td align="left">{{=form.custom.widget.fecha}}</td>
+                    </tr>
+                    <tr>
+                    <td scope="row" align="left">Descripción Evento</td>
+                    <td align="left">{{=form.custom.widget.descripcion}}</td>
+                    </tr>
+                    <tr>
+                    <td scope="row" align="left">Hora Inicio</td>
+                    <td align="left">{{=form.custom.widget.horaInicio}}</td>
+                    </tr>
+                    <tr>
+                    <td scope="row" align="left">Admite Tabla de Resultados</td>
+                    <td align="left">{{=form.custom.widget.admiteTablaResultado}}</td>
+                    </tr>
+                    <tr>
+                    <td scope="row" align="left">Permite Empate</td>
+                    <td align="left">{{=form.custom.widget.permiteEmpate}}</td>
+                    </tr>
+                    <tr>
+                    <td scope="row" align="left">&nbsp;</td>
+                    <td align="left">{{=form.custom.submit}}</td>
+                    </tr>
+           </table>
+           {{=form.custom.end}}
            </div>
            <div class="btm" align="center">
               <div class="l">
                   <div class="r">
-                       <small>*Por favor llenar todos los campos solicitados</small>
+                       <small>*Por favor llenar todos los campos solicitados</br></small>
                                        <small>{{=A('Regresar', _href=URL("index"))}}</small>
                   </div>
               </div>
