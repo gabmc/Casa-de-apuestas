@@ -170,7 +170,17 @@ db.define_table('apuestas',
         Field ('fechaApuesta','string',requires=IS_NOT_EMPTY()),
         Field ('maquina_id',db.maquinas,requires=IS_NOT_EMPTY())
         )
+db.apuestas.maquina_id.requires = IS_IN_DB(db, db.maquinas.id, '%(id)s')
 
+db.define_table('e_a_p',
+        Field ('eventos_id',db.eventos,requires=IS_NOT_EMPTY()),
+        Field ('apuestas_id',db.apuestas,requires=IS_NOT_EMPTY()),
+        Field ('participantes_id',db.participantes,requires=IS_NOT_EMPTY())
+        )
+        
+db.e_a_p.eventos_id.requires = IS_IN_DB(db, db.eventos.id, '%(nombre)s')
+db.e_a_p.apuestas_id.requires = IS_IN_DB(db, db.apuestas.id, '%(fechaApuesta)s')
+db.e_a_p.participantes_id.requires = IS_IN_DB(db, db.participantes.id, '%(nombre)s')
 
 
 ## configure email

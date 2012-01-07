@@ -1,5 +1,5 @@
 (dp1
-S'cedulaApostador'
+S'cedulaapostador'
 p2
 (dp3
 S'type'
@@ -13,7 +13,7 @@ sS'sql'
 p7
 S'INTEGER'
 p8
-ssS'nombreApostador'
+ssS'nombreapostador'
 p9
 (dp10
 g4
@@ -24,39 +24,32 @@ I2
 sg7
 S'CHAR(512)'
 p12
-ssS'fechaApuesta'
+ssS'maquina_id'
 p13
 (dp14
-g4
-S'date'
+S'type'
 p15
-sg6
-I6
-sg7
-S'DATE'
+S'reference maquinas'
 p16
-ssS'montoApuesta'
+sS'sortable'
 p17
-(dp18
-g4
-g5
-sg6
-I5
-sg7
-S'INTEGER'
+I4
+sS'sql'
+p18
+S'INTEGER REFERENCES maquinas(id) ON DELETE CASCADE'
 p19
-ssS'maquina_id'
+ssS'montoapuesta'
 p20
 (dp21
-g4
-S'reference maquinas'
+g15
+S'integer'
 p22
-sg6
-I7
-sg7
-S'INTEGER REFERENCES maquinas(id) ON DELETE CASCADE'
+sg17
+I2
+sg18
+S'INTEGER'
 p23
-ssS'apellidoApostador'
+ssS'apellidoapostador'
 p24
 (dp25
 g4
@@ -69,11 +62,23 @@ p26
 ssS'id'
 p27
 (dp28
-g4
-g27
-sg6
-I1
-sg7
-S'INTEGER PRIMARY KEY AUTOINCREMENT'
+g15
+S'id'
 p29
+sg17
+I1
+sg18
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
+p30
+ssS'fechaapuesta'
+p31
+(dp32
+g15
+S'string'
+p33
+sg17
+I3
+sg18
+S'CHAR(512)'
+p34
 ss.
