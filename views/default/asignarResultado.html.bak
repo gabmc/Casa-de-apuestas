@@ -1,0 +1,29 @@
+{{extend 'layout.html'}}
+<div id="content">
+    <div class="post greenbox">
+           <div class="title">
+                <h1>Asignar Resultado: Lista de Eventos</h1>
+           </div>
+           <div class="entry">
+               <ul>
+               {{if not(request.args(0)):}}
+               {{for evento in eventos:}}
+               {{=LI(A(evento.nombre, _href=URL("asignarResultado", args=evento.id)))}}
+               {{pass}}
+               {{else:}}
+               {{=H2(Nombre del Evento: evento.nombre)}}<br/>
+               {{for participante in participantes:}}
+               {{=T(participante.nombre)}}<br/>
+               {{pass}}
+               {{pass}}
+               </ul>
+           </div>
+           <div class="btm" align="center">
+              <div class="l">
+                  <div class="r">
+                                       <small>{{=A('Regresar', _href=URL("index"))}}</small>
+                  </div>
+              </div>
+           </div>
+     </div>
+</div>
