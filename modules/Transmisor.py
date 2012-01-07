@@ -11,6 +11,6 @@ class ServicioWeb:
     def obtenerServicio(self):
         return service()        
     
-    @service.soap('enviarApuesta', returns={'result':str},args={'listaApuestas':[{'apuesta':{'nombreApostador':str, 'apellidoApostador':str, 'cedulaApostador':int, 'montoApuesta':int, 'fechaApuesta':str, 'maquinaid':id}}]})
+    @service.soap('enviarApuesta', returns={'result':str},args={'listaApuestas':[{'apuesta':{'idEvento':int, 'idParticipante':int, 'montoApuesta':int, 'fechaApuesta':str, 'maquinaid':id}}]})
     def enviarApuesta(listaApuestas):
         return 'hola'
