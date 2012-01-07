@@ -16,16 +16,18 @@ public class Apuesta {
     private int cedulaApostador;
     private float montoApuesta;
     private Date fechaApuesta;
-    private int idApuesta;
+    private int idEvento;
+    private int idParticipante;
     private int idMaquina;
 
-    public Apuesta(String nombreApostador, String apellidoApostador, int cedulaApostador, float montoApuesta, Date fechaApuesta, int idApuesta) {
+    public Apuesta(String nombreApostador, String apellidoApostador, int cedulaApostador, float montoApuesta, Date fechaApuesta, int idEvento, int idParticipante) {
         this.nombreApostador = nombreApostador;
         this.apellidoApostador = apellidoApostador;
         this.cedulaApostador = cedulaApostador;
         this.montoApuesta = montoApuesta;
         this.fechaApuesta = fechaApuesta;
-        this.idApuesta = idApuesta;
+        this.idEvento = idEvento;
+        this.idParticipante = idParticipante;
         this.idMaquina = Logica.dameLogica().getID();
     }
 
@@ -51,14 +53,6 @@ public class Apuesta {
     
     public void setFechaApuesta(Date fechaApuesta) {
         this.fechaApuesta = fechaApuesta;
-    }
-
-    public int getIdApuesta() {
-        return idApuesta;
-    }
-
-    public void setIdApuesta(int idApuesta) {
-        this.idApuesta = idApuesta;
     }
 
     public float getMontoApuesta() {
