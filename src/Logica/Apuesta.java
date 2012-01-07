@@ -17,6 +17,7 @@ public class Apuesta {
     private float montoApuesta;
     private Date fechaApuesta;
     private int idApuesta;
+    private int idMaquina;
 
     public Apuesta(String nombreApostador, String apellidoApostador, int cedulaApostador, float montoApuesta, Date fechaApuesta, int idApuesta) {
         this.nombreApostador = nombreApostador;
@@ -25,6 +26,7 @@ public class Apuesta {
         this.montoApuesta = montoApuesta;
         this.fechaApuesta = fechaApuesta;
         this.idApuesta = idApuesta;
+        this.idMaquina = Logica.dameLogica().getID();
     }
 
     public String getApellidoApostador() {
@@ -46,7 +48,7 @@ public class Apuesta {
     public Date getFechaApuesta() {
         return fechaApuesta;
     }
-
+    
     public void setFechaApuesta(Date fechaApuesta) {
         this.fechaApuesta = fechaApuesta;
     }

@@ -12,9 +12,10 @@ import java.util.ArrayList;
  */
 public class Logica {
     
-    ArrayList<Administrador> listaAdministradores;
-    ArrayList<Categoria> listaCategorias;
-    ArrayList<Apuesta> listaApuestas;
+    private int id;
+    private ArrayList<Administrador> listaAdministradores;
+    private ArrayList<Categoria> listaCategorias;
+    private ArrayList<Apuesta> listaApuestas;
     
     private Logica(){
         
@@ -39,6 +40,12 @@ public class Logica {
     public ArrayList<Categoria> getListaCategorias() {
         return listaCategorias;
     }
-    
-    
+
+    public void setID(int id){
+        this.id = id;
+    }
+
+    public int getID(){
+        return id;
+    }
 }
