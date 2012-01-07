@@ -241,3 +241,8 @@ def verProximosEventos2():
     evento = db(db.eventos.id==request.args(0)).select()
     categoria = db((db.categorias.id==db.eventos.categoria_id)& (db.eventos.id==request.args(0))).select()
     return dict(evento_participante=evento_participante,evento=evento,categoria=categoria)
+    
+def call():
+    from Transmisor import ServicioWeb
+    servicio = ServicioWeb(db)
+    return servicio.obtenerServicio()

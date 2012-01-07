@@ -166,16 +166,11 @@ db.auth_user.email.requires = (IS_EMAIL(error_message=auth.messages.invalid_emai
 auth.define_tables(migrate = settings.migrate) 
 
 db.define_table('apuestas',
-        Field ('nombreApostador','string',requires=IS_NOT_EMPTY()),
-        Field ('apellidoApostador','string',requires=IS_NOT_EMPTY()),        
-        Field ('cedulaApostador','integer',requires=IS_NOT_EMPTY()),
         Field ('montoApuesta','integer',requires=IS_NOT_EMPTY()),
         Field ('fechaApuesta','string',requires=IS_NOT_EMPTY()),
         Field ('maquina_id',db.maquinas,requires=IS_NOT_EMPTY())
         )
 
-db.apuestas.nombreApostador.requires = IS_LENGTH(maxsize=25)
-db.apuestas.apellidoApostador.requires = IS_LENGTH(maxsize=25)
 
 
 ## configure email

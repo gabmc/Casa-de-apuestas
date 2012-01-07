@@ -7,3 +7,10 @@ class ServicioWeb:
 
     def __init__(self,db):
         self.__db = db
+    
+    def obtenerServicio(self):
+        return service()        
+    
+    @service.soap('enviarApuesta', returns={'result':str},args={'listaApuestas':[{'apuesta':{'nombreApostador':str, 'apellidoApostador':str, 'cedulaApostador':int, 'montoApuesta':int, 'fechaApuesta':str, 'maquinaid':id}}]})
+    def enviarApuesta(listaApuestas):
+        return 'hola'

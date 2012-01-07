@@ -1,11 +1,17 @@
 #!/usr/bin/env python
 # coding: utf8
-from gluon import *
+from gluon.tools import Service
+service = Service()
 
-class Transmisor:
+class ServicioWeb:
 
-    def __init__(self):
-        pass
-        
-    def enviarDatos(self, datos):
-        pass
+    def __init__(self,db):
+        self.__db = db
+    
+    def obtenerServicio(self):
+        return service()        
+    
+    @service.soap('enviarApuesta', returns={'result':str},args={'listaApuestas':[{'apuesta':{'nombreApostador':str, 'apellidoApostador':str, 'cedulaApostador':int, 'montoApuesta':int, 'fechaApuesta':str, 'maquinaid':id}}]})
+    def enviarApuesta(listaApuestas):
+        limite = len(listaApuestas)
+        return self.__nombre
