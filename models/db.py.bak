@@ -34,6 +34,8 @@ if not request.env.web2py_runtime_gae:
         Field('participantes_id',db.participantes,label=T('Participante')),
         Field('relacionpago',label=T('Relacion/Pago')),
         Field('limite_apuesta','integer',label=T('Limite Apuesta Bs')))
+ #       primarykey=['eventos_id','participantes_id'],
+#        migrate=False)
 ##MALDITA PK !!!, HABRA QUE PONERLE ID PARA QUE FUNCIONE, MALA PRACTICA :(
 #    )
     
@@ -138,6 +140,19 @@ db.define_table('auth_user',
     format='%(nick)s',
     migrate=settings.migrate)
 
+db.define_table('apuestas',
+        Field ('nombreApostador','string',requires=IS_NOT_EMPTY()),
+        Field ('apellidoApostador','string',requires=IS_NOT_EMPTY()),        
+        Field ('cedulaApostador','integer',requires=IS_NOT_EMPTY()),
+        Field ('montoApuesta','integer',requires=IS_NOT_EMPTY()),
+        Field ('fechaApuesta','date',requires=IS_NOT_EMPTY()),
+        Field ('maquina_id',db.maquinas,requires=IS_NOT_EMPTY())
+        )
+
+db.apuestas.nombreApostador.requires = IS_LENGTH(maxsize=25)
+db.apuestas.apellidoApostador.requires = IS_LENGTH(maxsize=25)
+
+        
 db.define_table('maquinas',
         Field('usuario_id',db.auth_user,requires=IS_NOT_EMPTY()),
         Field('estado','boolean',requires=IS_NOT_EMPTY()),
