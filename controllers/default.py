@@ -63,6 +63,19 @@ def crearEvento():
         elif form.errors:
             response.flash = 'Error en el formulario'
         return response.render(dict(form=form,eventos=eventos))
+        
+def obtenerCategoria():
+        if not request.vars.categorias:
+            return ''
+        patron = request.vars.categorias.capitalize() + '%'
+        seleccionado = db(db.categorias.nombre.like(patron)).select()
+        return ''.join([DIV(k.nombre,
+                     _onclick="jQuery('#categorias').val('%s');" % k.nombre +
+                     "document.getElementById('sugerencias').innerHTML = '';" +
+                     "document.getElementById('eventos_categoria_id').value='27';",
+                     _onmouseover="this.style.backgroundColor='yellow'",
+                     _onmouseout="this.style.backgroundColor='white'"
+                     ).xml() for k in seleccionado])
 
 def crearParticipante():
         participantes = db().select(db.participantes.ALL)
