@@ -33,9 +33,9 @@ if not request.env.web2py_runtime_gae:
         Field('eventos_id',db.eventos,label=T('Evento')),
         Field('participantes_id',db.participantes,label=T('Participante')),
         Field('relacionpago',label=T('Relacion/Pago')),
-        Field('limite_apuesta','integer',label=T('Limite Apuesta Bs')),
-        primarykey=['eventos_id','participantes_id'],
-        migrate=False)
+        Field('limite_apuesta','integer',label=T('Limite Apuesta Bs')))
+ #       primarykey=['eventos_id','participantes_id'],
+#        migrate=False)
 ##MALDITA PK !!!, HABRA QUE PONERLE ID PARA QUE FUNCIONE, MALA PRACTICA :(
 #    )
     
@@ -48,20 +48,25 @@ if not request.env.web2py_runtime_gae:
       
     db.categorias.nombre.requires = IS_NOT_EMPTY()
     db.categorias.nombre.requires = IS_NOT_IN_DB(db, db.categorias.nombre)
+    db.categorias.nombre.requires = IS_LENGTH(maxsize=25)
 
     db.categorias.descripcion.requires= IS_NOT_EMPTY()      
+    db.categorias.descripcion.requires= IS_LENGTH(maxsize=4000)
   
     db.eventos.categoria_id.requires = IS_IN_DB(db, db.categorias.id, '%(nombre)s')
     db.eventos.nombre.requires = IS_NOT_EMPTY()
+    db.eventos.nombre.requires = IS_LENGTH(maxsize=25)
     db.eventos.fecha.requires = IS_NOT_EMPTY()
     db.eventos.descripcion.requires = IS_NOT_EMPTY()
+    db.eventos.descripcion.requires = IS_LENGTH(maxsize=4000)
     db.eventos.nombre.requires = IS_NOT_IN_DB(db, db.eventos.nombre)
- #  db.eventos.relacionpago.requires = IS_IN_SET(['1 a 1', '2 a 1', ' 3 a 1'])
     
     
     db.participantes.nombre.requires = IS_NOT_EMPTY()
+    db.participantes.nombre.requires = IS_LENGTH(maxsize=25)
     db.participantes.nombre.requires = IS_NOT_IN_DB(db, db.participantes.nombre)
     db.participantes.descripcion.requires = IS_NOT_EMPTY()
+    db.participantes.descripcion.requires = IS_LENGTH(maxsize=4000)
     db.participantes.categoria_id.requires = IS_IN_DB(db, db.categorias.id, '%(nombre)s')
     
     db.eventosparticipantes.eventos_id.requires = IS_IN_DB(db, db.eventos.id, '%(nombre)s')
@@ -99,6 +104,12 @@ response.generic_patterns = ['*'] if request.is_local else []
 from gluon.tools import Auth, Crud, Service, PluginManager, prettydate
 auth = Auth(db, hmac_key=Auth.get_or_create_key()) 
 crud, service, plugins = Crud(db), Service(), PluginManager()
+
+crud.messages.submit_button = 'Enviar'
+crud.messages.delete_label = 'Click para Eliminar'
+crud.messages.record_created = 'Registro Creado'
+crud.messages.record_updated = 'Registro Actualizado'
+crud.messages.record_deleted = 'Registro Eliminado'
 
 ## create all tables needed by auth if not custom tables
 
@@ -139,9 +150,13 @@ db.define_table('maquinas',
         Field('capacidadDiscoDuro','string',requires=IS_NOT_EMPTY()))
 
 db.auth_user.nombre.requires = IS_NOT_EMPTY(error_message=auth.messages.is_empty)
+db.auth_user.nombre.requires = IS_LENGTH(maxsize=25)
 db.auth_user.apellido.requires = IS_NOT_EMPTY(error_message=auth.messages.is_empty)
+db.auth_user.apellido.requires = IS_LENGTH(maxsize=25)
 db.auth_user.password.requires = CRYPT(key=auth.settings.hmac_key)
+db.auth_user.password.requires = IS_LENGTH(maxsize=25)
 db.auth_user.nick.requires = IS_NOT_IN_DB(db, db.auth_user.nick)
+db.auth_user.nick.requires = IS_LENGTH(maxsize=25)
 db.auth_user.registration_id.requires = IS_NOT_IN_DB(db, db.auth_user.registration_id)
 db.auth_user.email.requires = (IS_EMAIL(error_message=auth.messages.invalid_email),
                                IS_NOT_IN_DB(db, db.auth_user.email))

@@ -16,13 +16,14 @@ class DAOCasadeApuestas:
     
     @param rows: Las columnas generadas por un query
     """
-    def generarFormatoXml(self, rows):
+    def generarFormatoXml(self, rows, tabla):
         idx=range(len(rows.colnames))
         colnames=[item.replace('.','_') for item in rows.colnames]
         records=[]
         for row in rows.response:
             records.append(TAG['record'](*[TAG[colnames[i]](row[i]) for i in idx]))
-        return str(TAG['records'](*records))
+            records.append("\n")
+        return str(TAG[tabla](*records))
         
     """
     Genera un hash MD5 del mensaje, resultado del query pasado por parametros
@@ -31,7 +32,7 @@ class DAOCasadeApuestas:
     """
        
     def generarMensajeMD5(self, rows):
-        self.__codificador.update(self.generarFormatoXml(rows))
+  #      self.__codificador.update(self.generarFormatoXml(rows))
         return (self.__codificador.hexdigest())
 
     """
@@ -50,7 +51,7 @@ class DAOCasadeApuestas:
     """
         
     def generarArchivoActualizacionMD5(self, eventos, categorias, participantes, eventosparticipantes, usuarios):
-        f = open ("C:/Python32/web2py_win/web2py/applications/Casa_de_Apuestas/static/archivoActualizacion.md5", "w")
+        f = open ("C:/Python32/web2py/applications/Casa_de_Apuestas/static/archivoActualizacion.md5", "w")
         f.write(eventos + "\n")
         f.write(categorias + "\n")
         f.write(participantes + "\n")
@@ -60,7 +61,7 @@ class DAOCasadeApuestas:
         from log import *
         l = log()
         l.logear("Archivo de actualización creado")
-        return ("C:/Python32/web2py_win/web2py/applications/Casa_de_Apuestas/static/archivoActualizacion.md5")  
+        return ("C:/Python32/web2py/applications/Casa_de_Apuestas/static/archivoActualizacion.md5")  
     
     """
     Genera un hash MD5 del mensaje, resultado del query pasado por parametros
@@ -74,7 +75,7 @@ class DAOCasadeApuestas:
     """
         
     def generarArchivoActualizacionXML(self, eventos, categorias, participantes, eventosparticipantes, usuarios):
-        f = open ("C:/Python32/web2py_win/web2py/applications/Casa_de_Apuestas/static/archivoActualizacion.xml", "w")
+        f = open ("C:/Python32/web2py/applications/Casa_de_Apuestas/static/archivoActualizacion.xml", "w")
         f.write(eventos + "\n")
         f.write(categorias + "\n")
         f.write(participantes + "\n")
@@ -84,4 +85,4 @@ class DAOCasadeApuestas:
         from log import *
         l = log()
         l.logear("Archivo de actualización creado")
-        return ("C:/Python32/web2py_win/web2py/applications/Casa_de_Apuestas/static/archivoActualizacion.xml")
+        return ("C:/Python32/web2py/applications/Casa_de_Apuestas/static/archivoActualizacion.xml")

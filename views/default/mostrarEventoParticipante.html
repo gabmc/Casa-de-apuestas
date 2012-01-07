@@ -2,12 +2,12 @@
 <div id="content">
     <div class="post greenbox">
            <div class="title">
-                <h1>Listado de Usuarios</h1>
+                <h1>Listado de Eventos</h1>
            </div>
            <div class="entry">
                <ul>
-               {{for usuario in usuarios:}}
-               {{=LI(A(usuario.nombre, _href=URL("showUsuario", args=usuario.id)))}}
+               {{for evento in eventos:}}
+               {{=LI(A(evento.nombre, _href=URL("showEventoParticipante1", args=evento.id)))}}
                {{pass}}
                </ul>
            </div>
@@ -19,19 +19,5 @@
               </div>
            </div>
      </div>
-</div>
-<div id="sidebar">
-  <ul>
-    <li>
-      <h2>
-       Información
-      </h2>
-      <ul>
-        <b>Precaución: </b> Los usuarios que se
-        encuentran en este listado, tienen permisos
-        de modificación. Debe tener cuidado con los
-        cambios que puedan suscitarse en este apartado. 
-      </ul>
-    </li>
 </div>
 {{pass}}

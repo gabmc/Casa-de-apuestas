@@ -15,8 +15,11 @@ def call(): return service()
 
 ### end requires
 
-@auth.requires_login()
 def index():
+    return dict()
+    
+@auth.requires_login()
+def indexAdmin():
     return dict()
 
 def error():
@@ -42,6 +45,9 @@ def crearCategoria():
             from log import *
             log = log()
             log.logear("Categoria creada: "+form.vars.nombre)
+            response.flash = 'Categoria Creada'
+        elif form.errors:
+            response.flash = 'Error en el formulario'
         return response.render(dict(form=form, categorias=categorias))
 
 def crearEvento():
@@ -53,6 +59,9 @@ def crearEvento():
             from log import *
             log = log()
             log.logear("Evento creado: "+form.vars.nombre)
+            response.flash = 'Evento Creado'
+        elif form.errors:
+            response.flash = 'Error en el formulario'
         return response.render(dict(form=form,eventos=eventos))
 
 def crearParticipante():
@@ -64,6 +73,9 @@ def crearParticipante():
             from log import *
             log = log()
             log.logear("Participante creado: "+form.vars.nombre)
+            response.flash = 'Participante Creado'
+        elif form.errors:
+            response.flash = 'Error en el formulario'
         return response.render(dict(form=form,participantes=participantes))
 
 def crearEventoParticipante():
@@ -75,6 +87,9 @@ def crearEventoParticipante():
             from log import *
             log = log()
             log.logear("EventoParticipante creado: "+form.vars.nombre)
+            response.flash = 'EventoParticipante Creado'
+        elif form.errors:
+            response.flash = 'Error en el formulario'
         return response.render(dict(form=form,eventosparticipantes=eventosparticipantes))
 
 def crearUsuario():
@@ -86,6 +101,9 @@ def crearUsuario():
             from log import *
             log = log()
             log.logear("Usuario creado: "+form.vars.nombre)
+            response.flash = 'Usuario Creado'
+        elif form.errors:
+            response.flash = 'Error en el formulario'
         return response.render(dict(form=form,usuarios=usuarios))
     
 
@@ -101,9 +119,10 @@ def mostrarParticipante():
         participantes = db().select(db.participantes.ALL, orderby = db.participantes.id)
         return response.render(dict(participantes = participantes))
 
-def mostrarEventosParticipantes():
-        eventosparticipantes = db().select(db.eventosparticipantes.ALL,orderby = db.eventosparticipantes.id)
-        return response.render(dict(eventosparticipantes= eventosparticipantes))
+def mostrarEventoParticipante():
+        eventos = db().select(db.eventos.ALL, orderby = db.eventos.id)
+        return response.render(dict(eventos= eventos))
+        
     
 def mostrarUsuario():
         usuarios = db().select(db.auth_user.ALL, orderby = db.auth_user.id)
@@ -119,6 +138,8 @@ def showEvento():
             from log import *
             log = log()
             log.logear("Evento modificado: "+form.vars.nombre)           
+        elif form.errors:
+            response.flash = 'Error en el formulario'
         return response.render(dict(form = form))
 
 def showCategoria():
@@ -129,6 +150,8 @@ def showCategoria():
             from log import *
             log = log()
             log.logear("Categoria modificada: "+form.vars.nombre)          
+        elif form.errors:
+            response.flash = 'Error en el formulario'
         return response.render(dict(form = form))
 
 def showParticipante():
@@ -139,10 +162,24 @@ def showParticipante():
             from log import *
             log = log()
             log.logear("Participante modificado: "+form.vars.nombre)            
+        elif form.errors:
+            response.flash = 'Error en el formulario'
         return response.render(dict(form = form)) 
 
-def showEventosParticipantes():
-    return service.showEventoParticipante(request)
+def showEventoParticipante1():
+    participantes= db((db.eventosparticipantes.eventos_id == request.args(0)) & (db.participantes.id==db.eventosparticipantes.participantes_id)).select()
+    return dict(participantes=participantes,evento_id=request.args(0))
+    
+def showEventoParticipante2():
+    form = crud.update(db.eventosparticipantes,request.args(0),next=URL('mostrarEventoParticipante'))
+    if form.process().accepted:
+            db.commit()        
+            from log import *
+            log = log()
+            log.logear("EventoParticipante modificado: "+form.vars.nombre)            
+    elif form.errors:
+            response.flash = 'Error en el formulario'
+    return response.render(dict(form = form)) 
     
 def showUsuario():
         form = crud.update(db.auth_user, request.args(0), next = URL('mostrarUsuario'))
@@ -152,6 +189,8 @@ def showUsuario():
             from log import *
             log = log()
             log.logear("Usuario modificado: "+form.vars.nombre)           
+        elif form.errors:
+            response.flash = 'Error en el formulario'
         return response.render(dict(form = form))
 
 
@@ -173,9 +212,10 @@ def mostrar():
     dao3 = DAOCasadeApuestas()
     dao4 = DAOCasadeApuestas()
     dao5 = DAOCasadeApuestas()
-    q = dao.generarArchivoActualizacionMD5(dao.generarMensajeMD5(db().select(db.eventos.ALL)), dao2.generarMensajeMD5(db().select(db.categorias.ALL)), dao3.generarMensajeMD5(db().select(db.participantes.ALL)), dao4.generarMensajeMD5(db().select(db.eventosparticipantes.ALL)), dao5.generarMensajeMD5(db().select(db.auth_user.ALL)))
-    s = dao.generarArchivoActualizacionXML(dao.generarFormatoXml(db().select(db.eventos.ALL)), dao2.generarFormatoXml(db().select(db.categorias.ALL)), dao3.generarFormatoXml(db().select(db.participantes.ALL)), dao4.generarFormatoXml(db().select(db.eventosparticipantes.ALL)), dao5.generarFormatoXml(db().select(db.auth_user.ALL)))
-    return response.render(dict(q = q, s = s))   
+#    q = dao.generarArchivoActualizacionMD5(dao.generarMensajeMD5(db().select(db.eventos.ALL)), dao2.generarMensajeMD5(db().select(db.categorias.ALL)), dao3.generarMensajeMD5(db().select(db.participantes.ALL)), dao4.generarMensajeMD5(db().select(db.eventosparticipantes.ALL)), dao5.generarMensajeMD5(db().select(db.auth_user.ALL)))
+    s = dao.generarArchivoActualizacionXML(dao.generarFormatoXml(db().select(db.eventos.ALL),'eventos'), dao2.generarFormatoXml(db().select(db.categorias.ALL),'categorias'), dao3.generarFormatoXml(db().select(db.participantes.ALL),'participantes'), dao4.generarFormatoXml(db().select(db.eventosparticipantes.ALL),'eventosparticipantes'), dao5.generarFormatoXml(db().select(db.auth_user.ALL),'auth_user'))
+#    return response.render(dict(q = q, s = s))   
+    return response.render(dict(s = s))   
     
 def verProximosEventos1():
     import datetime
@@ -188,6 +228,3 @@ def verProximosEventos2():
     evento = db(db.eventos.id==request.args(0)).select()
     categoria = db((db.categorias.id==db.eventos.categoria_id)& (db.eventos.id==request.args(0))).select()
     return dict(evento_participante=evento_participante,evento=evento,categoria=categoria)
-    
-def indexPublico():
-    return dict()

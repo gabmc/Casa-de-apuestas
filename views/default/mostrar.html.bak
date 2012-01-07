@@ -5,8 +5,8 @@
                 <h1>Descarga de archivo de actualización</h1>
            </div>
            <div class="entry">
-                    <a href="/Casa_de_Apuestas/static/archivoActualizacion.md5?attachment">Descargar archivo MD5</a>
-<a href="/Casa_de_Apuestas/static/archivoActualizacion.xml?attachment">Descargar archivo XML</a>
+<li>                    <a href="/Casa_de_Apuestas/static/archivoActualizacion.md5?attachment">Descargar archivo MD5</a></li>
+<li><a href="/Casa_de_Apuestas/static/archivoActualizacion.xml?attachment">Descargar archivo XML</a></li>
            </div>
            <div class="btm" align="center">
               <div class="l">

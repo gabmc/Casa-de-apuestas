@@ -10,7 +10,7 @@ class log:
     Se asigna un directorio de ubicacion del archivo
     """
     def __init__(self):
-        self.__path = "C:/Python32/web2py_win/web2py/applications/Casa_de_Apuestas/static/bitacora.log"
+        self.__path = "C:/Python32/web2py/applications/Casa_de_Apuestas/static/bitacora.log"
 
     """
     Metodo encargado de abrir y escribir en el archivo. 
