@@ -170,7 +170,7 @@ db.define_table('apuestas',
         Field ('apellidoApostador','string',requires=IS_NOT_EMPTY()),        
         Field ('cedulaApostador','integer',requires=IS_NOT_EMPTY()),
         Field ('montoApuesta','integer',requires=IS_NOT_EMPTY()),
-        Field ('fechaApuesta','date',requires=IS_NOT_EMPTY()),
+        Field ('fechaApuesta','string',requires=IS_NOT_EMPTY()),
         Field ('maquina_id',db.maquinas,requires=IS_NOT_EMPTY())
         )
 
