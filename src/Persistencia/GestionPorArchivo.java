@@ -5,10 +5,14 @@
 
 package Persistencia;
 
+import javax.swing.text.Document;
+
 /**
  *
  * @author hector
  */
 public class GestionPorArchivo {
-
+    
+    static Document document;
+    
 }
