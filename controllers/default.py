@@ -249,6 +249,10 @@ def enviarApuesta(listaApuestas):
     for i in range(0,len(listaApuestas)):
         db.apuestas.insert(eventos_id = listaApuestas[i]['apuesta']['idEvento'],participantes_id = listaApuestas[i]['apuesta']['idParticipante'],montoApuesta = listaApuestas[i]['apuesta']['montoApuesta'], fechaApuesta = listaApuestas[i]['apuesta']['fechaApuesta'], maquina_id = listaApuestas[i]['apuesta']['maquinaid'])
     return True
+
+#@servicioWeb.soap('sencillo',returns={'result':str},args={'parameter':str})
+#def sencillo(parameter):
+#    return parameter
     
 def call():
     return servicioWeb()
