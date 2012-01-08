@@ -30,22 +30,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link EnviarApuestaResponse }
-     * 
-     */
-    public EnviarApuestaResponse createEnviarApuestaResponse() {
-        return new EnviarApuestaResponse();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfenviarApuestalistaApuestasapuesta }
-     * 
-     */
-    public ArrayOfenviarApuestalistaApuestasapuesta createArrayOfenviarApuestalistaApuestasapuesta() {
-        return new ArrayOfenviarApuestalistaApuestasapuesta();
-    }
-
-    /**
      * Create an instance of {@link ArrayOfenviarApuestalistaApuestas }
      * 
      */
@@ -54,11 +38,27 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link EnviarApuestaResponse }
+     * 
+     */
+    public EnviarApuestaResponse createEnviarApuestaResponse() {
+        return new EnviarApuestaResponse();
+    }
+
+    /**
      * Create an instance of {@link EnviarApuesta }
      * 
      */
     public EnviarApuesta createEnviarApuesta() {
         return new EnviarApuesta();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfenviarApuestalistaApuestasapuesta }
+     * 
+     */
+    public ArrayOfenviarApuestalistaApuestasapuesta createArrayOfenviarApuestalistaApuestasapuesta() {
+        return new ArrayOfenviarApuestalistaApuestasapuesta();
     }
 
 }

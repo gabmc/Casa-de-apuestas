@@ -15,11 +15,13 @@ public class Logica {
     private int id;
     private ArrayList<Administrador> listaAdministradores;
     private ArrayList<Categoria> listaCategorias;
+    private ArrayList<Evento> listaEventos;
     private ArrayList<Apuesta> listaApuestas;
     
     private Logica(){
         listaAdministradores = new ArrayList();
         listaCategorias = new ArrayList();
+        listaEventos = new ArrayList();
         listaApuestas = new ArrayList();
         id = 9;
     }
@@ -42,6 +44,10 @@ public class Logica {
 
     public ArrayList<Categoria> getListaCategorias() {
         return listaCategorias;
+    }
+
+    public ArrayList<Evento> getListaEventos() {
+        return listaEventos;
     }
 
     public void setID(int id){
