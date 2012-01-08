@@ -15,13 +15,13 @@ public class Apuesta {
     private String nombreApostador;
     private String apellidoApostador;
     private int cedulaApostador;
-    private float montoApuesta;
+    private int montoApuesta;  //Volver a Float
     private Calendar fechaApuesta;
     private int idEvento;
     private int idParticipante;
     private int idMaquina;
 
-    public Apuesta(String nombreApostador, String apellidoApostador, int cedulaApostador, float montoApuesta, int idEvento, int idParticipante) {
+    public Apuesta(String nombreApostador, String apellidoApostador, int cedulaApostador, int montoApuesta, int idEvento, int idParticipante) {
         this.nombreApostador = nombreApostador;
         this.apellidoApostador = apellidoApostador;
         this.cedulaApostador = cedulaApostador;
@@ -73,7 +73,7 @@ public class Apuesta {
         return montoApuesta;
     }
 
-    public void setMontoApuesta(float montoApuesta) {
+    public void setMontoApuesta(int montoApuesta) {
         this.montoApuesta = montoApuesta;
     }
 
@@ -85,5 +85,33 @@ public class Apuesta {
         this.nombreApostador = nombreApostador;
     }
     
+     public int getIdEvento() {
+        return idEvento;
+    }
+
+    public int getIdMaquina() {
+        return idMaquina;
+    }
+
+    public int getIdParticipante() {
+        return idParticipante;
+    }
+
+    public void setIdEvento(int idEvento) {
+        this.idEvento = idEvento;
+    }
+
+    public void setIdMaquina(int idMaquina) {
+        this.idMaquina = idMaquina;
+    }
+
+    public void setIdParticipante(int idParticipante) {
+        this.idParticipante = idParticipante;
+    }
+
+    public void setFechaApuesta(Calendar fechaApuesta) {
+        this.fechaApuesta = fechaApuesta;
+    }
+
     
 }
