@@ -30,11 +30,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link EnviarApuesta }
+     * Create an instance of {@link EnviarApuestaResponse }
      * 
      */
-    public EnviarApuesta createEnviarApuesta() {
-        return new EnviarApuesta();
+    public EnviarApuestaResponse createEnviarApuestaResponse() {
+        return new EnviarApuestaResponse();
     }
 
     /**
@@ -54,11 +54,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link EnviarApuestaResponse }
+     * Create an instance of {@link EnviarApuesta }
      * 
      */
-    public EnviarApuestaResponse createEnviarApuestaResponse() {
-        return new EnviarApuestaResponse();
+    public EnviarApuesta createEnviarApuesta() {
+        return new EnviarApuesta();
     }
 
 }

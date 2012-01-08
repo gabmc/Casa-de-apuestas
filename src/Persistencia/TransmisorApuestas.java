@@ -57,8 +57,12 @@ public class TransmisorApuestas {
     }
 
     public boolean enviarApuesta(){
+        if ((logica.getListaApuestas() != null)||
+                !logica.getListaApuestas().isEmpty()){
         EnviarApuesta peticion = new EnviarApuesta();
         peticion.setListaApuestas(construirListaParametro());
         return tipoPuerto.enviarApuesta(peticion).isResult();
+        }
+        return Boolean.FALSE;
     }
 }
