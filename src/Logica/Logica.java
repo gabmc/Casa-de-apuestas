@@ -18,7 +18,10 @@ public class Logica {
     private ArrayList<Apuesta> listaApuestas;
     
     private Logica(){
-        
+        listaAdministradores = new ArrayList();
+        listaCategorias = new ArrayList();
+        listaApuestas = new ArrayList();
+        id = 9;
     }
     
     private static Logica instancia;
@@ -47,5 +50,9 @@ public class Logica {
 
     public int getID(){
         return id;
+    }
+
+    public boolean insertarApuestaLocal(Apuesta apuesta){
+        return listaApuestas.add(apuesta);
     }
 }

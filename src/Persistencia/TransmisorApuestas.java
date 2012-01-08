@@ -26,7 +26,7 @@ public class TransmisorApuestas {
         this.tipoPuerto = conexion.getCasa_0020De_0020Apuestas();
     }
 
-    public TransmisorApuestas getInstance(){
+    public static TransmisorApuestas getInstance(){
         if (instancia == null)
             instancia = new TransmisorApuestas();
         return instancia;
@@ -57,11 +57,11 @@ public class TransmisorApuestas {
     }
 
     public boolean enviarApuesta(){
-        if ((logica.getListaApuestas() != null)||
-                !logica.getListaApuestas().isEmpty()){
-        EnviarApuesta peticion = new EnviarApuesta();
-        peticion.setListaApuestas(construirListaParametro());
-        return tipoPuerto.enviarApuesta(peticion).isResult();
+        if (!logica.getListaApuestas().isEmpty()){
+            EnviarApuesta peticion = new EnviarApuesta();
+            peticion.setListaApuestas(construirListaParametro());
+            tipoPuerto.enviarApuesta(peticion);
+            return Boolean.TRUE;
         }
         return Boolean.FALSE;
     }
