@@ -4,8 +4,8 @@
 Este Modulo corresponde al de controladores segun MVC, los metodos aqui contenidos
 son los encargados de invocar a las vistas, eso esta configurado en el framework
 """
-from Servicio import *
-service = Servicio(db, crud)
+from gluon.tools import Service
+servicioWeb = Service()
 from log import *
 log = log()
 
@@ -241,8 +241,14 @@ def verProximosEventos2():
     evento = db(db.eventos.id==request.args(0)).select()
     categoria = db((db.categorias.id==db.eventos.categoria_id)& (db.eventos.id==request.args(0))).select()
     return dict(evento_participante=evento_participante,evento=evento,categoria=categoria)
+
+#Servicio Web
+
+@servicioWeb.soap('enviarApuesta', returns={'result':bool},args={'listaApuestas':[{'apuesta':{'idEvento':int, 'idParticipante':int, 'montoApuesta':int, 'fechaApuesta':str, 'maquinaid':int}}]})
+def enviarApuesta(listaApuestas):
+    for i in range(0,len(listaApuestas)):
+        db.apuestas.insert(eventos_id = listaApuestas[i]['apuesta']['idEvento'],participantes_id = listaApuestas[i]['apuesta']['idParticipante'],montoApuesta = listaApuestas[i]['apuesta']['montoApuesta'], fechaApuesta = listaApuestas[i]['apuesta']['fechaApuesta'], maquina_id = listaApuestas[i]['apuesta']['maquinaid'])
+    return True
     
 def call():
-    from Transmisor import ServicioWeb
-    servicio = ServicioWeb(db)
-    return servicio.obtenerServicio()
+    return servicioWeb()
