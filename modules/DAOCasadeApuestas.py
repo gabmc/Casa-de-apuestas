@@ -53,8 +53,8 @@ class DAOCasadeApuestas:
     def generarArchivoActualizacionMD5(self, eventos, categorias, participantes, eventosparticipantes, usuarios):
         f = open ("C:/Python32/web2py/applications/Casa_de_Apuestas/static/archivoActualizacion.md5", "w")
         f.write('<archivo>'+"\n")
-        f.write(eventos + "\n")
         f.write(categorias + "\n")
+        f.write(eventos + "\n")
         f.write(participantes + "\n")
         f.write(eventosparticipantes + "\n")
         f.write(usuarios + "\n")
@@ -79,8 +79,8 @@ class DAOCasadeApuestas:
     def generarArchivoActualizacionXML(self, eventos, categorias, participantes, eventosparticipantes, usuarios):
         f = open ("C:/Python32/web2py/applications/Casa_de_Apuestas/static/archivoActualizacion.xml", "w")
         f.write('<archivo>'+"\n")
-        f.write(eventos + "\n")
         f.write(categorias + "\n")
+        f.write(eventos + "\n")
         f.write(participantes + "\n")
         f.write(eventosparticipantes + "\n")
         f.write(usuarios + "\n")

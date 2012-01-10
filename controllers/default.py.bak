@@ -269,20 +269,28 @@ def apuestasPorEventos1():
 def apuestasPorEventos2():
     
     apuestas = db(db.apuestas.eventos_id==request.args(0)).select()
+    evento = db(db.eventos.id==request.args(0)).select()
     from gluon.contrib.pyfpdf import FPDF, HTMLMixin
+    import datetime
+    fechaActual=datetime.date.today()
 
-    class PDF(FPDF):
+    class MyFPDF(FPDF, HTMLMixin):
         def header(this):
                 # Logo
 #                this.image('logo_pb.png',10,8,33) FALTA ACOMODAR UN LOGO JEJE
                 # Arial bold 15
                 this.set_font('Arial','B',15)
+                this.cell(0,10,'Casa de Apuestas LOGO',0,1,'L')
+                this.cell(0,10,'Fecha: '+str(fechaActual),0,1,'L')
                 # Move to the right
                 this.cell(80)
                 # Title
-                this.cell(30,10,'Title',1,0,'C')
+
+                for i in evento:
+                    this.cell(30,10,'Evento: '+i.nombre,0,2,'C')
+                    this.cell(30,10,'Apuestas Realizadas',0,1,'C')
                 # Line break
-                this.ln(20)
+                this.ln(5)
 
         # Page footer
         def footer(this):
@@ -293,19 +301,35 @@ def apuestasPorEventos2():
                 # Page number
 #                this.cell(0,10,'Page '+str(this.PageNo())+'/{nb}',0,0,'C')
 
-# Instanciation of inherited class
-    pdf=PDF()
+# Instanciation of inherited class 
+#    rows = [THEAD(TR(TH("Fecha Apuesta ",_width="70%"), TH("Monto Apuesta",_width="30%"), TH("Maquina ",_width="30%")))]4
+    rows = THEAD(TR(TH("Fecha Apuesta ",_width="33%",_border="1"), TH("Monto Apuesta",_width="33%",_border="1"), TH("Maquina ",_width="33%",_border="1")))
+    col = []
+    cont = 0
+    for i in apuestas:
+        cont +=1
+        bg = cont % 2 and "#F0F0F0" or "#FFFFFF"
+        col.append(TR(TD(i.fechaApuesta,_width="33%",_align="center"),TD(i.montoApuesta, _align="center",_border="1"),TD(i.maquina_id, _align="right",_align="center"),_bgcolor=bg,_border="1"))
+    cuerpo =TBODY(*col)
+    table = TABLE(_border="1",_align="center",_width="100%",*[rows,cuerpo])
+    pdf = MyFPDF()
     pdf.alias_nb_pages()
     pdf.add_page()
     pdf.set_font('Times','',12)
-    for i in apuestas:
-        pdf.cell(0,10,'Apuesta:'+str(i.fechaApuesta),0,1)
-        pdf.cell(0,10,'Apuesta:'+str(i.montoApuesta),0,1)
+    pdf.write_html(str(XML(table, sanitize=False)))
+
+#    pdf.cell(0,10,rows,0,1)
+#    pdf.cell(0,10,'Fecha Apuesta',0,0)
+#    pdf.cell(60,10,'Monto Apuesta',0,0)
+#    pdf.cell(0,10,'Maquina',0,1)
+#    for i in apuestas:
+#        pdf.cell(0,10,'Apuesta:'+str(i.fechaApuesta),0,1)
+#        pdf.cell(0,10,'Apuesta:'+str(i.montoApuesta),0,1)
  #   pdf.output('apuestas.pdf','F')
         # prepare PDF to download:
+    
+    
     response.headers['Content-Type']='application/pdf'
-    
-    
     return pdf.output(dest='S')
     
   
@@ -353,3 +377,49 @@ def apuestasPorEventos3():
         # prepare PDF to download:
     response.headers['Content-Type']='application/pdf'
     return pdf.output(dest='S')
+    
+def report():
+    response.title = "web2py sample report"
+    
+    # include a google chart (download it dynamically!)
+    url = "http://chart.apis.google.com/chart?cht=p3&chd=t:60,40&chs=500x200&chl=Hello|World&.png"
+    chart = IMG(_src=url, _width="250",_height="100")
+
+    # create a small table with some data:
+    rows = [THEAD(TR(TH("Key",_width="70%"), TH("Value",_width="30%"))),
+            TBODY(TR(TD("Hello"),TD("60")), 
+                  TR(TD("World"),TD("40")))]
+    table = TABLE(*rows)
+
+    if request.extension=="pdf":
+        from gluon.contrib.pyfpdf import FPDF, HTMLMixin
+
+        # create a custom class with the required functionalities 
+        class MyFPDF(FPDF, HTMLMixin):
+            def header(self): 
+                "hook to draw custom page header (logo and title)"
+     #           logo=os.path.join(request.env.web2py_path,"gluon","contrib","pyfpdf","tutorial","logo_pb.png")
+      #          self.image(logo,10,8,33)
+                self.set_font('Arial','B',15)
+                self.cell(65) # padding
+                self.cell(60,10,response.title,1,0,'C')
+                self.ln(20)
+                
+            def footer(self):
+                "hook to draw custom page footer (printing page numbers)"
+                self.set_y(-15)
+                self.set_font('Arial','I',8)
+                txt = 'Page %s of %s' % (self.page_no(), self.alias_nb_pages())
+                self.cell(0,10,txt,0,0,'C')
+                    
+        pdf=MyFPDF()
+        # create a page and serialize/render HTML objects
+        pdf.add_page()
+        pdf.write_html(str(XML(table, sanitize=False)))
+        pdf.write_html(str(XML(CENTER(chart), sanitize=False)))
+        # prepare PDF to download:
+        response.headers['Content-Type']='application/pdf'
+        return pdf.output(dest='S')
+    else:
+        # normal html view:
+        return dict(chart=chart, table=table)
