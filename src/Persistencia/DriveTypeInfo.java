@@ -9,7 +9,12 @@ package Persistencia;
  *
  * @author hector
  */
+import GUI.AdvertenciaReinicio;
 import java.io.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFrame;
+import org.jdom.JDOMException;
 
 
 public class DriveTypeInfo{
@@ -18,13 +23,16 @@ public class DriveTypeInfo{
     private File[] files;
     private boolean kill=false;
     private String archivoAbuscar;
+    JFrame ventana;
 
    //Obtengo el total de los dispositivos que hay en la computadora, ej: 2 disco duros, 1 cd rom
-    public DriveTypeInfo(String archivoAbuscar) {
+    public DriveTypeInfo(String archivoAbuscar, JFrame ventana) {
         files = File.listRoots();
         setTotalDispositivos(files.length);
         System.out.println("TOTAL DISPOSITIVOS: "+getTotalDispositivos()+" FILE LENGTH: "+files.length);
         this.archivoAbuscar=archivoAbuscar;
+        this.ventana = ventana;
+        ventana.setVisible(true);
     }
 
     public int getTotalDispositivos() {
@@ -35,10 +43,28 @@ public class DriveTypeInfo{
         this.totalDispositivos = totalDispositivos;
     }
 
+    public void setVentana(javax.swing.JFrame nuevaVentana){
+        ventana = nuevaVentana;
+    }
+
     public boolean terminar(){
 
-        if (kill)
+        if (kill){
+            try {
+                ventana.setEnabled(false);
+                Thread.sleep(5000);
+                ventana.setVisible(false);
+                ventana.dispose();
+                AdvertenciaReinicio ventanaReinicio = new AdvertenciaReinicio();
+                ventanaReinicio.setVisible(true);
+                Thread.sleep(5000); //Hilo de JLABEL
+                ventanaReinicio.setVisible(false);
+                ventanaReinicio.dispose();
+            } catch (InterruptedException ex) {
+                Logger.getLogger(DriveTypeInfo.class.getName()).log(Level.SEVERE, null, ex);
+            }
             return true;
+        }
         else
             return false;
     }
@@ -46,31 +72,37 @@ public class DriveTypeInfo{
     public void comenzar(){
 //ahora obtengo nuevamente los dispositivos en la computadora una vez iniciado el hilo
        files = File.listRoots();
+       ventana.setVisible(true);
        
        if (files.length>getTotalDispositivos()){
 //se compara el total de dispositivos actuales con el total de dispositivos al inicio del programa
             System.out.println("TOTAL DISPOSITIVOS: "+getTotalDispositivos()+" FILE LENGTH: "+files.length);
-
 
                 File[] archivos = files[files.length-1].listFiles();
                 
                 for (File file : archivos) {
 
                     if (file.getName().contentEquals(archivoAbuscar)){
-
-                        System.out.println(file.getName());
-                        System.out.println("ACA ESTA LO QUE HAY QUE LEER CON LA LIBRERIA JDOM!");
-                        kill=true;
+                        String directorio = files[files.length-1].getPath();
+                        String path = directorio + file.getName();
+                        GestionPorArchivo cargar = new GestionPorArchivo();
+                    try {
+                        cargar.cargarActualizacion(path);
+                    } catch (FileNotFoundException ex) {
+                        Logger.getLogger(DriveTypeInfo.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (JDOMException ex) {
+                        Logger.getLogger(DriveTypeInfo.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (IOException ex) {
+                        Logger.getLogger(DriveTypeInfo.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                        //System.out.println("ACA ESTA LO QUE HAY QUE LEER CON LA LIBRERIA JDOM!");
+                        kill = true;
                     }
                 }
             }
 
 
-
    }
 
 
-
- 
-      
 }

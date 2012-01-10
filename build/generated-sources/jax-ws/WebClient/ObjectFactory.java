@@ -46,19 +46,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link EnviarApuesta }
-     * 
-     */
-    public EnviarApuesta createEnviarApuesta() {
-        return new EnviarApuesta();
-    }
-
-    /**
      * Create an instance of {@link ArrayOfenviarApuestalistaApuestasapuesta }
      * 
      */
     public ArrayOfenviarApuestalistaApuestasapuesta createArrayOfenviarApuestalistaApuestasapuesta() {
         return new ArrayOfenviarApuestalistaApuestasapuesta();
+    }
+
+    /**
+     * Create an instance of {@link EnviarApuesta }
+     * 
+     */
+    public EnviarApuesta createEnviarApuesta() {
+        return new EnviarApuesta();
     }
 
 }

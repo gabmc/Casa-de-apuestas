@@ -4,29 +4,32 @@
  */
 package Logica;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 /**
  *
  * @author Usuario
  */
 public class Evento {
     private int id;
-    private int idCategoria;
     private String nombre;
     private String fecha; //Cambiar
     private String descripcion;
     private String horaInicio;
     private boolean admiteTabla;
     private boolean permiteEmpate;
+    private ArrayList<Participante> participantes;
 
-    public Evento(int id, int idCategoria, String nombre, String fecha, String descripcion, String horaInicio, boolean admiteTabla, boolean permiteEmpate) {
+    public Evento(int id, String nombre, String fecha, String descripcion, String horaInicio, boolean admiteTabla, boolean permiteEmpate) {
         this.id = id;
-        this.idCategoria = idCategoria;
         this.nombre = nombre;
         this.fecha = fecha;
         this.descripcion = descripcion;
         this.horaInicio = horaInicio;
         this.admiteTabla = admiteTabla;
         this.permiteEmpate = permiteEmpate;
+        participantes = new ArrayList();
     }
 
     public boolean isAdmiteTabla() {
@@ -69,14 +72,6 @@ public class Evento {
         this.id = id;
     }
 
-    public int getIdCategoria() {
-        return idCategoria;
-    }
-
-    public void setIdCategoria(int idCategoria) {
-        this.idCategoria = idCategoria;
-    }
-
     public String getNombre() {
         return nombre;
     }
@@ -93,4 +88,25 @@ public class Evento {
         this.permiteEmpate = permiteEmpate;
     }
 
+    public ArrayList<Participante> getParticipantes() {
+        return participantes;
+    }
+
+    public void setParticipantes(ArrayList<Participante> participantes) {
+        this.participantes = participantes;
+    }
+
+    public Participante buscarParticipanteNombre(String nombre){
+        Iterator iterator = participantes.iterator();
+        Participante participante = null;
+        while(iterator.hasNext()){
+            participante = (Participante)iterator.next();
+            if(participante.getNombre().equals(nombre))
+                break;
+            participante = null;
+        }
+        return participante;
+    }
+
+    
 }

@@ -10,6 +10,11 @@
  */
 package GUI;
 
+import Logica.Evento;
+import Logica.Logica;
+import java.util.Iterator;
+import javax.swing.DefaultListModel;
+
 /**
  *
  * @author Usuario
@@ -17,8 +22,23 @@ package GUI;
 public class Participantes extends javax.swing.JFrame {
 
     /** Creates new form Participantes */
-    public Participantes() {
+    public Participantes(String nombre) {
         initComponents();
+        setLocationRelativeTo(null);
+        if(!(Logica.dameLogica().getEventoPorNombre(nombre).getParticipantes()
+                .isEmpty()))
+            insertarParticipantes(nombre);
+    }
+
+    public void insertarParticipantes(String nombre){
+        Evento evento = Logica.dameLogica().getEventoPorNombre(nombre);
+        Iterator iterator = evento.getParticipantes().iterator();
+        int cont = 0;
+        DefaultListModel model = new DefaultListModel();
+        while(iterator.hasNext()){
+            model.add(cont, ((Evento)iterator.next()).getNombre());
+        }
+        jList1.setModel(model);
     }
 
     /** This method is called from within the constructor to
@@ -45,14 +65,9 @@ public class Participantes extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jList1.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane1.setViewportView(jList1);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14));
         jLabel2.setText("Elige el participante al cual le quieres apostar");
 
         jTextField1.setText(" ");
@@ -65,7 +80,7 @@ public class Participantes extends javax.swing.JFrame {
 
         jLabel5.setText("Monto apuesta");
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 18));
         jButton1.setText("Apostar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -131,41 +146,6 @@ public class Participantes extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Participantes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Participantes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Participantes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Participantes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-
-            public void run() {
-                new Participantes().setVisible(true);
-            }
-        });
-    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
