@@ -129,7 +129,6 @@ private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
 }//GEN-LAST:event_jButton2ActionPerformed
 
 private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    System.out.println(jList1.getModel().getElementAt(jList1.getSelectedIndex()).toString());
     Persistencia.HiloUSB.dti.setVentana(new Eventos(jList1.getModel()
             .getElementAt(jList1.getSelectedIndex()).toString()));
     this.setVisible(false);

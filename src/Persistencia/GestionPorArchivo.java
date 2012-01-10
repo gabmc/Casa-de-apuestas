@@ -5,6 +5,7 @@
 
 package Persistencia;
 
+import Logica.Administrador;
 import Logica.Categoria;
 import Logica.Evento;
 import Logica.Logica;
@@ -94,13 +95,13 @@ public class GestionPorArchivo {
          String nombre, descripcion;
          nombre = descripcion = "";
          while(atributos.hasNext()){
-             Element categoria = (Element) atributos.next();
-             if (categoria.getName().equals("categorias_id"))
-                 id = Integer.parseInt(categoria.getText());
-             if (categoria.getName().equals("categorias_nombre"))
-                 nombre = categoria.getText();
-             if (categoria.getName().equals("categorias_descripcion"))
-                 descripcion = categoria.getText();
+             Element categoriaNueva = (Element) atributos.next();
+             if (categoriaNueva.getName().equals("categorias_id"))
+                 id = Integer.parseInt(categoriaNueva.getText());
+             if (categoriaNueva.getName().equals("categorias_nombre"))
+                 nombre = categoriaNueva.getText();
+             if (categoriaNueva.getName().equals("categorias_descripcion"))
+                 descripcion = categoriaNueva.getText();
          }
         Categoria categoria = new Categoria(id, nombre, descripcion);
         return categoria;
@@ -177,7 +178,7 @@ public class GestionPorArchivo {
             if(partev.getName().equals("eventosparticipantes_eventos_id"))
                 idEventos = Integer.parseInt(partev.getText());
             if(partev.getName().equals("eventosparticipantes_participantes_id"))
-                idParticipantes = 0;
+                idParticipantes = Integer.parseInt(partev.getText());
         }
         Participante participante = buscarParticipanteId(idParticipantes,
                 participantes);
@@ -198,6 +199,43 @@ public class GestionPorArchivo {
         }
         return Boolean.TRUE;
     }
+    
+    public Administrador construirAdministrador(List elemento){
+        Iterator iterator = elemento.iterator();
+        int id = 0;
+        String nick, nombre, apellido, password;
+        nick = nombre = apellido = password = "";
+        while(iterator.hasNext()){
+            Element admin = (Element)iterator.next();
+            if(admin.getName().equals("auth_user_id"))
+                id = Integer.parseInt(admin.getText());
+            if(admin.getName().equals("auth_user_nick"))
+                nick = admin.getText();
+            if(admin.getName().equals("auth_user_nombre"))
+                nombre = admin.getText();
+            if(admin.getName().equals("auth_user_apellido"))
+                apellido = admin.getText();
+            if(admin.getName().equals("auth_user_password"))
+                password = admin.getText();
+        }
+        Administrador administrador = new Administrador(id, nick, nombre, 
+                apellido, password);
+        return administrador;
+    }
+
+    public boolean cargarAdministradores(Element elemento){
+        List elementosInternos = elemento.getChildren();
+        Iterator iterator = elementosInternos.iterator();
+        Element administradores = null;
+        while(iterator.hasNext()){
+            administradores = (Element)iterator.next();
+            List administrador = administradores.getChildren();
+            Administrador nuevoAdministrador =
+                    construirAdministrador(administrador);
+            Logica.dameLogica().getListaAdministradores().add(nuevoAdministrador);
+        }
+        return Boolean.TRUE;
+    }
 
     public boolean cargarActualizacion(String path) throws FileNotFoundException,
             JDOMException, IOException{
@@ -213,9 +251,10 @@ public class GestionPorArchivo {
                 cargarEventos(elementosInternos);
             if (elementosInternos.getName().equals("participantes"))
                 participantes = cargarParticipantes(elementosInternos);
-            if (elementosInternos.getName().equals("eventos_participantes"))
+            if (elementosInternos.getName().equals("eventosparticipantes"))
                 cargarParticipantesEventos(elementosInternos, participantes);
-            //Hacer los demas que faltan, mismo algoritmo, puro trabajo de secretaria
+            if(elementosInternos.getName().equals("auth_user"))
+                cargarAdministradores(elementosInternos);
         }
         return Boolean.TRUE;
     }

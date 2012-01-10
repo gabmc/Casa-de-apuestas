@@ -12,6 +12,7 @@ package GUI;
 
 import Logica.Evento;
 import Logica.Logica;
+import Logica.Participante;
 import java.util.Iterator;
 import javax.swing.DefaultListModel;
 
@@ -36,7 +37,7 @@ public class Participantes extends javax.swing.JFrame {
         int cont = 0;
         DefaultListModel model = new DefaultListModel();
         while(iterator.hasNext()){
-            model.add(cont, ((Evento)iterator.next()).getNombre());
+            model.add(cont, ((Participante)iterator.next()).getNombre());
         }
         jList1.setModel(model);
     }
