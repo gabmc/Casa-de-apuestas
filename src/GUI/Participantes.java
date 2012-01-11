@@ -14,6 +14,7 @@ import Logica.Evento;
 import Logica.Logica;
 import Logica.Apuesta;
 import Logica.Participante;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
@@ -162,7 +163,31 @@ public class Participantes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-//        apuesta = new Apuesta(nombreApostador, apellidoApostador, cedulaApostador, montoApuesta, );
+        Participante participante = 
+                Logica.dameLogica().obtenerParticipantePorString
+                ((String)jList1.getSelectedValue(), 
+                Logica.dameLogica().getIdEventoActual(), 
+                Logica.dameLogica().getIdCategoriaActual());
+        
+        ArrayList<Participante> lista = new ArrayList();
+        lista.add(participante);
+        
+        
+        Apuesta apuesta = new Apuesta(nombreApostador.getText(), 
+                 apellidoApostador.getText(), 
+                 Integer.parseInt(cedulaApostador.getText()), 
+                 Integer.parseInt(montoApuesta.getText()), 
+                 Logica.dameLogica().getIdEventoActual(),
+                 lista);
+        
+        Logica.dameLogica().agregarApuesta(apuesta);
+        Logica.dameLogica().generarPdf(apuesta);
+        
+        apuesta.guardarApuesta(Logica.dameLogica().getListaApuestas());
+        this.setVisible(false);
+        this.dispose();
+        new Apostar().setVisible(true);
+                
     }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

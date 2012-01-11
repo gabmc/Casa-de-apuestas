@@ -32,37 +32,37 @@ public class TransmisorApuestas {
         return instancia;
     }
 
-    private ArrayOfenviarApuestalistaApuestasapuesta construirApuestaParametro
-            (Apuesta anteriorApuesta){
-        ArrayOfenviarApuestalistaApuestasapuesta nuevaApuesta =
-                new ArrayOfenviarApuestalistaApuestasapuesta();
-        nuevaApuesta.setFechaApuesta(anteriorApuesta.getFechaApuestaString());
-        nuevaApuesta.setIdEvento(anteriorApuesta.getIdEvento());
-        nuevaApuesta.setIdParticipante(anteriorApuesta.getIdParticipante());
-        nuevaApuesta.setMaquinaid(anteriorApuesta.getIdMaquina());
-        nuevaApuesta.setMontoApuesta((int) anteriorApuesta.getMontoApuesta());
-        return nuevaApuesta;
-    }
+//    private ArrayOfenviarApuestalistaApuestasapuesta construirApuestaParametro
+//            (Apuesta anteriorApuesta){
+//        ArrayOfenviarApuestalistaApuestasapuesta nuevaApuesta =
+//                new ArrayOfenviarApuestalistaApuestasapuesta();
+//        nuevaApuesta.setFechaApuesta(anteriorApuesta.getFechaApuestaString());
+//        nuevaApuesta.setIdEvento(anteriorApuesta.getIdEvento());
+//        nuevaApuesta.setIdParticipante(anteriorApuesta.getIdParticipante());
+//        nuevaApuesta.setMaquinaid(anteriorApuesta.getIdMaquina());
+//        nuevaApuesta.setMontoApuesta((int) anteriorApuesta.getMontoApuesta());
+//        return nuevaApuesta;
+//    }
 
-    private ArrayOfenviarApuestalistaApuestas construirListaParametro(){
-        ArrayOfenviarApuestalistaApuestas listaApuestaEnviar =
-                new ArrayOfenviarApuestalistaApuestas();
-        ArrayList<Apuesta>listaApuesta = logica.getListaApuestas();
-        Iterator iterator = listaApuesta.iterator();
-        while(iterator.hasNext()){
-            listaApuestaEnviar.getApuesta().
-                    add(construirApuestaParametro((Apuesta)iterator.next()));
-        }
-        return listaApuestaEnviar;
-    }
+//    private ArrayOfenviarApuestalistaApuestas construirListaParametro(){
+//        ArrayOfenviarApuestalistaApuestas listaApuestaEnviar =
+//                new ArrayOfenviarApuestalistaApuestas();
+//        ArrayList<Apuesta>listaApuesta = logica.getListaApuestas();
+//        Iterator iterator = listaApuesta.iterator();
+//        while(iterator.hasNext()){
+//            listaApuestaEnviar.getApuesta().
+//                    add(construirApuestaParametro((Apuesta)iterator.next()));
+//        }
+//        return listaApuestaEnviar;
+//    }
 
-    public boolean enviarApuesta(){
-        if (!logica.getListaApuestas().isEmpty()){
-            EnviarApuesta peticion = new EnviarApuesta();
-            peticion.setListaApuestas(construirListaParametro());
-            tipoPuerto.enviarApuesta(peticion);
-            return Boolean.TRUE;
-        }
-        return Boolean.FALSE;
-    }
+//    public boolean enviarApuesta(){
+//        if (!logica.getListaApuestas().isEmpty()){
+//            EnviarApuesta peticion = new EnviarApuesta();
+//            peticion.setListaApuestas(construirListaParametro());
+//            tipoPuerto.enviarApuesta(peticion);
+//            return Boolean.TRUE;
+//        }
+//        return Boolean.FALSE;
+//    }
 }

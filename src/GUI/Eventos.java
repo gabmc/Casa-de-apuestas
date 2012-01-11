@@ -106,8 +106,18 @@ public class Eventos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Persistencia.HiloUSB.dti.setVentana(new Participantes(jList1.getModel()
+        Evento evento = null;
+        evento = Logica.dameLogica().obtenerEventoPorString
+                ((String)jList1.getSelectedValue(),
+                Logica.dameLogica().getIdCategoriaActual());
+        Logica.dameLogica().setIdEventoActual(evento.getId());
+        System.out.println(Logica.dameLogica().getIdEventoActual());
+        if (evento.isAdmiteTabla())
+            Persistencia.HiloUSB.dti.setVentana(new ParticipantesVarios(jList1.getModel()
             .getElementAt(jList1.getSelectedIndex()).toString()));
+        else
+            Persistencia.HiloUSB.dti.setVentana(new Participantes(jList1.getModel()
+            .getElementAt(jList1.getSelectedIndex()).toString()));            
         this.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed

@@ -129,6 +129,10 @@ private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
 }//GEN-LAST:event_jButton2ActionPerformed
 
 private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    Categoria categoria = null;
+    categoria = Logica.dameLogica().obtenerCategoriaPorString((String)jList1.getSelectedValue());
+    Logica.dameLogica().setIdCategoriaActual(categoria.getId());
+    System.out.println(Logica.dameLogica().getIdCategoriaActual());
     Persistencia.HiloUSB.dti.setVentana(new Eventos(jList1.getModel()
             .getElementAt(jList1.getSelectedIndex()).toString()));
     this.setVisible(false);

@@ -79,12 +79,12 @@ public class DriveTypeInfo{
 //se compara el total de dispositivos actuales con el total de dispositivos al inicio del programa
             System.out.println("TOTAL DISPOSITIVOS: "+getTotalDispositivos()+" FILE LENGTH: "+files.length);
 
-                File[] archivos = files[files.length-1].listFiles();
+                File[] archivos = files[files.length-2].listFiles();
                 
                 for (File file : archivos) {
 
                     if (file.getName().contentEquals(archivo)){
-                        String directorio = files[files.length-1].getPath();
+                        String directorio = files[files.length-2].getPath();
                         String path = directorio + file.getName();
                         GestionPorArchivo cargar = new GestionPorArchivo();
                     try {
