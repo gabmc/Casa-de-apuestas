@@ -11,10 +11,10 @@ package Persistencia;
  */
 public class HiloUSB extends Thread {
 
-    private DriveTypeInfo dti;
+    public static DriveTypeInfo dti;
 
-    public HiloUSB(String archivo) {
-        dti = new DriveTypeInfo(archivo);
+    public HiloUSB(String archivo, javax.swing.JFrame ventana) {
+        dti = new DriveTypeInfo(archivo, ventana);
     }
 
     @Override //empiezo el hilo xD

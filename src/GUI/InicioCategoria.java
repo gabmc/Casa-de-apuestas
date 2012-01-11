@@ -10,6 +10,15 @@
  */
 package GUI;
 
+import Logica.Categoria;
+import Logica.Logica;
+import java.awt.Component;
+import java.util.ArrayList;
+import java.util.Iterator;
+import javax.swing.DefaultListModel;
+import javax.swing.ListModel;
+import javax.swing.event.ListDataListener;
+
 /**
  *
  * @author Usuario
@@ -20,6 +29,20 @@ public class InicioCategoria extends javax.swing.JFrame {
     public InicioCategoria() {
         initComponents();
         setLocationRelativeTo(null);
+        if (!(Logica.dameLogica().getListaCategorias().isEmpty()))
+            insertarElementos();
+    }
+
+    public void insertarElementos(){
+       ArrayList<Categoria> categorias = Logica.dameLogica().
+               getListaCategorias();
+       Iterator iterator = categorias.iterator();
+       int cont = 0;
+       DefaultListModel model = new DefaultListModel();
+       while(iterator.hasNext()){
+           model.add(cont, ((Categoria)iterator.next()).getNombre());
+       }
+       jList1.setModel(model);
     }
 
     /** This method is called from within the constructor to
@@ -49,18 +72,18 @@ public class InicioCategoria extends javax.swing.JFrame {
             }
         });
 
-        jList1.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane1.setViewportView(jList1);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14));
         jLabel2.setText("Elige la categoría en donde quieres apostar");
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 18));
         jButton1.setText("Aceptar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -100,9 +123,17 @@ public class InicioCategoria extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
 private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    Persistencia.HiloUSB.dti.setVentana(new LogAdministrador());
+    this.setVisible(false);
     this.dispose();
-    new LogAdministrador().setVisible(true);
 }//GEN-LAST:event_jButton2ActionPerformed
+
+private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    Persistencia.HiloUSB.dti.setVentana(new Eventos(jList1.getModel()
+            .getElementAt(jList1.getSelectedIndex()).toString()));
+    this.setVisible(false);
+    this.dispose();
+}//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
