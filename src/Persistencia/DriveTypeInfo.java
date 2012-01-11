@@ -22,18 +22,19 @@ public class DriveTypeInfo{
     private int totalDispositivos;
     private File[] files;
     private boolean kill=false;
-    private String archivoAbuscar;
+    private String archivo;
     JFrame ventana;
 
    //Obtengo el total de los dispositivos que hay en la computadora, ej: 2 disco duros, 1 cd rom
-    public DriveTypeInfo(String archivoAbuscar, JFrame ventana) {
+    public DriveTypeInfo(String archivo, JFrame ventana) {
         files = File.listRoots();
         setTotalDispositivos(files.length);
         System.out.println("TOTAL DISPOSITIVOS: "+getTotalDispositivos()+" FILE LENGTH: "+files.length);
-        this.archivoAbuscar=archivoAbuscar;
+        this.archivo=archivo;
         this.ventana = ventana;
         ventana.setVisible(true);
     }
+
 
     public int getTotalDispositivos() {
         return totalDispositivos;
@@ -82,7 +83,7 @@ public class DriveTypeInfo{
                 
                 for (File file : archivos) {
 
-                    if (file.getName().contentEquals(archivoAbuscar)){
+                    if (file.getName().contentEquals(archivo)){
                         String directorio = files[files.length-1].getPath();
                         String path = directorio + file.getName();
                         GestionPorArchivo cargar = new GestionPorArchivo();
@@ -106,4 +107,23 @@ public class DriveTypeInfo{
    }
 
 
+//METODO PARA ESCRIBIR EN EL PENDRIVE CUANDO VAYAMOS A GUARDAR LAS APUESTAS QUE NO FUERON TRANSMITIDAS!
+    public void escribirArchivo(){
+        files = File.listRoots();
+         if (files.length>getTotalDispositivos()){
+//se compara el total de dispositivos actuales con el total de dispositivos al inicio del programa
+            System.out.println("TOTAL DISPOSITIVOS: "+getTotalDispositivos()+" FILE LENGTH: "+files.length);
+
+               File archivoEscribir = new File(files[files.length-1],archivo);
+            try {
+                archivoEscribir.createNewFile();
+            } catch (IOException ex) {
+                System.out.println(" EL LOG ACA");
+            }
+               kill = true;
+               System.out.println(" LOG AGAIN");
+        }
+
+
+    }
 }

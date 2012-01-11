@@ -19,7 +19,7 @@ public class main {
 public static void main (String[] args){    
 
     while (true){
-    HiloUSB hilo = new Persistencia.HiloUSB("archivoActualizacion.xml", new GUI.InicioCategoria());
+    HiloUSB hilo = new Persistencia.HiloUSB("archivoActualizacion.xml", new GUI.InicioCategoria(),"LEER");
     hilo.run();
     GestionPorArchivo cargar = new GestionPorArchivo();
             try {

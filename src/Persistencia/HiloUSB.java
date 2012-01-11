@@ -5,6 +5,8 @@
 
 package Persistencia;
 
+
+
 /**
  *
  * @author hector
@@ -12,22 +14,30 @@ package Persistencia;
 public class HiloUSB extends Thread {
 
     public static DriveTypeInfo dti;
+    private  String accion;
 
-    public HiloUSB(String archivo, javax.swing.JFrame ventana) {
-        dti = new DriveTypeInfo(archivo, ventana);
+    public HiloUSB(String archivo, javax.swing.JFrame ventana,String accionArealizar) {
+        dti = new DriveTypeInfo(archivo,ventana);
+        accion = accionArealizar;
     }
+
+
 
     @Override //empiezo el hilo xD
     public void run() {
         while (true){
 
-            dti.comenzar();
-            if (dti.terminar()) break;
+          if(accion.contentEquals("LEER")){
+                dti.comenzar();
+
+          }
+          else if(accion.contentEquals("ESCRIBIR")){
+
+                    dti.escribirArchivo();
+
+          }
+
+          if (dti.terminar()) break;
         }
     }
-
-
-
-
-
 }
