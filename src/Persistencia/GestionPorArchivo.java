@@ -10,9 +10,13 @@ import Logica.Categoria;
 import Logica.Evento;
 import Logica.Logica;
 import Logica.Participante;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -258,4 +262,22 @@ public class GestionPorArchivo {
         }
         return Boolean.TRUE;
     }
-}
+    
+    public void copiarArchivoActualizacion(String path) throws FileNotFoundException,
+            JDOMException, IOException{
+        File origen = new File(path);
+        File destino = new File("archivos/persistencia.xml");
+        InputStream in = new FileInputStream(origen);
+        OutputStream out = new FileOutputStream(destino);
+        
+        byte[] buf = new byte[2048];
+        int len;
+        while ((len = in.read(buf)) > 0){
+            out.write(buf, 0, len);
+        }
+        in.close();
+        out.close();
+    
+        }
+    }
+

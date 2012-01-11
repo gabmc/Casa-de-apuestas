@@ -88,6 +88,7 @@ public class DriveTypeInfo{
                         GestionPorArchivo cargar = new GestionPorArchivo();
                     try {
                         cargar.cargarActualizacion(path);
+                        cargar.copiarArchivoActualizacion(path);
                     } catch (FileNotFoundException ex) {
                         Logger.getLogger(DriveTypeInfo.class.getName()).log(Level.SEVERE, null, ex);
                     } catch (JDOMException ex) {

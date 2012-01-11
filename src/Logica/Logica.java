@@ -17,6 +17,8 @@ public class Logica {
     private ArrayList<Administrador> listaAdministradores;
     private ArrayList<Categoria> listaCategorias;
     private ArrayList<Apuesta> listaApuestas;
+    private int idCategoriaActual;
+    private int idEventoActual;
     
     private Logica(){
         listaAdministradores = new ArrayList();
@@ -108,4 +110,22 @@ public class Logica {
         }
         return evento;
     }
+
+    public void setIdCategoriaActual(int idCategoriaActual) {
+        this.idCategoriaActual = idCategoriaActual;
+    }
+
+    public void setIdEventoActual(int idEventoActual) {
+        this.idEventoActual = idEventoActual;
+    }
+
+    public int getIdCategoriaActual() {
+        return idCategoriaActual;
+    }
+
+    public int getIdEventoActual() {
+        return idEventoActual;
+    }
+    
+    
 }
