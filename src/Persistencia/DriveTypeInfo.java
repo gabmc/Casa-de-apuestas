@@ -79,12 +79,12 @@ public class DriveTypeInfo{
 //se compara el total de dispositivos actuales con el total de dispositivos al inicio del programa
             System.out.println("TOTAL DISPOSITIVOS: "+getTotalDispositivos()+" FILE LENGTH: "+files.length);
 
-                File[] archivos = files[files.length-2].listFiles();
+                File[] archivos = files[files.length-1].listFiles();
                 
                 for (File file : archivos) {
 
                     if (file.getName().contentEquals(archivo)){
-                        String directorio = files[files.length-2].getPath();
+                        String directorio = files[files.length-1].getPath();
                         String path = directorio + file.getName();
                         GestionPorArchivo cargar = new GestionPorArchivo();
                     try {
@@ -114,7 +114,17 @@ public class DriveTypeInfo{
 //se compara el total de dispositivos actuales con el total de dispositivos al inicio del programa
             System.out.println("TOTAL DISPOSITIVOS: "+getTotalDispositivos()+" FILE LENGTH: "+files.length);
 
-               File archivoEscribir = new File(files[files.length-1],archivo);
+               File archivoEscribir = new File(files[files.length-1],"apuestas.xml");
+               GestionPorArchivo gestion = new GestionPorArchivo();
+            try {
+                gestion.copiarArchivoApuestas(archivoEscribir);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(DriveTypeInfo.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (JDOMException ex) {
+                Logger.getLogger(DriveTypeInfo.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(DriveTypeInfo.class.getName()).log(Level.SEVERE, null, ex);
+            }
             try {
                 archivoEscribir.createNewFile();
             } catch (IOException ex) {

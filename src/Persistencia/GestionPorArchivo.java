@@ -279,5 +279,20 @@ public class GestionPorArchivo {
         out.close();
     
         }
+    
+    public void copiarArchivoApuestas(File archivoDestino) throws FileNotFoundException,
+            JDOMException, IOException{
+        File origen = new File("archivos/apuestas.xml");
+        InputStream in = new FileInputStream(origen);
+        OutputStream out = new FileOutputStream(archivoDestino);
+        
+        byte[] buf = new byte[2048];
+        int len;
+        while ((len = in.read(buf)) > 0){
+            out.write(buf, 0, len);   
+        }
+        in.close();
+        out.close();
+    }
     }
 
