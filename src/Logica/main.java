@@ -18,19 +18,13 @@ import org.jdom.JDOMException;
 public class main {
 public static void main (String[] args){    
     GestionPorArchivo gestion = new GestionPorArchivo();
-        try {
+
             gestion.cargarActualizacion("archivos/persistencia.xml");
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (JDOMException ex) {
-            Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
     while (true){
     HiloUSB hilo = new HiloUSB("archivoActualizacion.xml", new GUI.InicioCategoria(),"LEER");
     hilo.run();
-    GestionPorArchivo cargar = new GestionPorArchivo();
-}
+   // GestionPorArchivo cargar = new GestionPorArchivo();
+    }
 }
 }

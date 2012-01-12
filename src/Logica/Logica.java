@@ -76,9 +76,10 @@ public class Logica {
         Categoria categoria = null;
         while(iterator.hasNext()){
             categoria = (Categoria)iterator.next();
-            if (categoria.getId() == id)
-                logger.info("Se obtuvo la categoria con el id:"+id);
-                break;
+            if (categoria.getId() == id){
+                    logger.info("Se obtuvo la categoria con el id:"+id);
+                    break;
+            }
         }
         return categoria;
     }
@@ -88,9 +89,10 @@ public class Logica {
         Categoria categoria = null;
         while(iterator.hasNext()){
             categoria = (Categoria)iterator.next();
-            if (categoria.getNombre().equals(nombre))
+            if (categoria.getNombre().equals(nombre)){
                 logger.info("Se obtuvo la categoria con el nombre:"+nombre);
                 break;
+            }
         }
         return categoria;
     }
@@ -107,9 +109,10 @@ public class Logica {
         Iterator iterator2 = categoria.getListaEventos().iterator();
         while (iterator2.hasNext()){
             evento = (Evento)iterator2.next();
-            if (evento.getNombre().equals(nombre))
+            if (evento.getNombre().equals(nombre)){
                 logger.info("Se obtuvo el evento con el nombre:"+nombre);
                 break;
+            }
         }
         return evento;
     }
@@ -134,9 +137,10 @@ public class Logica {
         Iterator iterator3 = evento.getParticipantes().iterator();
         while (iterator3.hasNext()){
             participante = (Participante)iterator3.next();
-            if (participante.getNombre().equals(nombre))
+            if (participante.getNombre().equals(nombre)){
                 logger.info("Se obtuvo el participante con el nombre:"+nombre);
                 break;
+            }
         }
         return participante;
     }
@@ -198,6 +202,7 @@ public class Logica {
      */
     public void generarPdf(Apuesta apuesta){
                 Document documento = new Document();
+                
         try {
             PdfWriter.getInstance(documento, new FileOutputStream("archivos/factura.pdf"));
             documento.open();
