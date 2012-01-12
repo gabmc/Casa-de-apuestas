@@ -14,6 +14,7 @@ import Logica.Apuesta;
 import Logica.Evento;
 import Logica.Logica;
 import Logica.Participante;
+import Persistencia.GestionArchivoPdf;
 import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.DefaultListModel;
@@ -283,18 +284,11 @@ public class ParticipantesVarios extends javax.swing.JFrame {
         ArrayList<Participante> participantes = new ArrayList();
         
         //for de todos los participantes seleccionados
-        Participante participante = Logica.dameLogica().obtenerParticipantePorString
-                ((String)"Leones del Caracas", 
-                Logica.dameLogica().getIdEventoActual(), 
-                Logica.dameLogica().getIdCategoriaActual());
-        
-        Participante participante2 = Logica.dameLogica().obtenerParticipantePorString
-                ((String)"Cardenales de Lara", 
-                Logica.dameLogica().getIdEventoActual(), 
-                Logica.dameLogica().getIdCategoriaActual());
-        
-        participantes.add(participante);
-        participantes.add(participante2);
+        for (String nombreParticipante : ranking){
+            participantes.add(Logica.dameLogica().obtenerParticipantePorString
+                    (nombreParticipante, Logica.dameLogica().getIdEventoActual(), 
+                    Logica.dameLogica().getIdCategoriaActual()));
+        }
         
         Apuesta apuesta = new Apuesta(nombreApostador.getText(), 
                  apellidoApostador.getText(), 
@@ -305,6 +299,8 @@ public class ParticipantesVarios extends javax.swing.JFrame {
         
         Logica.dameLogica().agregarApuesta(apuesta);
         apuesta.guardarApuesta(Logica.dameLogica().getListaApuestas());
+        GestionArchivoPdf pdf = new GestionArchivoPdf();
+        pdf.generarPdf(apuesta);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
