@@ -6,6 +6,8 @@ package Logica;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 
 /**
  *
@@ -20,6 +22,7 @@ public class Evento {
     private boolean admiteTabla;
     private boolean permiteEmpate;
     private ArrayList<Participante> participantes;
+    static Logger logger = Logger.getLogger(Evento.class);
 
     public Evento(int id, String nombre, String fecha, String descripcion, String horaInicio, boolean admiteTabla, boolean permiteEmpate) {
         this.id = id;
@@ -30,6 +33,7 @@ public class Evento {
         this.admiteTabla = admiteTabla;
         this.permiteEmpate = permiteEmpate;
         participantes = new ArrayList();
+         PropertyConfigurator.configure("log4j.properties");
     }
 
     public boolean isAdmiteTabla() {
@@ -101,8 +105,10 @@ public class Evento {
         Participante participante = null;
         while(iterator.hasNext()){
             participante = (Participante)iterator.next();
-            if(participante.getNombre().equals(nombre))
+            if(participante.getNombre().equals(nombre)){
+                logger.info("Se obtuvo  el participante con el nombre: "+nombre);
                 break;
+            }
             participante = null;
         }
         return participante;

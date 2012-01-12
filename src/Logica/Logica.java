@@ -14,6 +14,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 
 /**
  *
@@ -27,12 +29,14 @@ public class Logica {
     private ArrayList<Apuesta> listaApuestas;
     private int idCategoriaActual;
     private int idEventoActual;
+    static Logger logger = Logger.getLogger(Logica.class);
     
     private Logica(){
         listaAdministradores = new ArrayList();
         listaCategorias = new ArrayList();
         listaApuestas = new ArrayList();
         id = 9;
+        PropertyConfigurator.configure("log4j.properties");
     }
     
     private static Logica instancia;
@@ -73,6 +77,7 @@ public class Logica {
         while(iterator.hasNext()){
             categoria = (Categoria)iterator.next();
             if (categoria.getId() == id)
+                logger.info("Se obtuvo la categoria con el id:"+id);
                 break;
         }
         return categoria;
@@ -84,6 +89,7 @@ public class Logica {
         while(iterator.hasNext()){
             categoria = (Categoria)iterator.next();
             if (categoria.getNombre().equals(nombre))
+                logger.info("Se obtuvo la categoria con el nombre:"+nombre);
                 break;
         }
         return categoria;
@@ -102,6 +108,7 @@ public class Logica {
         while (iterator2.hasNext()){
             evento = (Evento)iterator2.next();
             if (evento.getNombre().equals(nombre))
+                logger.info("Se obtuvo el evento con el nombre:"+nombre);
                 break;
         }
         return evento;
@@ -128,6 +135,7 @@ public class Logica {
         while (iterator3.hasNext()){
             participante = (Participante)iterator3.next();
             if (participante.getNombre().equals(nombre))
+                logger.info("Se obtuvo el participante con el nombre:"+nombre);
                 break;
         }
         return participante;
@@ -142,6 +150,7 @@ public class Logica {
             categoria = (Categoria) iterator.next();
             if(categoria.getEventoPorId(id) != null){
                 evento = categoria.getEventoPorId(id);
+                logger.info("Se obtuvo el evento con el id:"+id);
                 break;
             }
             evento = null;
@@ -157,6 +166,7 @@ public class Logica {
             categoria = (Categoria) iterator.next();
             if(categoria.getEventoPorNombre(nombre) != null){
                 evento = categoria.getEventoPorNombre(nombre);
+                logger.info("Se obtuvo el evento con el nombre:"+nombre);
                 break;
             }
             evento = null;
@@ -183,7 +193,9 @@ public class Logica {
     public void agregarApuesta(Apuesta apuesta){
         listaApuestas.add(apuesta);
     }
-    
+    /*
+     * MAMAGUEVOS, LES FALTO EL ID DE LA APUESTA =.=!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+     */
     public void generarPdf(Apuesta apuesta){
                 Document documento = new Document();
         try {
@@ -202,16 +214,17 @@ public class Logica {
             }
             documento.add(new Paragraph("Apuesta hecha en la máquina: " + apuesta.getIdMaquina()));
         } catch (DocumentException de) {
-            System.err.println(de.getMessage());
+            logger.error("Excepcion en el documento: "+de.getMessage());
         } catch (IOException ioe) {
-            System.err.println(ioe.getMessage());
+            logger.error("Error de Entrada / Salida: "+ioe.getMessage());
         }
         documento.close();
         try {
           File path = new File("archivos/factura.pdf");
           Desktop.getDesktop().open(path);
+          logger.info("Se genero la factura para la apuesta");
 } catch (IOException ex) {
-
+     logger.error("Error de entrada/salida");
 }
     }
 }

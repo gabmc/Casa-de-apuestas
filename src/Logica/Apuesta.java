@@ -9,6 +9,8 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.output.Format;
@@ -27,6 +29,7 @@ public class Apuesta {
     private int idEvento;
     private ArrayList<Participante> Participantes;
     private int idMaquina;
+    static Logger logger = Logger.getLogger(Apuesta.class);
 
     public Apuesta(String nombreApostador, String apellidoApostador, 
             int cedulaApostador, int montoApuesta, int idEvento
@@ -39,6 +42,7 @@ public class Apuesta {
         this.idEvento = idEvento;
         this.Participantes = idsParticipantes;
         this.idMaquina = Logica.dameLogica().getID();
+         PropertyConfigurator.configure("log4j.properties");
     }
 
     public String getApellidoApostador() {
@@ -156,11 +160,13 @@ public class Apuesta {
                 FileWriter writer = new FileWriter("archivos/apuestas.xml");
                 outputter.output(docSalida, writer);
                 writer.close();
+                logger.info("Se genero el archivo apuestas.xml en el directorio archivos");
+
             } catch (java.io.IOException e) {
                 e.printStackTrace();
-                System.out.println("problema con I/O al escribir el xml");
+                logger.error("Problema con I/O al escribir el xml");
             } catch (Exception e) {
-                System.out.println("problema al escribir el xml");
+                logger.error("Problema al escribir el xml");
             }
         
     }
