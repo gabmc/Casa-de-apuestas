@@ -20,6 +20,9 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.logging.Level;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.JDOMException;
@@ -31,12 +34,24 @@ import org.jdom.input.SAXBuilder;
 public class GestionPorArchivo {
     
     private Document documento;
+    static Logger logger = Logger.getLogger(GestionPorArchivo.class);
 
-    public Element abrirArchivo(String path) throws FileNotFoundException,
-            JDOMException, IOException{
+    public GestionPorArchivo() {
+        PropertyConfigurator.configure("log4j.properties");
+    }
+
+
+    public Element abrirArchivo(String path){
         SAXBuilder constructor = new SAXBuilder();
-        documento = (Document) constructor.build(new FileInputStream(path));
+        try {
+            documento = (Document) constructor.build(new FileInputStream(path));
+        } catch (JDOMException ex) {
+            logger.error("Excepcion JDOM "+ex.getMessage());
+        } catch (IOException ex) {
+            logger.error("Excepcion I/O "+ex.getMessage());
+        }
         Element elemento = documento.getRootElement();
+        logger.info("Se abrio el archivo en el path  "+path);
         return elemento;
     }
 
@@ -79,6 +94,7 @@ public class GestionPorArchivo {
                 horaInicio, admiteTabla, permiteEmpate);
         Logica.dameLogica().obtenerCategoriaPorId(idCategoria).getListaEventos()
                 .add(evento);
+
     }
 
     public boolean cargarEventos(Element elemento){
@@ -241,8 +257,7 @@ public class GestionPorArchivo {
         return Boolean.TRUE;
     }
 
-    public boolean cargarActualizacion(String path) throws FileNotFoundException,
-            JDOMException, IOException{
+    public boolean cargarActualizacion(String path) {
         Element archivo = abrirArchivo(path);
         List elementos = archivo.getChildren();
         Iterator iterator = elementos.iterator();
@@ -260,6 +275,7 @@ public class GestionPorArchivo {
             if(elementosInternos.getName().equals("auth_user"))
                 cargarAdministradores(elementosInternos);
         }
+        
         return Boolean.TRUE;
     }
     

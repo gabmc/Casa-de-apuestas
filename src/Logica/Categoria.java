@@ -6,6 +6,8 @@ package Logica;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 
 /**
  *
@@ -16,12 +18,14 @@ public class Categoria {
     String nombre;
     String descripcion;
     private ArrayList<Evento> listaEventos;
+    static Logger logger = Logger.getLogger(Categoria.class);
 
     public Categoria(int id, String nombre, String descripcion) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
         listaEventos = new ArrayList<Evento>();
+        PropertyConfigurator.configure("log4j.properties");
     }
 
     public String getDescripcion() {
@@ -57,8 +61,10 @@ public class Categoria {
         Evento evento = null;
         while (iterator.hasNext()){
             evento = (Evento)iterator.next();
-            if(evento.getId() == id)
+            if(evento.getId() == id){
+                logger.info("Se obtuvo el evento con el id:"+id);
                 break;
+            }
             evento = null;
         }
         return evento;
@@ -69,8 +75,10 @@ public class Categoria {
         Evento evento = null;
         while(iterator.hasNext()){
             evento = (Evento)iterator.next();
-            if(evento.getNombre().equals(nombre))
+            if(evento.getNombre().equals(nombre)){
+                logger.info("Se obtuvo el evento con el nombre:"+nombre);
                 break;
+            }
             evento = null;
         }
         return evento;

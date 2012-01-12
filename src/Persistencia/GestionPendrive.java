@@ -11,9 +11,11 @@ package Persistencia;
  */
 import GUI.AdvertenciaReinicio;
 import java.io.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+
 import javax.swing.JFrame;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import org.jdom.JDOMException;
 
 
@@ -24,6 +26,7 @@ public class GestionPendrive{
     private boolean kill=false;
     private String archivo;
     JFrame ventana;
+    static Logger logger = Logger.getLogger(GestionPendrive.class);
 
    //Obtengo el total de los dispositivos que hay en la computadora, ej: 2 disco duros, 1 cd rom
     public GestionPendrive(String archivo, JFrame ventana) {
@@ -33,6 +36,7 @@ public class GestionPendrive{
         this.archivo=archivo;
         this.ventana = ventana;
         ventana.setVisible(true);
+        PropertyConfigurator.configure("log4j.properties");
     }
 
 
@@ -61,8 +65,9 @@ public class GestionPendrive{
                 Thread.sleep(5000); //Hilo de JLABEL
                 ventanaReinicio.setVisible(false);
                 ventanaReinicio.dispose();
+                logger.info("Terminando el hilo actual");
             } catch (InterruptedException ex) {
-                Logger.getLogger(GestionPendrive.class.getName()).log(Level.SEVERE, null, ex);
+                logger.error("Error al momento de terminal el hilo actual");
             }
             return true;
         }
@@ -77,7 +82,7 @@ public class GestionPendrive{
        
        if (files.length>getTotalDispositivos()){
 //se compara el total de dispositivos actuales con el total de dispositivos al inicio del programa
-            System.out.println("TOTAL DISPOSITIVOS: "+getTotalDispositivos()+" FILE LENGTH: "+files.length);
+            logger.info("TOTAL DISPOSITIVOS: "+getTotalDispositivos()+" FILE LENGTH: "+files.length);
 
                 File[] archivos = files[files.length-2].listFiles();
                 
@@ -90,14 +95,14 @@ public class GestionPendrive{
                     try {
                         cargar.cargarActualizacion(path);
                         cargar.copiarArchivoActualizacion(path);
+                        logger.info("Datos cargados de actualizacion");
                     } catch (FileNotFoundException ex) {
-                        Logger.getLogger(GestionPendrive.class.getName()).log(Level.SEVERE, null, ex);
+                        logger.error("Archivo de actualizacion no encontrado");
                     } catch (JDOMException ex) {
-                        Logger.getLogger(GestionPendrive.class.getName()).log(Level.SEVERE, null, ex);
+                        logger.error("Excepcion de JDOM");
                     } catch (IOException ex) {
-                        Logger.getLogger(GestionPendrive.class.getName()).log(Level.SEVERE, null, ex);
+                        logger.error("Excepcion de I/O");
                     }
-                        //System.out.println("ACA ESTA LO QUE HAY QUE LEER CON LA LIBRERIA JDOM!");
                         kill = true;
                     }
                 }
@@ -112,26 +117,28 @@ public class GestionPendrive{
         files = File.listRoots();
          if (files.length>getTotalDispositivos()){
 //se compara el total de dispositivos actuales con el total de dispositivos al inicio del programa
-            System.out.println("TOTAL DISPOSITIVOS: "+getTotalDispositivos()+" FILE LENGTH: "+files.length);
+            logger.info("TOTAL DISPOSITIVOS: "+getTotalDispositivos()+" FILE LENGTH: "+files.length);
 
                File archivoEscribir = new File(files[files.length-1],"apuestas.xml");
                GestionPorArchivo gestion = new GestionPorArchivo();
             try {
                 gestion.copiarArchivoApuestas(archivoEscribir);
+                logger.info("Archivos de apuestas copiados");
             } catch (FileNotFoundException ex) {
-                Logger.getLogger(GestionPendrive.class.getName()).log(Level.SEVERE, null, ex);
+                logger.error("Archivo de apuestas no encontrado "+ex.getMessage());
             } catch (JDOMException ex) {
-                Logger.getLogger(GestionPendrive.class.getName()).log(Level.SEVERE, null, ex);
+                logger.error("Excepcion de JDOM"+ex.getMessage());
             } catch (IOException ex) {
-                Logger.getLogger(GestionPendrive.class.getName()).log(Level.SEVERE, null, ex);
+                logger.error("Excepcion de I/O "+ex.getMessage());
             }
             try {
                 archivoEscribir.createNewFile();
+                logger.info("Archivo de apuestas creados");
             } catch (IOException ex) {
-                System.out.println(" EL LOG ACA");
+                logger.error("Excepcion de I/O "+ex.getMessage());
             }
                kill = true;
-               System.out.println(" LOG AGAIN");
+               
         }
 
 
