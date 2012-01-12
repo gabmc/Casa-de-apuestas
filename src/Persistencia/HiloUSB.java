@@ -13,11 +13,11 @@ package Persistencia;
  */
 public class HiloUSB extends Thread {
 
-    public static DriveTypeInfo dti;
+    public static GestionPendrive dti;
     private  String accion;
 
     public HiloUSB(String archivo, javax.swing.JFrame ventana,String accionArealizar) {
-        dti = new DriveTypeInfo(archivo,ventana);
+        dti = new GestionPendrive(archivo,ventana);
         accion = accionArealizar;
     }
 
