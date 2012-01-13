@@ -4,14 +4,6 @@
  */
 package Logica;
 
-import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.pdf.PdfWriter;
-import java.awt.Desktop;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.apache.log4j.Logger;
@@ -200,36 +192,5 @@ public class Logica {
     /*
      * MAMAGUEVOS, LES FALTO EL ID DE LA APUESTA =.=!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
      */
-    public void generarPdf(Apuesta apuesta){
-                Document documento = new Document();
-                
-        try {
-            PdfWriter.getInstance(documento, new FileOutputStream("archivos/factura.pdf"));
-            documento.open();
-            documento.add(new Paragraph("FACTURA DE APUESTA"));
-            documento.add(new Paragraph("Nombre del apostador: " + 
-                    apuesta.getNombreApostador() + " " + apuesta.getApellidoApostador()));
-            documento.add(new Paragraph("Cédula de Identidad: " + apuesta.getCedulaApostador()));
-            documento.add(new Paragraph("Monto: Bs. " + apuesta.getMontoApuesta()));
-            documento.add(new Paragraph("Hecho el: " + apuesta.getFechaApuesta()));
-            documento.add(new Paragraph("Evento: " + 
-                    Logica.dameLogica().getEventoPorId(apuesta.getIdEvento()).getNombre()));
-            for (Participante participantes : apuesta.getParticipantes()){
-                documento.add(new Paragraph("Aposto por:" + participantes.getNombre()));
-            }
-            documento.add(new Paragraph("Apuesta hecha en la máquina: " + apuesta.getIdMaquina()));
-        } catch (DocumentException de) {
-            logger.error("Excepcion en el documento: "+de.getMessage());
-        } catch (IOException ioe) {
-            logger.error("Error de Entrada / Salida: "+ioe.getMessage());
-        }
-        documento.close();
-        try {
-          File path = new File("archivos/factura.pdf");
-          Desktop.getDesktop().open(path);
-          logger.info("Se genero la factura para la apuesta");
-} catch (IOException ex) {
-     logger.error("Error de entrada/salida");
-}
-    }
+
 }

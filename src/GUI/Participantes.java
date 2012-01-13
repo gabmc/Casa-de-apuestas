@@ -14,9 +14,8 @@ import Logica.Evento;
 import Logica.Logica;
 import Logica.Apuesta;
 import Logica.Participante;
+import Persistencia.GestionArchivoPdf;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.Iterator;
 import javax.swing.DefaultListModel;
 
@@ -181,7 +180,8 @@ public class Participantes extends javax.swing.JFrame {
                  lista);
         
         Logica.dameLogica().agregarApuesta(apuesta);
-        Logica.dameLogica().generarPdf(apuesta);
+        GestionArchivoPdf pdf = new GestionArchivoPdf();
+        pdf.generarPdf(apuesta);
         
         apuesta.guardarApuesta(Logica.dameLogica().getListaApuestas());
         this.setVisible(false);
