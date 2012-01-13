@@ -36,7 +36,7 @@
 
         <target name="-post-compile">
             <obfuscate>
-                <fileset dir="${build.classes.dir}"/>
+                <fileset dir="/cobertura-1.9.4.1"/>
             </obfuscate>
         </target>
 
@@ -71,4 +71,60 @@
     nbproject/build-impl.xml file. 
 
     -->
+<property file="nbproject/private/private.properties"/>
+	
+<path id="cobertura.classpath">
+    <fileset dir="${cobertura.dir}">
+        <include name="cobertura.jar" />
+        <include name="lib/**/*.jar" />
+    </fileset>
+</path>
+
+<taskdef classpathref="cobertura.classpath"
+    resource="tasks.properties" />
+<property file="nbproject/private/private.properties"/>
+
+<target name="cobertura-instrument" depends="compile">
+    <cobertura-instrument
+        todir="${cobertura.classes.dir}"
+        datafile="${cobertura.ser.file}" >
+
+    <fileset dir="${build.classes.dir}">
+        <include name="**/*.class"/>
+    </fileset>
+    </cobertura-instrument>
+</target>
+
+<target name="cobertura-test"
+    depends="set-cobertura-file, init,compile-test,
+    -pre-test-run,cobertura-instrument,
+    -do-test-run,test-report,-post-test-run,-test-browse">
+</target>
+
+<target name="set-cobertura-file" depends="init">
+    <property
+        name="test-sys-prop.net.sourceforge.cobertura.datafile"
+        value="${cobertura.ser.file}"/>
+</target>
+
+<target name="cobertura-report" depends="cobertura-test">
+   
+ <cobertura-report
+        datafile="${cobertura.ser.file}"
+        format="xml"
+        destdir="${cobertura.report.dir}"
+        srcdir="${src.dir}" />
+
+    <cobertura-report
+       datafile="${cobertura.ser.file}"
+		format="html"
+        destdir="${cobertura.report.dir}"
+        srcdir="${src.dir}" />
+</target>
+
+<target name="coverage">
+    <cobertura-report  destdir="reportes"/>
+</target>
+<!---->
+
 </project>
