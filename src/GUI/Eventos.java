@@ -123,16 +123,19 @@ public class Eventos extends javax.swing.JFrame {
         if (evento.isAdmiteTabla())
             Persistencia.HiloUSB.dti.setVentana(new ParticipantesVarios(jList1.getModel()
             .getElementAt(jList1.getSelectedIndex()).toString(),categoria));
+//            new ParticipantesVarios(jList1.getModel().getElementAt(jList1.getSelectedIndex()).toString(),categoria).setVisible(true);
         else
             Persistencia.HiloUSB.dti.setVentana(new Participantes(jList1.getModel()
-            .getElementAt(jList1.getSelectedIndex()).toString(),categoria));            
+            .getElementAt(jList1.getSelectedIndex()).toString(),categoria));
+//            new Participantes(jList1.getModel().getElementAt(jList1.getSelectedIndex()).toString(),categoria).setVisible(true);
         this.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        Persistencia.HiloUSB.dti.setVentana(new InicioCategoria());
+       Persistencia.HiloUSB.dti.setVentana(new InicioCategoria());
+  //      new InicioCategoria("FALSE").setVisible(true);
         this.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed

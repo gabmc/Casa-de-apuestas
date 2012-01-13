@@ -15,10 +15,14 @@ package GUI;
  * @author Usuario
  */
 public class NickOPassIncorrecto extends javax.swing.JFrame {
+    private final javax.swing.JFrame logAdministrador;
 
     /** Creates new form NickOPassIncorrecto */
-    public NickOPassIncorrecto() {
+    public NickOPassIncorrecto(javax.swing.JFrame logAdministrador) {
         initComponents();
+         setLocationRelativeTo(null);
+        this.logAdministrador = logAdministrador;
+        this.logAdministrador.setVisible(false);
     }
 
     /** This method is called from within the constructor to
@@ -38,6 +42,11 @@ public class NickOPassIncorrecto extends javax.swing.JFrame {
         jLabel1.setText("Se introdujo el nick o la contraseña incorrectamente");
 
         jButton1.setText("Aceptar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -46,7 +55,7 @@ public class NickOPassIncorrecto extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(101, Short.MAX_VALUE)
                 .addComponent(jButton1)
@@ -64,6 +73,12 @@ public class NickOPassIncorrecto extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.logAdministrador.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

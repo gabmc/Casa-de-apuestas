@@ -15,6 +15,7 @@ import Logica.Logica;
 import Logica.Apuesta;
 import Logica.Participante;
 import Persistencia.GestionArchivoPdf;
+import Persistencia.PersistenciaDeDatos;
 import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.DefaultListModel;
@@ -191,15 +192,17 @@ public class Participantes extends javax.swing.JFrame {
         GestionArchivoPdf pdf = new GestionArchivoPdf();
         pdf.generarPdf(apuesta);
         apuesta.guardarApuesta(Logica.dameLogica().getListaApuestas());
+
+        Persistencia.HiloUSB.dti.setVentana(new Apostar());
         this.setVisible(false);
         this.dispose();
-        new Apostar().setVisible(true);
                 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         Persistencia.HiloUSB.dti.setVentana(new Eventos(categoria));
+//        new Eventos(categoria).setVisible(true);
         this.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed

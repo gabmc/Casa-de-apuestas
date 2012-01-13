@@ -11,6 +11,7 @@
 package GUI;
 
 import Logica.Logica;
+import Persistencia.PersistenciaDeDatos;
 
 /**
  *
@@ -109,6 +110,7 @@ public class LogAdministrador extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         Persistencia.HiloUSB.dti.setVentana(new InicioCategoria());
+//        new InicioCategoria("FALSE").setVisible(true);
         this.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -116,12 +118,15 @@ public class LogAdministrador extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if (Logica.dameLogica().validarAdmin(jTextField1.getText(), jPasswordField1.getText())){
             this.dispose();
-            new VentanaAdministracion().setVisible(true);
+            Persistencia.HiloUSB.dti.setVentana(new VentanaAdministracion());
         }
         else{
 //            jTextField1.setText(" ");
 //            jPasswordField1.setText(" ");
-            new NickOPassIncorrecto().setVisible(true);
+          //  this.setVisible(false);
+            new NickOPassIncorrecto(this).setVisible(true);
+     //       this.dispose();
+            
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed

@@ -12,6 +12,8 @@ package GUI;
 
 import Logica.Categoria;
 import Logica.Logica;
+import Persistencia.HiloUSB;
+import Persistencia.PersistenciaDeDatos;
 import java.awt.Component;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -26,11 +28,15 @@ import javax.swing.event.ListDataListener;
 public class InicioCategoria extends javax.swing.JFrame {
 
     /** Creates new form index */
-    public InicioCategoria() {
+    public InicioCategoria(/*String inicioConHilo*/) {
         initComponents();
         setLocationRelativeTo(null);
         if (!(Logica.dameLogica().getListaCategorias().isEmpty()))
             insertarElementos();
+//        if (inicioConHilo.contentEquals("TRUE")){
+//            HiloUSB hilo = new HiloUSB("archivoActualizacion.xml",this,"LEER");
+//            hilo.start();
+//        }
     }
 
     public void insertarElementos(){
@@ -124,6 +130,7 @@ public class InicioCategoria extends javax.swing.JFrame {
 
 private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
     Persistencia.HiloUSB.dti.setVentana(new LogAdministrador());
+//    new LogAdministrador().setVisible(true);
     this.setVisible(false);
     this.dispose();
 }//GEN-LAST:event_jButton2ActionPerformed
@@ -133,6 +140,8 @@ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     categoria = Logica.dameLogica().obtenerCategoriaPorString((String)jList1.getSelectedValue());
     Logica.dameLogica().setIdCategoriaActual(categoria.getId());
     System.out.println(Logica.dameLogica().getIdCategoriaActual());
+//    new Eventos(jList1.getModel().getElementAt(jList1.getSelectedIndex()).toString()).setVisible(true);
+            
     Persistencia.HiloUSB.dti.setVentana(new Eventos(jList1.getModel()
             .getElementAt(jList1.getSelectedIndex()).toString()));
     this.setVisible(false);
