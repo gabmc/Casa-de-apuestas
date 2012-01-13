@@ -6,6 +6,7 @@
 package Persistencia;
 
 import Logica.Administrador;
+import Logica.Apuesta;
 import Logica.Categoria;
 import Logica.Evento;
 import Logica.Logica;
@@ -18,6 +19,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
@@ -310,5 +312,85 @@ public class GestionPorArchivo {
         in.close();
         out.close();
     }
+    
+    public ArrayList<Participante> recibirParticipantes(List elemento){
+        Iterator participantes = elemento.iterator();
+        String nombre = "";
+        int id = 0;
+        ArrayList<Participante> listaParticipantes = new ArrayList();
+        while(participantes.hasNext()){
+            Element participante = (Element)participantes.next();
+            List atributos = participante.getChildren();
+            Iterator listAtributo = atributos.iterator();
+            while(listAtributo.hasNext()){
+                Element atributo = (Element)listAtributo.next();
+                if(atributo.getName().equals("nombre"))
+                    nombre = atributo.getText();
+                if(atributo.getName().equals("id"))
+                    id = Integer.parseInt(atributo.getText());
+            }
+            Participante par = new Participante(id, nombre, nombre, id);   //No guardas en ningun lado descripcion
+            listaParticipantes.add(par);
+        }
+        return listaParticipantes;
     }
+    
+    public Apuesta construirApuesta(List elemento){
+        Iterator atributos = elemento.iterator();
+        int cedula, monto, idEvento, id;
+        id = cedula = monto = idEvento = 0;
+        String nombre, apellido;
+        Date fecha = new Date();
+        nombre = apellido = "";
+        ArrayList<Participante> listaParticipantes = new ArrayList();
+        while(atributos.hasNext()){
+            Element apuesta = (Element)atributos.next();
+            if(apuesta.getName().equals("nombre_apostador"))
+                nombre = apuesta.getText();
+            if (apuesta.getName().equals("apellido_apostador"))
+                apellido = apuesta.getText();
+            if(apuesta.getName().equals("cedula_apostador"))
+                cedula = Integer.parseInt(apuesta.getText());
+            if(apuesta.getName().equals("monto"))
+                monto = Integer.parseInt(apuesta.getText());
+            if(apuesta.getName().equals("id_evento"))
+                idEvento = Integer.parseInt(apuesta.getText());
+            if(apuesta.getName().equals("aposto_por")){
+                List part = apuesta.getChildren();
+                listaParticipantes = recibirParticipantes(part);
+            }
+            if(apuesta.getName().equals("id_maquina"))
+                id = Integer.parseInt(apuesta.getText());
+        }
+        Apuesta apuestaNueva = new Apuesta(nombre, apellido, cedula, monto, idEvento,
+                listaParticipantes);
+        return apuestaNueva;
+    }
+    
+    public boolean cargarApuestas(Element elemento){
+        List elemInternos = elemento.getChildren();
+        Iterator iterator = elemInternos.iterator();
+        Element apuestas = null;
+        while(iterator.hasNext()){
+            apuestas = (Element) iterator.next();
+            List apuesta = apuestas.getChildren();
+            Apuesta nuevaApuesta = construirApuesta(apuesta);
+            Logica.dameLogica().getListaApuestas().add(nuevaApuesta);
+        }
+        return Boolean.TRUE;
+    }
+    
+    public void cargarApuestasMemoria(String path){
+        Element archivo = abrirArchivo(path);
+        List elementos = archivo.getChildren();
+        Iterator iterator = elementos.iterator();
+        ArrayList<Participante> participantes = null;
+        while(iterator.hasNext()){
+            Element elemInternos = (Element)iterator.next();
+            if (elemInternos.getName().equals("apuesta"))
+                cargarApuestas(elemInternos);
+        }
+        }
+}
+
 

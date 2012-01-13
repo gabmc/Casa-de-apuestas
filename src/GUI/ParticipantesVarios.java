@@ -27,15 +27,16 @@ public class ParticipantesVarios extends javax.swing.JFrame {
     
     private ArrayList<String> ranking = new ArrayList<String>(); //Estos son los participantes de la tabla ordenados segun el orden que se muestra
     private String nombre; //Este es el nombre del evento que se recibe en el constructor, deberia guardarse en el init
-
+    private String categoria;
     /** Creates new form ParticipantesVarios */
-    public ParticipantesVarios(String nombre) {
+    public ParticipantesVarios(String nombre, String categoria) {
         initComponents();
         this.nombre = nombre;
         setLocationRelativeTo(null);
         if(!(Logica.dameLogica().getEventoPorNombre(nombre).getParticipantes()
                 .isEmpty()))
             insertarParticipantes(nombre);
+        this.categoria = categoria;
     }
 
     public void elegirParticipante(){
@@ -162,6 +163,11 @@ public class ParticipantesVarios extends javax.swing.JFrame {
         nombreApostador.setText(" ");
 
         jButton2.setText("<-Volver");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("--->");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -310,6 +316,13 @@ public class ParticipantesVarios extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         retirarParticipante();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        Persistencia.HiloUSB.dti.setVentana(new Eventos(categoria));
+        this.setVisible(false);
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
   
     // Variables declaration - do not modify//GEN-BEGIN:variables

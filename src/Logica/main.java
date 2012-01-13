@@ -20,6 +20,7 @@ public static void main (String[] args){
     GestionPorArchivo gestion = new GestionPorArchivo();
 
             gestion.cargarActualizacion("archivos/persistencia.xml");
+            gestion.cargarApuestasMemoria("archivos/apuestas.xml");
 
     while (true){
     HiloUSB hilo = new HiloUSB("archivoActualizacion.xml", new GUI.InicioCategoria(),"LEER");

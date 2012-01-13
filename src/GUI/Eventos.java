@@ -23,12 +23,15 @@ import javax.swing.DefaultListModel;
 public class Eventos extends javax.swing.JFrame {
 
     /** Creates new form Eventos */
+    String categoria;
+    
     public Eventos(String categoria) {
         initComponents();
         setLocationRelativeTo(null);
         if (!(Logica.dameLogica().obtenerCategoriaPorString(categoria)
                 .getListaEventos().isEmpty()))
             insertarElementos(categoria);
+        this.categoria = categoria;
     }
 
     public void insertarElementos(String cat){
@@ -73,6 +76,11 @@ public class Eventos extends javax.swing.JFrame {
         });
 
         jButton2.setText("<-Volver");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -114,13 +122,20 @@ public class Eventos extends javax.swing.JFrame {
         System.out.println(Logica.dameLogica().getIdEventoActual());
         if (evento.isAdmiteTabla())
             Persistencia.HiloUSB.dti.setVentana(new ParticipantesVarios(jList1.getModel()
-            .getElementAt(jList1.getSelectedIndex()).toString()));
+            .getElementAt(jList1.getSelectedIndex()).toString(),categoria));
         else
             Persistencia.HiloUSB.dti.setVentana(new Participantes(jList1.getModel()
-            .getElementAt(jList1.getSelectedIndex()).toString()));            
+            .getElementAt(jList1.getSelectedIndex()).toString(),categoria));            
         this.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        Persistencia.HiloUSB.dti.setVentana(new InicioCategoria());
+        this.setVisible(false);
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

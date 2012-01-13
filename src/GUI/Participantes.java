@@ -26,12 +26,15 @@ import javax.swing.DefaultListModel;
 public class Participantes extends javax.swing.JFrame {
 
     /** Creates new form Participantes */
-    public Participantes(String nombre) {
+    String categoria;
+    
+    public Participantes(String nombre, String categoria) {
         initComponents();
         setLocationRelativeTo(null);
         if(!(Logica.dameLogica().getEventoPorNombre(nombre).getParticipantes()
                 .isEmpty()))
             insertarParticipantes(nombre);
+        this.categoria = categoria;
     }
 
     public void insertarParticipantes(String nombre){
@@ -94,6 +97,11 @@ public class Participantes extends javax.swing.JFrame {
         });
 
         jButton2.setText("<-Volver");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -182,13 +190,19 @@ public class Participantes extends javax.swing.JFrame {
         Logica.dameLogica().agregarApuesta(apuesta);
         GestionArchivoPdf pdf = new GestionArchivoPdf();
         pdf.generarPdf(apuesta);
-        
         apuesta.guardarApuesta(Logica.dameLogica().getListaApuestas());
         this.setVisible(false);
         this.dispose();
         new Apostar().setVisible(true);
                 
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        Persistencia.HiloUSB.dti.setVentana(new Eventos(categoria));
+        this.setVisible(false);
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField apellidoApostador;
