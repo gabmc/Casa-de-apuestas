@@ -72,6 +72,7 @@ public class GestionPendrive{
                 Thread.sleep(5000); //Hilo de JLABEL
                 ventanaReinicio.setVisible(false);
                 ventanaReinicio.dispose();
+//                new GUI.InicioCategoria("FALSE").setVisible(true);
                 logger.info("Terminando el hilo actual");
             } catch (InterruptedException ex) {
                 logger.error("Error al momento de terminal el hilo actual");
@@ -91,12 +92,12 @@ public class GestionPendrive{
 //se compara el total de dispositivos actuales con el total de dispositivos al inicio del programa
             logger.info("TOTAL DISPOSITIVOS: "+getTotalDispositivos()+" FILE LENGTH: "+files.length);
 
-                File[] archivos = files[files.length-2].listFiles();
+                File[] archivos = files[files.length-1].listFiles();
                 
                 for (File file : archivos) {
 
                     if (file.getName().contentEquals(archivo)){
-                        String directorio = files[files.length-2].getPath();
+                        String directorio = files[files.length-1].getPath();
                         String path = directorio + file.getName();
                         Logica.Logica.dameLogica().getListaAdministradores().clear();
                         Logica.Logica.dameLogica().getListaCategorias().clear();
@@ -128,7 +129,7 @@ public class GestionPendrive{
 //se compara el total de dispositivos actuales con el total de dispositivos al inicio del programa
             logger.info("TOTAL DISPOSITIVOS: "+getTotalDispositivos()+" FILE LENGTH: "+files.length);
 
-               File archivoEscribir = new File(files[files.length-2],"apuestas.xml");
+               File archivoEscribir = new File(files[files.length-1],"apuestas.xml");
                GestionPorArchivo gestion = new GestionPorArchivo();
             try {
                 gestion.copiarArchivoApuestas(archivoEscribir);

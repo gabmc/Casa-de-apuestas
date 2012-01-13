@@ -340,6 +340,7 @@ public class GestionPorArchivo {
         int cedula, monto, idEvento, id;
         id = cedula = monto = idEvento = 0;
         String nombre, apellido;
+        float montoFloat;
         Date fecha = new Date();
         nombre = apellido = "";
         ArrayList<Participante> listaParticipantes = new ArrayList();
@@ -351,8 +352,10 @@ public class GestionPorArchivo {
                 apellido = apuesta.getText();
             if(apuesta.getName().equals("cedula_apostador"))
                 cedula = Integer.parseInt(apuesta.getText());
-            if(apuesta.getName().equals("monto"))
-                monto = Integer.parseInt(apuesta.getText());
+            if(apuesta.getName().equals("monto")){
+                montoFloat = Float.parseFloat(apuesta.getText());
+                monto = (int) montoFloat;
+            }
             if(apuesta.getName().equals("id_evento"))
                 idEvento = Integer.parseInt(apuesta.getText());
             if(apuesta.getName().equals("aposto_por")){
@@ -375,6 +378,7 @@ public class GestionPorArchivo {
             apuestas = (Element) iterator.next();
             List apuesta = apuestas.getChildren();
             Apuesta nuevaApuesta = construirApuesta(apuesta);
+            
             Logica.dameLogica().getListaApuestas().add(nuevaApuesta);
         }
         return Boolean.TRUE;
@@ -384,11 +388,15 @@ public class GestionPorArchivo {
         Element archivo = abrirArchivo(path);
         List elementos = archivo.getChildren();
         Iterator iterator = elementos.iterator();
-        ArrayList<Participante> participantes = null;
+        ArrayList<Participante> participantes = new ArrayList<Participante>();
+        Apuesta a;
         while(iterator.hasNext()){
             Element elemInternos = (Element)iterator.next();
-            if (elemInternos.getName().equals("apuesta"))
-                cargarApuestas(elemInternos);
+            if (elemInternos.getName().equals("apuesta")){
+                a = construirApuesta(elemInternos.getChildren());
+                Logica.dameLogica().getListaApuestas().add(a);
+               
+            }
         }
         }
 }
