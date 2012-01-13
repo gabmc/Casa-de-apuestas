@@ -54,14 +54,14 @@ def crearEvento():
         eventos = db().select(db.eventos.ALL)
         form = crud.create(db.eventos)
         #if form.accepts(request.vars, formname=None):
-        if form.process().accepted:
-            db.commit()        
-            from log import *
-            log = log()
-            log.logear("Evento creado: "+form.vars.nombre)
-            response.flash = 'Evento Creado'
-        elif form.errors:
-            response.flash = 'Error en el formulario'
+#        if form.process().accepted:
+#            db.commit()        
+#            from log import *
+#            log = log()
+#            log.logear("Evento creado: "+form.vars.nombre)
+#            response.flash = 'Evento Creado'
+#        elif form.errors:
+#            response.flash = 'Error en el formulario'
         return response.render(dict(form=form,eventos=eventos))
         
 def obtenerCategoria():
@@ -72,7 +72,7 @@ def obtenerCategoria():
         return ''.join([DIV(k.nombre,
                      _onclick="jQuery('#categorias').val('%s');" % k.nombre +
                      "document.getElementById('sugerencias').innerHTML = '';" +
-                     "document.getElementById('eventos_categoria_id').value='27';",
+                     "document.getElementById('eventos_categoria_id').value='%s';"%k.id,
                      _onmouseover="this.style.backgroundColor='yellow'",
                      _onmouseout="this.style.backgroundColor='white'"
                      ).xml() for k in seleccionado])
@@ -81,28 +81,28 @@ def crearParticipante():
         participantes = db().select(db.participantes.ALL)
         form = crud.create(db.participantes)
         #if form.accepts(request.vars, formname=None):
-        if form.process().accepted:
-            db.commit()        
-            from log import *
-            log = log()
-            log.logear("Participante creado: "+form.vars.nombre)
-            response.flash = 'Participante Creado'
-        elif form.errors:
-            response.flash = 'Error en el formulario'
+#        if form.process().accepted:
+#            db.commit()        
+#            from log import *
+#            log = log()
+#            log.logear("Participante creado: "+form.vars.nombre)
+#            response.flash = 'Participante Creado'
+#        elif form.errors:
+#            response.flash = 'Error en el formulario'
         return response.render(dict(form=form,participantes=participantes))
 
 def crearEventoParticipante():
         eventosparticipantes = db().select(db.eventosparticipantes.ALL)
         form = crud.create(db.eventosparticipantes)
         #if form.accepts(request.vars, formname=None):
-        if form.process().accepted:
-            db.commit()        
-            from log import *
-            log = log()
-            log.logear("EventoParticipante creado: "+form.vars.nombre)
-            response.flash = 'EventoParticipante Creado'
-        elif form.errors:
-            response.flash = 'Error en el formulario'
+#        if form.process().accepted:
+#            db.commit()        
+#            from log import *
+#            log = log()
+#            log.logear("EventoParticipante creado: "+form.vars.nombre)
+#            response.flash = 'EventoParticipante Creado'
+#        elif form.errors:
+#            response.flash = 'Error en el formulario'
         return response.render(dict(form=form,eventosparticipantes=eventosparticipantes))
 
 def crearUsuario():

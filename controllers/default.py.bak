@@ -54,14 +54,14 @@ def crearEvento():
         eventos = db().select(db.eventos.ALL)
         form = crud.create(db.eventos)
         #if form.accepts(request.vars, formname=None):
-        if form.process().accepted:
-            db.commit()        
-            from log import *
-            log = log()
-            log.logear("Evento creado: "+form.vars.nombre)
-            response.flash = 'Evento Creado'
-        elif form.errors:
-            response.flash = 'Error en el formulario'
+#        if form.process().accepted:
+#            db.commit()        
+#            from log import *
+#            log = log()
+#            log.logear("Evento creado: "+form.vars.nombre)
+#            response.flash = 'Evento Creado'
+#        elif form.errors:
+#            response.flash = 'Error en el formulario'
         return response.render(dict(form=form,eventos=eventos))
         
 def obtenerCategoria():
@@ -72,7 +72,7 @@ def obtenerCategoria():
         return ''.join([DIV(k.nombre,
                      _onclick="jQuery('#categorias').val('%s');" % k.nombre +
                      "document.getElementById('sugerencias').innerHTML = '';" +
-                     "document.getElementById('eventos_categoria_id').value='27';",
+                     "document.getElementById('eventos_categoria_id').value='%s';"%k.id,
                      _onmouseover="this.style.backgroundColor='yellow'",
                      _onmouseout="this.style.backgroundColor='white'"
                      ).xml() for k in seleccionado])
@@ -81,14 +81,14 @@ def crearParticipante():
         participantes = db().select(db.participantes.ALL)
         form = crud.create(db.participantes)
         #if form.accepts(request.vars, formname=None):
-        if form.process().accepted:
-            db.commit()        
-            from log import *
-            log = log()
-            log.logear("Participante creado: "+form.vars.nombre)
-            response.flash = 'Participante Creado'
-        elif form.errors:
-            response.flash = 'Error en el formulario'
+#        if form.process().accepted:
+#            db.commit()        
+#            from log import *
+#            log = log()
+#            log.logear("Participante creado: "+form.vars.nombre)
+#            response.flash = 'Participante Creado'
+#        elif form.errors:
+#            response.flash = 'Error en el formulario'
         return response.render(dict(form=form,participantes=participantes))
 
 def crearEventoParticipante():
@@ -309,7 +309,7 @@ def apuestasPorEventos2():
     for i in apuestas:
         cont +=1
         bg = cont % 2 and "#F0F0F0" or "#FFFFFF"
-        col.append(TR(TD(i.fechaApuesta,_width="33%",_align="center"),TD(i.montoApuesta, _align="center",_border="1"),TD(i.maquina_id, _align="right",_align="center"),_bgcolor=bg,_border="1"))
+        col.append(TR(TD(i.fechaApuesta,_width="33%",_align="center"),TD(i.montoApuesta, _align="center",_border="1"),TD(i.maquina_id, _align="center"),_bgcolor=bg,_border="1"))
     cuerpo =TBODY(*col)
     table = TABLE(_border="1",_align="center",_width="100%",*[rows,cuerpo])
     pdf = MyFPDF()
