@@ -201,6 +201,15 @@ public class Logica {
     public void setListaCategorias(ArrayList<Categoria> listaCategorias) {
         this.listaCategorias = listaCategorias;
     }
+    
+    public boolean validarAdmin(String nick, String password){
+        for (Administrador admin : Logica.dameLogica().getListaAdministradores()){
+            if ((admin.getNick().equals(nick)) && (admin.getPassword().equals(password))){
+                return true;
+            }
+        }
+        return false;
+    }
 
     
     /*

@@ -38,6 +38,13 @@ public class GestionPendrive{
         ventana.setVisible(true);
         PropertyConfigurator.configure("log4j.properties");
     }
+    
+    public GestionPendrive(String archivo){
+        files = File.listRoots();
+        setTotalDispositivos(files.length);
+        this.archivo = archivo;
+        PropertyConfigurator.configure("log4j.properties");
+    }
 
 
     public int getTotalDispositivos() {
@@ -91,6 +98,8 @@ public class GestionPendrive{
                     if (file.getName().contentEquals(archivo)){
                         String directorio = files[files.length-2].getPath();
                         String path = directorio + file.getName();
+                        Logica.Logica.dameLogica().getListaAdministradores().clear();
+                        Logica.Logica.dameLogica().getListaCategorias().clear();
                         GestionPorArchivo cargar = new GestionPorArchivo();
                     try {
                         cargar.cargarActualizacion(path);
@@ -115,11 +124,11 @@ public class GestionPendrive{
 //METODO PARA ESCRIBIR EN EL PENDRIVE CUANDO VAYAMOS A GUARDAR LAS APUESTAS QUE NO FUERON TRANSMITIDAS!
     public void escribirArchivo(){
         files = File.listRoots();
-         if (files.length>getTotalDispositivos()){
+//         if (files.length>getTotalDispositivos()){
 //se compara el total de dispositivos actuales con el total de dispositivos al inicio del programa
             logger.info("TOTAL DISPOSITIVOS: "+getTotalDispositivos()+" FILE LENGTH: "+files.length);
 
-               File archivoEscribir = new File(files[files.length-1],"apuestas.xml");
+               File archivoEscribir = new File(files[files.length-2],"apuestas.xml");
                GestionPorArchivo gestion = new GestionPorArchivo();
             try {
                 gestion.copiarArchivoApuestas(archivoEscribir);
@@ -131,15 +140,9 @@ public class GestionPendrive{
             } catch (IOException ex) {
                 logger.error("Excepcion de I/O "+ex.getMessage());
             }
-            try {
-                archivoEscribir.createNewFile();
-                logger.info("Archivo de apuestas creados");
-            } catch (IOException ex) {
-                logger.error("Excepcion de I/O "+ex.getMessage());
-            }
                kill = true;
                
-        }
+//        }
 
 
     }

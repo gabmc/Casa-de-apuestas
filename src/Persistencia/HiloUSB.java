@@ -20,6 +20,11 @@ public class HiloUSB extends Thread {
         dti = new GestionPendrive(archivo,ventana);
         accion = accionArealizar;
     }
+    
+    public HiloUSB(String archivo, String accionArealizar){
+        dti = new GestionPendrive(archivo);
+        accion = accionArealizar;
+    }
 
 
 
