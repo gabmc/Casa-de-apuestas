@@ -1,19 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <apuestas>
-  <apuesta>
-    <nombre_apostador>fg</nombre_apostador>
-    <apellido_apostador>dfg</apellido_apostador>
-    <cedula_apostador>2</cedula_apostador>
-    <monto>3.0</monto>
-    <fecha>11/01/2012</fecha>
-    <id_evento>11</id_evento>
-    <aposto_por>
-      <participante>
-        <nombre>Cocodrilos</nombre>
-        <id>15</id>
-      </participante>
-    </aposto_por>
-    <id_maquina>9</id_maquina>
-  </apuesta>
+ 
 </apuestas>
 
