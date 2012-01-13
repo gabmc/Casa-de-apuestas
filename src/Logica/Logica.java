@@ -189,6 +189,20 @@ public class Logica {
     public void agregarApuesta(Apuesta apuesta){
         listaApuestas.add(apuesta);
     }
+
+    public void setListaAdministradores(ArrayList<Administrador> listaAdministradores) {
+        this.listaAdministradores = listaAdministradores;
+    }
+
+    public void setListaApuestas(ArrayList<Apuesta> listaApuestas) {
+        this.listaApuestas = listaApuestas;
+    }
+
+    public void setListaCategorias(ArrayList<Categoria> listaCategorias) {
+        this.listaCategorias = listaCategorias;
+    }
+
+    
     /*
      * MAMAGUEVOS, LES FALTO EL ID DE LA APUESTA =.=!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
      */
