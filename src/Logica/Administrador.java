@@ -22,6 +22,9 @@ public class Administrador {
         this.apellido = apellido;
         this.password = password;
     }
+    
+    public Administrador(){
+    }
 
     public String getApellido() {
         return apellido;
@@ -62,4 +65,5 @@ public class Administrador {
     public void setPassword(String password) {
         this.password = password;
     }
+    
 }
