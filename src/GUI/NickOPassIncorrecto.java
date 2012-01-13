@@ -20,6 +20,7 @@ public class NickOPassIncorrecto extends javax.swing.JFrame {
     /** Creates new form NickOPassIncorrecto */
     public NickOPassIncorrecto(javax.swing.JFrame logAdministrador) {
         initComponents();
+        setTitle("Error");
          setLocationRelativeTo(null);
         this.logAdministrador = logAdministrador;
         this.logAdministrador.setVisible(false);

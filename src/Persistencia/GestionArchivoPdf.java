@@ -25,10 +25,15 @@ import org.apache.log4j.Logger;
 public class GestionArchivoPdf {
     
         static Logger logger = Logger.getLogger(GestionArchivoPdf.class);
-        
+
+        /**
+         * Genera un archivo Pdf externo.
+         * @param La apuesta que se desea escribir
+         */
+
         public void generarPdf(Apuesta apuesta){
                 Document documento = new Document();
-                documento.setPageSize(new Rectangle(750, 750));
+                documento.setPageSize(new Rectangle(400, 400));
                 
         try {
             PdfWriter.getInstance(documento, new FileOutputStream("archivos/factura.pdf"));

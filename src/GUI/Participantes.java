@@ -31,6 +31,7 @@ public class Participantes extends javax.swing.JFrame {
     
     public Participantes(String nombre, String categoria) {
         initComponents();
+        setTitle("Participantes de "+nombre);
         setLocationRelativeTo(null);
         if(!(Logica.dameLogica().getEventoPorNombre(nombre).getParticipantes()
                 .isEmpty()))

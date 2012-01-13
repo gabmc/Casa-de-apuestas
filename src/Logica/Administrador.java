@@ -5,17 +5,30 @@
 package Logica;
 
 /**
- *
+ *Clase que nos permite guardar toda la informacion referente al administrador
+ * del sistema
+ * 
  * @author Usuario
  */
 public class Administrador {
+   
     int id;
     String nick;
     String nombre;
     String apellido;
     String password;
-
-    public Administrador(int id, String nick, String nombre, String apellido, String password) {
+ /**
+  * Clase que nos permite guardar toda la informacion referente al administrador
+  * del sistema
+  *
+  * @param id del administrador
+  * @param nick del administrador
+  * @param nombre del administrador
+  * @param apellido del administrador
+  * @param password del administrador
+  */
+    public Administrador(int id, String nick, String nombre, String apellido,
+            String password) {
         this.id = id;
         this.nick = nick;
         this.nombre = nombre;

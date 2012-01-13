@@ -5,6 +5,7 @@
 package Logica;
 
 /**
+ *Clase que posee toda la informacion referente a un participante
  *
  * @author Usuario
  */
@@ -14,6 +15,14 @@ public class Participante {
     String descripcion;
     int idCategoria;
 
+    /**
+     * Constructor de la clase Participante, posee todos los atributos de
+     * participante y el id de la categoria
+     * @param id del participante
+     * @param nombre del participante
+     * @param descripcion del participante
+     * @param idCategoria del participante
+     */
     public Participante(int id, String nombre, String descripcion, int idCategoria) {
         this.id = id;
         this.nombre = nombre;

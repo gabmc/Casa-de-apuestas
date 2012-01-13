@@ -21,6 +21,7 @@ public class AdvertenciaReinicio extends javax.swing.JFrame {
     public AdvertenciaReinicio() {
         initComponents();
         setLocationRelativeTo(null);
+        this.setName("Advertencia");
     }
 
     /** This method is called from within the constructor to

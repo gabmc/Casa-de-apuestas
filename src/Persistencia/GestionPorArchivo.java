@@ -42,7 +42,12 @@ public class GestionPorArchivo {
         PropertyConfigurator.configure("log4j.properties");
     }
 
-
+/**
+ * Dada una dirección se intenta abrir el archivo.
+ *
+ * @param path de ubicación
+ * @return El primer elemento del esquema XML
+ */
     public Element abrirArchivo(String path){
         SAXBuilder constructor = new SAXBuilder();
         try {
@@ -259,6 +264,15 @@ public class GestionPorArchivo {
         return Boolean.TRUE;
     }
 
+    /**
+     * Metodo que carga el archivo .xml de actualizacion del pendrive,
+     * se reutiliza en caso de cargar el archivo de persistencia del repositorio
+     * local
+     *
+     * @param path de dirección
+     * @return True en caso de haber realizado la lectura
+     */
+
     public boolean cargarActualizacion(String path) {
         Element archivo = abrirArchivo(path);
         List elementos = archivo.getChildren();
@@ -384,6 +398,13 @@ public class GestionPorArchivo {
         return Boolean.TRUE;
     }
     
+    /**
+     * Carga las apuestas de un archivo .xml que se encuentra en el repositorio
+     * interno de la aplicación
+     * 
+     * @param path de dirección
+     */
+
     public void cargarApuestasMemoria(String path){
         Element archivo = abrirArchivo(path);
         List elementos = archivo.getChildren();

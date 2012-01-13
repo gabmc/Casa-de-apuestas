@@ -19,6 +19,7 @@ public class Apostar extends javax.swing.JFrame {
     /** Creates new form Apostar */
     public Apostar() {
         initComponents();
+        setTitle("Apuesta Existosa");
         setLocationRelativeTo(null);
     }
 

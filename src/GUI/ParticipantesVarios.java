@@ -33,6 +33,7 @@ public class ParticipantesVarios extends javax.swing.JFrame {
     public ParticipantesVarios(String nombre, String categoria) {
         initComponents();
         this.nombre = nombre;
+        setTitle("Participantes de "+nombre);
         setLocationRelativeTo(null);
         if(!(Logica.dameLogica().getEventoPorNombre(nombre).getParticipantes()
                 .isEmpty()))
@@ -302,14 +303,12 @@ public class ParticipantesVarios extends javax.swing.JFrame {
                  Integer.parseInt(montoApuesta.getText()), 
                  Logica.dameLogica().getIdEventoActual(),
                  participantes);
-         System.out.println(apuesta.getParticipantes().get(0).getNombre());
         Logica.dameLogica().agregarApuesta(apuesta);
         
         GestionArchivoPdf pdf = new GestionArchivoPdf();
         pdf.generarPdf(apuesta);
         apuesta.guardarApuesta(Logica.dameLogica().getListaApuestas());
         
-        //new Apostar().setVisible(true);
         Persistencia.HiloUSB.dti.setVentana(new Apostar());
         this.setVisible(false);
         this.dispose();
@@ -326,7 +325,7 @@ public class ParticipantesVarios extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         Persistencia.HiloUSB.dti.setVentana(new Eventos(categoria));
-       // new Eventos(categoria).setVisible(true);
+       
         this.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed

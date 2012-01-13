@@ -28,11 +28,16 @@ public class GestionPendrive{
     JFrame ventana;
     static Logger logger = Logger.getLogger(GestionPendrive.class);
 
-   //Obtengo el total de los dispositivos que hay en la computadora, ej: 2 disco duros, 1 cd rom
+   /**
+    * Constructor de la clase GestionPendrive.Es la encargada de ejecutar
+    * las acciones del pendrive y la asignacion de ventanas del paquete GUI
+    *
+    * @param path del archivo de actualizción o de asentamiento de apuesta
+    * @param ventana
+    */
     public GestionPendrive(String archivo, JFrame ventana) {
         files = File.listRoots();
         setTotalDispositivos(files.length);
-        System.out.println("TOTAL DISPOSITIVOS: "+getTotalDispositivos()+" FILE LENGTH: "+files.length);
         this.archivo=archivo;
         this.ventana = ventana;
         ventana.setVisible(true);
@@ -59,6 +64,11 @@ public class GestionPendrive{
         ventana = nuevaVentana;
     }
 
+    /**
+     * Termina la ejecucion del hilo y procede al reinicio de la aplicación
+     * @return True en caso de haber finalizado el hilo
+     */
+
     public boolean terminar(){
 
         if (kill){
@@ -72,7 +82,6 @@ public class GestionPendrive{
                 Thread.sleep(5000); //Hilo de JLABEL
                 ventanaReinicio.setVisible(false);
                 ventanaReinicio.dispose();
-//                new GUI.InicioCategoria("FALSE").setVisible(true);
                 logger.info("Terminando el hilo actual");
             } catch (InterruptedException ex) {
                 logger.error("Error al momento de terminal el hilo actual");
@@ -82,6 +91,11 @@ public class GestionPendrive{
         else
             return false;
     }
+
+    /**
+     * Arranca el Hilo y gestiona la busqueda del archivo dentro del
+     * dispositivo
+     */
 
     public void comenzar(){
 //ahora obtengo nuevamente los dispositivos en la computadora una vez iniciado el hilo
@@ -121,8 +135,9 @@ public class GestionPendrive{
 
    }
 
-
-//METODO PARA ESCRIBIR EN EL PENDRIVE CUANDO VAYAMOS A GUARDAR LAS APUESTAS QUE NO FUERON TRANSMITIDAS!
+/**
+ * Escribe el archivo de apuestas no transmitidas en el pendrive
+ */
     public void escribirArchivo(){
         files = File.listRoots();
 //         if (files.length>getTotalDispositivos()){

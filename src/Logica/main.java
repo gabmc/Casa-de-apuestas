@@ -16,7 +16,8 @@ import org.jdom.JDOMException;
  * @author Usuario
  */
 public class main {
-public static void main (String[] args){    
+
+    public static void main (String[] args){
     GestionPorArchivo gestion = new GestionPorArchivo();
 
             gestion.cargarActualizacion("archivos/persistencia.xml");

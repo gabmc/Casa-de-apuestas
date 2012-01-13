@@ -20,6 +20,12 @@ public class Categoria {
     private ArrayList<Evento> listaEventos;
     static Logger logger = Logger.getLogger(Categoria.class);
 
+    /*
+     * Constructor de categoria, se inicializa la lista de eventos que
+     * contendra la categoria
+     *
+     * @param Los atributos de la categoria: id, nombre y descripcion
+     */
     public Categoria(int id, String nombre, String descripcion) {
         this.id = id;
         this.nombre = nombre;
@@ -61,7 +67,13 @@ public class Categoria {
     }
 
     
-
+    /**
+     * Encuentra un evento a partir de un id indicado, retorna null en caso
+     * contrario
+     *
+     * @param id del evento a buscar
+     * @return el evento deseado o null si no fue encontrado
+     */
     public Evento getEventoPorId(int id){
         Iterator iterator = listaEventos.iterator();
         Evento evento = null;
@@ -76,6 +88,13 @@ public class Categoria {
         return evento;
     }
 
+    /**
+     * Encuentra un evento a partir de un mombre indicado, retorna null en caso
+     * contrario
+     *
+     * @param nombre del evento a buscar
+     * @return el evento indicado o null en caso contrario
+     */
     public Evento getEventoPorNombre(String nombre){
         Iterator iterator = listaEventos.iterator();
         Evento evento = null;

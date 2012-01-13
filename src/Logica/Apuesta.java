@@ -17,20 +17,29 @@ import org.jdom.output.Format;
 import org.jdom.output.XMLOutputter;
 
 /**
+ * Clase que nos permite guardar la informacion de la apuesta una vez que el
+ * usuario ha indicado el evento y los participantes involucrados
  *
  * @author Usuario
  */
 public class Apuesta {
+
     private String nombreApostador;
     private String apellidoApostador;
     private int cedulaApostador;
-    private int montoApuesta;  //Volver a Float
+    private int montoApuesta;
     private Date fechaApuesta;
     private int idEvento;
     private ArrayList<Participante> Participantes;
     private int idMaquina;
     static Logger logger = Logger.getLogger(Apuesta.class);
 
+    /**
+     * Constructor de apuesta, recibe los datos del apostador y los participantes
+     * por las cuales aposto
+     *
+     * @param Todos los datos del evento, la apuesta y la lista de participantes
+     */
     public Apuesta(String nombreApostador, String apellidoApostador, 
             int cedulaApostador, int montoApuesta, int idEvento
             , ArrayList<Participante> idsParticipantes) {
@@ -65,18 +74,7 @@ public class Apuesta {
         return fechaApuesta;
     }
 
-//    public String getFechaApuestaString(){
-//        String fecha = String.valueOf(fechaApuesta.get(Calendar.YEAR)) + "-";
-//        if (fechaApuesta.get(Calendar.MONTH) < 9)
-//            fecha += "0" + String.valueOf(fechaApuesta.get(Calendar.MONTH)+1) + "-";
-//        else
-//            fecha += String.valueOf(fechaApuesta.get(Calendar.MONTH)+1) + "-";
-//        if (fechaApuesta.get(Calendar.DATE) < 10)
-//            fecha += "0" + String.valueOf(fechaApuesta.get(Calendar.DATE));
-//        else
-//            fecha += String.valueOf(fechaApuesta.get(Calendar.DATE));
-//        return fecha;
-//    }
+
     
     public void setFechaApuesta() {
         this.fechaApuesta = Calendar.getInstance().getTime();
@@ -125,7 +123,13 @@ public class Apuesta {
     public void setFechaApuesta(Date fechaApuesta) {
         this.fechaApuesta = fechaApuesta;
     }
-    
+
+    /**
+     * Guarda en  el archivo xml el conjunto de apuestas que se encuentran
+     * almacenadas en memoria
+     *
+     * @param  apuestas La lista de apuestas disponibles
+     */
     public void guardarApuesta(ArrayList<Apuesta> apuestas){
         
             Element root = new Element("apuestas");

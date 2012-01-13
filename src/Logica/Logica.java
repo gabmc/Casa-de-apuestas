@@ -10,6 +10,7 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
 /**
+ *Clase controladora del paquete Logica, bajo el Patron de Diseño Singleton
  *
  * @author Usuario
  */
@@ -23,6 +24,12 @@ public class Logica {
     private int idEventoActual;
     static Logger logger = Logger.getLogger(Logica.class);
     
+    /**
+     * Constructor de la clase Logica, instancia las listas del repositorio 
+     * local de datos
+     * 
+     */
+
     private Logica(){
         listaAdministradores = new ArrayList();
         listaCategorias = new ArrayList();
@@ -33,6 +40,11 @@ public class Logica {
     
     private static Logica instancia;
     
+    /**
+     * Metodo para obtener la instancia del objeto único creado en ejecución
+     * @return logica
+     */
+
     public static Logica dameLogica(){
         if (instancia == null)
             instancia = new Logica();
@@ -63,6 +75,14 @@ public class Logica {
         return listaApuestas.add(apuesta);
     }
 
+    /**
+     * Obtiene una categoria por el id por el que fue asignado en la Base de
+     * Datos del Servidor
+     *
+     * @param id de la categoria deseada
+     * @return categoria o null en caso de no existir
+     */
+
     public Categoria obtenerCategoriaPorId(int id){
         Iterator iterator = listaCategorias.iterator();
         Categoria categoria = null;
@@ -76,6 +96,13 @@ public class Logica {
         return categoria;
     }
 
+    /**
+     * Obtiene una categoria por su nombre
+     *
+     * @param nombre de la categoria
+     * @return categoria o null en caso de no existir
+     */
+
     public Categoria obtenerCategoriaPorString(String nombre){
         Iterator iterator = listaCategorias.iterator();
         Categoria categoria = null;
@@ -88,6 +115,14 @@ public class Logica {
         }
         return categoria;
     }
+
+    /**
+     * Obtiene un evento por su nombre, perteneciente a las categorias
+     * almacenadas
+     *
+     * @param nombre del evento
+     * @return evento o null en caso de no existir
+     */
     
     public Evento obtenerEventoPorString(String nombre, int idCategoria){
         Iterator iterator = listaCategorias.iterator();
@@ -108,6 +143,16 @@ public class Logica {
         }
         return evento;
     }
+
+    /**
+     * Obtiene un participante por su nombre, perteneciente a una categoria y
+     * evento registrado
+     *
+     * @param nombre del participante
+     * @param id del evento
+     * @param id de la categoria
+     * @return participante o null en caso de no existir
+     */
     
     public Participante obtenerParticipantePorString(String nombre, int idEvento,
             int idCategoria){
@@ -137,6 +182,12 @@ public class Logica {
         return participante;
     }
 
+    /**
+     * Obtiene un evento por su id
+     *
+     * @param id del evento buscado
+     * @return evento o null en caso de no existir
+     */
 
     public Evento getEventoPorId(int id){
         Iterator iterator = listaCategorias.iterator();
@@ -153,6 +204,13 @@ public class Logica {
         }
         return evento;
     }
+
+    /**
+     * Obtiene un evento por su nombre
+     *
+     * @param nombre del evento buscado
+     * @return evento o null en caso de no existir
+     */
 
     public Evento getEventoPorNombre(String nombre){
         Iterator iterator = listaCategorias.iterator();
@@ -201,19 +259,24 @@ public class Logica {
     public void setListaCategorias(ArrayList<Categoria> listaCategorias) {
         this.listaCategorias = listaCategorias;
     }
+
+    /**
+     * Valida que el nick y la contraseña, sean correctas para un administrador
+     * en particular
+     *
+     * @param nick del administrador
+     * @param password del administrador
+     * @return true de ser correcto
+     */
     
     public boolean validarAdmin(String nick, String password){
         for (Administrador admin : Logica.dameLogica().getListaAdministradores()){
             if ((admin.getNick().equals(nick)) && (admin.getPassword().equals(password))){
-                return true;
+                return Boolean.TRUE;
             }
         }
-        return false;
+        return Boolean.FALSE;
     }
 
-    
-    /*
-     * MAMAGUEVOS, LES FALTO EL ID DE LA APUESTA =.=!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-     */
 
 }

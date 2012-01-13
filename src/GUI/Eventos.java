@@ -27,6 +27,7 @@ public class Eventos extends javax.swing.JFrame {
     
     public Eventos(String categoria) {
         initComponents();
+        setTitle("Evento(s) de "+categoria);
         setLocationRelativeTo(null);
         if (!(Logica.dameLogica().obtenerCategoriaPorString(categoria)
                 .getListaEventos().isEmpty()))
@@ -119,15 +120,14 @@ public class Eventos extends javax.swing.JFrame {
                 ((String)jList1.getSelectedValue(),
                 Logica.dameLogica().getIdCategoriaActual());
         Logica.dameLogica().setIdEventoActual(evento.getId());
-        System.out.println(Logica.dameLogica().getIdEventoActual());
+ 
         if (evento.isAdmiteTabla())
             Persistencia.HiloUSB.dti.setVentana(new ParticipantesVarios(jList1.getModel()
             .getElementAt(jList1.getSelectedIndex()).toString(),categoria));
-//            new ParticipantesVarios(jList1.getModel().getElementAt(jList1.getSelectedIndex()).toString(),categoria).setVisible(true);
         else
             Persistencia.HiloUSB.dti.setVentana(new Participantes(jList1.getModel()
             .getElementAt(jList1.getSelectedIndex()).toString(),categoria));
-//            new Participantes(jList1.getModel().getElementAt(jList1.getSelectedIndex()).toString(),categoria).setVisible(true);
+
         this.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed

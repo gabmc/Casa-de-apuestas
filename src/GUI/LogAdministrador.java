@@ -22,6 +22,7 @@ public class LogAdministrador extends javax.swing.JFrame {
     /** Creates new form LogAdministrador */
     public LogAdministrador() {
         initComponents();
+        setTitle("Inicio Sesion");
         setLocationRelativeTo(null);
     }
 

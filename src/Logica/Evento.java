@@ -10,6 +10,7 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
 /**
+ *Clase que guarda la informacion del Evento para una determinada categoria
  *
  * @author Usuario
  */
@@ -24,7 +25,20 @@ public class Evento {
     private ArrayList<Participante> participantes;
     static Logger logger = Logger.getLogger(Evento.class);
 
-    public Evento(int id, String nombre, String fecha, String descripcion, String horaInicio, boolean admiteTabla, boolean permiteEmpate) {
+    /**
+     * Constructor de evento, se le indica todos los atributos del evento especifico
+     * se inicializa la lista de participantes que el evento contendra
+     *
+     * @param id del evento
+     * @param nombre del evento
+     * @param fecha del evento
+     * @param descripcion del evento
+     * @param horaInicio del evento
+     * @param admiteTabla del evento
+     * @param permiteEmpate del evento
+     */
+    public Evento(int id, String nombre, String fecha, String descripcion,
+            String horaInicio, boolean admiteTabla, boolean permiteEmpate) {
         this.id = id;
         this.nombre = nombre;
         this.fecha = fecha;
@@ -100,6 +114,13 @@ public class Evento {
         this.participantes = participantes;
     }
 
+    /**
+     * Metodo que retorna un participante del evento dado su nombre
+     * 
+     * @param nombre del participante a buscar
+     * @return el participante indicado o null en caso de que no se haya
+     * encontrado
+     */
     public Participante buscarParticipanteNombre(String nombre){
         Iterator iterator = participantes.iterator();
         Participante participante = null;

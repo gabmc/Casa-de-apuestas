@@ -31,6 +31,7 @@ public class InicioCategoria extends javax.swing.JFrame {
     public InicioCategoria(/*String inicioConHilo*/) {
         initComponents();
         setLocationRelativeTo(null);
+        this.setTitle("Elegir Categoria");
         if (!(Logica.dameLogica().getListaCategorias().isEmpty()))
             insertarElementos();
 //        if (inicioConHilo.contentEquals("TRUE")){
@@ -139,8 +140,6 @@ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     Categoria categoria = null;
     categoria = Logica.dameLogica().obtenerCategoriaPorString((String)jList1.getSelectedValue());
     Logica.dameLogica().setIdCategoriaActual(categoria.getId());
-    System.out.println(Logica.dameLogica().getIdCategoriaActual());
-//    new Eventos(jList1.getModel().getElementAt(jList1.getSelectedIndex()).toString()).setVisible(true);
             
     Persistencia.HiloUSB.dti.setVentana(new Eventos(jList1.getModel()
             .getElementAt(jList1.getSelectedIndex()).toString()));
