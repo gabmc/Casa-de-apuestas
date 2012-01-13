@@ -56,6 +56,12 @@ public class Categoria {
         return listaEventos;
     }
 
+    public void setListaEventos(ArrayList<Evento> listaEventos) {
+        this.listaEventos = listaEventos;
+    }
+
+    
+
     public Evento getEventoPorId(int id){
         Iterator iterator = listaEventos.iterator();
         Evento evento = null;
