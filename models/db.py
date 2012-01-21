@@ -9,6 +9,8 @@ if not request.env.web2py_runtime_gae:
     ## if NOT running on Google App Engine use SQLite or other DB
     db = DAL('sqlite://storage.sqlite')
    ## db = DAL('mysql://root:''@localhost/test')
+    db.define_table('tokens',Field('idT'),Field('Creacion'))
+   
     db.define_table('categorias',
         Field('nombre',label=T('Nombre Categoria')),
         Field('descripcion', 'text',label=T('Descripcion Categoria')))

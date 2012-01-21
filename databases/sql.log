@@ -289,3 +289,11 @@ timestamp: 2012-01-07T23:34:56.198000
 ALTER TABLE apuestas ADD eventos_id INTEGER REFERENCES eventos(id) ON DELETE CASCADE;
 timestamp: 2012-01-07T23:34:56.309000
 ALTER TABLE apuestas ADD participantes_id INTEGER REFERENCES participantes(id) ON DELETE CASCADE;
+timestamp: 2012-01-20T17:08:55.164000
+CREATE TABLE tokens(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Creacion CHAR(512)
+);
+success!
+timestamp: 2012-01-20T17:23:21.403000
+ALTER TABLE tokens ADD idt CHAR(512);

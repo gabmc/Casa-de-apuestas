@@ -9,6 +9,8 @@ if not request.env.web2py_runtime_gae:
     ## if NOT running on Google App Engine use SQLite or other DB
     db = DAL('sqlite://storage.sqlite')
    ## db = DAL('mysql://root:''@localhost/test')
+    db.define_table('tokens',Field('idT'),Field('Creacion'))
+   
     db.define_table('categorias',
         Field('nombre',label=T('Nombre Categoria')),
         Field('descripcion', 'text',label=T('Descripcion Categoria')))
@@ -174,19 +176,13 @@ auth.define_tables(migrate = settings.migrate)
 db.define_table('apuestas',
    Field ('montoApuesta','integer',requires=IS_NOT_EMPTY()),
    Field ('fechaApuesta','string',requires=IS_NOT_EMPTY()),
+   Field ('eventos_id',db.eventos,requires=IS_NOT_EMPTY()),
+   Field ('participantes_id',db.participantes,requires=IS_NOT_EMPTY()),
    Field ('maquina_id',db.maquinas,requires=IS_NOT_EMPTY())
    )
 db.apuestas.maquina_id.requires = IS_IN_DB(db, db.maquinas.id, '%(id)s')
-
-db.define_table('e_a_p',
-   Field ('eventos_id',db.eventos,requires=IS_NOT_EMPTY()),
-   Field ('apuestas_id',db.apuestas,requires=IS_NOT_EMPTY()),
-   Field ('participantes_id',db.participantes,requires=IS_NOT_EMPTY())
-   )
-
-db.e_a_p.eventos_id.requires = IS_IN_DB(db, db.eventos.id, '%(nombre)s')
-db.e_a_p.apuestas_id.requires = IS_IN_DB(db, db.apuestas.id, '%(fechaApuesta)s')
-db.e_a_p.participantes_id.requires = IS_IN_DB(db, db.participantes.id, '%(nombre)s')
+db.apuestas.eventos_id.requires = IS_IN_DB(db, db.eventos.id, '%(nombre)s')
+db.apuestas.participantes_id.requires = IS_IN_DB(db, db.participantes.id, '%(nombre)s')
 
 ## configure email
 mail=auth.settings.mailer

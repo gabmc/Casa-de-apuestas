@@ -22,7 +22,7 @@
                     jQuery("#categorias").keyup(function(){
                           ajax('obtenerCategoria', ['categorias'], 'sugerencias')});
                     </script>
-                    <input type="hidden" id="eventos_categoria_id" name="categoria_id" value=""/>
+                    <input type="hidden" id="eventos_categoria_id" name="categoria_id" value="27"/>
                     </td>
                     </tr>
                     <tr>
@@ -60,7 +60,7 @@
               <div class="l">
                   <div class="r">
                        <small>*Por favor llenar todos los campos solicitados</br></small>
-                                       <small>{{=A('Regresar', _href=URL("index"))}}</small>
+                                       <small>{{=A('Regresar', _href=URL("indexAdmin"))}}</small>
                   </div>
               </div>
            </div>

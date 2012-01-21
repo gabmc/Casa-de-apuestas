@@ -1,4 +1,1 @@
-
-{{extend 'layout.html'}}
-<h1>This is the appadmin/prueba.html template</h1>
-{{=BEAUTIFY(response._vars)}}
+{{=T(tokens.recorrerToken)}}
