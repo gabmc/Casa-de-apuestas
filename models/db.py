@@ -35,7 +35,7 @@ if not request.env.web2py_runtime_gae:
         Field('eventos_id',db.eventos,label=T('Evento')),
         Field('participantes_id',db.participantes,label=T('Participante')),
         Field('relacionpago',label=T('Relacion/Pago')),
-        Field('limite_apuesta','integer',label=T('Limite Apuesta Bs')))
+        Field('limite_apuesta','double',label=T('Limite Apuesta Bs')))
  #       primarykey=['eventos_id','participantes_id'],
 #        migrate=False)
 ##MALDITA PK !!!, HABRA QUE PONERLE ID PARA QUE FUNCIONE, MALA PRACTICA :(
@@ -74,7 +74,7 @@ if not request.env.web2py_runtime_gae:
     db.eventosparticipantes.eventos_id.requires = IS_IN_DB(db, db.eventos.id, '%(nombre)s')
     db.eventosparticipantes.participantes_id.requires = IS_IN_DB(db, db.participantes.id, '%(nombre)s')
     db.eventosparticipantes.relacionpago.requires = IS_IN_SET(['1 a 1', '2 a 1', ' 3 a 1'])
-#    db.eventosparticipantes.primarykey.requires = IS_NOT_IN_DB(db,db.eventosparticipantes.eventos_id,db.eventosparticipantes.participantes_id)
+    db.eventosparticipantes.limite_apuesta.requires = IS_FLOAT_IN_RANGE(0.1,1e10)
 
     db.resultados.eventos_id.requires = IS_IN_DB(db, db.eventos.id, '%(nombre)s')
     db.resultados.participantes_id.requires = IS_IN_DB(db, db.participantes.id, '%(nombre)s')
