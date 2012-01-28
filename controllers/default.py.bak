@@ -247,10 +247,19 @@ def verProximosEventos2():
 from Transmisor import Token
 from Transmisor import ListaTokens
 
-@servicioWeb.soap('enviarApuesta', returns={'result':int},args={'listaApuestas':[{'apuesta':{'idEvento':int, 'idParticipante':int, 'montoApuesta':int, 'fechaApuesta':str, 'maquinaid':int}}]})
-def enviarApuesta(listaApuestas):
-    for i in range(0,len(listaApuestas)):
-        db.apuestas.insert(eventos_id = listaApuestas[i]['apuesta']['idEvento'],participantes_id = listaApuestas[i]['apuesta']['idParticipante'],montoApuesta = listaApuestas[i]['apuesta']['montoApuesta'], fechaApuesta = listaApuestas[i]['apuesta']['fechaApuesta'], maquina_id = listaApuestas[i]['apuesta']['maquinaid'])
+
+#@servicioWeb.soap('verificacionToken',returns={'result':int},args={'parameter':str})
+def verificacionToken(parameter):
+    listaTokens = ListaTokens(db)
+    revisarToken = Token(parameter)
+    return listaTokens.verificarToken(revisarToken,db)
+
+@servicioWeb.soap('enviarApuesta', returns={'result':int},args={'tokenMaquina':str,'listaApuestas':[{'apuesta':{'idEvento':int, 'idParticipante':int, 'montoApuesta':int, 'fechaApuesta':str, 'maquinaid':int}}]})
+def enviarApuesta(tokenMaquina, listaApuestas):
+    if (verificacionToken(tokenMaquina) == 0):
+        for i in range(0,len(listaApuestas)):
+            db.apuestas.insert(eventos_id = listaApuestas[i]['apuesta']['idEvento'],participantes_id = listaApuestas[i]['apuesta']['idParticipante'],montoApuesta = listaApuestas[i]['apuesta']['montoApuesta'], fechaApuesta = listaApuestas[i]['apuesta']['fechaApuesta'], maquina_id = listaApuestas[i]['apuesta']['maquinaid'])
+        return 0
     return 1
 
 @servicioWeb.soap('asignacionToken',returns={'result':str},args={'id':int})
@@ -263,13 +272,6 @@ def asignacionToken(id):
     creacion = datetime.now().minute
     db.tokens.insert(idT=tokn,Creacion=int(creacion))
     return str(tokn)
-
-@servicioWeb.soap('verificacionToken',returns={'result':int},args={'parameter':str})
-def verificacionToken(parameter):
-    listaTokens = ListaTokens(db)
-    revisarToken = Token(parameter)
-    return listaTokens.verificarToken(revisarToken,db)
-    #return listaTokens.obtenerDimension(db)
 
 def call():
     return servicioWeb()
