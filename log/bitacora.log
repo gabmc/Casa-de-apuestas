@@ -3920,3 +3920,884 @@
 2012-01-13 11:18:31,698 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:3
 2012-01-13 11:18:31,700 [main] INFO  Persistencia.GestionPendrive: Datos cargados de actualizacion
 2012-01-13 11:18:41,814 [main] INFO  Persistencia.GestionPendrive: Terminando el hilo actual
+2012-01-27 20:55:51,717 [main] INFO  Persistencia.GestionPorArchivo: Se abrio el archivo en el path  archivos/persistencia.xml
+2012-01-27 20:55:51,772 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:29
+2012-01-27 20:55:51,783 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:29
+2012-01-27 20:55:51,795 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:27
+2012-01-27 20:55:51,806 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:28
+2012-01-27 20:55:51,818 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:31
+2012-01-27 20:55:51,829 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:30
+2012-01-27 20:55:51,840 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:31
+2012-01-27 20:55:51,860 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:29
+2012-01-27 20:55:51,874 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:30
+2012-01-27 20:55:51,887 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:27
+2012-01-27 20:55:51,891 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:3
+2012-01-27 20:55:51,891 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:3
+2012-01-27 20:55:51,891 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:3
+2012-01-27 20:55:51,891 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:3
+2012-01-27 20:55:51,891 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:3
+2012-01-27 20:55:51,892 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:3
+2012-01-27 20:55:51,892 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:4
+2012-01-27 20:55:51,893 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:4
+2012-01-27 20:55:51,893 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:4
+2012-01-27 20:55:51,893 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:4
+2012-01-27 20:55:51,894 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:4
+2012-01-27 20:55:51,894 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:4
+2012-01-27 20:55:51,894 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 20:55:51,894 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 20:55:51,894 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:5
+2012-01-27 20:55:51,894 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 20:55:51,894 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 20:55:51,894 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:5
+2012-01-27 20:55:51,895 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 20:55:51,895 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 20:55:51,895 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:5
+2012-01-27 20:55:51,895 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 20:55:51,895 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 20:55:51,895 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:5
+2012-01-27 20:55:51,895 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:7
+2012-01-27 20:55:51,895 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:7
+2012-01-27 20:55:51,896 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:7
+2012-01-27 20:55:51,896 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:7
+2012-01-27 20:55:51,896 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:7
+2012-01-27 20:55:51,896 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:7
+2012-01-27 20:55:51,897 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 20:55:51,897 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 20:55:51,897 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:8
+2012-01-27 20:55:51,898 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 20:55:51,898 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 20:55:51,898 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:8
+2012-01-27 20:55:51,898 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 20:55:51,898 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 20:55:51,898 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:8
+2012-01-27 20:55:51,898 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 20:55:51,898 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 20:55:51,898 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:8
+2012-01-27 20:55:51,899 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 20:55:51,899 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 20:55:51,899 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:8
+2012-01-27 20:55:51,899 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 20:55:51,899 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 20:55:51,899 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:8
+2012-01-27 20:55:51,899 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 20:55:51,900 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 20:55:51,900 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:9
+2012-01-27 20:55:51,900 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 20:55:51,900 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 20:55:51,900 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:9
+2012-01-27 20:55:51,900 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 20:55:51,900 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 20:55:51,900 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:9
+2012-01-27 20:55:51,901 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 20:55:51,901 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 20:55:51,901 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:9
+2012-01-27 20:55:51,902 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:10
+2012-01-27 20:55:51,902 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:10
+2012-01-27 20:55:51,902 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:10
+2012-01-27 20:55:51,902 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:10
+2012-01-27 20:55:51,902 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:10
+2012-01-27 20:55:51,902 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:10
+2012-01-27 20:55:51,903 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:10
+2012-01-27 20:55:51,903 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:10
+2012-01-27 20:55:51,903 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:10
+2012-01-27 20:55:51,903 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:11
+2012-01-27 20:55:51,903 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:11
+2012-01-27 20:55:51,903 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:11
+2012-01-27 20:55:51,903 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:11
+2012-01-27 20:55:51,904 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:11
+2012-01-27 20:55:51,904 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:11
+2012-01-27 20:55:51,904 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 20:55:51,904 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 20:55:51,904 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:12
+2012-01-27 20:55:51,904 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 20:55:51,904 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 20:55:51,904 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:12
+2012-01-27 20:55:51,904 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 20:55:51,904 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 20:55:51,905 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:12
+2012-01-27 20:55:51,905 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 20:55:51,906 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 20:55:51,906 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:12
+2012-01-27 20:55:51,906 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:13
+2012-01-27 20:55:51,906 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:13
+2012-01-27 20:55:51,906 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:13
+2012-01-27 20:55:51,906 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:13
+2012-01-27 20:55:51,906 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:13
+2012-01-27 20:55:51,906 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:13
+2012-01-27 20:55:51,913 [main] INFO  Persistencia.GestionPorArchivo: Se abrio el archivo en el path  archivos/apuestas.xml
+2012-01-27 20:55:54,620 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo la categoria con el nombre:Hipismo 
+2012-01-27 20:55:54,684 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo la categoria con el nombre:Hipismo 
+2012-01-27 20:55:54,685 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo la categoria con el nombre:Hipismo 
+2012-01-27 20:55:56,348 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo el evento con el nombre:Carrera de los 30Km
+2012-01-27 20:55:56,463 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de los 30Km
+2012-01-27 20:55:56,464 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de los 30Km
+2012-01-27 20:55:56,464 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo el evento con el nombre:Carrera de los 30Km
+2012-01-27 20:55:56,464 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de los 30Km
+2012-01-27 20:55:56,464 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de los 30Km
+2012-01-27 20:55:56,464 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo el evento con el nombre:Carrera de los 30Km
+2012-01-27 20:55:58,724 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de los 30Km
+2012-01-27 20:55:58,724 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de los 30Km
+2012-01-27 20:55:58,724 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo el evento con el nombre:Carrera de los 30Km
+2012-01-27 20:56:00,276 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de los 30Km
+2012-01-27 20:56:00,276 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de los 30Km
+2012-01-27 20:56:00,277 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo el evento con el nombre:Carrera de los 30Km
+2012-01-27 23:18:46,911 [main] INFO  Persistencia.GestionPorArchivo: Se abrio el archivo en el path  archivos/persistencia.xml
+2012-01-27 23:18:46,980 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:29
+2012-01-27 23:18:46,991 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:29
+2012-01-27 23:18:47,002 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:27
+2012-01-27 23:18:47,014 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:28
+2012-01-27 23:18:47,025 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:31
+2012-01-27 23:18:47,036 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:30
+2012-01-27 23:18:47,048 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:31
+2012-01-27 23:18:47,063 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:29
+2012-01-27 23:18:47,076 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:30
+2012-01-27 23:18:47,088 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:27
+2012-01-27 23:18:47,090 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:3
+2012-01-27 23:18:47,090 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:3
+2012-01-27 23:18:47,091 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:3
+2012-01-27 23:18:47,091 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:3
+2012-01-27 23:18:47,091 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:3
+2012-01-27 23:18:47,091 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:3
+2012-01-27 23:18:47,092 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:4
+2012-01-27 23:18:47,092 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:4
+2012-01-27 23:18:47,092 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:4
+2012-01-27 23:18:47,092 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:4
+2012-01-27 23:18:47,092 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:4
+2012-01-27 23:18:47,092 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:4
+2012-01-27 23:18:47,093 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 23:18:47,093 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 23:18:47,093 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:5
+2012-01-27 23:18:47,093 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 23:18:47,093 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 23:18:47,093 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:5
+2012-01-27 23:18:47,093 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 23:18:47,093 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 23:18:47,093 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:5
+2012-01-27 23:18:47,093 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 23:18:47,093 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 23:18:47,093 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:5
+2012-01-27 23:18:47,094 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:7
+2012-01-27 23:18:47,094 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:7
+2012-01-27 23:18:47,094 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:7
+2012-01-27 23:18:47,094 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:7
+2012-01-27 23:18:47,094 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:7
+2012-01-27 23:18:47,094 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:7
+2012-01-27 23:18:47,094 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:18:47,094 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:18:47,094 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:8
+2012-01-27 23:18:47,094 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:18:47,094 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:18:47,095 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:8
+2012-01-27 23:18:47,095 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:18:47,095 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:18:47,095 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:8
+2012-01-27 23:18:47,095 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:18:47,095 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:18:47,095 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:8
+2012-01-27 23:18:47,095 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:18:47,095 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:18:47,095 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:8
+2012-01-27 23:18:47,096 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:18:47,096 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:18:47,096 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:8
+2012-01-27 23:18:47,096 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 23:18:47,096 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 23:18:47,096 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:9
+2012-01-27 23:18:47,096 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 23:18:47,096 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 23:18:47,096 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:9
+2012-01-27 23:18:47,096 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 23:18:47,096 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 23:18:47,097 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:9
+2012-01-27 23:18:47,097 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 23:18:47,097 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 23:18:47,097 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:9
+2012-01-27 23:18:47,097 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:10
+2012-01-27 23:18:47,097 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:10
+2012-01-27 23:18:47,097 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:10
+2012-01-27 23:18:47,097 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:10
+2012-01-27 23:18:47,097 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:10
+2012-01-27 23:18:47,097 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:10
+2012-01-27 23:18:47,097 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:10
+2012-01-27 23:18:47,097 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:10
+2012-01-27 23:18:47,097 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:10
+2012-01-27 23:18:47,098 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:11
+2012-01-27 23:18:47,098 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:11
+2012-01-27 23:18:47,098 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:11
+2012-01-27 23:18:47,098 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:11
+2012-01-27 23:18:47,098 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:11
+2012-01-27 23:18:47,098 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:11
+2012-01-27 23:18:47,098 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 23:18:47,098 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 23:18:47,098 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:12
+2012-01-27 23:18:47,098 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 23:18:47,098 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 23:18:47,098 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:12
+2012-01-27 23:18:47,098 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 23:18:47,099 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 23:18:47,099 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:12
+2012-01-27 23:18:47,099 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 23:18:47,099 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 23:18:47,099 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:12
+2012-01-27 23:18:47,099 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:13
+2012-01-27 23:18:47,099 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:13
+2012-01-27 23:18:47,099 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:13
+2012-01-27 23:18:47,099 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:13
+2012-01-27 23:18:47,099 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:13
+2012-01-27 23:18:47,099 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:13
+2012-01-27 23:18:47,104 [main] INFO  Persistencia.GestionPorArchivo: Se abrio el archivo en el path  archivos/apuestas.xml
+2012-01-27 23:18:52,795 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo la categoria con el nombre:Formula 1 
+2012-01-27 23:18:52,837 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo la categoria con el nombre:Formula 1 
+2012-01-27 23:18:52,837 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo la categoria con el nombre:Formula 1 
+2012-01-27 23:18:54,627 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:18:54,909 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:18:54,910 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:18:54,910 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:18:54,910 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:18:54,910 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:18:54,910 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:18:56,580 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:18:56,580 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:18:56,580 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:18:59,300 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:18:59,301 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:18:59,301 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:19:00,476 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:19:00,477 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:19:00,477 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:19:01,852 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:19:01,852 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:19:01,853 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:29:00,195 [main] INFO  Persistencia.GestionPorArchivo: Se abrio el archivo en el path  archivos/persistencia.xml
+2012-01-27 23:29:00,233 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:29
+2012-01-27 23:29:00,245 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:29
+2012-01-27 23:29:00,256 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:27
+2012-01-27 23:29:00,267 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:28
+2012-01-27 23:29:00,277 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:31
+2012-01-27 23:29:00,291 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:30
+2012-01-27 23:29:00,302 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:31
+2012-01-27 23:29:00,317 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:29
+2012-01-27 23:29:00,336 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:30
+2012-01-27 23:29:00,346 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:27
+2012-01-27 23:29:00,349 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:3
+2012-01-27 23:29:00,349 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:3
+2012-01-27 23:29:00,349 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:3
+2012-01-27 23:29:00,349 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:3
+2012-01-27 23:29:00,349 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:3
+2012-01-27 23:29:00,349 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:3
+2012-01-27 23:29:00,350 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:4
+2012-01-27 23:29:00,350 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:4
+2012-01-27 23:29:00,350 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:4
+2012-01-27 23:29:00,350 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:4
+2012-01-27 23:29:00,350 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:4
+2012-01-27 23:29:00,350 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:4
+2012-01-27 23:29:00,350 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 23:29:00,351 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 23:29:00,351 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:5
+2012-01-27 23:29:00,351 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 23:29:00,351 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 23:29:00,351 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:5
+2012-01-27 23:29:00,351 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 23:29:00,351 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 23:29:00,351 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:5
+2012-01-27 23:29:00,351 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 23:29:00,351 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 23:29:00,352 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:5
+2012-01-27 23:29:00,352 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:7
+2012-01-27 23:29:00,352 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:7
+2012-01-27 23:29:00,352 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:7
+2012-01-27 23:29:00,352 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:7
+2012-01-27 23:29:00,352 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:7
+2012-01-27 23:29:00,352 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:7
+2012-01-27 23:29:00,352 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:29:00,352 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:29:00,352 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:8
+2012-01-27 23:29:00,353 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:29:00,354 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:29:00,354 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:8
+2012-01-27 23:29:00,354 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:29:00,354 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:29:00,354 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:8
+2012-01-27 23:29:00,354 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:29:00,355 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:29:00,355 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:8
+2012-01-27 23:29:00,355 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:29:00,355 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:29:00,355 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:8
+2012-01-27 23:29:00,355 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:29:00,355 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:29:00,355 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:8
+2012-01-27 23:29:00,355 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 23:29:00,356 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 23:29:00,356 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:9
+2012-01-27 23:29:00,356 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 23:29:00,356 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 23:29:00,356 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:9
+2012-01-27 23:29:00,356 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 23:29:00,356 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 23:29:00,356 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:9
+2012-01-27 23:29:00,357 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 23:29:00,357 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 23:29:00,357 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:9
+2012-01-27 23:29:00,357 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:10
+2012-01-27 23:29:00,357 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:10
+2012-01-27 23:29:00,357 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:10
+2012-01-27 23:29:00,357 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:10
+2012-01-27 23:29:00,357 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:10
+2012-01-27 23:29:00,358 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:10
+2012-01-27 23:29:00,358 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:10
+2012-01-27 23:29:00,358 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:10
+2012-01-27 23:29:00,358 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:10
+2012-01-27 23:29:00,358 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:11
+2012-01-27 23:29:00,358 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:11
+2012-01-27 23:29:00,358 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:11
+2012-01-27 23:29:00,358 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:11
+2012-01-27 23:29:00,358 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:11
+2012-01-27 23:29:00,358 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:11
+2012-01-27 23:29:00,359 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 23:29:00,359 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 23:29:00,359 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:12
+2012-01-27 23:29:00,359 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 23:29:00,359 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 23:29:00,359 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:12
+2012-01-27 23:29:00,359 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 23:29:00,359 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 23:29:00,359 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:12
+2012-01-27 23:29:00,360 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 23:29:00,360 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 23:29:00,360 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:12
+2012-01-27 23:29:00,360 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:13
+2012-01-27 23:29:00,360 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:13
+2012-01-27 23:29:00,360 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:13
+2012-01-27 23:29:00,360 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:13
+2012-01-27 23:29:00,360 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:13
+2012-01-27 23:29:00,360 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:13
+2012-01-27 23:29:00,364 [main] INFO  Persistencia.GestionPorArchivo: Se abrio el archivo en el path  archivos/apuestas.xml
+2012-01-27 23:29:08,380 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo la categoria con el nombre:Formula 1 
+2012-01-27 23:29:08,442 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo la categoria con el nombre:Formula 1 
+2012-01-27 23:29:08,442 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo la categoria con el nombre:Formula 1 
+2012-01-27 23:29:10,340 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:29:10,714 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:29:10,714 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:29:10,714 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:29:10,714 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:29:10,714 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:29:10,715 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:29:12,373 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:29:12,374 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:29:12,374 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:29:15,596 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:29:15,596 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:29:15,596 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:29:59,353 [main] INFO  Persistencia.GestionPorArchivo: Se abrio el archivo en el path  archivos/persistencia.xml
+2012-01-27 23:29:59,399 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:29
+2012-01-27 23:29:59,413 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:29
+2012-01-27 23:29:59,426 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:27
+2012-01-27 23:29:59,442 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:28
+2012-01-27 23:29:59,455 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:31
+2012-01-27 23:29:59,468 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:30
+2012-01-27 23:29:59,484 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:31
+2012-01-27 23:29:59,501 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:29
+2012-01-27 23:29:59,520 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:30
+2012-01-27 23:29:59,534 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:27
+2012-01-27 23:29:59,538 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:3
+2012-01-27 23:29:59,538 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:3
+2012-01-27 23:29:59,538 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:3
+2012-01-27 23:29:59,538 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:3
+2012-01-27 23:29:59,538 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:3
+2012-01-27 23:29:59,538 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:3
+2012-01-27 23:29:59,539 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:4
+2012-01-27 23:29:59,543 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:4
+2012-01-27 23:29:59,543 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:4
+2012-01-27 23:29:59,544 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:4
+2012-01-27 23:29:59,544 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:4
+2012-01-27 23:29:59,544 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:4
+2012-01-27 23:29:59,544 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 23:29:59,544 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 23:29:59,545 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:5
+2012-01-27 23:29:59,545 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 23:29:59,545 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 23:29:59,545 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:5
+2012-01-27 23:29:59,545 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 23:29:59,545 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 23:29:59,545 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:5
+2012-01-27 23:29:59,545 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 23:29:59,545 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 23:29:59,545 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:5
+2012-01-27 23:29:59,546 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:7
+2012-01-27 23:29:59,546 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:7
+2012-01-27 23:29:59,546 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:7
+2012-01-27 23:29:59,546 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:7
+2012-01-27 23:29:59,546 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:7
+2012-01-27 23:29:59,546 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:7
+2012-01-27 23:29:59,546 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:29:59,546 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:29:59,546 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:8
+2012-01-27 23:29:59,547 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:29:59,548 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:29:59,548 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:8
+2012-01-27 23:29:59,548 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:29:59,548 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:29:59,548 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:8
+2012-01-27 23:29:59,548 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:29:59,548 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:29:59,548 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:8
+2012-01-27 23:29:59,549 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:29:59,549 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:29:59,549 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:8
+2012-01-27 23:29:59,549 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:29:59,549 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:29:59,549 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:8
+2012-01-27 23:29:59,549 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 23:29:59,549 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 23:29:59,550 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:9
+2012-01-27 23:29:59,550 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 23:29:59,550 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 23:29:59,550 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:9
+2012-01-27 23:29:59,550 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 23:29:59,550 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 23:29:59,550 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:9
+2012-01-27 23:29:59,551 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 23:29:59,551 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 23:29:59,551 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:9
+2012-01-27 23:29:59,551 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:10
+2012-01-27 23:29:59,552 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:10
+2012-01-27 23:29:59,552 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:10
+2012-01-27 23:29:59,553 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:10
+2012-01-27 23:29:59,553 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:10
+2012-01-27 23:29:59,553 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:10
+2012-01-27 23:29:59,553 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:10
+2012-01-27 23:29:59,553 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:10
+2012-01-27 23:29:59,553 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:10
+2012-01-27 23:29:59,553 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:11
+2012-01-27 23:29:59,553 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:11
+2012-01-27 23:29:59,554 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:11
+2012-01-27 23:29:59,554 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:11
+2012-01-27 23:29:59,554 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:11
+2012-01-27 23:29:59,554 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:11
+2012-01-27 23:29:59,554 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 23:29:59,554 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 23:29:59,554 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:12
+2012-01-27 23:29:59,554 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 23:29:59,555 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 23:29:59,555 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:12
+2012-01-27 23:29:59,555 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 23:29:59,555 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 23:29:59,555 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:12
+2012-01-27 23:29:59,555 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 23:29:59,555 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 23:29:59,555 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:12
+2012-01-27 23:29:59,555 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:13
+2012-01-27 23:29:59,556 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:13
+2012-01-27 23:29:59,556 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:13
+2012-01-27 23:29:59,556 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:13
+2012-01-27 23:29:59,556 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:13
+2012-01-27 23:29:59,556 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:13
+2012-01-27 23:29:59,563 [main] INFO  Persistencia.GestionPorArchivo: Se abrio el archivo en el path  archivos/apuestas.xml
+2012-01-27 23:30:02,973 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo la categoria con el nombre:Formula 1 
+2012-01-27 23:30:03,014 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo la categoria con el nombre:Formula 1 
+2012-01-27 23:30:03,014 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo la categoria con el nombre:Formula 1 
+2012-01-27 23:30:05,124 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:30:05,270 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:30:05,270 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:30:05,270 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:30:05,271 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:30:05,271 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:30:05,271 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:30:07,068 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:30:07,069 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:30:07,069 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:30:09,076 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:30:09,076 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:30:09,076 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:30:10,916 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:30:10,916 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:30:10,916 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:30:12,508 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:30:12,508 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:30:12,508 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:30:14,115 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:30:14,116 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:30:14,116 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:30:16,172 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:30:16,172 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:30:16,172 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:30:18,285 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:30:18,285 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:30:18,285 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:30:19,899 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:30:19,900 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:30:19,900 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:30:21,580 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:30:21,580 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:30:21,580 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:30:48,980 [main] INFO  Persistencia.GestionPorArchivo: Se abrio el archivo en el path  archivos/persistencia.xml
+2012-01-27 23:30:49,012 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:29
+2012-01-27 23:30:49,024 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:29
+2012-01-27 23:30:49,035 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:27
+2012-01-27 23:30:49,047 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:28
+2012-01-27 23:30:49,057 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:31
+2012-01-27 23:30:49,068 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:30
+2012-01-27 23:30:49,080 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:31
+2012-01-27 23:30:49,097 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:29
+2012-01-27 23:30:49,131 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:30
+2012-01-27 23:30:49,142 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:27
+2012-01-27 23:30:49,146 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:3
+2012-01-27 23:30:49,146 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:3
+2012-01-27 23:30:49,146 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:3
+2012-01-27 23:30:49,146 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:3
+2012-01-27 23:30:49,146 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:3
+2012-01-27 23:30:49,146 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:3
+2012-01-27 23:30:49,147 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:4
+2012-01-27 23:30:49,147 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:4
+2012-01-27 23:30:49,147 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:4
+2012-01-27 23:30:49,147 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:4
+2012-01-27 23:30:49,147 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:4
+2012-01-27 23:30:49,147 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:4
+2012-01-27 23:30:49,148 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 23:30:49,148 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 23:30:49,148 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:5
+2012-01-27 23:30:49,148 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 23:30:49,148 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 23:30:49,148 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:5
+2012-01-27 23:30:49,148 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 23:30:49,148 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 23:30:49,148 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:5
+2012-01-27 23:30:49,148 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 23:30:49,149 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 23:30:49,149 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:5
+2012-01-27 23:30:49,149 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:7
+2012-01-27 23:30:49,149 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:7
+2012-01-27 23:30:49,149 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:7
+2012-01-27 23:30:49,149 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:7
+2012-01-27 23:30:49,149 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:7
+2012-01-27 23:30:49,149 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:7
+2012-01-27 23:30:49,149 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:30:49,149 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:30:49,150 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:8
+2012-01-27 23:30:49,150 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:30:49,150 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:30:49,150 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:8
+2012-01-27 23:30:49,151 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:30:49,151 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:30:49,151 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:8
+2012-01-27 23:30:49,151 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:30:49,151 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:30:49,151 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:8
+2012-01-27 23:30:49,151 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:30:49,151 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:30:49,151 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:8
+2012-01-27 23:30:49,151 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:30:49,151 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:30:49,152 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:8
+2012-01-27 23:30:49,152 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 23:30:49,152 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 23:30:49,152 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:9
+2012-01-27 23:30:49,152 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 23:30:49,152 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 23:30:49,152 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:9
+2012-01-27 23:30:49,152 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 23:30:49,152 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 23:30:49,152 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:9
+2012-01-27 23:30:49,153 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 23:30:49,153 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 23:30:49,153 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:9
+2012-01-27 23:30:49,153 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:10
+2012-01-27 23:30:49,153 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:10
+2012-01-27 23:30:49,153 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:10
+2012-01-27 23:30:49,153 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:10
+2012-01-27 23:30:49,153 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:10
+2012-01-27 23:30:49,153 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:10
+2012-01-27 23:30:49,154 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:10
+2012-01-27 23:30:49,154 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:10
+2012-01-27 23:30:49,154 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:10
+2012-01-27 23:30:49,154 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:11
+2012-01-27 23:30:49,154 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:11
+2012-01-27 23:30:49,154 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:11
+2012-01-27 23:30:49,154 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:11
+2012-01-27 23:30:49,154 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:11
+2012-01-27 23:30:49,154 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:11
+2012-01-27 23:30:49,154 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 23:30:49,154 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 23:30:49,155 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:12
+2012-01-27 23:30:49,155 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 23:30:49,155 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 23:30:49,155 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:12
+2012-01-27 23:30:49,155 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 23:30:49,155 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 23:30:49,155 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:12
+2012-01-27 23:30:49,155 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 23:30:49,155 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 23:30:49,155 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:12
+2012-01-27 23:30:49,155 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:13
+2012-01-27 23:30:49,156 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:13
+2012-01-27 23:30:49,156 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:13
+2012-01-27 23:30:49,156 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:13
+2012-01-27 23:30:49,156 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:13
+2012-01-27 23:30:49,156 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:13
+2012-01-27 23:30:49,160 [main] INFO  Persistencia.GestionPorArchivo: Se abrio el archivo en el path  archivos/apuestas.xml
+2012-01-27 23:30:51,765 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo la categoria con el nombre:Formula 1 
+2012-01-27 23:30:51,807 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo la categoria con el nombre:Formula 1 
+2012-01-27 23:30:51,808 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo la categoria con el nombre:Formula 1 
+2012-01-27 23:31:13,870 [main] INFO  Persistencia.GestionPorArchivo: Se abrio el archivo en el path  archivos/persistencia.xml
+2012-01-27 23:31:13,903 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:29
+2012-01-27 23:31:13,914 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:29
+2012-01-27 23:31:13,925 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:27
+2012-01-27 23:31:13,935 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:28
+2012-01-27 23:31:13,947 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:31
+2012-01-27 23:31:13,958 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:30
+2012-01-27 23:31:13,968 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:31
+2012-01-27 23:31:13,982 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:29
+2012-01-27 23:31:13,995 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:30
+2012-01-27 23:31:14,006 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:27
+2012-01-27 23:31:14,010 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:3
+2012-01-27 23:31:14,010 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:3
+2012-01-27 23:31:14,010 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:3
+2012-01-27 23:31:14,010 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:3
+2012-01-27 23:31:14,010 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:3
+2012-01-27 23:31:14,010 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:3
+2012-01-27 23:31:14,010 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:4
+2012-01-27 23:31:14,015 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:4
+2012-01-27 23:31:14,015 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:4
+2012-01-27 23:31:14,015 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:4
+2012-01-27 23:31:14,016 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:4
+2012-01-27 23:31:14,016 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:4
+2012-01-27 23:31:14,016 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 23:31:14,016 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 23:31:14,016 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:5
+2012-01-27 23:31:14,016 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 23:31:14,016 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 23:31:14,016 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:5
+2012-01-27 23:31:14,016 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 23:31:14,016 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 23:31:14,016 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:5
+2012-01-27 23:31:14,017 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 23:31:14,017 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 23:31:14,017 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:5
+2012-01-27 23:31:14,017 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:7
+2012-01-27 23:31:14,017 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:7
+2012-01-27 23:31:14,017 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:7
+2012-01-27 23:31:14,017 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:7
+2012-01-27 23:31:14,017 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:7
+2012-01-27 23:31:14,018 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:7
+2012-01-27 23:31:14,018 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:31:14,018 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:31:14,018 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:8
+2012-01-27 23:31:14,019 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:31:14,019 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:31:14,019 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:8
+2012-01-27 23:31:14,019 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:31:14,019 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:31:14,019 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:8
+2012-01-27 23:31:14,019 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:31:14,020 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:31:14,020 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:8
+2012-01-27 23:31:14,020 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:31:14,020 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:31:14,020 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:8
+2012-01-27 23:31:14,020 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:31:14,020 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:31:14,020 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:8
+2012-01-27 23:31:14,020 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 23:31:14,021 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 23:31:14,021 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:9
+2012-01-27 23:31:14,021 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 23:31:14,021 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 23:31:14,021 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:9
+2012-01-27 23:31:14,021 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 23:31:14,021 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 23:31:14,021 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:9
+2012-01-27 23:31:14,024 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 23:31:14,025 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 23:31:14,025 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:9
+2012-01-27 23:31:14,025 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:10
+2012-01-27 23:31:14,025 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:10
+2012-01-27 23:31:14,025 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:10
+2012-01-27 23:31:14,025 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:10
+2012-01-27 23:31:14,025 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:10
+2012-01-27 23:31:14,025 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:10
+2012-01-27 23:31:14,025 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:10
+2012-01-27 23:31:14,025 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:10
+2012-01-27 23:31:14,026 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:10
+2012-01-27 23:31:14,026 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:11
+2012-01-27 23:31:14,026 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:11
+2012-01-27 23:31:14,026 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:11
+2012-01-27 23:31:14,026 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:11
+2012-01-27 23:31:14,026 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:11
+2012-01-27 23:31:14,026 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:11
+2012-01-27 23:31:14,026 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 23:31:14,026 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 23:31:14,026 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:12
+2012-01-27 23:31:14,027 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 23:31:14,027 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 23:31:14,027 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:12
+2012-01-27 23:31:14,027 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 23:31:14,027 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 23:31:14,027 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:12
+2012-01-27 23:31:14,028 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 23:31:14,028 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 23:31:14,028 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:12
+2012-01-27 23:31:14,029 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:13
+2012-01-27 23:31:14,029 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:13
+2012-01-27 23:31:14,029 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:13
+2012-01-27 23:31:14,029 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:13
+2012-01-27 23:31:14,029 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:13
+2012-01-27 23:31:14,029 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:13
+2012-01-27 23:31:14,033 [main] INFO  Persistencia.GestionPorArchivo: Se abrio el archivo en el path  archivos/apuestas.xml
+2012-01-27 23:31:16,509 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo la categoria con el nombre:Formula 1 
+2012-01-27 23:31:16,566 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo la categoria con el nombre:Formula 1 
+2012-01-27 23:31:16,566 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo la categoria con el nombre:Formula 1 
+2012-01-27 23:31:18,132 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:31:18,326 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:31:18,326 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:31:18,326 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:31:18,326 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:31:18,326 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:31:18,326 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:31:20,068 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:31:20,068 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:31:20,068 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:31:21,876 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:31:21,876 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:31:21,876 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:31:23,436 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:31:23,436 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:31:23,436 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:31:25,147 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:31:25,148 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:31:25,148 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:31:26,428 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:31:26,428 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:31:26,428 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:31:27,931 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:31:27,932 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:31:27,932 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:31:29,115 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:31:29,116 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:31:29,116 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:31:30,700 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:31:30,700 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:31:30,700 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:31:32,236 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:31:32,236 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:31:32,237 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:31:35,388 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:31:35,388 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:31:35,388 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:31:37,380 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:31:37,380 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:31:37,380 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:31:39,708 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:31:39,708 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:31:39,708 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:31:42,707 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:31:42,708 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:31:42,708 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:31:44,147 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:31:44,147 [AWT-EventQueue-0] INFO  Logica.Categoria: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:31:44,148 [AWT-EventQueue-0] INFO  Logica.Logica: Se obtuvo el evento con el nombre:Carrera de Monaco
+2012-01-27 23:44:46,573 [main] INFO  Persistencia.GestionPorArchivo: Se abrio el archivo en el path  archivos/persistencia.xml
+2012-01-27 23:44:46,610 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:29
+2012-01-27 23:44:46,623 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:29
+2012-01-27 23:44:46,633 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:27
+2012-01-27 23:44:46,644 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:28
+2012-01-27 23:44:46,655 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:31
+2012-01-27 23:44:46,667 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:30
+2012-01-27 23:44:46,677 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:31
+2012-01-27 23:44:46,691 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:29
+2012-01-27 23:44:46,708 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:30
+2012-01-27 23:44:46,727 [main] INFO  Logica.Logica: Se obtuvo la categoria con el id:27
+2012-01-27 23:44:46,729 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:3
+2012-01-27 23:44:46,730 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:3
+2012-01-27 23:44:46,730 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:3
+2012-01-27 23:44:46,731 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:3
+2012-01-27 23:44:46,731 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:3
+2012-01-27 23:44:46,732 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:3
+2012-01-27 23:44:46,732 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:4
+2012-01-27 23:44:46,732 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:4
+2012-01-27 23:44:46,732 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:4
+2012-01-27 23:44:46,732 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:4
+2012-01-27 23:44:46,732 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:4
+2012-01-27 23:44:46,732 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:4
+2012-01-27 23:44:46,733 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 23:44:46,733 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 23:44:46,733 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:5
+2012-01-27 23:44:46,733 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 23:44:46,733 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 23:44:46,733 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:5
+2012-01-27 23:44:46,733 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 23:44:46,733 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 23:44:46,733 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:5
+2012-01-27 23:44:46,733 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 23:44:46,734 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:5
+2012-01-27 23:44:46,734 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:5
+2012-01-27 23:44:46,734 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:7
+2012-01-27 23:44:46,734 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:7
+2012-01-27 23:44:46,734 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:7
+2012-01-27 23:44:46,734 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:7
+2012-01-27 23:44:46,734 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:7
+2012-01-27 23:44:46,734 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:7
+2012-01-27 23:44:46,734 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:44:46,734 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:44:46,735 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:8
+2012-01-27 23:44:46,735 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:44:46,735 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:44:46,735 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:8
+2012-01-27 23:44:46,735 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:44:46,735 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:44:46,735 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:8
+2012-01-27 23:44:46,735 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:44:46,736 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:44:46,736 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:8
+2012-01-27 23:44:46,736 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:44:46,736 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:44:46,736 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:8
+2012-01-27 23:44:46,736 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:44:46,736 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:8
+2012-01-27 23:44:46,736 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:8
+2012-01-27 23:44:46,736 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 23:44:46,736 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 23:44:46,737 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:9
+2012-01-27 23:44:46,737 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 23:44:46,737 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 23:44:46,737 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:9
+2012-01-27 23:44:46,737 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 23:44:46,737 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 23:44:46,737 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:9
+2012-01-27 23:44:46,738 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 23:44:46,738 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:9
+2012-01-27 23:44:46,738 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:9
+2012-01-27 23:44:46,738 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:10
+2012-01-27 23:44:46,738 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:10
+2012-01-27 23:44:46,738 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:10
+2012-01-27 23:44:46,739 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:10
+2012-01-27 23:44:46,739 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:10
+2012-01-27 23:44:46,739 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:10
+2012-01-27 23:44:46,739 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:10
+2012-01-27 23:44:46,739 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:10
+2012-01-27 23:44:46,739 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:10
+2012-01-27 23:44:46,740 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:11
+2012-01-27 23:44:46,740 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:11
+2012-01-27 23:44:46,740 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:11
+2012-01-27 23:44:46,743 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:11
+2012-01-27 23:44:46,743 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:11
+2012-01-27 23:44:46,743 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:11
+2012-01-27 23:44:46,743 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 23:44:46,743 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 23:44:46,743 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:12
+2012-01-27 23:44:46,743 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 23:44:46,743 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 23:44:46,743 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:12
+2012-01-27 23:44:46,744 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 23:44:46,744 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 23:44:46,744 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:12
+2012-01-27 23:44:46,744 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 23:44:46,744 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:12
+2012-01-27 23:44:46,744 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:12
+2012-01-27 23:44:46,744 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:13
+2012-01-27 23:44:46,744 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:13
+2012-01-27 23:44:46,744 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:13
+2012-01-27 23:44:46,745 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:13
+2012-01-27 23:44:46,745 [main] INFO  Logica.Categoria: Se obtuvo el evento con el id:13
+2012-01-27 23:44:46,745 [main] INFO  Logica.Logica: Se obtuvo el evento con el id:13
+2012-01-27 23:44:46,749 [main] INFO  Persistencia.GestionPorArchivo: Se abrio el archivo en el path  archivos/apuestas.xml

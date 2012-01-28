@@ -317,7 +317,7 @@ public class GestionPorArchivoAjeno {
                 password = admin.getText();
         }
         Administrador administrador = new Administrador(id, nick, nombre,
-                apellido, password);
+                apellido, password, nombre);
         return administrador;
     }
 

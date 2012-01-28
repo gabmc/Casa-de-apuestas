@@ -17,6 +17,7 @@ public class Administrador {
     String nombre;
     String apellido;
     String password;
+    String email;
  /**
   * Clase que nos permite guardar toda la informacion referente al administrador
   * del sistema
@@ -28,12 +29,13 @@ public class Administrador {
   * @param password del administrador
   */
     public Administrador(int id, String nick, String nombre, String apellido,
-            String password) {
+            String password, String email) {
         this.id = id;
         this.nick = nick;
         this.nombre = nombre;
         this.apellido = apellido;
         this.password = password;
+        this.email = email;
     }
     
     public Administrador(){
@@ -78,5 +80,12 @@ public class Administrador {
     public void setPassword(String password) {
         this.password = password;
     }
-    
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }

@@ -27,6 +27,18 @@ public interface Casa_0020De_0020ApuestasPortType {
      * 
      * @param parameters
      * @return
+     *     returns WebClient.AsignacionTokenResponse
+     */
+    @WebMethod(action = "http://127.0.0.1:8000/Casa_de_Apuestas/default/call/soapasignacionToken")
+    @WebResult(name = "asignacionTokenResponse", targetNamespace = "http://127.0.0.1:8000/Casa_de_Apuestas/default/call/soap", partName = "parameters")
+    public AsignacionTokenResponse asignacionToken(
+        @WebParam(name = "asignacionToken", targetNamespace = "http://127.0.0.1:8000/Casa_de_Apuestas/default/call/soap", partName = "parameters")
+        AsignacionToken parameters);
+
+    /**
+     * 
+     * @param parameters
+     * @return
      *     returns WebClient.EnviarApuestaResponse
      */
     @WebMethod(action = "http://127.0.0.1:8000/Casa_de_Apuestas/default/call/soapenviarApuesta")

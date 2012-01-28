@@ -19,6 +19,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;all>
  *         &lt;element name="listaApuestas" type="{http://127.0.0.1:8000/Casa_de_Apuestas/default/call/soap}ArrayOfenviarApuestalistaApuestas"/>
+ *         &lt;element name="tokenMaquina" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/all>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -36,6 +37,8 @@ public class EnviarApuesta {
 
     @XmlElement(required = true)
     protected ArrayOfenviarApuestalistaApuestas listaApuestas;
+    @XmlElement(required = true)
+    protected String tokenMaquina;
 
     /**
      * Gets the value of the listaApuestas property.
@@ -59,6 +62,30 @@ public class EnviarApuesta {
      */
     public void setListaApuestas(ArrayOfenviarApuestalistaApuestas value) {
         this.listaApuestas = value;
+    }
+
+    /**
+     * Gets the value of the tokenMaquina property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getTokenMaquina() {
+        return tokenMaquina;
+    }
+
+    /**
+     * Sets the value of the tokenMaquina property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setTokenMaquina(String value) {
+        this.tokenMaquina = value;
     }
 
 }

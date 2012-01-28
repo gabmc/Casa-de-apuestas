@@ -15,7 +15,8 @@ import junit.framework.TestCase;
 
 public class AdministradorTest extends TestCase {
 
-    final Administrador administrador = new Administrador(1, "AdminTest", "Hector", "Sam", "123456");
+    final Administrador administrador = new Administrador(1, "AdminTest", 
+            "Hector", "Sam", "123456","ssam_88@gmail.com");
 
 	public AdministradorTest() 
 	{
@@ -45,5 +46,10 @@ public class AdministradorTest extends TestCase {
 	{
 		assertEquals("123456", administrador.getPassword());
 	}
+
+        public void testGetEmail()
+        {
+            assertEquals("ssam_88@gmail.com", administrador.getEmail());
+        }
 
  }

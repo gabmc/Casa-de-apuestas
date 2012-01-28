@@ -18,15 +18,14 @@ import org.jdom.JDOMException;
 public class main {
 
     public static void main (String[] args){
-    GestionPorArchivo gestion = new GestionPorArchivo();
+        GestionPorArchivo gestion = new GestionPorArchivo();
 
-            gestion.cargarActualizacion("archivos/persistencia.xml");
-            gestion.cargarApuestasMemoria("archivos/apuestas.xml");
+              gestion.cargarActualizacion("archivos/persistencia.xml");
+              gestion.cargarApuestasMemoria("archivos/apuestas.xml");
 
-    while (true){
-    HiloUSB hilo = new HiloUSB("archivoActualizacion.xml", new GUI.InicioCategoria(),"LEER");
-    hilo.run();
-   // GestionPorArchivo cargar = new GestionPorArchivo();
+        while (true){
+            HiloUSB hilo = new HiloUSB("archivoActualizacion.xml", new GUI.InicioCategoria(),"LEER");
+            hilo.run();
+        }
     }
-}
 }

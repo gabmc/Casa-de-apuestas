@@ -124,6 +124,19 @@ public class Apuesta {
         this.fechaApuesta = fechaApuesta;
     }
 
+    public String getFechaApuestaString(){
+        String fecha;
+        fecha = String.valueOf(2012);
+        int mes = fechaApuesta.getMonth() + 1;
+        if (mes < 9)
+            fecha += "-0";
+        else
+            fecha += "-";
+        fecha += String.valueOf(mes);
+        fecha += "-" +  String.valueOf(fechaApuesta.getDate());
+        return fecha;
+    }
+
     /**
      * Guarda en  el archivo xml el conjunto de apuestas que se encuentran
      * almacenadas en memoria

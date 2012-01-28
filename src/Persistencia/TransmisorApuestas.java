@@ -32,6 +32,14 @@ public class TransmisorApuestas {
         return instancia;
     }
 
+    public String obtenerToken(int idMaquina){
+        AsignacionToken parametro = new AsignacionToken();
+        parametro.setId(idMaquina);
+        String token = tipoPuerto.asignacionToken(parametro).getResult();
+        return token;
+    }
+
+
 //    private ArrayOfenviarApuestalistaApuestasapuesta construirApuestaParametro
 //            (Apuesta anteriorApuesta){
 //        ArrayOfenviarApuestalistaApuestasapuesta nuevaApuesta =
@@ -43,7 +51,7 @@ public class TransmisorApuestas {
 //        nuevaApuesta.setMontoApuesta((int) anteriorApuesta.getMontoApuesta());
 //        return nuevaApuesta;
 //    }
-
+//
 //    private ArrayOfenviarApuestalistaApuestas construirListaParametro(){
 //        ArrayOfenviarApuestalistaApuestas listaApuestaEnviar =
 //                new ArrayOfenviarApuestalistaApuestas();
@@ -55,7 +63,7 @@ public class TransmisorApuestas {
 //        }
 //        return listaApuestaEnviar;
 //    }
-
+//
 //    public boolean enviarApuesta(){
 //        if (!logica.getListaApuestas().isEmpty()){
 //            EnviarApuesta peticion = new EnviarApuesta();

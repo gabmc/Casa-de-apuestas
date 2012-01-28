@@ -30,6 +30,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ArrayOfenviarApuestalistaApuestasapuesta }
+     * 
+     */
+    public ArrayOfenviarApuestalistaApuestasapuesta createArrayOfenviarApuestalistaApuestasapuesta() {
+        return new ArrayOfenviarApuestalistaApuestasapuesta();
+    }
+
+    /**
      * Create an instance of {@link ArrayOfenviarApuestalistaApuestas }
      * 
      */
@@ -46,11 +54,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ArrayOfenviarApuestalistaApuestasapuesta }
+     * Create an instance of {@link AsignacionTokenResponse }
      * 
      */
-    public ArrayOfenviarApuestalistaApuestasapuesta createArrayOfenviarApuestalistaApuestasapuesta() {
-        return new ArrayOfenviarApuestalistaApuestasapuesta();
+    public AsignacionTokenResponse createAsignacionTokenResponse() {
+        return new AsignacionTokenResponse();
+    }
+
+    /**
+     * Create an instance of {@link AsignacionToken }
+     * 
+     */
+    public AsignacionToken createAsignacionToken() {
+        return new AsignacionToken();
     }
 
     /**

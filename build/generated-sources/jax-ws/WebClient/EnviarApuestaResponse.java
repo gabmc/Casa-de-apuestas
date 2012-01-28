@@ -17,7 +17,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;all>
- *         &lt;element name="result" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
+ *         &lt;element name="result" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/all>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -33,13 +33,13 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "enviarApuestaResponse")
 public class EnviarApuestaResponse {
 
-    protected boolean result;
+    protected int result;
 
     /**
      * Gets the value of the result property.
      * 
      */
-    public boolean isResult() {
+    public int getResult() {
         return result;
     }
 
@@ -47,7 +47,7 @@ public class EnviarApuestaResponse {
      * Sets the value of the result property.
      * 
      */
-    public void setResult(boolean value) {
+    public void setResult(int value) {
         this.result = value;
     }
 

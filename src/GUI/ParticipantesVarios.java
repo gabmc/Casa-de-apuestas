@@ -41,6 +41,14 @@ public class ParticipantesVarios extends javax.swing.JFrame {
         this.categoria = categoria;
     }
 
+    public void bloquearMontoApuesta(){
+        montoApuesta.setEnabled(false);
+    }
+
+    public void desbloquearMontoApuesta(){
+        montoApuesta.setEnabled(true);
+    }
+
     public void elegirParticipante(){
         String participante = jList1.getModel()
                 .getElementAt(jList1.getSelectedIndex()).toString();
@@ -141,6 +149,11 @@ public class ParticipantesVarios extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(jList1);
 
+        jList2.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                jList2ValueChanged(evt);
+            }
+        });
         jScrollPane2.setViewportView(jList2);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14));
@@ -316,10 +329,14 @@ public class ParticipantesVarios extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         elegirParticipante();
+        if (ranking.size() > 1)
+            bloquearMontoApuesta();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         retirarParticipante();
+        if (ranking.size() <= 1)
+            desbloquearMontoApuesta();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -329,6 +346,10 @@ public class ParticipantesVarios extends javax.swing.JFrame {
         this.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jList2ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jList2ValueChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jList2ValueChanged
 
   
     // Variables declaration - do not modify//GEN-BEGIN:variables

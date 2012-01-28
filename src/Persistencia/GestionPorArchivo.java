@@ -230,8 +230,8 @@ public class GestionPorArchivo {
     public Administrador construirAdministrador(List elemento){
         Iterator iterator = elemento.iterator();
         int id = 0;
-        String nick, nombre, apellido, password;
-        nick = nombre = apellido = password = "";
+        String nick, nombre, apellido, password, email;
+        nick = nombre = apellido = password = email = "";
         while(iterator.hasNext()){
             Element admin = (Element)iterator.next();
             if(admin.getName().equals("auth_user_id"))
@@ -244,9 +244,11 @@ public class GestionPorArchivo {
                 apellido = admin.getText();
             if(admin.getName().equals("auth_user_password"))
                 password = admin.getText();
+            if(admin.getName().equals("auth_user_email"))
+                email = admin.getText();
         }
         Administrador administrador = new Administrador(id, nick, nombre, 
-                apellido, password);
+                apellido, password,email);
         return administrador;
     }
 
