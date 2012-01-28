@@ -229,7 +229,7 @@ def mostrar():
     fechaActual=datetime.datetime.now()
     eventos =db(db.eventos.fecha <fechaActual).select()
 #    q = dao.generarArchivoActualizacionMD5(dao.generarMensajeMD5(db().select(db.eventos.ALL)), dao2.generarMensajeMD5(db().select(db.categorias.ALL)), dao3.generarMensajeMD5(db().select(db.participantes.ALL)), dao4.generarMensajeMD5(db().select(db.eventosparticipantes.ALL)), dao5.generarMensajeMD5(db().select(db.auth_user.ALL)))
-    s = dao.generarArchivoActualizacionXML(dao.generarFormatoXml(db(db.ventos.fecha>fechaActual).select(),'eventos'), dao2.generarFormatoXml(db().select(db.categorias.ALL),'categorias'), dao3.generarFormatoXml(db().select(db.participantes.ALL),'participantes'), dao4.generarFormatoXml(db().select(db.eventosparticipantes.ALL),'eventosparticipantes'), dao5.generarFormatoXml(db().select(db.auth_user.ALL),'auth_user'))
+    s = dao.generarArchivoActualizacionXML(dao.generarFormatoXml(db(db.eventos.fecha>fechaActual).select(),'eventos'), dao2.generarFormatoXml(db().select(db.categorias.ALL),'categorias'), dao3.generarFormatoXml(db().select(db.participantes.ALL),'participantes'), dao4.generarFormatoXml(db().select(db.eventosparticipantes.ALL),'eventosparticipantes'), dao5.generarFormatoXml(db().select(db.auth_user.ALL),'auth_user'))
 #    return response.render(dict(q = q, s = s))
     return response.render(dict(s = s))
 
