@@ -32,7 +32,7 @@ public class LogicaTest extends TestCase {
         logica.setListaApuestas(listaApuestas);
         logica.setListaCategorias(listaCategoria);
         listaCategoria.add(new Categoria(1, "Hola Mundo", null));
-        listaAdmin.add(new Administrador(1, null, null, null, null));
+        listaAdmin.add(new Administrador(1, null, null, null, null,null));
         listaApuestas.add(new Apuesta(null, null, 123456, 1, 1, null));
         listaEventos.add(new Evento(1,"Tennis Cup", null, null, null, true, true));
         listaParticipantes.add(new Participante(1,"Gary Bustillos", null, 1));
