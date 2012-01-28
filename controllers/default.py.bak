@@ -247,8 +247,6 @@ def verProximosEventos2():
 from Transmisor import Token
 from Transmisor import ListaTokens
 
-
-#@servicioWeb.soap('verificacionToken',returns={'result':int},args={'parameter':str})
 def verificacionToken(parameter):
     listaTokens = ListaTokens(db)
     revisarToken = Token(parameter)
