@@ -39,7 +39,6 @@ public class TransmisorApuestas {
         return token;
     }
 
-
 //    private ArrayOfenviarApuestalistaApuestasapuesta construirApuestaParametro
 //            (Apuesta anteriorApuesta){
 //        ArrayOfenviarApuestalistaApuestasapuesta nuevaApuesta =
@@ -51,7 +50,7 @@ public class TransmisorApuestas {
 //        nuevaApuesta.setMontoApuesta((int) anteriorApuesta.getMontoApuesta());
 //        return nuevaApuesta;
 //    }
-//
+
 //    private ArrayOfenviarApuestalistaApuestas construirListaParametro(){
 //        ArrayOfenviarApuestalistaApuestas listaApuestaEnviar =
 //                new ArrayOfenviarApuestalistaApuestas();

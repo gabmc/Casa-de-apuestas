@@ -77,8 +77,9 @@ public class NickOPassIncorrecto extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        this.logAdministrador.setVisible(true);
-        this.dispose();
+            Persistencia.HiloUSB.dti.setVentana(new LogAdministrador());
+            this.setVisible(false);
+            this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

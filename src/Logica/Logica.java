@@ -17,6 +17,7 @@ import org.apache.log4j.PropertyConfigurator;
 public class Logica {
     
     private int id;
+    private String token;
     private ArrayList<Administrador> listaAdministradores;
     private ArrayList<Categoria> listaCategorias;
     private ArrayList<Apuesta> listaApuestas;
@@ -35,6 +36,7 @@ public class Logica {
         listaCategorias = new ArrayList();
         listaApuestas = new ArrayList();
         id = 9;
+        token = "";
         PropertyConfigurator.configure("log4j.properties");
     }
     
@@ -259,6 +261,16 @@ public class Logica {
     public void setListaCategorias(ArrayList<Categoria> listaCategorias) {
         this.listaCategorias = listaCategorias;
     }
+
+     public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+
 
     /**
      * Valida que el nick y la contraseña, sean correctas para un administrador

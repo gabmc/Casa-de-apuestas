@@ -118,17 +118,15 @@ public class LogAdministrador extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if (Logica.dameLogica().validarAdmin(jTextField1.getText(), jPasswordField1.getText())){
-            this.dispose();
             Persistencia.HiloUSB.dti.setVentana(new VentanaAdministracion());
+            this.setVisible(false);
+            this.dispose();
         }
         else{
-//            jTextField1.setText(" ");
-//            jPasswordField1.setText(" ");
-          //  this.setVisible(false);
-            new NickOPassIncorrecto(this).setVisible(true);
-     //       this.dispose();
-            
-        }
+            Persistencia.HiloUSB.dti.setVentana(new NickOPassIncorrecto(this));
+            this.setVisible(false);
+            this.dispose();
+         }
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
