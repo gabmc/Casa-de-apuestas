@@ -259,7 +259,9 @@ def verificacionToken(parameter):
 def enviarApuesta(tokenMaquina, listaApuestas):
     if (verificacionToken(tokenMaquina) == 0):
         for i in range(0,len(listaApuestas)):
-            db.apuestas.insert(eventos_id = listaApuestas[i]['apuesta']['idEvento'],participantes_id = listaApuestas[i]['apuesta']['idParticipante'],montoApuesta = listaApuestas[i]['apuesta']['montoApuesta'], fechaApuesta = listaApuestas[i]['apuesta']['fechaApuesta'], maquina_id = listaApuestas[i]['apuesta']['maquinaid'])
+            participantes = listaApuestas[i]['apuesta']['Participantes']
+            for j in range(0,len(participantes)):
+                db.apuestas.insert(eventos_id = listaApuestas[i]['apuesta']['idEvento'],participantes_id =participantes[j],montoApuesta = listaApuestas[i]['apuesta']['montoApuesta'], fechaApuesta = listaApuestas[i]['apuesta']['fechaApuesta'], maquina_id = listaApuestas[i]['apuesta']['maquinaid'])
         return 0
     return 1
 
