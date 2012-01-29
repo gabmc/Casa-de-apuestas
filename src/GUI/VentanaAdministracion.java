@@ -13,6 +13,7 @@ package GUI;
 import Persistencia.GestionPendrive;
 import Persistencia.HiloUSB;
 import Persistencia.PersistenciaDeDatos;
+import Logica.Logica;
 
 /**
  *
@@ -25,7 +26,10 @@ public class VentanaAdministracion extends javax.swing.JFrame {
         initComponents();
          setLocationRelativeTo(null);
          setTitle("Administrador");
+         obtenerTokenWeb.setEnabled(Logica.dameLogica().hayConexion());
+         transmisionApuestasWeb.setEnabled(Logica.dameLogica().hayConexion());
     }
+    
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -38,8 +42,8 @@ public class VentanaAdministracion extends javax.swing.JFrame {
 
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        obtenerTokenWeb = new javax.swing.JButton();
+        transmisionApuestasWeb = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,17 +61,17 @@ public class VentanaAdministracion extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Obtener Nuevo Token para Transmisión de Apuestas (Web)");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        obtenerTokenWeb.setText("Obtener Nuevo Token para Transmisión de Apuestas (Web)");
+        obtenerTokenWeb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                obtenerTokenWebActionPerformed(evt);
             }
         });
 
-        jButton4.setText("Transmisión de Apuestas Almacenadas (Web)");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        transmisionApuestasWeb.setText("Transmisión de Apuestas Almacenadas (Web)");
+        transmisionApuestasWeb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                transmisionApuestasWebActionPerformed(evt);
             }
         });
 
@@ -76,21 +80,17 @@ public class VentanaAdministracion extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(144, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(142, 142, 142))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE)
+                            .addComponent(obtenerTokenWeb, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(transmisionApuestasWeb, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButton2)
+                        .addGap(142, 142, 142))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,9 +98,9 @@ public class VentanaAdministracion extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(obtenerTokenWeb, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(transmisionApuestasWeb, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addContainerGap())
@@ -123,16 +123,16 @@ public class VentanaAdministracion extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void obtenerTokenWebActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_obtenerTokenWebActionPerformed
         // TODO add your handling code here:
-        Logica.Logica.dameLogica().setToken(Persistencia.TransmisorApuestas
-                .getInstance().obtenerToken(Logica.Logica.dameLogica()
+        Logica.dameLogica().setToken(Persistencia.TransmisorApuestas
+                .getInstance().obtenerToken(Logica.dameLogica()
                 .getID()));
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_obtenerTokenWebActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void transmisionApuestasWebActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transmisionApuestasWebActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_transmisionApuestasWebActionPerformed
 
     /**
      * @param args the command line arguments
@@ -140,7 +140,7 @@ public class VentanaAdministracion extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton obtenerTokenWeb;
+    private javax.swing.JButton transmisionApuestasWeb;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,6 +4,9 @@
  */
 package Logica;
 
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.apache.log4j.Logger;
@@ -288,6 +291,24 @@ public class Logica {
             }
         }
         return Boolean.FALSE;
+    }
+    
+    public boolean hayConexion(){
+             try {
+       InetAddress address = InetAddress.getByName("192.168.1.108");
+       if (address.getHostName().equals("hector-asus")){
+           return true;
+       }
+       else
+           return false;
+     }
+     catch (UnknownHostException e) {
+       System.err.println("No se encuentra el host");
+     }
+     catch (IOException e) {
+       System.err.println("El host es inalcanzable");
+     }
+             return false;
     }
 
 
