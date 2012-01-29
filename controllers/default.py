@@ -255,7 +255,7 @@ def verificacionToken(parameter):
     revisarToken = Token(parameter)
     return listaTokens.verificarToken(revisarToken,db)
 
-@servicioWeb.soap('enviarApuesta', returns={'result':int},args={'tokenMaquina':str,'listaApuestas':[{'apuesta':{'idEvento':int, 'idParticipante':int, 'montoApuesta':int, 'fechaApuesta':str, 'maquinaid':int}}]})
+@servicioWeb.soap('enviarApuesta', returns={'result':int},args={'tokenMaquina':str,'listaApuestas':[{'apuesta':{'idEvento':int, 'Participantes':[{ 'idParticipante': int}], 'montoApuesta':int, 'fechaApuesta':str, 'maquinaid':int}}]})
 def enviarApuesta(tokenMaquina, listaApuestas):
     if (verificacionToken(tokenMaquina) == 0):
         for i in range(0,len(listaApuestas)):
