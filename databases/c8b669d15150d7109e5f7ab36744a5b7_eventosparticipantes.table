@@ -1,17 +1,17 @@
 (dp1
-S'eventos_id'
+S'limite_apuesta'
 p2
 (dp3
 S'type'
 p4
-S'reference eventos'
+S'double'
 p5
 sS'sortable'
 p6
-I2
+I5
 sS'sql'
 p7
-S'INTEGER REFERENCES eventos(id) ON DELETE CASCADE'
+S'DOUBLE'
 p8
 ssS'relacionpago'
 p9
@@ -24,16 +24,16 @@ I4
 sg7
 S'CHAR(512)'
 p12
-ssS'limite_apuesta'
+ssS'eventos_id'
 p13
 (dp14
 g4
-S'integer'
+S'reference eventos'
 p15
 sg6
-I5
+I2
 sg7
-S'INTEGER'
+S'INTEGER REFERENCES eventos(id) ON DELETE CASCADE'
 p16
 ssS'id'
 p17

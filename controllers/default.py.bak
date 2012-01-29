@@ -229,7 +229,7 @@ def mostrar():
     fechaActual=datetime.datetime.now()
     eventos =db(db.eventos.fecha <fechaActual).select()
 #    q = dao.generarArchivoActualizacionMD5(dao.generarMensajeMD5(db().select(db.eventos.ALL)), dao2.generarMensajeMD5(db().select(db.categorias.ALL)), dao3.generarMensajeMD5(db().select(db.participantes.ALL)), dao4.generarMensajeMD5(db().select(db.eventosparticipantes.ALL)), dao5.generarMensajeMD5(db().select(db.auth_user.ALL)))
-    s = dao.generarArchivoActualizacionXML(dao.generarFormatoXml(db(db.ventos.fecha>fechaActual).select(),'eventos'), dao2.generarFormatoXml(db().select(db.categorias.ALL),'categorias'), dao3.generarFormatoXml(db().select(db.participantes.ALL),'participantes'), dao4.generarFormatoXml(db().select(db.eventosparticipantes.ALL),'eventosparticipantes'), dao5.generarFormatoXml(db().select(db.auth_user.ALL),'auth_user'))
+    s = dao.generarArchivoActualizacionXML(dao.generarFormatoXml(db(db.eventos.fecha>fechaActual).select(),'eventos'), dao2.generarFormatoXml(db().select(db.categorias.ALL),'categorias'), dao3.generarFormatoXml(db().select(db.participantes.ALL),'participantes'), dao4.generarFormatoXml(db().select(db.eventosparticipantes.ALL),'eventosparticipantes'), dao5.generarFormatoXml(db().select(db.auth_user.ALL),'auth_user'))
 #    return response.render(dict(q = q, s = s))
     return response.render(dict(s = s))
 
@@ -303,11 +303,12 @@ def apuestasPorEventos2():
                 this.cell(0,10,'Casa de Apuestas LOGO',0,1,'L')
                 this.cell(0,10,'Fecha: '+str(fechaActual),0,1,'L')
                 # Move to the right
-                this.cell(80)
+                
                 # Title
 
                 for i in evento:
-                    this.cell(30,10,'Evento: '+i.nombre,0,2,'C')
+                    this.cell(0,10,'Evento: '+i.nombre,0,1,'L')
+                    this.cell(80)
                     this.cell(30,10,'Apuestas Realizadas',0,1,'C')
                 # Line break
                 this.ln(5)

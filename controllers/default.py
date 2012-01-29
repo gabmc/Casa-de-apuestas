@@ -282,8 +282,9 @@ def moduloReportes():
 
 def apuestasPorEventos1():
     import datetime
-    fechaActual=datetime.datetime.now()
-    eventos =db(db.eventos.fecha>fechaActual).select()
+ #   fechaActual=datetime.datetime.now()
+ #   eventos =db(db.eventos.fecha>fechaActual).select()
+    eventos = db().select(db.eventos.ALL, orderby = db.eventos.id)
     return dict(eventos=eventos)
 
 def apuestasPorEventos2():
@@ -303,11 +304,12 @@ def apuestasPorEventos2():
                 this.cell(0,10,'Casa de Apuestas LOGO',0,1,'L')
                 this.cell(0,10,'Fecha: '+str(fechaActual),0,1,'L')
                 # Move to the right
-                this.cell(80)
+                
                 # Title
 
                 for i in evento:
-                    this.cell(30,10,'Evento: '+i.nombre,0,2,'C')
+                    this.cell(0,10,'Evento: '+i.nombre,0,1,'L')
+                    this.cell(80)
                     this.cell(30,10,'Apuestas Realizadas',0,1,'C')
                 # Line break
                 this.ln(5)
