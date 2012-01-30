@@ -295,8 +295,9 @@ public class Logica {
     
     public boolean hayConexion(){
              try {
-       InetAddress address = InetAddress.getByName("192.168.1.108");
-       if (address.getHostName().equals("hector-asus")){
+       InetAddress address = InetAddress.getByName("192.168.1.109");
+                 System.out.println("a: " + address.getHostName());
+       if (address.getHostName().equals("hector-vaio")){
            return true;
        }
        else
@@ -309,6 +310,16 @@ public class Logica {
        System.err.println("El host es inalcanzable");
      }
              return false;
+    }
+    
+    public ArrayList<Integer> getListaIdsParticipantesApuesta(ArrayList<Participante> listaParticipantes){
+        ArrayList<Integer> listaIds = new ArrayList();
+        Iterator iterador = listaParticipantes.iterator();
+        while (iterador.hasNext()){
+            Participante participante = (Participante)iterador.next();
+            listaIds.add(participante.getId());
+        }
+        return listaIds;
     }
 
 

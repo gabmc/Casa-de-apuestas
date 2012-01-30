@@ -20,8 +20,8 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="idEvento" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="fechaApuesta" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="maquinaid" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="idParticipante" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="montoApuesta" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="Participantes" type="{http://192.168.1.109:8000/Casa_de_Apuestas/default/call/soap}ArrayOfArrayOfenviarApuestalistaApuestasapuestaParticipantes"/>
  *       &lt;/all>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -40,8 +40,9 @@ public class ArrayOfenviarApuestalistaApuestasapuesta {
     @XmlElement(required = true)
     protected String fechaApuesta;
     protected int maquinaid;
-    protected int idParticipante;
     protected int montoApuesta;
+    @XmlElement(name = "Participantes", required = true)
+    protected ArrayOfArrayOfenviarApuestalistaApuestasapuestaParticipantes participantes;
 
     /**
      * Gets the value of the idEvento property.
@@ -100,22 +101,6 @@ public class ArrayOfenviarApuestalistaApuestasapuesta {
     }
 
     /**
-     * Gets the value of the idParticipante property.
-     * 
-     */
-    public int getIdParticipante() {
-        return idParticipante;
-    }
-
-    /**
-     * Sets the value of the idParticipante property.
-     * 
-     */
-    public void setIdParticipante(int value) {
-        this.idParticipante = value;
-    }
-
-    /**
      * Gets the value of the montoApuesta property.
      * 
      */
@@ -129,6 +114,30 @@ public class ArrayOfenviarApuestalistaApuestasapuesta {
      */
     public void setMontoApuesta(int value) {
         this.montoApuesta = value;
+    }
+
+    /**
+     * Gets the value of the participantes property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link ArrayOfArrayOfenviarApuestalistaApuestasapuestaParticipantes }
+     *     
+     */
+    public ArrayOfArrayOfenviarApuestalistaApuestasapuestaParticipantes getParticipantes() {
+        return participantes;
+    }
+
+    /**
+     * Sets the value of the participantes property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link ArrayOfArrayOfenviarApuestalistaApuestasapuestaParticipantes }
+     *     
+     */
+    public void setParticipantes(ArrayOfArrayOfenviarApuestalistaApuestasapuestaParticipantes value) {
+        this.participantes = value;
     }
 
 }

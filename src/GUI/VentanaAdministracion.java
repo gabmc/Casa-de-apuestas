@@ -131,7 +131,7 @@ public class VentanaAdministracion extends javax.swing.JFrame {
     }//GEN-LAST:event_obtenerTokenWebActionPerformed
 
     private void transmisionApuestasWebActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transmisionApuestasWebActionPerformed
-        // TODO add your handling code here:
+        Persistencia.TransmisorApuestas.getInstance().enviarApuesta();
     }//GEN-LAST:event_transmisionApuestasWebActionPerformed
 
     /**

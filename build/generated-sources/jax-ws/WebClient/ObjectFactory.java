@@ -30,11 +30,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ArrayOfenviarApuestalistaApuestasapuesta }
+     * Create an instance of {@link AsignacionToken }
      * 
      */
-    public ArrayOfenviarApuestalistaApuestasapuesta createArrayOfenviarApuestalistaApuestasapuesta() {
-        return new ArrayOfenviarApuestalistaApuestasapuesta();
+    public AsignacionToken createAsignacionToken() {
+        return new AsignacionToken();
     }
 
     /**
@@ -46,14 +46,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link EnviarApuestaResponse }
-     * 
-     */
-    public EnviarApuestaResponse createEnviarApuestaResponse() {
-        return new EnviarApuestaResponse();
-    }
-
-    /**
      * Create an instance of {@link AsignacionTokenResponse }
      * 
      */
@@ -62,11 +54,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link AsignacionToken }
+     * Create an instance of {@link ArrayOfArrayOfenviarApuestalistaApuestasapuestaParticipantes }
      * 
      */
-    public AsignacionToken createAsignacionToken() {
-        return new AsignacionToken();
+    public ArrayOfArrayOfenviarApuestalistaApuestasapuestaParticipantes createArrayOfArrayOfenviarApuestalistaApuestasapuestaParticipantes() {
+        return new ArrayOfArrayOfenviarApuestalistaApuestasapuestaParticipantes();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfenviarApuestalistaApuestasapuesta }
+     * 
+     */
+    public ArrayOfenviarApuestalistaApuestasapuesta createArrayOfenviarApuestalistaApuestasapuesta() {
+        return new ArrayOfenviarApuestalistaApuestasapuesta();
     }
 
     /**
@@ -75,6 +75,14 @@ public class ObjectFactory {
      */
     public EnviarApuesta createEnviarApuesta() {
         return new EnviarApuesta();
+    }
+
+    /**
+     * Create an instance of {@link EnviarApuestaResponse }
+     * 
+     */
+    public EnviarApuestaResponse createEnviarApuestaResponse() {
+        return new EnviarApuestaResponse();
     }
 
 }

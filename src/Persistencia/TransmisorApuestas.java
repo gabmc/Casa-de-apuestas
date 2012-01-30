@@ -7,9 +7,11 @@ package Persistencia;
 
 import Logica.Apuesta;
 import Logica.Logica;
+import Logica.Participante;
 import WebClient.*;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  *
@@ -39,37 +41,45 @@ public class TransmisorApuestas {
         return token;
     }
 
-//    private ArrayOfenviarApuestalistaApuestasapuesta construirApuestaParametro
-//            (Apuesta anteriorApuesta){
-//        ArrayOfenviarApuestalistaApuestasapuesta nuevaApuesta =
-//                new ArrayOfenviarApuestalistaApuestasapuesta();
-//        nuevaApuesta.setFechaApuesta(anteriorApuesta.getFechaApuestaString());
-//        nuevaApuesta.setIdEvento(anteriorApuesta.getIdEvento());
-//        nuevaApuesta.setIdParticipante(anteriorApuesta.getIdParticipante());
-//        nuevaApuesta.setMaquinaid(anteriorApuesta.getIdMaquina());
-//        nuevaApuesta.setMontoApuesta((int) anteriorApuesta.getMontoApuesta());
-//        return nuevaApuesta;
-//    }
+    private ArrayOfenviarApuestalistaApuestasapuesta construirApuestaParametro
+            (Apuesta anteriorApuesta){
+        ArrayOfenviarApuestalistaApuestasapuesta nuevaApuesta =
+                new ArrayOfenviarApuestalistaApuestasapuesta();
+        ArrayOfArrayOfenviarApuestalistaApuestasapuestaParticipantes par =
+                new ArrayOfArrayOfenviarApuestalistaApuestasapuestaParticipantes();
+        Iterator iterador = anteriorApuesta.getParticipantes().iterator();
+        while (iterador.hasNext()){
+        par.getIdParticipante().add(((Participante)iterador.next()).getId());            
+        }
 
-//    private ArrayOfenviarApuestalistaApuestas construirListaParametro(){
-//        ArrayOfenviarApuestalistaApuestas listaApuestaEnviar =
-//                new ArrayOfenviarApuestalistaApuestas();
-//        ArrayList<Apuesta>listaApuesta = logica.getListaApuestas();
-//        Iterator iterator = listaApuesta.iterator();
-//        while(iterator.hasNext()){
-//            listaApuestaEnviar.getApuesta().
-//                    add(construirApuestaParametro((Apuesta)iterator.next()));
-//        }
-//        return listaApuestaEnviar;
-//    }
-//
-//    public boolean enviarApuesta(){
-//        if (!logica.getListaApuestas().isEmpty()){
-//            EnviarApuesta peticion = new EnviarApuesta();
-//            peticion.setListaApuestas(construirListaParametro());
-//            tipoPuerto.enviarApuesta(peticion);
-//            return Boolean.TRUE;
-//        }
-//        return Boolean.FALSE;
-//    }
+        nuevaApuesta.setFechaApuesta(anteriorApuesta.getFechaApuestaString());
+        nuevaApuesta.setIdEvento(anteriorApuesta.getIdEvento());
+        nuevaApuesta.setParticipantes(par);
+        nuevaApuesta.setMaquinaid(anteriorApuesta.getIdMaquina());
+        nuevaApuesta.setMontoApuesta((int) anteriorApuesta.getMontoApuesta());
+        return nuevaApuesta;
+    }
+
+    private ArrayOfenviarApuestalistaApuestas construirListaParametro(){
+        ArrayOfenviarApuestalistaApuestas listaApuestaEnviar =
+                new ArrayOfenviarApuestalistaApuestas();
+        ArrayList<Apuesta>listaApuesta = logica.getListaApuestas();
+        Iterator iterator = listaApuesta.iterator();
+        while(iterator.hasNext()){
+            listaApuestaEnviar.getApuesta().
+                    add(construirApuestaParametro((Apuesta)iterator.next()));
+        }
+        return listaApuestaEnviar;
+    }
+
+    public boolean enviarApuesta(){
+        if (!logica.getListaApuestas().isEmpty()){
+            EnviarApuesta peticion = new EnviarApuesta();
+            peticion.setListaApuestas(construirListaParametro());
+            peticion.setTokenMaquina(Logica.dameLogica().getToken());
+            tipoPuerto.enviarApuesta(peticion);
+            return Boolean.TRUE;
+        }
+        return Boolean.FALSE;
+    }
 }
