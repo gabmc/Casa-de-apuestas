@@ -28,22 +28,21 @@ ssS'id'
 p13
 (dp14
 g4
-S'id'
-p15
+g13
 sg6
 I1
 sg7
 S'INTEGER PRIMARY KEY AUTOINCREMENT'
-p16
+p15
 ssS'categoria_id'
-p17
-(dp18
+p16
+(dp17
 g4
 S'reference categorias'
-p19
+p18
 sg6
 I4
 sg7
 S'INTEGER REFERENCES categorias(id) ON DELETE CASCADE'
-p20
+p19
 ss.

@@ -1,5 +1,5 @@
 (dp1
-S'fechaapuesta'
+S'fechaApuesta'
 p2
 (dp3
 S'type'
@@ -13,59 +13,58 @@ sS'sql'
 p7
 S'CHAR(512)'
 p8
-ssS'maquina_id'
+ssS'eventos_id'
 p9
 (dp10
 g4
-S'reference maquinas'
-p11
-sg6
-I6
-sg7
-S'INTEGER REFERENCES maquinas(id) ON DELETE CASCADE'
-p12
-ssS'eventos_id'
-p13
-(dp14
-g4
 S'reference eventos'
-p15
+p11
 sg6
 I4
 sg7
 S'INTEGER REFERENCES eventos(id) ON DELETE CASCADE'
-p16
+p12
 ssS'participantes_id'
-p17
-(dp18
+p13
+(dp14
 g4
 S'reference participantes'
-p19
+p15
 sg6
 I5
 sg7
 S'INTEGER REFERENCES participantes(id) ON DELETE CASCADE'
-p20
-ssS'montoapuesta'
-p21
-(dp22
+p16
+ssS'montoApuesta'
+p17
+(dp18
 g4
 S'integer'
-p23
+p19
 sg6
 I2
 sg7
 S'INTEGER'
+p20
+ssS'maquina_id'
+p21
+(dp22
+g4
+S'reference maquinas'
+p23
+sg6
+I6
+sg7
+S'INTEGER REFERENCES maquinas(id) ON DELETE CASCADE'
 p24
 ssS'id'
 p25
 (dp26
 g4
-S'id'
-p27
+g25
 sg6
 I1
 sg7
 S'INTEGER PRIMARY KEY AUTOINCREMENT'
-p28
+p27
 ss.

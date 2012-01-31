@@ -17,33 +17,32 @@ ssS'id'
 p9
 (dp10
 g4
-S'id'
-p11
+g9
 sg6
 I1
 sg7
 S'INTEGER PRIMARY KEY AUTOINCREMENT'
-p12
+p11
 ssS'puntaje_posicion'
-p13
-(dp14
+p12
+(dp13
 g4
 S'integer'
-p15
+p14
 sg6
 I4
 sg7
 S'INTEGER'
-p16
+p15
 ssS'participantes_id'
-p17
-(dp18
+p16
+(dp17
 g4
 S'reference participantes'
-p19
+p18
 sg6
 I3
 sg7
 S'INTEGER REFERENCES participantes(id) ON DELETE CASCADE'
-p20
+p19
 ss.

@@ -39,22 +39,21 @@ ssS'id'
 p17
 (dp18
 g4
-S'id'
-p19
+g17
 sg6
 I1
 sg7
 S'INTEGER PRIMARY KEY AUTOINCREMENT'
-p20
+p19
 ssS'participantes_id'
-p21
-(dp22
+p20
+(dp21
 g4
 S'reference participantes'
-p23
+p22
 sg6
 I3
 sg7
 S'INTEGER REFERENCES participantes(id) ON DELETE CASCADE'
-p24
+p23
 ss.
