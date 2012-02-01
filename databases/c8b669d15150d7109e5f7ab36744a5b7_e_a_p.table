@@ -1,0 +1,48 @@
+(dp1
+S'participantesId'
+p2
+(dp3
+S'type'
+p4
+S'reference participantes'
+p5
+sS'sortable'
+p6
+I4
+sS'sql'
+p7
+S'INTEGER REFERENCES participantes(id) ON DELETE CASCADE'
+p8
+ssS'eventosId'
+p9
+(dp10
+g4
+S'reference eventos'
+p11
+sg6
+I3
+sg7
+S'INTEGER REFERENCES eventos(id) ON DELETE CASCADE'
+p12
+ssS'id'
+p13
+(dp14
+g4
+g13
+sg6
+I1
+sg7
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
+p15
+ssS'apuestaId'
+p16
+(dp17
+g4
+S'reference apuestas'
+p18
+sg6
+I2
+sg7
+S'INTEGER REFERENCES apuestas(id) ON DELETE CASCADE'
+p19
+ss.
