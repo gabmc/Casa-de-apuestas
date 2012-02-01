@@ -456,3 +456,10 @@ def report():
     else:
         # normal html view:
         return dict(chart=chart, table=table)
+        
+def cargar():
+
+    from DAOCasadeApuestas import *
+    c = DAOCasadeApuestas()
+    c.cargarXmlApuestas(db,'d:\\apuestas.xml')
+    return dict()

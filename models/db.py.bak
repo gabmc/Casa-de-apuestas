@@ -167,13 +167,13 @@ db.define_table('apuestas',
 
 
 db.define_table('e_a_p',
-   Field ('apuestaId',db.apuestas,requires=IS_NOT_EMPTY()),
+   Field ('apuestasId',db.apuestas,requires=IS_NOT_EMPTY()),
    Field ('eventosId',db.eventos,requires=IS_NOT_EMPTY()),
    Field ('idParticipantes',db.participantes,requires=IS_NOT_EMPTY())
    )
 db.e_a_p.idParticipantes.requires = IS_IN_DB(db, db.participantes.id, '%(nombre)s')
 db.e_a_p.eventosId.requires = IS_IN_DB(db, db.eventos.id, '%(nombre)s')
-db.e_a_p.apuestaId.requires = IS_IN_DB(db, db.apuestas.id, '%(fechaApuesta)s')
+db.e_a_p.apuestasId.requires = IS_IN_DB(db, db.apuestas.id, '%(fechaApuesta)s')
    
 
    

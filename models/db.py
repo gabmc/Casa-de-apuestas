@@ -160,7 +160,7 @@ db.define_table('maquinas',
     Field('capacidadDiscoDuro','string',requires=IS_NOT_EMPTY()))
 
 db.define_table('apuestas',
-   Field ('montoApuesta','double',requires=IS_NOT_EMPTY()),
+   Field ('montoApuesta','double'),
    Field ('fechaApuesta','string',requires=IS_NOT_EMPTY()),
    Field ('maquina_id',db.maquinas,requires=IS_NOT_EMPTY())
    )
