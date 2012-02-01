@@ -1,17 +1,17 @@
 (dp1
-S'fechaapuesta'
+S'fechaApuesta'
 p2
 (dp3
 S'type'
 p4
-S'date'
+S'string'
 p5
 sS'sortable'
 p6
 I3
 sS'sql'
 p7
-S'DATE'
+S'CHAR(512)'
 p8
 ssS'maquina_id'
 p9
@@ -24,51 +24,25 @@ I4
 sg7
 S'INTEGER REFERENCES maquinas(id) ON DELETE CASCADE'
 p12
-ssS'eventos_id'
+ssS'id'
 p13
 (dp14
-S'sortable'
-p15
-I4
-sS'type'
-p16
-S'reference eventos'
-p17
-sS'sql'
-p18
-S'INTEGER REFERENCES eventos(id) ON DELETE CASCADE'
-p19
-ssS'participantes_id'
-p20
-(dp21
-g15
-I5
-sg16
-S'reference participantes'
-p22
-sg18
-S'INTEGER REFERENCES participantes(id) ON DELETE CASCADE'
-p23
-ssS'montoapuesta'
-p24
-(dp25
 g4
-S'double'
-p26
-sg6
-I2
-sg7
-S'DOUBLE'
-p27
-ssS'id'
-p28
-(dp29
-g4
-S'id'
-p30
+g13
 sg6
 I1
 sg7
 S'INTEGER PRIMARY KEY AUTOINCREMENT'
-p31
+p15
+ssS'montoApuesta'
+p16
+(dp17
+g4
+S'double'
+p18
+sg6
+I2
+sg7
+S'DOUBLE'
+p19
 ss.
