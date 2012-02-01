@@ -257,12 +257,21 @@ def verificacionToken(parameter):
 
 @servicioWeb.soap('enviarApuesta', returns={'result':int},args={'tokenMaquina':str,'listaApuestas':[{'apuesta':{'idEvento':int, 'Participantes': {'listaParticipantes':[{ 'idParticipante':int}]}, 'montoApuesta':int, 'fechaApuesta':str, 'maquinaid':int}}]})
 def enviarApuesta(tokenMaquina, listaApuestas):
-    #if (verificacionToken(tokenMaquina) == 0):
-        #for i in range(0,len(listaApuestas)):
-        #    participantes = listaApuestas[i]['apuesta']['Participantes']
-        #    for j in range(0,len(participantes)):
-     #           db.apuestas.insert(eventos_id = listaApuestas[i]['apuesta']['idEvento'],participantes_id =participantes[j],montoApuesta = listaApuestas[i]['apuesta']['montoApuesta'], fechaApuesta = listaApuestas[i]['apuesta']['fechaApuesta'], maquina_id = listaApuestas[i]['apuesta']['maquinaid'])
-        #return 0
+    if (verificacionToken(tokenMaquina) == 0):
+        for i in range(0,len(listaApuestas)):
+            db.apuestas.insert(montoApuesta = listaApuestas[i]['apuesta']['montoApuesta'], fechaApuesta = listaApuestas[i]['apuesta']['fechaApuesta'], maquina_id = listaApuestas[i]['apuesta']['maquinaid'])
+            #apuesta = db.executesql("Select id " +
+            #                        "from apuestas "+ 
+            #                        "group by id "+ 
+            #                        "having max(id)")
+            apuestas = db(db.apuestas.id > 0).select()
+            for apuesta in apuestas:
+                ultimaApuesta = apuesta
+            participantes = listaApuestas[i]['apuesta']['Participantes']['listaParticipantes']
+            for j in range(0,len(participantes)):
+                db.e_a_p.insert(apuestaId = ultimaApuesta.id, eventosId = listaApuestas[i]['apuesta']['idEvento'], participantesId = participantes[j]['idParticipante'])
+        #eventos_id = listaApuestas[i]['apuesta']['idEvento'],participantes_id =participantes[j],
+        return 0
     return 1
 
 @servicioWeb.soap('asignacionToken',returns={'result':str},args={'id':int})
