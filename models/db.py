@@ -160,10 +160,8 @@ db.define_table('maquinas',
     Field('capacidadDiscoDuro','string',requires=IS_NOT_EMPTY()))
 
 db.define_table('apuestas',
-   Field ('montoApuesta','integer',requires=IS_NOT_EMPTY()),
+   Field ('montoApuesta','double',requires=IS_NOT_EMPTY()),
    Field ('fechaApuesta','string',requires=IS_NOT_EMPTY()),
-   Field ('eventos_id',db.eventos,requires=IS_NOT_EMPTY()),
-   Field ('participantes_id',db.participantes,requires=IS_NOT_EMPTY()),
    Field ('maquina_id',db.maquinas,requires=IS_NOT_EMPTY())
    )
    
@@ -192,8 +190,7 @@ auth.define_tables(migrate = settings.migrate)
 
    
 db.apuestas.maquina_id.requires = IS_IN_DB(db, db.maquinas.id, '%(id)s')
-db.apuestas.eventos_id.requires = IS_IN_DB(db, db.eventos.id, '%(nombre)s')
-db.apuestas.participantes_id.requires = IS_IN_DB(db, db.participantes.id, '%(nombre)s')
+
 
 db.e_a_p.participantesId.requires = IS_IN_DB(db, db.participantes.id, '%(nombre)s')
 db.e_a_p.eventosId.requires = IS_IN_DB(db, db.eventos.id, '%(nombre)s')
