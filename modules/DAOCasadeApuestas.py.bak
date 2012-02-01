@@ -116,4 +116,4 @@ class DAOCasadeApuestas:
             for participante in lista_aux2:
 #                   print participante.childNodes[1].firstChild.data
                    idParticipante = participante.childNodes[3].firstChild.data
-                   db.e_a_p.insert(apuestaId = idApuesta,participantesId = idParticipante, eventosId = idEvento)
+                   db.e_a_p.insert(apuestasId = idApuesta,idParticipantes  = idParticipante, eventosId = idEvento)
