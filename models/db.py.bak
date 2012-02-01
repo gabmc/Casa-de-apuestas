@@ -35,7 +35,7 @@ if not request.env.web2py_runtime_gae:
         Field('eventos_id',db.eventos,label=T('Evento')),
         Field('participantes_id',db.participantes,label=T('Participante')),
         Field('relacionpago',label=T('Relacion/Pago')),
-        Field('limite_apuesta','integer',label=T('Limite Apuesta Bs')))
+        Field('limite_apuesta','double',label=T('Limite Apuesta Bs')))
  #       primarykey=['eventos_id','participantes_id'],
 #        migrate=False)
 ##MALDITA PK !!!, HABRA QUE PONERLE ID PARA QUE FUNCIONE, MALA PRACTICA :(
@@ -74,7 +74,7 @@ if not request.env.web2py_runtime_gae:
     db.eventosparticipantes.eventos_id.requires = IS_IN_DB(db, db.eventos.id, '%(nombre)s')
     db.eventosparticipantes.participantes_id.requires = IS_IN_DB(db, db.participantes.id, '%(nombre)s')
     db.eventosparticipantes.relacionpago.requires = IS_IN_SET(['1 a 1', '2 a 1', ' 3 a 1'])
-#    db.eventosparticipantes.primarykey.requires = IS_NOT_IN_DB(db,db.eventosparticipantes.eventos_id,db.eventosparticipantes.participantes_id)
+    db.eventosparticipantes.limite_apuesta.requires = IS_FLOAT_IN_RANGE(0.1,1e10)
 
     db.resultados.eventos_id.requires = IS_IN_DB(db, db.eventos.id, '%(nombre)s')
     db.resultados.participantes_id.requires = IS_IN_DB(db, db.participantes.id, '%(nombre)s')
@@ -150,7 +150,6 @@ db.define_table('auth_user',
 
 
 
-
 db.define_table('maquinas',
     Field('usuario_id',db.auth_user,requires=IS_NOT_EMPTY()),
     Field('estado','boolean',requires=IS_NOT_EMPTY()),
@@ -160,6 +159,19 @@ db.define_table('maquinas',
     Field('capacidadMemoriaRam','string',requires=IS_NOT_EMPTY()),
     Field('capacidadDiscoDuro','string',requires=IS_NOT_EMPTY()))
 
+db.define_table('apuestas',
+   Field ('montoApuesta','double',requires=IS_NOT_EMPTY()),
+   Field ('fechaApuesta','date',requires=IS_NOT_EMPTY()),
+   Field ('maquina_id',db.maquinas,requires=IS_NOT_EMPTY())
+   )
+   
+   
+db.define_table('e_a_p',
+   Field ('apuestaId',db.apuestas,requires=IS_NOT_EMPTY()),
+   Field ('eventosId',db.eventos,requires=IS_NOT_EMPTY()),
+   Field ('participantesId',db.participantes,requires=IS_NOT_EMPTY())
+   )
+   
 db.auth_user.nombre.requires = IS_NOT_EMPTY(error_message=auth.messages.is_empty)
 db.auth_user.nombre.requires = IS_LENGTH(maxsize=25)
 db.auth_user.apellido.requires = IS_NOT_EMPTY(error_message=auth.messages.is_empty)
@@ -173,16 +185,16 @@ db.auth_user.email.requires = (IS_EMAIL(error_message=auth.messages.invalid_emai
                                IS_NOT_IN_DB(db, db.auth_user.email))
 auth.define_tables(migrate = settings.migrate)
 
-db.define_table('apuestas',
-   Field ('montoApuesta','integer',requires=IS_NOT_EMPTY()),
-   Field ('fechaApuesta','string',requires=IS_NOT_EMPTY()),
-   Field ('eventos_id',db.eventos,requires=IS_NOT_EMPTY()),
-   Field ('participantes_id',db.participantes,requires=IS_NOT_EMPTY()),
-   Field ('maquina_id',db.maquinas,requires=IS_NOT_EMPTY())
-   )
+
+   
+
+   
 db.apuestas.maquina_id.requires = IS_IN_DB(db, db.maquinas.id, '%(id)s')
-db.apuestas.eventos_id.requires = IS_IN_DB(db, db.eventos.id, '%(nombre)s')
-db.apuestas.participantes_id.requires = IS_IN_DB(db, db.participantes.id, '%(nombre)s')
+
+
+db.e_a_p.participantesId.requires = IS_IN_DB(db, db.participantes.id, '%(nombre)s')
+db.e_a_p.eventosId.requires = IS_IN_DB(db, db.eventos.id, '%(nombre)s')
+db.e_a_p.apuestaId.requires = IS_IN_DB(db, db.apuestas.id, '%(fechaApuesta)s')
 
 ## configure email
 mail=auth.settings.mailer

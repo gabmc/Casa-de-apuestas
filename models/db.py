@@ -150,7 +150,6 @@ db.define_table('auth_user',
 
 
 
-
 db.define_table('maquinas',
     Field('usuario_id',db.auth_user,requires=IS_NOT_EMPTY()),
     Field('estado','boolean',requires=IS_NOT_EMPTY()),
@@ -160,6 +159,19 @@ db.define_table('maquinas',
     Field('capacidadMemoriaRam','string',requires=IS_NOT_EMPTY()),
     Field('capacidadDiscoDuro','string',requires=IS_NOT_EMPTY()))
 
+db.define_table('apuestas',
+   Field ('montoApuesta','double',requires=IS_NOT_EMPTY()),
+   Field ('fechaApuesta','string',requires=IS_NOT_EMPTY()),
+   Field ('maquina_id',db.maquinas,requires=IS_NOT_EMPTY())
+   )
+   
+   
+db.define_table('e_a_p',
+   Field ('apuestaId',db.apuestas,requires=IS_NOT_EMPTY()),
+   Field ('eventosId',db.eventos,requires=IS_NOT_EMPTY()),
+   Field ('participantesId',db.participantes,requires=IS_NOT_EMPTY())
+   )
+   
 db.auth_user.nombre.requires = IS_NOT_EMPTY(error_message=auth.messages.is_empty)
 db.auth_user.nombre.requires = IS_LENGTH(maxsize=25)
 db.auth_user.apellido.requires = IS_NOT_EMPTY(error_message=auth.messages.is_empty)
@@ -173,16 +185,16 @@ db.auth_user.email.requires = (IS_EMAIL(error_message=auth.messages.invalid_emai
                                IS_NOT_IN_DB(db, db.auth_user.email))
 auth.define_tables(migrate = settings.migrate)
 
-db.define_table('apuestas',
-   Field ('montoApuesta','integer',requires=IS_NOT_EMPTY()),
-   Field ('fechaApuesta','string',requires=IS_NOT_EMPTY()),
-   Field ('eventos_id',db.eventos,requires=IS_NOT_EMPTY()),
-   Field ('participantes_id',db.participantes,requires=IS_NOT_EMPTY()),
-   Field ('maquina_id',db.maquinas,requires=IS_NOT_EMPTY())
-   )
+
+   
+
+   
 db.apuestas.maquina_id.requires = IS_IN_DB(db, db.maquinas.id, '%(id)s')
-db.apuestas.eventos_id.requires = IS_IN_DB(db, db.eventos.id, '%(nombre)s')
-db.apuestas.participantes_id.requires = IS_IN_DB(db, db.participantes.id, '%(nombre)s')
+
+
+db.e_a_p.participantesId.requires = IS_IN_DB(db, db.participantes.id, '%(nombre)s')
+db.e_a_p.eventosId.requires = IS_IN_DB(db, db.eventos.id, '%(nombre)s')
+db.e_a_p.apuestaId.requires = IS_IN_DB(db, db.apuestas.id, '%(fechaApuesta)s')
 
 ## configure email
 mail=auth.settings.mailer
