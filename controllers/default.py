@@ -269,7 +269,7 @@ def enviarApuesta(tokenMaquina, listaApuestas):
                 ultimaApuesta = apuesta
             participantes = listaApuestas[i]['apuesta']['Participantes']['listaParticipantes']
             for j in range(0,len(participantes)):
-                db.e_a_p.insert(apuestaId = ultimaApuesta.id, eventosId = listaApuestas[i]['apuesta']['idEvento'], participantesId = participantes[j]['idParticipante'])
+                db.e_a_p.insert(apuestasId = ultimaApuesta.id, eventosId = listaApuestas[i]['apuesta']['idEvento'], idParticipantes = participantes[j]['idParticipante'])
         #eventos_id = listaApuestas[i]['apuesta']['idEvento'],participantes_id =participantes[j],
         return 0
     return 1
