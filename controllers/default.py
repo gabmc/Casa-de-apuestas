@@ -302,10 +302,10 @@ def apuestasPorEventos2():
 
     apuestas = db(db.apuestas.eventos_id==request.args(0)).select()
     evento = db(db.eventos.id==request.args(0)).select()
-    from gluon.contrib.pyfpdf import FPDF, HTMLMixin
     import datetime
     fechaActual=datetime.date.today()
-
+    from gluon.contrib.pyfpdf import FPDF, HTMLMixin
+    
     class MyFPDF(FPDF, HTMLMixin):
         def header(this):
                 # Logo
@@ -457,9 +457,73 @@ def report():
         # normal html view:
         return dict(chart=chart, table=table)
         
-def cargar():
+def cargarArchivoPropio():
 
     from DAOCasadeApuestas import *
     c = DAOCasadeApuestas()
     c.cargarXmlApuestas(db,'d:\\apuestas.xml')
     return dict()
+
+
+def montoPorEvento1():
+    eventos = db().select(db.eventos.ALL)
+    return dict(eventos=eventos)
+    
+def montoPorEvento2():
+   # resultados= db((db.resultados.eventos_id==request.args(0))& (db.resultados.participantes_id==db.participantes.id)).select()
+    import datetime
+    fechaActual=datetime.date.today()
+    evento= db(db.eventos.id==request.args(0)).select()
+    eventosApuestas = db(db.e_a_p.eventosId==request.args(0)).select()
+    totalApuesta = 0
+    for eventoApuesta in eventosApuestas:
+        apuesta = db(db.apuestas.id==eventoApuesta.apuestasId).select()
+        totalApuesta = totalApuesta  + apuesta[0].montoApuesta
+    from gluon.contrib.pyfpdf import FPDF, HTMLMixin
+    
+    class MyFPDF(FPDF, HTMLMixin):
+        def header(this):
+                # Logo
+#                this.image('logo_pb.png',10,8,33) FALTA ACOMODAR UN LOGO JEJE
+                # Arial bold 15
+                this.set_font('Arial','B',15)
+                this.cell(0,10,'Casa de Apuestas LOGO',0,1,'L')
+                this.cell(0,10,'Fecha: '+str(fechaActual),0,1,'L')
+                # Move to the right
+                
+                # Title
+
+                for i in evento:
+                    this.cell(0,10,'Evento: '+i.nombre,0,1,'L')
+                    this.cell(0,10,'Monto Total: '+str(totalApuesta),0,1,'L')
+                    this.cell(80)
+                    this.cell(30,10,'Monto Recaudado por Evento',0,1,'C')
+                # Line break
+                this.ln(5)
+
+        # Page footer
+        def footer(this):
+                # Position at 1.5 cm from bottom
+                this.set_y(-15)
+                # Arial italic 8
+                this.set_font('Arial','I',8)
+                # Page number
+#                this.cell(0,10,'Page '+str(this.PageNo())+'/{nb}',0,0,'C')
+    rows = THEAD(TR(TH("Participante",_width="33%",_border="1"), TH("Fecha",_width="33%",_border="1"), TH("Monto",_width="33%",_border="1")))
+    col = []
+    cont = 0
+    for eventoApuesta in eventosApuestas:
+        participante = db(db.participantes.id==eventoApuesta.idParticipantes).select()
+        apuesta = db(db.apuestas.id==eventoApuesta.apuestasId).select()
+        cont +=1
+        bg = cont % 2 and "#F0F0F0" or "#FFFFFF"
+        col.append(TR(TD(participante[0].nombre,_width="33%",_align="center"),TD(apuesta[0].fechaApuesta, _align="center",_border="1"),TD(apuesta[0].montoApuesta,_align="center"),_bgcolor=bg,_border="1"))
+    cuerpo =TBODY(*col)
+    table = TABLE(_border="1",_align="center",_width="100%",*[rows,cuerpo])
+    pdf = MyFPDF()
+    pdf.alias_nb_pages()
+    pdf.add_page()
+    pdf.set_font('Times','',12)
+    pdf.write_html(str(XML(table, sanitize=False)))      
+    response.headers['Content-Type']='application/pdf'
+    return pdf.output(dest='S')

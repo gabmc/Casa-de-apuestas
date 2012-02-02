@@ -27,13 +27,13 @@ p12
 ssS'apuestaid'
 p13
 (dp14
-S'sortable'
+S'type'
 p15
-I2
-sS'type'
-p16
 S'reference apuestas'
+p16
+sS'sortable'
 p17
+I2
 sS'sql'
 p18
 S'INTEGER REFERENCES apuestas(id) ON DELETE CASCADE'
@@ -41,13 +41,13 @@ p19
 ssS'eventoid'
 p20
 (dp21
-S'sortable'
+S'type'
 p22
-I3
-sS'type'
-p23
 S'reference eventos'
+p23
+sS'sortable'
 p24
+I3
 sS'sql'
 p25
 S'INTEGER REFERENCES eventos(id) ON DELETE CASCADE'
@@ -66,13 +66,13 @@ p30
 ssS'idparticipante'
 p31
 (dp32
-S'type'
+S'sortable'
 p33
-S'reference participantes'
-p34
-sS'sortable'
-p35
 I4
+sS'type'
+p34
+S'reference participantes'
+p35
 sS'sql'
 p36
 S'INTEGER REFERENCES participantes(id) ON DELETE CASCADE'
