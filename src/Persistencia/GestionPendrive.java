@@ -115,8 +115,8 @@ public class GestionPendrive{
                         String path = directorio + file.getName();
                         Logica.Logica.dameLogica().getListaAdministradores().clear();
                         Logica.Logica.dameLogica().getListaCategorias().clear();
-                        GestionPorArchivo cargar = new GestionPorArchivo();
-                  
+                 //       GestionPorArchivo cargar = new GestionPorArchivo();
+                        GestionPorArchivoAjeno cargar = new GestionPorArchivoAjeno();
                         cargar.cargarActualizacion(path);
                         cargar.copiarArchivoActualizacion(path);
                         logger.info("Datos cargados de actualizacion");

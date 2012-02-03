@@ -40,7 +40,7 @@ public class GestionPorArchivoAjeno implements DaoXml {
 
 
 
-    private class DatosEventos{
+    public  class DatosEventos{
         private boolean permiteEmpate;
         private boolean admiteTabla;
         private Integer idCategoria;
@@ -80,7 +80,7 @@ public class GestionPorArchivoAjeno implements DaoXml {
 
     }
 
-    private class RelacionPago{
+    public  class RelacionPago{
 
         private int id;
         private float valor;
@@ -232,7 +232,8 @@ public class GestionPorArchivoAjeno implements DaoXml {
              }
              if (categoriaNueva.getName().equals("Empate")){
                  texto = categoriaNueva.getText();
-                 if (texto.contentEquals("No")) permiteEmpate = Boolean.FALSE;
+                 if (texto.contentEquals("No"))
+                     permiteEmpate = Boolean.FALSE;
                  else permiteEmpate = Boolean.TRUE;
              }
 
@@ -306,16 +307,26 @@ public class GestionPorArchivoAjeno implements DaoXml {
     public boolean construirParticipantesEventos(List partevs,
             ArrayList<Participante> participantes){
         Iterator atributos = partevs.iterator();
-        int idEventos, idParticipantes,idPago;
+        int idEventos, idParticipantes,idPago,entero=0,decimal=0;
         float limiteApuesta=0;
         idEventos = idParticipantes = 0;
-        String relacion_pago ="";
+        String relacion_pago ="",numeroLeido;
         while(atributos.hasNext()){
             Element partev = (Element)atributos.next();
             if(partev.getName().equals("Evento"))
                 idEventos = Integer.parseInt(partev.getText());
-            if(partev.getName().equals("Monto_tope"))
-                limiteApuesta = Float.parseFloat(partev.getText());
+            if(partev.getName().equals("Monto_tope")){
+                 numeroLeido = partev.getText();
+                 if (numeroLeido.contentEquals("")==false){
+                    if (numeroLeido.contains(",")){
+                        entero = Integer.parseInt(numeroLeido.split(",")[0]);
+                        decimal = Integer.parseInt(numeroLeido.split(",")[1]);
+                        limiteApuesta = Float.parseFloat(entero+"."+decimal);
+                    }
+                    else limiteApuesta = Float.parseFloat(numeroLeido);
+
+                }
+            }
             if(partev.getName().equals("Participante"))
                 idParticipantes = Integer.parseInt(partev.getText());
             if(partev.getName().equals("Pago")){
@@ -565,7 +576,7 @@ public class GestionPorArchivoAjeno implements DaoXml {
         Element archivo = abrirArchivo(path);
         List elementos = archivo.getChildren();
         Iterator iterator = elementos.iterator();
-        ArrayList<Participante> participantes = new ArrayList<Participante>();
+       
         Apuesta a;
         while(iterator.hasNext()){
             Element elemInternos = (Element)iterator.next();
@@ -592,15 +603,25 @@ public class GestionPorArchivoAjeno implements DaoXml {
      
      public RelacionPago construirRelacionPago(List elemento){
          Iterator atributos = elemento.iterator();
-         int id = 0;
+         int id = 0,entero=0,decimal=0;
          float valor=0;
+         String numeroLeido="";
+
          while(atributos.hasNext()){
              Element relacionPago1 = (Element) atributos.next();
              if (relacionPago1.getName().equals("Id"))
                  id = Integer.parseInt(relacionPago1.getText());
-             if (relacionPago1.getName().equals("Valor"))
-                 valor = Integer.parseInt(relacionPago1.getText());
-             
+             if (relacionPago1.getName().equals("Valor")){
+                 numeroLeido = relacionPago1.getText();
+                 if (numeroLeido.contentEquals("")==false){
+                 if (numeroLeido.contains(",")){
+                 entero = Integer.parseInt(numeroLeido.split(",")[0]);
+                 decimal = Integer.parseInt(numeroLeido.split(",")[1]);
+                 valor = Float.parseFloat(entero+"."+decimal);
+                 }
+                 else valor = Float.parseFloat(numeroLeido);
+             }
+             }
 
          }
          //datosEventos.add(new DatosEventos(permiteEmpate, admiteTabla, id));

@@ -211,7 +211,8 @@ public class GestionPorArchivo implements DaoXml {
             if(partev.getName().equals("eventosparticipantes_relacionago"))
                 relacionPago = partev.getText();
             if(partev.getName().equals("eventosparticipantes_limite_apuesta"))
-                limiteApuesta = Float.parseFloat(partev.getText());
+                if (partev.getText().contentEquals("None")==false)
+                    limiteApuesta = Float.parseFloat(partev.getText());
         }
         Participante participante = buscarParticipanteId(idParticipantes,
                 participantes);
@@ -224,14 +225,15 @@ public class GestionPorArchivo implements DaoXml {
     }
 
     public Participante clonarParticipante(Participante participante){
-        Participante participanteClonado=null;
+      
         try {
-            participanteClonado= (Participante) participante.clone();
+            Participante  participanteClonado = (Participante) participante.clone();
+            return participanteClonado;
         }
         catch (CloneNotSupportedException e){
             logger.error("Error a clonar "+e.getMessage());
         }
-        return participanteClonado;
+        return null;
     }
 
     public boolean cargarParticipantesEventos(Element elemento,
@@ -450,7 +452,7 @@ public class GestionPorArchivo implements DaoXml {
         Element archivo = abrirArchivo(path);
         List elementos = archivo.getChildren();
         Iterator iterator = elementos.iterator();
-        ArrayList<Participante> participantes = new ArrayList<Participante>();
+        
         Apuesta a;
         while(iterator.hasNext()){
             Element elemInternos = (Element)iterator.next();
