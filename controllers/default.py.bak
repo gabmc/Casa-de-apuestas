@@ -497,7 +497,7 @@ def montoPorEvento2():
                     this.cell(0,10,'Evento: '+i.nombre,0,1,'L')
                     this.cell(0,10,'Monto Total: '+str(totalApuesta),0,1,'L')
                     this.cell(80)
-                    this.cell(30,10,'Apuestas Realizadas',0,1,'C')
+                    this.cell(30,10,'Monto Recaudado por Evento',0,1,'C')
                 # Line break
                 this.ln(5)
 
