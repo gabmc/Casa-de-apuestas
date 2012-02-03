@@ -116,17 +116,11 @@ public class GestionPendrive{
                         Logica.Logica.dameLogica().getListaAdministradores().clear();
                         Logica.Logica.dameLogica().getListaCategorias().clear();
                         GestionPorArchivo cargar = new GestionPorArchivo();
-                    try {
+                  
                         cargar.cargarActualizacion(path);
                         cargar.copiarArchivoActualizacion(path);
                         logger.info("Datos cargados de actualizacion");
-                    } catch (FileNotFoundException ex) {
-                        logger.error("Archivo de actualizacion no encontrado");
-                    } catch (JDOMException ex) {
-                        logger.error("Excepcion de JDOM");
-                    } catch (IOException ex) {
-                        logger.error("Excepcion de I/O");
-                    }
+                   
                         kill = true;
                     }
                 }
@@ -146,16 +140,10 @@ public class GestionPendrive{
 
                File archivoEscribir = new File(files[files.length-1],"apuestas.xml");
                GestionPorArchivo gestion = new GestionPorArchivo();
-            try {
+          
                 gestion.copiarArchivoApuestas(archivoEscribir);
                 logger.info("Archivos de apuestas copiados");
-            } catch (FileNotFoundException ex) {
-                logger.error("Archivo de apuestas no encontrado "+ex.getMessage());
-            } catch (JDOMException ex) {
-                logger.error("Excepcion de JDOM"+ex.getMessage());
-            } catch (IOException ex) {
-                logger.error("Excepcion de I/O "+ex.getMessage());
-            }
+          
                kill = true;
                
 //        }

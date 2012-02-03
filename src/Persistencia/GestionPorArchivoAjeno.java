@@ -35,7 +35,9 @@ import org.jdom.input.SAXBuilder;
  * @author hector
  */
 
-public class GestionPorArchivoAjeno {
+public class GestionPorArchivoAjeno implements DaoXml {
+
+
 
 
     private class DatosEventos{
@@ -78,13 +80,49 @@ public class GestionPorArchivoAjeno {
 
     }
 
+    private class RelacionPago{
+
+        private int id;
+        private float valor;
+
+        public RelacionPago(int id, float  valor) {
+            this.id = id;
+            this.valor = valor;
+        }
+
+
+
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
+
+        public float  getValor() {
+            return valor;
+        }
+
+        public void setValor(float  valor) {
+            this.valor = valor;
+        }
+
+
+    }
+
+
+
+
     private Document documento;
     static Logger logger = Logger.getLogger(GestionPorArchivoAjeno.class);
     private ArrayList<DatosEventos> datosEventos;
+    private ArrayList<RelacionPago> relacionPago;
 
     public GestionPorArchivoAjeno() {
         PropertyConfigurator.configure("log4j.properties");
         datosEventos = new ArrayList<DatosEventos>();
+        relacionPago = new ArrayList<RelacionPago>();
     }
 
 /**
@@ -93,6 +131,7 @@ public class GestionPorArchivoAjeno {
  * @param path de ubicación
  * @return El primer elemento del esquema XML
  */
+    @Override
     public Element abrirArchivo(String path){
         SAXBuilder constructor = new SAXBuilder();
         try {
@@ -267,22 +306,48 @@ public class GestionPorArchivoAjeno {
     public boolean construirParticipantesEventos(List partevs,
             ArrayList<Participante> participantes){
         Iterator atributos = partevs.iterator();
-        int idEventos, idParticipantes;
+        int idEventos, idParticipantes,idPago;
+        float limiteApuesta=0;
         idEventos = idParticipantes = 0;
+        String relacion_pago ="";
         while(atributos.hasNext()){
             Element partev = (Element)atributos.next();
             if(partev.getName().equals("Evento"))
                 idEventos = Integer.parseInt(partev.getText());
+            if(partev.getName().equals("Monto_tope"))
+                limiteApuesta = Float.parseFloat(partev.getText());
             if(partev.getName().equals("Participante"))
                 idParticipantes = Integer.parseInt(partev.getText());
+            if(partev.getName().equals("Pago")){
+                idPago = Integer.parseInt(partev.getText());
+                for (RelacionPago rp : relacionPago) {
+                        if (rp.getId()==idPago){
+                            relacion_pago=rp.getValor()+" a 1";
+                            break;
+                        }
+                }
+            }
         }
         //FALTA COLOCARLE LOS ATRIBUTOS DEL MONTO MAXIMO DE LA APUESTA!
         //EL MALDITO NOS DIO MAL EL ARCHIVO, NO EXISTEN NI EL EVENTO 1,2,3,10 =.=
         Participante participante = buscarParticipanteId(idParticipantes,
                 participantes);
+        Participante participanteClonado = clonarParticipante(participante);
+        participanteClonado.setLimiteApuesta(limiteApuesta);
+        participanteClonado.setRelacionPago(relacion_pago);
         Logica.dameLogica().getEventoPorId(idEventos).getParticipantes()
-                .add(participante);
+                .add(participanteClonado);
         return Boolean.TRUE;
+    }
+    public Participante clonarParticipante(Participante participante){
+        Participante participanteClonado=null;
+        try {
+            participanteClonado= (Participante) participante.clone();
+        }
+        catch (CloneNotSupportedException e){
+            logger.error("Error a clonar "+e.getMessage());
+        }
+        return participanteClonado;
     }
 
     public boolean cargarParticipantesEventos(Element elemento,
@@ -344,6 +409,7 @@ public class GestionPorArchivoAjeno {
      * @return True en caso de haber realizado la lectura
      */
 
+    @Override
     public boolean cargarActualizacion(String path) {
         Element archivo = abrirArchivo(path);
         List elementos = archivo.getChildren();
@@ -355,6 +421,8 @@ public class GestionPorArchivoAjeno {
                 cargarCategorias(elementosInternos);
             if (elementosInternos.getName().equals("Eventos"))
                 cargarEventos(elementosInternos);
+            if (elementosInternos.getName().equals("Relacion_pagos"))
+                cargarRelacionPagos(elementosInternos);
             if (elementosInternos.getName().equals("Participantes"))
                 participantes = cargarParticipantes(elementosInternos);
             if (elementosInternos.getName().equals("Detalles_pe"))
@@ -366,36 +434,52 @@ public class GestionPorArchivoAjeno {
         return Boolean.TRUE;
     }
 
-    public void copiarArchivoActualizacion(String path) throws FileNotFoundException,
-            JDOMException, IOException{
-        File origen = new File(path);
-        File destino = new File("archivos/persistencia.xml");
-        InputStream in = new FileInputStream(origen);
-        OutputStream out = new FileOutputStream(destino);
+    @Override
+    public void copiarArchivoActualizacion(String path){
+        try {
+            File origen = new File(path);
+            File destino = new File("archivos/persistencia.xml");
+            InputStream in = new FileInputStream(origen);
+            OutputStream out = new FileOutputStream(destino);
 
-        byte[] buf = new byte[2048];
-        int len;
-        while ((len = in.read(buf)) > 0){
-            out.write(buf, 0, len);
+            byte[] buf = new byte[2048];
+            int len;
+            while ((len = in.read(buf)) > 0){
+                out.write(buf, 0, len);
+            }
+            in.close();
+            out.close();
         }
-        in.close();
-        out.close();
+        catch (FileNotFoundException e){
+            logger.error("Excepcion FileNotFoundException "+e.getMessage());
+        }
+        catch (IOException ex){
+            logger.error("Excepcion I/O "+ex.getMessage());
+        }
 
         }
 
-    public void copiarArchivoApuestas(File archivoDestino) throws FileNotFoundException,
-            JDOMException, IOException{
-        File origen = new File("archivos/apuestas.xml");
-        InputStream in = new FileInputStream(origen);
-        OutputStream out = new FileOutputStream(archivoDestino);
+    @Override
+    public void copiarArchivoApuestas(File archivoDestino){
+        try{
+            File origen = new File("archivos/apuestas.xml");
+            InputStream in = new FileInputStream(origen);
+            OutputStream out = new FileOutputStream(archivoDestino);
 
-        byte[] buf = new byte[2048];
-        int len;
-        while ((len = in.read(buf)) > 0){
-            out.write(buf, 0, len);
+            byte[] buf = new byte[2048];
+            int len;
+            while ((len = in.read(buf)) > 0){
+                out.write(buf, 0, len);
+            }
+            in.close();
+            out.close();
         }
-        in.close();
-        out.close();
+        catch (FileNotFoundException e){
+            logger.error("Excepcion FileNotFoundException "+e.getMessage());
+        }
+        catch(IOException ex){
+            logger.error("Excepcion I/O "+ex.getMessage());
+        }
     }
 
     public ArrayList<Participante> recibirParticipantes(List elemento){
@@ -476,6 +560,7 @@ public class GestionPorArchivoAjeno {
      * @param path de dirección
      */
 
+    @Override
     public void cargarApuestasMemoria(String path){
         Element archivo = abrirArchivo(path);
         List elementos = archivo.getChildren();
@@ -492,10 +577,38 @@ public class GestionPorArchivoAjeno {
         }
         }
 
-    public void cargarDatosAdicionalesEventos(Integer idCategoria){
-
-
+     public boolean cargarRelacionPagos(Element elemento){
+        List elementosInternos = elemento.getChildren();
+        Iterator iterator = elementosInternos.iterator();
+        Element relacionPagos = null;
+        while(iterator.hasNext()){
+            relacionPagos = (Element) iterator.next();
+            List relacionPago1 = relacionPagos.getChildren();
+            RelacionPago r = construirRelacionPago(relacionPago1);
+            relacionPago.add(r);
+        }
+        return Boolean.TRUE;
     }
+     
+     public RelacionPago construirRelacionPago(List elemento){
+         Iterator atributos = elemento.iterator();
+         int id = 0;
+         float valor=0;
+         while(atributos.hasNext()){
+             Element relacionPago1 = (Element) atributos.next();
+             if (relacionPago1.getName().equals("Id"))
+                 id = Integer.parseInt(relacionPago1.getText());
+             if (relacionPago1.getName().equals("Valor"))
+                 valor = Integer.parseInt(relacionPago1.getText());
+             
+
+         }
+         //datosEventos.add(new DatosEventos(permiteEmpate, admiteTabla, id));
+         RelacionPago relacionPago = new RelacionPago(id, valor);
+        
+        return relacionPago;
+    }
+
 }
 
 

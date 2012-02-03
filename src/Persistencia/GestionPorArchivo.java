@@ -223,7 +223,7 @@ public class GestionPorArchivo implements DaoXml {
         return Boolean.TRUE;
     }
 
-        public Participante clonarParticipante(Participante participante){
+    public Participante clonarParticipante(Participante participante){
         Participante participanteClonado=null;
         try {
             participanteClonado= (Participante) participante.clone();
