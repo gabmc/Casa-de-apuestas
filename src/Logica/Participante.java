@@ -9,11 +9,15 @@ package Logica;
  *
  * @author Usuario
  */
-public class Participante {
+public class Participante implements Cloneable {
     int id;
     String nombre;
     String descripcion;
     int idCategoria;
+    String relacionPago;
+    float limiteApuesta;
+
+  
 
     /**
      * Constructor de la clase Participante, posee todos los atributos de
@@ -61,6 +65,25 @@ public class Participante {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+   
+  public double getLimiteApuesta() {
+        return limiteApuesta;
+    }
 
+    public void setLimiteApuesta(float limiteApuesta) {
+        this.limiteApuesta = limiteApuesta;
+    }
 
+    public String getRelacionPago() {
+        return relacionPago;
+    }
+
+    public void setRelacionPago(String relacionPago) {
+        this.relacionPago = relacionPago;
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
 }

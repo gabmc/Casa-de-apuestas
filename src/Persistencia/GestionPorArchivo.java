@@ -22,7 +22,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
-import java.util.logging.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.jdom.Document;
@@ -33,7 +32,7 @@ import org.jdom.input.SAXBuilder;
  *
  * @author hector
  */
-public class GestionPorArchivo {
+public class GestionPorArchivo implements DaoXml {
     
     private Document documento;
     static Logger logger = Logger.getLogger(GestionPorArchivo.class);
@@ -48,6 +47,7 @@ public class GestionPorArchivo {
  * @param path de ubicación
  * @return El primer elemento del esquema XML
  */
+    @Override
     public Element abrirArchivo(String path){
         SAXBuilder constructor = new SAXBuilder();
         try {
@@ -199,6 +199,8 @@ public class GestionPorArchivo {
             ArrayList<Participante> participantes){
         Iterator atributos = partevs.iterator();
         int idEventos, idParticipantes;
+        float limiteApuesta=0;
+        String relacionPago="";
         idEventos = idParticipantes = 0;
         while(atributos.hasNext()){
             Element partev = (Element)atributos.next();
@@ -206,12 +208,30 @@ public class GestionPorArchivo {
                 idEventos = Integer.parseInt(partev.getText());
             if(partev.getName().equals("eventosparticipantes_participantes_id"))
                 idParticipantes = Integer.parseInt(partev.getText());
+            if(partev.getName().equals("eventosparticipantes_relacionago"))
+                relacionPago = partev.getText();
+            if(partev.getName().equals("eventosparticipantes_limite_apuesta"))
+                limiteApuesta = Float.parseFloat(partev.getText());
         }
         Participante participante = buscarParticipanteId(idParticipantes,
                 participantes);
+        Participante participanteClonado = clonarParticipante(participante);
+        participanteClonado.setLimiteApuesta(limiteApuesta);
+        participanteClonado.setRelacionPago(relacionPago);
         Logica.dameLogica().getEventoPorId(idEventos).getParticipantes()
-                .add(participante);
+                .add(participanteClonado);
         return Boolean.TRUE;
+    }
+
+        public Participante clonarParticipante(Participante participante){
+        Participante participanteClonado=null;
+        try {
+            participanteClonado= (Participante) participante.clone();
+        }
+        catch (CloneNotSupportedException e){
+            logger.error("Error a clonar "+e.getMessage());
+        }
+        return participanteClonado;
     }
 
     public boolean cargarParticipantesEventos(Element elemento,
@@ -275,6 +295,7 @@ public class GestionPorArchivo {
      * @return True en caso de haber realizado la lectura
      */
 
+    @Override
     public boolean cargarActualizacion(String path) {
         Element archivo = abrirArchivo(path);
         List elementos = archivo.getChildren();
@@ -297,36 +318,53 @@ public class GestionPorArchivo {
         return Boolean.TRUE;
     }
     
-    public void copiarArchivoActualizacion(String path) throws FileNotFoundException,
-            JDOMException, IOException{
-        File origen = new File(path);
-        File destino = new File("archivos/persistencia.xml");
-        InputStream in = new FileInputStream(origen);
-        OutputStream out = new FileOutputStream(destino);
+
+    @Override
+    public void copiarArchivoActualizacion(String path) {
+        try{
+            File origen = new File(path);
+            File destino = new File("archivos/persistencia.xml");
+            InputStream in = new FileInputStream(origen);
+            OutputStream out = new FileOutputStream(destino);
         
-        byte[] buf = new byte[2048];
-        int len;
-        while ((len = in.read(buf)) > 0){
-            out.write(buf, 0, len);
+            byte[] buf = new byte[2048];
+            int len;
+            while ((len = in.read(buf)) > 0){
+                out.write(buf, 0, len);
+            }
+            in.close();
+            out.close();
         }
-        in.close();
-        out.close();
-    
+        catch (FileNotFoundException ex){
+            logger.error("Excepcion FileNotFoundException "+ex.getMessage());
+        }
+        catch(IOException io){
+            logger.error("Excepcion I/O "+io.getMessage());
+        }
         }
     
-    public void copiarArchivoApuestas(File archivoDestino) throws FileNotFoundException,
-            JDOMException, IOException{
-        File origen = new File("archivos/apuestas.xml");
-        InputStream in = new FileInputStream(origen);
-        OutputStream out = new FileOutputStream(archivoDestino);
+    @Override
+    public void copiarArchivoApuestas(File archivoDestino) {
+        try{
+            File origen = new File("archivos/apuestas.xml");
+            InputStream in = new FileInputStream(origen);
+            OutputStream out = new FileOutputStream(archivoDestino);
         
-        byte[] buf = new byte[2048];
-        int len;
-        while ((len = in.read(buf)) > 0){
-            out.write(buf, 0, len);   
+            byte[] buf = new byte[2048];
+            int len;
+            while ((len = in.read(buf)) > 0){
+                out.write(buf, 0, len);
+            }
+            in.close();
+            out.close();
         }
-        in.close();
-        out.close();
+        catch (FileNotFoundException f){
+            logger.error("Excepcion FileNotFoundException "+f.getMessage());
+        }
+        catch(IOException e){
+            logger.error("Excepcion I/O "+e.getMessage());
+        }
+       
     }
     
     public ArrayList<Participante> recibirParticipantes(List elemento){
@@ -407,6 +445,7 @@ public class GestionPorArchivo {
      * @param path de dirección
      */
 
+    @Override
     public void cargarApuestasMemoria(String path){
         Element archivo = abrirArchivo(path);
         List elementos = archivo.getChildren();
