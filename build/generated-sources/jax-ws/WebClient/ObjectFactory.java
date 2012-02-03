@@ -30,14 +30,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link AsignacionToken }
-     * 
-     */
-    public AsignacionToken createAsignacionToken() {
-        return new AsignacionToken();
-    }
-
-    /**
      * Create an instance of {@link ArrayOfenviarApuestalistaApuestas }
      * 
      */
@@ -46,27 +38,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link AsignacionTokenResponse }
+     * Create an instance of {@link EnviarApuestaResponse }
      * 
      */
-    public AsignacionTokenResponse createAsignacionTokenResponse() {
-        return new AsignacionTokenResponse();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfArrayOfenviarApuestalistaApuestasapuestaParticipantes }
-     * 
-     */
-    public ArrayOfArrayOfenviarApuestalistaApuestasapuestaParticipantes createArrayOfArrayOfenviarApuestalistaApuestasapuestaParticipantes() {
-        return new ArrayOfArrayOfenviarApuestalistaApuestasapuestaParticipantes();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfenviarApuestalistaApuestasapuesta }
-     * 
-     */
-    public ArrayOfenviarApuestalistaApuestasapuesta createArrayOfenviarApuestalistaApuestasapuesta() {
-        return new ArrayOfenviarApuestalistaApuestasapuesta();
+    public EnviarApuestaResponse createEnviarApuestaResponse() {
+        return new EnviarApuestaResponse();
     }
 
     /**
@@ -78,11 +54,43 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link EnviarApuestaResponse }
+     * Create an instance of {@link AsignacionToken }
      * 
      */
-    public EnviarApuestaResponse createEnviarApuestaResponse() {
-        return new EnviarApuestaResponse();
+    public AsignacionToken createAsignacionToken() {
+        return new AsignacionToken();
+    }
+
+    /**
+     * Create an instance of {@link AsignacionTokenResponse }
+     * 
+     */
+    public AsignacionTokenResponse createAsignacionTokenResponse() {
+        return new AsignacionTokenResponse();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfArrayOfenviarApuestalistaApuestasapuestaParticipanteslistaParticipantes }
+     * 
+     */
+    public ArrayOfArrayOfenviarApuestalistaApuestasapuestaParticipanteslistaParticipantes createArrayOfArrayOfenviarApuestalistaApuestasapuestaParticipanteslistaParticipantes() {
+        return new ArrayOfArrayOfenviarApuestalistaApuestasapuestaParticipanteslistaParticipantes();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfenviarApuestalistaApuestasapuesta }
+     * 
+     */
+    public ArrayOfenviarApuestalistaApuestasapuesta createArrayOfenviarApuestalistaApuestasapuesta() {
+        return new ArrayOfenviarApuestalistaApuestasapuesta();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfenviarApuestalistaApuestasapuestaParticipantes }
+     * 
+     */
+    public ArrayOfenviarApuestalistaApuestasapuestaParticipantes createArrayOfenviarApuestalistaApuestasapuestaParticipantes() {
+        return new ArrayOfenviarApuestalistaApuestasapuestaParticipantes();
     }
 
 }

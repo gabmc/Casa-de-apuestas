@@ -3,8 +3,8 @@
   <services/>
   <clients>
     <client name="soap">
-      <wsdl-url>http://192.168.1.109:8000/Casa_de_Apuestas/default/call/soap?WSDL</wsdl-url>
-      <local-wsdl-file>192.168.1.109_8000/Casa_de_Apuestas/default/call/soap.wsdl</local-wsdl-file>
+      <wsdl-url>http://127.0.0.1:8000/Casa_de_Apuestas/default/call/soap?WSDL</wsdl-url>
+      <local-wsdl-file>127.0.0.1_8000/Casa_de_Apuestas/default/call/soap.wsdl</local-wsdl-file>
       <package-name forceReplace="true">WebClient</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <wsimport-options>
@@ -18,11 +18,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://192.168.1.109:8000/Casa_de_Apuestas/default/call/soap?WSDL</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>xnocompile</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
+          <wsimport-option-value>http://127.0.0.1:8000/Casa_de_Apuestas/default/call/soap?WSDL</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xendorsed</wsimport-option-name>

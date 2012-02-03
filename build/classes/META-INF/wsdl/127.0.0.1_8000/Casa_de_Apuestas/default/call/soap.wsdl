@@ -44,9 +44,19 @@
 					<xsd:element name="idEvento" type="xsd:int"/>
 					<xsd:element name="fechaApuesta" type="xsd:string"/>
 					<xsd:element name="maquinaid" type="xsd:int"/>
-					<xsd:element name="idParticipante" type="xsd:int"/>
 					<xsd:element name="montoApuesta" type="xsd:int"/>
+					<xsd:element name="Participantes" type="tns:ArrayOfenviarApuestalistaApuestasapuestaParticipantes"/>
 				</xsd:all>
+			</xsd:complexType>
+			<xsd:complexType name="ArrayOfenviarApuestalistaApuestasapuestaParticipantes">
+				<xsd:all>
+					<xsd:element name="listaParticipantes" type="tns:ArrayOfArrayOfenviarApuestalistaApuestasapuestaParticipanteslistaParticipantes"/>
+				</xsd:all>
+			</xsd:complexType>
+			<xsd:complexType name="ArrayOfArrayOfenviarApuestalistaApuestasapuestaParticipanteslistaParticipantes">
+				<xsd:sequence>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" name="idParticipante" type="xsd:int"/>
+				</xsd:sequence>
 			</xsd:complexType>
 			<xsd:element name="enviarApuestaResponse">
 				<xsd:complexType>

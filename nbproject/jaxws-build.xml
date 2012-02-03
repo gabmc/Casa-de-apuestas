@@ -20,8 +20,8 @@
     </target>
     <target name="wsimport-client-soap" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/soap"/>
-        <property name="wsdl-soap" location="xml-resources/web-service-references/soap/wsdl/192.168.1.109_8000/Casa_de_Apuestas/default/call/soap.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/soap" destdir="${build.generated.dir}/jax-wsCache/soap" wsdl="${wsdl-soap}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://192.168.1.109:8000/Casa_de_Apuestas/default/call/soap?WSDL" xnocompile="true" xendorsed="true" package="WebClient">
+        <property name="wsdl-soap" location="xml-resources/web-service-references/soap/wsdl/127.0.0.1_8000/Casa_de_Apuestas/default/call/soap.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/soap" destdir="${build.generated.dir}/jax-wsCache/soap" wsdl="${wsdl-soap}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://127.0.0.1:8000/Casa_de_Apuestas/default/call/soap?WSDL" xendorsed="true" package="WebClient">
             <depends file="${wsdl-soap}"/>
             <produces dir="${build.generated.dir}/jax-wsCache/soap"/>
         </wsimport>

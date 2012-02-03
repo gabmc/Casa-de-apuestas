@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="fechaApuesta" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="maquinaid" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="montoApuesta" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="Participantes" type="{http://192.168.1.109:8000/Casa_de_Apuestas/default/call/soap}ArrayOfArrayOfenviarApuestalistaApuestasapuestaParticipantes"/>
+ *         &lt;element name="Participantes" type="{http://127.0.0.1:8000/Casa_de_Apuestas/default/call/soap}ArrayOfenviarApuestalistaApuestasapuestaParticipantes"/>
  *       &lt;/all>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -42,7 +42,7 @@ public class ArrayOfenviarApuestalistaApuestasapuesta {
     protected int maquinaid;
     protected int montoApuesta;
     @XmlElement(name = "Participantes", required = true)
-    protected ArrayOfArrayOfenviarApuestalistaApuestasapuestaParticipantes participantes;
+    protected ArrayOfenviarApuestalistaApuestasapuestaParticipantes participantes;
 
     /**
      * Gets the value of the idEvento property.
@@ -121,10 +121,10 @@ public class ArrayOfenviarApuestalistaApuestasapuesta {
      * 
      * @return
      *     possible object is
-     *     {@link ArrayOfArrayOfenviarApuestalistaApuestasapuestaParticipantes }
+     *     {@link ArrayOfenviarApuestalistaApuestasapuestaParticipantes }
      *     
      */
-    public ArrayOfArrayOfenviarApuestalistaApuestasapuestaParticipantes getParticipantes() {
+    public ArrayOfenviarApuestalistaApuestasapuestaParticipantes getParticipantes() {
         return participantes;
     }
 
@@ -133,10 +133,10 @@ public class ArrayOfenviarApuestalistaApuestasapuesta {
      * 
      * @param value
      *     allowed object is
-     *     {@link ArrayOfArrayOfenviarApuestalistaApuestasapuestaParticipantes }
+     *     {@link ArrayOfenviarApuestalistaApuestasapuestaParticipantes }
      *     
      */
-    public void setParticipantes(ArrayOfArrayOfenviarApuestalistaApuestasapuestaParticipantes value) {
+    public void setParticipantes(ArrayOfenviarApuestalistaApuestasapuestaParticipantes value) {
         this.participantes = value;
     }
 
