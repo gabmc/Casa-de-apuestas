@@ -463,7 +463,12 @@ def cargarArchivoPropio():
     c = DAOCasadeApuestas()
     c.cargarXmlApuestas(db,'d:\\apuestas.xml')
     return dict()
-
+    
+def cargarArchivoAjeno():
+    from DAOCasadeApuestas import *
+    archivo = DAOCasadeApuestas()
+    archivo.cargarXmlApuestasAjeno(db,'E:\\ArchivoDeApuestas.xml')
+    return dict()
 
 def montoPorEvento1():
     eventos = db().select(db.eventos.ALL)
@@ -497,7 +502,7 @@ def montoPorEvento2():
                     this.cell(0,10,'Evento: '+i.nombre,0,1,'L')
                     this.cell(0,10,'Monto Total: '+str(totalApuesta),0,1,'L')
                     this.cell(80)
-                    this.cell(30,10,'Apuestas Realizadas',0,1,'C')
+                    this.cell(30,10,'Monto Recaudado por Evento',0,1,'C')
                 # Line break
                 this.ln(5)
 

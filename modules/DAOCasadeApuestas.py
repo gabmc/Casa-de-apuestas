@@ -94,8 +94,14 @@ class DAOCasadeApuestas:
         
         self.db = db
         self.rutaArchivo = rutaArchivo
+        
+    """
+    Carga Apuestas desde el Archivo Xml Propio
     
-    
+    @param db: base de datos para hacer el insert de la apuesta
+           rutaArchivo: ruta del Archivo que se utilizara para cargar las Apuestas
+    """
+        
     def cargarXmlApuestas(self,db,rutaArchivo):
         from xml.dom import minidom
         xml_documento = minidom.parse(rutaArchivo)
@@ -117,3 +123,32 @@ class DAOCasadeApuestas:
 #                   print participante.childNodes[1].firstChild.data
                    idParticipante = participante.childNodes[3].firstChild.data
                    db.e_a_p.insert(apuestasId = idApuesta,idParticipantes  = idParticipante, eventosId = idEvento)
+
+    """
+    Carga Apuestas desde el Archivo Xml Provisto por el otro equipo
+    
+    @param db: base de datos para hacer el insert de la apuesta
+           rutaArchivo: ruta del Archivo que se utilizara para cargar las Apuestas
+    """
+    
+    def cargarXmlApuestasAjeno(self,db,rutaArchivo):
+        from xml.dom import minidom
+        xml_documento = minidom.parse(rutaArchivo)
+        nodos = xml_documento.childNodes
+        lista = nodos[0].getElementsByTagName("Apuestas")
+        for nodo in lista: 
+           print nodo.childNodes[1].firstChild.data
+           print nodo.childNodes[3].firstChild.data
+           print nodo.childNodes[5].firstChild.data
+ #          monto = nodo.childNodes[7].firstChild.data
+ #          fecha = nodo.childNodes[9].firstChild.data
+ #          idEvento = nodo.childNodes[11].firstChild.data
+ #          idMaquina = nodo.childNodes[15].firstChild.data
+ #          idApuesta = db.apuestas.insert(montoApuesta = monto,fechaApuesta = fecha,maquina_id = idMaquina)
+ #          lista_aux = nodo.getElementsByTagName("aposto_por")
+ #          for apostados in lista_aux:
+ #           lista_aux2 = apostados.getElementsByTagName("participante")
+ #           for participante in lista_aux2:
+ #                   print participante.childNodes[1].firstChild.data
+ #                  idParticipante = participante.childNodes[3].firstChild.data
+ #                  db.e_a_p.insert(apuestasId = idApuesta,idParticipantes  = idParticipante, eventosId = idEvento)
