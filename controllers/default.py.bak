@@ -463,7 +463,12 @@ def cargarArchivoPropio():
     c = DAOCasadeApuestas()
     c.cargarXmlApuestas(db,'d:\\apuestas.xml')
     return dict()
-
+    
+def cargarArchivoAjeno():
+    from DAOCasadeApuestas import *
+    archivo = DAOCasadeApuestas()
+    archivo.cargarXmlApuestasAjeno(db,'E:\\ArchivoDeApuestas.xml')
+    return dict()
 
 def montoPorEvento1():
     eventos = db().select(db.eventos.ALL)
