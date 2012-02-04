@@ -27,6 +27,7 @@
 'Descripcion Participante': 'Descripcion Participante',
 'Description': 'Description',
 'Email': 'Email',
+'Esta seguro que quiere eliminar?': 'Esta seguro que quiere eliminar?',
 'Evento': 'Evento',
 'Eventos': 'Eventos',
 'Fecha Evento': 'Fecha Evento',

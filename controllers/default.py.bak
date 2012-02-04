@@ -227,16 +227,16 @@ def mostrar():
     dao5 = DAOCasadeApuestas()
     import datetime
     fechaActual=datetime.datetime.now()
-    eventos =db(db.eventos.fecha <fechaActual).select()
+ #   eventos =db(db.eventos.fecha <fechaActual).select()
 #    q = dao.generarArchivoActualizacionMD5(dao.generarMensajeMD5(db().select(db.eventos.ALL)), dao2.generarMensajeMD5(db().select(db.categorias.ALL)), dao3.generarMensajeMD5(db().select(db.participantes.ALL)), dao4.generarMensajeMD5(db().select(db.eventosparticipantes.ALL)), dao5.generarMensajeMD5(db().select(db.auth_user.ALL)))
-    s = dao.generarArchivoActualizacionXML(dao.generarFormatoXml(db(db.eventos.fecha>fechaActual).select(),'eventos'), dao2.generarFormatoXml(db().select(db.categorias.ALL),'categorias'), dao3.generarFormatoXml(db().select(db.participantes.ALL),'participantes'), dao4.generarFormatoXml(db().select(db.eventosparticipantes.ALL),'eventosparticipantes'), dao5.generarFormatoXml(db().select(db.auth_user.ALL),'auth_user'))
+    s = dao.generarArchivoActualizacionXML(dao.generarFormatoXml(db().select(db.eventos.ALL),'eventos'), dao2.generarFormatoXml(db().select(db.categorias.ALL),'categorias'), dao3.generarFormatoXml(db().select(db.participantes.ALL),'participantes'), dao4.generarFormatoXml(db().select(db.eventosparticipantes.ALL),'eventosparticipantes'), dao5.generarFormatoXml(db().select(db.auth_user.ALL),'auth_user'))
 #    return response.render(dict(q = q, s = s))
     return response.render(dict(s = s))
 
 def verProximosEventos1():
     import datetime
     fechaActual=datetime.datetime.now()
-    eventos =db(db.eventos.fecha>fechaActual).select()
+    eventos =db(db.eventos.fecha>=fechaActual).select()
     return dict(eventos=eventos)
 
 def verProximosEventos2():
@@ -300,8 +300,9 @@ def apuestasPorEventos1():
 
 def apuestasPorEventos2():
 
-    apuestas = db(db.apuestas.eventos_id==request.args(0)).select()
+    apuestas = db(db.e_a_p.eventosId==request.args(0)).select()
     evento = db(db.eventos.id==request.args(0)).select()
+    
     import datetime
     fechaActual=datetime.date.today()
     from gluon.contrib.pyfpdf import FPDF, HTMLMixin
@@ -340,9 +341,10 @@ def apuestasPorEventos2():
     col = []
     cont = 0
     for i in apuestas:
+        ap = db(db.apuestas.id==i.apuestasId).select()
         cont +=1
         bg = cont % 2 and "#F0F0F0" or "#FFFFFF"
-        col.append(TR(TD(i.fechaApuesta,_width="33%",_align="center"),TD(i.montoApuesta, _align="center",_border="1"),TD(i.maquina_id, _align="center"),_bgcolor=bg,_border="1"))
+        col.append(TR(TD(ap.fechaApuesta,_width="33%",_align="center"),TD(ap.montoApuesta, _align="center",_border="1"),TD(ap.maquina_id, _align="center"),_bgcolor=bg,_border="1"))
     cuerpo =TBODY(*col)
     table = TABLE(_border="1",_align="center",_width="100%",*[rows,cuerpo])
     pdf = MyFPDF()

@@ -236,7 +236,7 @@ def mostrar():
 def verProximosEventos1():
     import datetime
     fechaActual=datetime.datetime.now()
-    eventos =db(db.eventos.fecha>fechaActual).select()
+    eventos =db(db.eventos.fecha>=fechaActual).select()
     return dict(eventos=eventos)
 
 def verProximosEventos2():
@@ -300,8 +300,9 @@ def apuestasPorEventos1():
 
 def apuestasPorEventos2():
 
-    apuestas = db(db.apuestas.eventos_id==request.args(0)).select()
+    apuestas = db(db.e_a_p.eventosId==request.args(0)).select()
     evento = db(db.eventos.id==request.args(0)).select()
+    
     import datetime
     fechaActual=datetime.date.today()
     from gluon.contrib.pyfpdf import FPDF, HTMLMixin
@@ -340,9 +341,10 @@ def apuestasPorEventos2():
     col = []
     cont = 0
     for i in apuestas:
+        ap = db(db.apuestas.id==i.apuestasId).select()
         cont +=1
         bg = cont % 2 and "#F0F0F0" or "#FFFFFF"
-        col.append(TR(TD(i.fechaApuesta,_width="33%",_align="center"),TD(i.montoApuesta, _align="center",_border="1"),TD(i.maquina_id, _align="center"),_bgcolor=bg,_border="1"))
+        col.append(TR(TD(ap[0].fechaApuesta,_width="33%",_align="center"),TD(ap[0].montoApuesta, _align="center",_border="1"),TD(ap[0].maquina_id, _align="center"),_bgcolor=bg,_border="1"))
     cuerpo =TBODY(*col)
     table = TABLE(_border="1",_align="center",_width="100%",*[rows,cuerpo])
     pdf = MyFPDF()
