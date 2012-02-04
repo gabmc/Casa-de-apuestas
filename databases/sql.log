@@ -4,3 +4,411 @@ timestamp: 2012-01-31T23:14:18.991000
 ALTER TABLE e_a_p ADD idparticipantes INTEGER REFERENCES participantes(id) ON DELETE CASCADE;
 timestamp: 2012-01-31T23:14:50.238000
 ALTER TABLE e_a_p ADD apuestasid INTEGER REFERENCES apuestas(id) ON DELETE CASCADE;
+timestamp: 2012-02-03T19:05:55.176000
+CREATE TABLE tokens(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    idT CHAR(512),
+    Creacion CHAR(512)
+);
+success!
+timestamp: 2012-02-03T19:05:55.343000
+CREATE TABLE categorias(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nombre CHAR(512),
+    descripcion TEXT
+);
+success!
+timestamp: 2012-02-03T19:05:55.459000
+CREATE TABLE eventos(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    categoria_id INTEGER REFERENCES categorias(id) ON DELETE CASCADE,
+    nombre CHAR(512),
+    fecha DATE,
+    descripcion TEXT,
+    horaInicio TIME,
+    admiteTablaResultado CHAR(1),
+    permiteEmpate CHAR(1)
+);
+success!
+timestamp: 2012-02-03T19:05:55.581000
+CREATE TABLE participantes(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nombre CHAR(512),
+    descripcion TEXT,
+    categoria_id INTEGER REFERENCES categorias(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2012-02-03T19:05:55.694000
+CREATE TABLE eventosparticipantes(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    eventos_id INTEGER REFERENCES eventos(id) ON DELETE CASCADE,
+    participantes_id INTEGER REFERENCES participantes(id) ON DELETE CASCADE,
+    relacionpago CHAR(512),
+    limite_apuesta DOUBLE
+);
+success!
+timestamp: 2012-02-03T19:05:55.795000
+CREATE TABLE resultados(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    eventos_id INTEGER REFERENCES eventos(id) ON DELETE CASCADE,
+    participantes_id INTEGER REFERENCES participantes(id) ON DELETE CASCADE,
+    puntaje_posicion INTEGER
+);
+success!
+timestamp: 2012-02-03T19:05:55.982000
+CREATE TABLE auth_user(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nick CHAR(512),
+    nombre CHAR(512),
+    apellido CHAR(512),
+    email CHAR(512),
+    password CHAR(512),
+    created_on TIMESTAMP,
+    modified_on TIMESTAMP,
+    registration_key CHAR(512),
+    reset_password_key CHAR(512),
+    registration_id CHAR(512)
+);
+success!
+timestamp: 2012-02-03T19:05:56.063000
+CREATE TABLE maquinas(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    usuario_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    estado CHAR(1),
+    procesador CHAR(512),
+    latitud CHAR(512),
+    longitud CHAR(512),
+    capacidadMemoriaRam CHAR(512),
+    capacidadDiscoDuro CHAR(512)
+);
+success!
+timestamp: 2012-02-03T19:05:56.143000
+CREATE TABLE apuestas(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    montoApuesta DOUBLE,
+    fechaApuesta CHAR(512),
+    maquina_id INTEGER REFERENCES maquinas(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2012-02-03T19:05:56.218000
+CREATE TABLE e_a_p(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    apuestasId INTEGER REFERENCES apuestas(id) ON DELETE CASCADE,
+    eventosId INTEGER REFERENCES eventos(id) ON DELETE CASCADE,
+    idParticipantes INTEGER REFERENCES participantes(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2012-02-03T19:05:56.299000
+CREATE TABLE auth_group(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    role CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2012-02-03T19:05:56.380000
+CREATE TABLE auth_membership(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    group_id INTEGER REFERENCES auth_group(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2012-02-03T19:05:56.463000
+CREATE TABLE auth_permission(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    group_id INTEGER REFERENCES auth_group(id) ON DELETE CASCADE,
+    name CHAR(512),
+    table_name CHAR(512),
+    record_id INTEGER
+);
+success!
+timestamp: 2012-02-03T19:05:56.666000
+CREATE TABLE auth_event(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    time_stamp TIMESTAMP,
+    client_ip CHAR(512),
+    user_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    origin CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2012-02-03T19:05:56.755000
+CREATE TABLE auth_cas(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    created_on TIMESTAMP,
+    url CHAR(512),
+    uuid CHAR(512)
+);
+success!
+timestamp: 2012-02-03T19:06:49.839000
+CREATE TABLE tokens(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    idT CHAR(512),
+    Creacion CHAR(512)
+);
+success!
+timestamp: 2012-02-03T19:06:49.945000
+CREATE TABLE categorias(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nombre CHAR(512),
+    descripcion TEXT
+);
+success!
+timestamp: 2012-02-03T19:06:50.053000
+CREATE TABLE eventos(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    categoria_id INTEGER REFERENCES categorias(id) ON DELETE CASCADE,
+    nombre CHAR(512),
+    fecha DATE,
+    descripcion TEXT,
+    horaInicio TIME,
+    admiteTablaResultado CHAR(1),
+    permiteEmpate CHAR(1)
+);
+success!
+timestamp: 2012-02-03T19:06:50.141000
+CREATE TABLE participantes(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nombre CHAR(512),
+    descripcion TEXT,
+    categoria_id INTEGER REFERENCES categorias(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2012-02-03T19:06:50.311000
+CREATE TABLE eventosparticipantes(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    eventos_id INTEGER REFERENCES eventos(id) ON DELETE CASCADE,
+    participantes_id INTEGER REFERENCES participantes(id) ON DELETE CASCADE,
+    relacionpago CHAR(512),
+    limite_apuesta DOUBLE
+);
+success!
+timestamp: 2012-02-03T19:06:50.408000
+CREATE TABLE resultados(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    eventos_id INTEGER REFERENCES eventos(id) ON DELETE CASCADE,
+    participantes_id INTEGER REFERENCES participantes(id) ON DELETE CASCADE,
+    puntaje_posicion INTEGER
+);
+success!
+timestamp: 2012-02-03T19:06:50.525000
+CREATE TABLE auth_user(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nick CHAR(512),
+    nombre CHAR(512),
+    apellido CHAR(512),
+    email CHAR(512),
+    password CHAR(512),
+    created_on TIMESTAMP,
+    modified_on TIMESTAMP,
+    registration_key CHAR(512),
+    reset_password_key CHAR(512),
+    registration_id CHAR(512)
+);
+success!
+timestamp: 2012-02-03T19:06:50.723000
+CREATE TABLE maquinas(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    usuario_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    estado CHAR(1),
+    procesador CHAR(512),
+    latitud CHAR(512),
+    longitud CHAR(512),
+    capacidadMemoriaRam CHAR(512),
+    capacidadDiscoDuro CHAR(512)
+);
+success!
+timestamp: 2012-02-03T19:06:50.860000
+CREATE TABLE apuestas(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    montoApuesta DOUBLE,
+    fechaApuesta CHAR(512),
+    maquina_id INTEGER REFERENCES maquinas(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2012-02-03T19:06:51.014000
+CREATE TABLE e_a_p(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    apuestasId INTEGER REFERENCES apuestas(id) ON DELETE CASCADE,
+    eventosId INTEGER REFERENCES eventos(id) ON DELETE CASCADE,
+    idParticipantes INTEGER REFERENCES participantes(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2012-02-03T19:06:51.158000
+CREATE TABLE auth_group(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    role CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2012-02-03T19:06:51.301000
+CREATE TABLE auth_membership(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    group_id INTEGER REFERENCES auth_group(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2012-02-03T19:06:51.468000
+CREATE TABLE auth_permission(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    group_id INTEGER REFERENCES auth_group(id) ON DELETE CASCADE,
+    name CHAR(512),
+    table_name CHAR(512),
+    record_id INTEGER
+);
+success!
+timestamp: 2012-02-03T19:06:51.621000
+CREATE TABLE auth_event(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    time_stamp TIMESTAMP,
+    client_ip CHAR(512),
+    user_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    origin CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2012-02-03T19:06:51.755000
+CREATE TABLE auth_cas(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    created_on TIMESTAMP,
+    url CHAR(512),
+    uuid CHAR(512)
+);
+success!
+timestamp: 2012-02-03T19:10:27.648000
+CREATE TABLE tokens(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    idT CHAR(512),
+    Creacion CHAR(512)
+);
+success!
+timestamp: 2012-02-03T19:10:27.809000
+CREATE TABLE categorias(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nombre CHAR(512),
+    descripcion TEXT
+);
+success!
+timestamp: 2012-02-03T19:10:27.882000
+CREATE TABLE eventos(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    categoria_id INTEGER REFERENCES categorias(id) ON DELETE CASCADE,
+    nombre CHAR(512),
+    fecha DATE,
+    descripcion TEXT,
+    horaInicio TIME,
+    admiteTablaResultado CHAR(1),
+    permiteEmpate CHAR(1)
+);
+success!
+timestamp: 2012-02-03T19:10:27.997000
+CREATE TABLE participantes(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nombre CHAR(512),
+    descripcion TEXT,
+    categoria_id INTEGER REFERENCES categorias(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2012-02-03T19:10:28.095000
+CREATE TABLE eventosparticipantes(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    eventos_id INTEGER REFERENCES eventos(id) ON DELETE CASCADE,
+    participantes_id INTEGER REFERENCES participantes(id) ON DELETE CASCADE,
+    relacionpago CHAR(512),
+    limite_apuesta DOUBLE
+);
+success!
+timestamp: 2012-02-03T19:10:28.192000
+CREATE TABLE resultados(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    eventos_id INTEGER REFERENCES eventos(id) ON DELETE CASCADE,
+    participantes_id INTEGER REFERENCES participantes(id) ON DELETE CASCADE,
+    puntaje_posicion INTEGER
+);
+success!
+timestamp: 2012-02-03T19:10:28.293000
+CREATE TABLE auth_user(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nick CHAR(512),
+    nombre CHAR(512),
+    apellido CHAR(512),
+    email CHAR(512),
+    password CHAR(512),
+    created_on TIMESTAMP,
+    modified_on TIMESTAMP,
+    registration_key CHAR(512),
+    reset_password_key CHAR(512),
+    registration_id CHAR(512)
+);
+success!
+timestamp: 2012-02-03T19:10:28.387000
+CREATE TABLE maquinas(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    usuario_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    estado CHAR(1),
+    procesador CHAR(512),
+    latitud CHAR(512),
+    longitud CHAR(512),
+    capacidadMemoriaRam CHAR(512),
+    capacidadDiscoDuro CHAR(512)
+);
+success!
+timestamp: 2012-02-03T19:10:28.479000
+CREATE TABLE apuestas(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    montoApuesta DOUBLE,
+    fechaApuesta CHAR(512),
+    maquina_id INTEGER REFERENCES maquinas(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2012-02-03T19:10:28.737000
+CREATE TABLE e_a_p(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    apuestasId INTEGER REFERENCES apuestas(id) ON DELETE CASCADE,
+    eventosId INTEGER REFERENCES eventos(id) ON DELETE CASCADE,
+    idParticipantes INTEGER REFERENCES participantes(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2012-02-03T19:10:28.849000
+CREATE TABLE auth_group(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    role CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2012-02-03T19:10:28.941000
+CREATE TABLE auth_membership(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    group_id INTEGER REFERENCES auth_group(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2012-02-03T19:10:29.035000
+CREATE TABLE auth_permission(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    group_id INTEGER REFERENCES auth_group(id) ON DELETE CASCADE,
+    name CHAR(512),
+    table_name CHAR(512),
+    record_id INTEGER
+);
+success!
+timestamp: 2012-02-03T19:10:29.137000
+CREATE TABLE auth_event(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    time_stamp TIMESTAMP,
+    client_ip CHAR(512),
+    user_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    origin CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2012-02-03T19:10:29.328000
+CREATE TABLE auth_cas(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    created_on TIMESTAMP,
+    url CHAR(512),
+    uuid CHAR(512)
+);
+success!

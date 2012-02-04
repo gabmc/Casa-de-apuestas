@@ -63,6 +63,7 @@
 'User %(id)s Logged-in': 'User %(id)s Logged-in',
 'User ID': 'User ID',
 'Welcome': 'Welcome',
+'enter a number between %(min)g and %(max)g': 'enter a number between %(min)g and %(max)g',
 'enter an integer between %(min)g and %(max)g': 'enter an integer between %(min)g and %(max)g',
 'login': 'login',
 'logout': 'logout',

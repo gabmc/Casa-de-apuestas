@@ -462,12 +462,14 @@ def cargarArchivoPropio():
     from DAOCasadeApuestas import *
     c = DAOCasadeApuestas()
     c.cargarXmlApuestas(db,'d:\\apuestas.xml')
+    response.flash = 'Apuestas Cargadas'
     return dict()
     
 def cargarArchivoAjeno():
     from DAOCasadeApuestas import *
     archivo = DAOCasadeApuestas()
-    archivo.cargarXmlApuestasAjeno(db,'E:\\ArchivoDeApuestas.xml')
+    archivo.cargarXmlApuestasAjeno(db,'d:\\ArchivoDeApuestas.xml')
+    response.flash = 'Apuestas Cargadas'
     return dict()
 
 def montoPorEvento1():
@@ -532,3 +534,6 @@ def montoPorEvento2():
     pdf.write_html(str(XML(table, sanitize=False)))      
     response.headers['Content-Type']='application/pdf'
     return pdf.output(dest='S')
+
+def reportes():
+    return dict()
