@@ -1,0 +1,20 @@
+{{extend 'layout.html'}}
+<div id="content">
+    <div class="post greenbox">
+           <div class="title">
+                <h1>Generar Reportes</h1>
+           </div>
+           <div class="entry">
+<li>                    {{=A('Apuestas por Eventos', _href=URL("apuestasPorEventos1"))}}</li>
+<li>  {{=A('Monto por Evento', _href=URL("montoPorEvento1"))}}</li>
+           </div>
+           <div class="btm" align="center">
+              <div class="l">
+                  <div class="r">
+                                  <small>{{=A('Regresar', _href=URL("indexAdmin"))}}</small>
+                  </div>
+                
+              </div>
+           </div>
+     </div>
+</div>
