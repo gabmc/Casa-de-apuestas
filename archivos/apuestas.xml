@@ -3,14 +3,14 @@
   <apuesta>
     <nombre_apostador>Gary</nombre_apostador>
     <apellido_apostador>Bustillos</apellido_apostador>
-    <cedula_apostador>1</cedula_apostador>
+    <cedula_apostador>234324</cedula_apostador>
     <monto>1.0</monto>
-    <fecha>29/01/2012</fecha>
-    <id_evento>11</id_evento>
+    <fecha>04/02/2012</fecha>
+    <id_evento>1</id_evento>
     <aposto_por>
       <participante>
-        <nombre>Guaiqueries de Margarita</nombre>
-        <id>16</id>
+        <nombre>mani paqueao</nombre>
+        <id>1</id>
       </participante>
     </aposto_por>
     <id_maquina>9</id_maquina>
@@ -18,14 +18,29 @@
   <apuesta>
     <nombre_apostador>Hector</nombre_apostador>
     <apellido_apostador>Sam</apellido_apostador>
-    <cedula_apostador>2</cedula_apostador>
+    <cedula_apostador>1212</cedula_apostador>
     <monto>2.0</monto>
-    <fecha>29/01/2012</fecha>
-    <id_evento>11</id_evento>
+    <fecha>04/02/2012</fecha>
+    <id_evento>1</id_evento>
     <aposto_por>
       <participante>
-        <nombre>Cocodrilos</nombre>
-        <id>15</id>
+        <nombre>mani paqueao</nombre>
+        <id>1</id>
+      </participante>
+    </aposto_por>
+    <id_maquina>9</id_maquina>
+  </apuesta>
+  <apuesta>
+    <nombre_apostador>Juan</nombre_apostador>
+    <apellido_apostador>Perozo</apellido_apostador>
+    <cedula_apostador>121212</cedula_apostador>
+    <monto>3.0</monto>
+    <fecha>04/02/2012</fecha>
+    <id_evento>1</id_evento>
+    <aposto_por>
+      <participante>
+        <nombre>floy maigueber jr</nombre>
+        <id>2</id>
       </participante>
     </aposto_por>
     <id_maquina>9</id_maquina>

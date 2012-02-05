@@ -14,12 +14,16 @@ import Persistencia.GestionPendrive;
 import Persistencia.HiloUSB;
 import Persistencia.PersistenciaDeDatos;
 import Logica.Logica;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 
 /**
  *
  * @author Usuario
  */
 public class VentanaAdministracion extends javax.swing.JFrame {
+    
+        static Logger logger = Logger.getLogger(VentanaAdministracion.class);
 
     /** Creates new form VentanaAdministracion */
     public VentanaAdministracion() {
@@ -28,6 +32,7 @@ public class VentanaAdministracion extends javax.swing.JFrame {
          setTitle("Administrador");
          obtenerTokenWeb.setEnabled(Logica.dameLogica().hayConexion());
          transmisionApuestasWeb.setEnabled(Logica.dameLogica().hayConexion());
+         PropertyConfigurator.configure("log4j.properties");
     }
     
 
@@ -110,7 +115,7 @@ public class VentanaAdministracion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        GestionPendrive gestion = new GestionPendrive("apuestas.xml");
+        GestionPendrive gestion = new GestionPendrive();
         gestion.escribirArchivo();
            // GestionPorArchivo cargar = new GestionPorArchivo();
             
@@ -124,14 +129,35 @@ public class VentanaAdministracion extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void obtenerTokenWebActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_obtenerTokenWebActionPerformed
-        // TODO add your handling code here:
+        if (Logica.dameLogica().hayConexion()){
         Logica.dameLogica().setToken(Persistencia.TransmisorApuestas
                 .getInstance().obtenerToken(Logica.dameLogica()
                 .getID()));
+        new WSOperationSuccess("Token obtenido satisfactoriamente: \n" 
+                + Logica.dameLogica().getToken()).setVisible(true);
+        }
+        else{
+            try{
+            Persistencia.TransmisorApuestasAjeno transmisorWS = 
+                    new Persistencia.TransmisorApuestasAjeno();
+            transmisorWS.obtenerToken(Logica.dameLogica().getID());
+            new WSOperationSuccess("Token obtenido satisfactoriamente: \n" 
+                + Logica.dameLogica().getToken()).setVisible(true);
+            }catch(Exception e){
+                logger.error("No se pudo establecer conexión con ningun Web Service");
+            }
+        }
+        
     }//GEN-LAST:event_obtenerTokenWebActionPerformed
 
     private void transmisionApuestasWebActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transmisionApuestasWebActionPerformed
+       try{
         Persistencia.TransmisorApuestas.getInstance().enviarApuesta();
+        new WSOperationSuccess("Apuestas enviadas exitosamente").setVisible(true);
+       }catch(Exception e){
+           logger.error("Error al enviar las apuestas via Web Service");
+           new WSOperationSuccess("No se pudo enviar las apuestas al Web Service").setVisible(true);
+       }
     }//GEN-LAST:event_transmisionApuestasWebActionPerformed
 
     /**

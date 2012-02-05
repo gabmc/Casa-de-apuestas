@@ -30,14 +30,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ArrayOfenviarApuestalistaApuestas }
-     * 
-     */
-    public ArrayOfenviarApuestalistaApuestas createArrayOfenviarApuestalistaApuestas() {
-        return new ArrayOfenviarApuestalistaApuestas();
-    }
-
-    /**
      * Create an instance of {@link EnviarApuestaResponse }
      * 
      */
@@ -46,11 +38,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link EnviarApuesta }
+     * Create an instance of {@link ArrayOfenviarApuestalistaApuestasapuesta }
      * 
      */
-    public EnviarApuesta createEnviarApuesta() {
-        return new EnviarApuesta();
+    public ArrayOfenviarApuestalistaApuestasapuesta createArrayOfenviarApuestalistaApuestasapuesta() {
+        return new ArrayOfenviarApuestalistaApuestasapuesta();
     }
 
     /**
@@ -70,27 +62,35 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ArrayOfArrayOfenviarApuestalistaApuestasapuestaParticipanteslistaParticipantes }
-     * 
-     */
-    public ArrayOfArrayOfenviarApuestalistaApuestasapuestaParticipanteslistaParticipantes createArrayOfArrayOfenviarApuestalistaApuestasapuestaParticipanteslistaParticipantes() {
-        return new ArrayOfArrayOfenviarApuestalistaApuestasapuestaParticipanteslistaParticipantes();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfenviarApuestalistaApuestasapuesta }
-     * 
-     */
-    public ArrayOfenviarApuestalistaApuestasapuesta createArrayOfenviarApuestalistaApuestasapuesta() {
-        return new ArrayOfenviarApuestalistaApuestasapuesta();
-    }
-
-    /**
      * Create an instance of {@link ArrayOfenviarApuestalistaApuestasapuestaParticipantes }
      * 
      */
     public ArrayOfenviarApuestalistaApuestasapuestaParticipantes createArrayOfenviarApuestalistaApuestasapuestaParticipantes() {
         return new ArrayOfenviarApuestalistaApuestasapuestaParticipantes();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfenviarApuestalistaApuestas }
+     * 
+     */
+    public ArrayOfenviarApuestalistaApuestas createArrayOfenviarApuestalistaApuestas() {
+        return new ArrayOfenviarApuestalistaApuestas();
+    }
+
+    /**
+     * Create an instance of {@link EnviarApuesta }
+     * 
+     */
+    public EnviarApuesta createEnviarApuesta() {
+        return new EnviarApuesta();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfArrayOfenviarApuestalistaApuestasapuestaParticipanteslistaParticipantes }
+     * 
+     */
+    public ArrayOfArrayOfenviarApuestalistaApuestasapuestaParticipanteslistaParticipantes createArrayOfArrayOfenviarApuestalistaApuestasapuestaParticipanteslistaParticipantes() {
+        return new ArrayOfArrayOfenviarApuestalistaApuestasapuestaParticipanteslistaParticipantes();
     }
 
 }

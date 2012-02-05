@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
-    <system systemId="http://127.0.0.1:8000/Casa_de_Apuestas/default/call/soap?WSDL" uri="wsdl/127.0.0.1_8000/Casa_de_Apuestas/default/call/soap.wsdl"/>
     <system systemId="http://192.168.1.109:8000/Casa_de_Apuestas/default/call/soap?WSDL" uri="wsdl/192.168.1.109_8000/Casa_de_Apuestas/default/call/soap.wsdl"/>
+    <system systemId="http://127.0.0.1:8000/Casa_de_Apuestas/default/call/soap?WSDL" uri="wsdl/127.0.0.1_8000/Casa_de_Apuestas/default/call/soap.wsdl"/>
+    <system systemId="http://192.168.2.164:8000/Casa_de_Apuestas/default/call/soap?WSDL" uri="wsdl/192.168.2.164_8000/Casa_de_Apuestas/default/call/soap.wsdl"/>
+    <system systemId="file:/C:/Users/Usuario/Desktop/fernandez%20-%20sanchez/fernandez%20-%20sanchez.wsdl" uri="wsdl/fernandez%20-%20sanchez.wsdl"/>
+    <system systemId="http://192.168.19.191:8000/Casa_de_Apuestas/default/call/soap?WSDL" uri="wsdl/192.168.19.191_8000/Casa_de_Apuestas/default/call/soap.wsdl"/>
+    <system systemId="file:/C:/Users/Usuario/Desktop/desarrollo/fernandez%20-%20sanchez.wsdl" uri="wsdl/fernandez%20-%20sanchez.wsdl"/>
 </catalog>

@@ -178,6 +178,7 @@ public class Participantes extends javax.swing.JFrame {
                 Logica.dameLogica().getIdEventoActual(), 
                 Logica.dameLogica().getIdCategoriaActual());
         
+        if (participante.getLimiteApuesta() > Float.parseFloat(montoApuesta.getText())){
         ArrayList<Participante> lista = new ArrayList();
         lista.add(participante);
         
@@ -197,6 +198,10 @@ public class Participantes extends javax.swing.JFrame {
         Persistencia.HiloUSB.dti.setVentana(new Apostar());
         this.setVisible(false);
         this.dispose();
+        }
+        else{
+            new LimiteApuestaExcedido().setVisible(true);
+        }
                 
     }//GEN-LAST:event_jButton1ActionPerformed
 

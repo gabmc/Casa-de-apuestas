@@ -47,15 +47,15 @@ public class TransmisorApuestas {
                 new ArrayOfenviarApuestalistaApuestasapuesta();
         ArrayOfenviarApuestalistaApuestasapuestaParticipantes par =
                 new ArrayOfenviarApuestalistaApuestasapuestaParticipantes();
-        Iterator iterador = anteriorApuesta.getParticipantes().iterator();
-        while (iterador.hasNext()){
-          par.getListaParticipantes().getIdParticipante().add(
-                  ((Participante)iterador.next()).getId());
-        }
-
+        ArrayOfArrayOfenviarApuestalistaApuestasapuestaParticipanteslistaParticipantes
+                lista = new ArrayOfArrayOfenviarApuestalistaApuestasapuestaParticipanteslistaParticipantes();
+        lista.getIdParticipante().addAll(Logica.dameLogica()
+                .getListaIdsParticipantesApuesta(
+                anteriorApuesta.getParticipantes()));
+        par.setListaParticipantes(lista);
         nuevaApuesta.setFechaApuesta(anteriorApuesta.getFechaApuestaString());
         nuevaApuesta.setIdEvento(anteriorApuesta.getIdEvento());
-        //nuevaApuesta.setParticipantes(par);
+        nuevaApuesta.setParticipantes(par);
         nuevaApuesta.setMaquinaid(anteriorApuesta.getIdMaquina());
         nuevaApuesta.setMontoApuesta((int) anteriorApuesta.getMontoApuesta());
         return nuevaApuesta;

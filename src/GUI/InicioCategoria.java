@@ -11,6 +11,7 @@
 package GUI;
 
 import Logica.Categoria;
+import Logica.Fachada;
 import Logica.Logica;
 import Persistencia.HiloUSB;
 import Persistencia.PersistenciaDeDatos;
@@ -34,6 +35,8 @@ public class InicioCategoria extends javax.swing.JFrame {
         this.setTitle("Elegir Categoria");
         if (!(Logica.dameLogica().getListaCategorias().isEmpty()))
             insertarElementos();
+        Fachada fachada = new Fachada();
+        System.out.println(fachada.buscarArchivo());
 //        if (inicioConHilo.contentEquals("TRUE")){
 //            HiloUSB hilo = new HiloUSB("archivoActualizacion.xml",this,"LEER");
 //            hilo.start();

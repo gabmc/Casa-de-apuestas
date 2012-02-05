@@ -309,7 +309,7 @@ public class ParticipantesVarios extends javax.swing.JFrame {
                     (nombreParticipante, Logica.dameLogica().getIdEventoActual(), 
                     Logica.dameLogica().getIdCategoriaActual()));
         }
-        
+        if (participantes.size() != 1){
         Apuesta apuesta = new Apuesta(nombreApostador.getText(), 
                  apellidoApostador.getText(), 
                  Integer.parseInt(cedulaApostador.getText()), 
@@ -324,19 +324,46 @@ public class ParticipantesVarios extends javax.swing.JFrame {
         
         Persistencia.HiloUSB.dti.setVentana(new Apostar());
         this.setVisible(false);
+        this.dispose(); 
+        }
+        else{
+            Participante participante = participantes.get(0);
+            if (participante.getLimiteApuesta() > Float.parseFloat(montoApuesta.getText())){
+                        Apuesta apuesta = new Apuesta(nombreApostador.getText(), 
+                 apellidoApostador.getText(), 
+                 Integer.parseInt(cedulaApostador.getText()), 
+                 Integer.parseInt(montoApuesta.getText()), 
+                 Logica.dameLogica().getIdEventoActual(),
+                 participantes);
+        Logica.dameLogica().agregarApuesta(apuesta);
+        
+        GestionArchivoPdf pdf = new GestionArchivoPdf();
+        pdf.generarPdf(apuesta);
+        apuesta.guardarApuesta(Logica.dameLogica().getListaApuestas());
+        
+        Persistencia.HiloUSB.dti.setVentana(new Apostar());
+        this.setVisible(false);
         this.dispose();
+            }
+            else{
+                new LimiteApuestaExcedido().setVisible(true);
+            }
+        }
+        
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         elegirParticipante();
-        if (ranking.size() > 1)
-            bloquearMontoApuesta();
+//        if (ranking.size() > 1)
+//            bloquearMontoApuesta();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         retirarParticipante();
-        if (ranking.size() <= 1)
-            desbloquearMontoApuesta();
+//        if (ranking.size() <= 1)
+//            desbloquearMontoApuesta();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

@@ -10,6 +10,7 @@ package Persistencia;
  * @author hector
  */
 import GUI.AdvertenciaReinicio;
+import Logica.Fachada;
 import java.io.*;
 
 
@@ -35,19 +36,17 @@ public class GestionPendrive{
     * @param path del archivo de actualizción o de asentamiento de apuesta
     * @param ventana
     */
-    public GestionPendrive(String archivo, JFrame ventana) {
+    public GestionPendrive(JFrame ventana) {
         files = File.listRoots();
         setTotalDispositivos(files.length);
-        this.archivo=archivo;
         this.ventana = ventana;
         ventana.setVisible(true);
         PropertyConfigurator.configure("log4j.properties");
     }
     
-    public GestionPendrive(String archivo){
+    public GestionPendrive(){
         files = File.listRoots();
         setTotalDispositivos(files.length);
-        this.archivo = archivo;
         PropertyConfigurator.configure("log4j.properties");
     }
 
@@ -106,19 +105,17 @@ public class GestionPendrive{
 //se compara el total de dispositivos actuales con el total de dispositivos al inicio del programa
             logger.info("TOTAL DISPOSITIVOS: "+getTotalDispositivos()+" FILE LENGTH: "+files.length);
 
-                File[] archivos = files[files.length-1].listFiles();
-                
+                File[] archivos = files[files.length-2].listFiles();
+                Fachada fach = new Fachada();
+                archivo = fach.buscarArchivo();
                 for (File file : archivos) {
 
                     if (file.getName().contentEquals(archivo)){
-                        String directorio = files[files.length-1].getPath();
+                        String directorio = files[files.length-2].getPath();
                         String path = directorio + file.getName();
                         Logica.Logica.dameLogica().getListaAdministradores().clear();
                         Logica.Logica.dameLogica().getListaCategorias().clear();
-                 //       GestionPorArchivo cargar = new GestionPorArchivo();
-                        GestionPorArchivoAjeno cargar = new GestionPorArchivoAjeno();
-                        cargar.cargarActualizacion(path);
-                        cargar.copiarArchivoActualizacion(path);
+                        fach.cargarActualizacion(path);
                         logger.info("Datos cargados de actualizacion");
                    
                         kill = true;
@@ -138,7 +135,7 @@ public class GestionPendrive{
 //se compara el total de dispositivos actuales con el total de dispositivos al inicio del programa
             logger.info("TOTAL DISPOSITIVOS: "+getTotalDispositivos()+" FILE LENGTH: "+files.length);
 
-               File archivoEscribir = new File(files[files.length-1],"apuestas.xml");
+               File archivoEscribir = new File(files[files.length-2],"apuestas.xml");
                GestionPorArchivo gestion = new GestionPorArchivo();
           
                 gestion.copiarArchivoApuestas(archivoEscribir);

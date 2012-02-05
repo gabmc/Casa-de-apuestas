@@ -3,8 +3,8 @@
   <services/>
   <clients>
     <client name="soap">
-      <wsdl-url>http://127.0.0.1:8000/Casa_de_Apuestas/default/call/soap?WSDL</wsdl-url>
-      <local-wsdl-file>127.0.0.1_8000/Casa_de_Apuestas/default/call/soap.wsdl</local-wsdl-file>
+      <wsdl-url>http://192.168.19.191:8000/Casa_de_Apuestas/default/call/soap?WSDL</wsdl-url>
+      <local-wsdl-file>192.168.19.191_8000/Casa_de_Apuestas/default/call/soap.wsdl</local-wsdl-file>
       <package-name forceReplace="true">WebClient</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <wsimport-options>
@@ -18,7 +18,11 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://127.0.0.1:8000/Casa_de_Apuestas/default/call/soap?WSDL</wsimport-option-value>
+          <wsimport-option-value>http://192.168.19.191:8000/Casa_de_Apuestas/default/call/soap?WSDL</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xnocompile</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xendorsed</wsimport-option-name>
@@ -27,6 +31,34 @@
         <wsimport-option>
           <wsimport-option-name>package</wsimport-option-name>
           <wsimport-option-value>WebClient</wsimport-option-value>
+        </wsimport-option>
+      </wsimport-options>
+    </client>
+    <client name="fernandez_20-_20sanchez">
+      <wsdl-url>file:/C:/Users/Usuario/Desktop/desarrollo/fernandez%20-%20sanchez.wsdl</wsdl-url>
+      <local-wsdl-file>fernandez - sanchez.wsdl</local-wsdl-file>
+      <package-name>org.tempuri</package-name>
+      <catalog-file>catalog.xml</catalog-file>
+      <wsimport-options>
+        <wsimport-option>
+          <wsimport-option-name>extension</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>verbose</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>wsdlLocation</wsimport-option-name>
+          <wsimport-option-value>file:/C:/Users/Usuario/Desktop/desarrollo/fernandez%20-%20sanchez.wsdl</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xnocompile</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xendorsed</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
         </wsimport-option>
       </wsimport-options>
     </client>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="Casa de Apuestas" targetNamespace="http://192.168.19.191:8000/Casa_de_Apuestas/default/call/soap" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://192.168.19.191:8000/Casa_de_Apuestas/default/call/soap" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	
+    
+	<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"/>
+	
+
+    
+	<wsdl:types>
+		
+       
+		<xsd:schema elementFormDefault="qualified" targetNamespace="http://192.168.19.191:8000/Casa_de_Apuestas/default/call/soap" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			
+       
+			<xsd:element name="asignacionToken">
+				<xsd:complexType>
+					<xsd:all>
+						<xsd:element name="id" type="xsd:int"/>
+					</xsd:all>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="asignacionTokenResponse">
+				<xsd:complexType>
+					<xsd:all>
+						<xsd:element name="result" type="xsd:string"/>
+					</xsd:all>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="enviarApuesta">
+				<xsd:complexType>
+					<xsd:all>
+						<xsd:element name="listaApuestas" type="tns:ArrayOfenviarApuestalistaApuestas"/>
+						<xsd:element name="tokenMaquina" type="xsd:string"/>
+					</xsd:all>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:complexType name="ArrayOfenviarApuestalistaApuestas">
+				<xsd:sequence>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" name="apuesta" type="tns:ArrayOfenviarApuestalistaApuestasapuesta"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="ArrayOfenviarApuestalistaApuestasapuesta">
+				<xsd:all>
+					<xsd:element name="idEvento" type="xsd:int"/>
+					<xsd:element name="fechaApuesta" type="xsd:string"/>
+					<xsd:element name="maquinaid" type="xsd:int"/>
+					<xsd:element name="montoApuesta" type="xsd:int"/>
+					<xsd:element name="Participantes" type="tns:ArrayOfenviarApuestalistaApuestasapuestaParticipantes"/>
+				</xsd:all>
+			</xsd:complexType>
+			<xsd:complexType name="ArrayOfenviarApuestalistaApuestasapuestaParticipantes">
+				<xsd:all>
+					<xsd:element name="listaParticipantes" type="tns:ArrayOfArrayOfenviarApuestalistaApuestasapuestaParticipanteslistaParticipantes"/>
+				</xsd:all>
+			</xsd:complexType>
+			<xsd:complexType name="ArrayOfArrayOfenviarApuestalistaApuestasapuestaParticipanteslistaParticipantes">
+				<xsd:sequence>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" name="idParticipante" type="xsd:int"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="enviarApuestaResponse">
+				<xsd:complexType>
+					<xsd:all>
+						<xsd:element name="result" type="xsd:int"/>
+					</xsd:all>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:schema>
+		
+    
+	</wsdl:types>
+	
+
+
+	<wsdl:message name="asignacionTokenInput">
+		<wsdl:part element="tns:asignacionToken" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="asignacionTokenOutput">
+		<wsdl:part element="tns:asignacionTokenResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="enviarApuestaInput">
+		<wsdl:part element="tns:enviarApuesta" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="enviarApuestaOutput">
+		<wsdl:part element="tns:enviarApuestaResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:portType name="Casa de ApuestasPortType">
+		<wsdl:operation name="asignacionToken">
+			<wsdl:input message="tns:asignacionTokenInput"/>
+			<wsdl:output message="tns:asignacionTokenOutput"/>
+		</wsdl:operation>
+		<wsdl:operation name="enviarApuesta">
+			<wsdl:input message="tns:enviarApuestaInput"/>
+			<wsdl:output message="tns:enviarApuestaOutput"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="Casa de ApuestasBinding" type="tns:Casa de ApuestasPortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="asignacionToken">
+			<soap:operation soapAction="http://192.168.19.191:8000/Casa_de_Apuestas/default/call/soapasignacionToken" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="enviarApuesta">
+			<soap:operation soapAction="http://192.168.19.191:8000/Casa_de_Apuestas/default/call/soapenviarApuesta" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="Casa de ApuestasService">
+		<wsdl:documentation/>
+		<wsdl:port binding="tns:Casa de ApuestasBinding" name="Casa de Apuestas">
+			<soap:address location="http://192.168.19.191:8000/Casa_de_Apuestas/default/call/soap"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

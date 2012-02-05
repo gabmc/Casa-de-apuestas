@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;all>
- *         &lt;element name="listaApuestas" type="{http://127.0.0.1:8000/Casa_de_Apuestas/default/call/soap}ArrayOfenviarApuestalistaApuestas"/>
+ *         &lt;element name="listaApuestas" type="{http://192.168.19.191:8000/Casa_de_Apuestas/default/call/soap}ArrayOfenviarApuestalistaApuestas"/>
  *         &lt;element name="tokenMaquina" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/all>
  *     &lt;/restriction>

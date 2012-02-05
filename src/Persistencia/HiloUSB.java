@@ -27,13 +27,13 @@ public class HiloUSB extends Thread {
      * @param ventana es la ventana actual que se esta ejecutando en la aplicacion
      * @param accionArealizar puede tener dos valores: "LEER" o "ESCRIBIR"
      */
-    public HiloUSB(String archivo, javax.swing.JFrame ventana,String accionArealizar) {
-        dti = new GestionPendrive(archivo,ventana);
+    public HiloUSB(javax.swing.JFrame ventana,String accionArealizar) {
+        dti = new GestionPendrive(ventana);
         accion = accionArealizar;
     }
     
-    public HiloUSB(String archivo, String accionArealizar){
-        dti = new GestionPendrive(archivo);
+    public HiloUSB(String accionArealizar){
+        dti = new GestionPendrive();
         accion = accionArealizar;
     }
 

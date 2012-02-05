@@ -20,8 +20,8 @@
     </target>
     <target name="wsimport-client-soap" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/soap"/>
-        <property name="wsdl-soap" location="xml-resources/web-service-references/soap/wsdl/127.0.0.1_8000/Casa_de_Apuestas/default/call/soap.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/soap" destdir="${build.generated.dir}/jax-wsCache/soap" wsdl="${wsdl-soap}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://127.0.0.1:8000/Casa_de_Apuestas/default/call/soap?WSDL" xendorsed="true" package="WebClient">
+        <property name="wsdl-soap" location="xml-resources/web-service-references/soap/wsdl/192.168.19.191_8000/Casa_de_Apuestas/default/call/soap.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/soap" destdir="${build.generated.dir}/jax-wsCache/soap" wsdl="${wsdl-soap}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://192.168.19.191:8000/Casa_de_Apuestas/default/call/soap?WSDL" xnocompile="true" xendorsed="true" package="WebClient">
             <depends file="${wsdl-soap}"/>
             <produces dir="${build.generated.dir}/jax-wsCache/soap"/>
         </wsimport>
@@ -35,5 +35,22 @@
         <delete dir="${build.generated.dir}/jax-wsCache/soap"/>
         <delete dir="${build.generated.sources.dir}/jax-ws/WebClient"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-soap"/>
+    <target name="wsimport-client-fernandez_20-_20sanchez" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/fernandez_20-_20sanchez"/>
+        <property name="wsdl-fernandez_20-_20sanchez" location="xml-resources/web-service-references/fernandez_20-_20sanchez/wsdl/fernandez - sanchez.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/fernandez_20-_20sanchez" destdir="${build.generated.dir}/jax-wsCache/fernandez_20-_20sanchez" wsdl="${wsdl-fernandez_20-_20sanchez}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="file:/C:/Users/Usuario/Desktop/desarrollo/fernandez%20-%20sanchez.wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${wsdl-fernandez_20-_20sanchez}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/fernandez_20-_20sanchez"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/fernandez_20-_20sanchez">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-fernandez_20-_20sanchez" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/fernandez_20-_20sanchez"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/org/tempuri"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-soap, wsimport-client-fernandez_20-_20sanchez"/>
 </project>

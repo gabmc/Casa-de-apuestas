@@ -219,6 +219,7 @@ public class GestionPorArchivo implements DaoXml {
         Participante participanteClonado = clonarParticipante(participante);
         participanteClonado.setLimiteApuesta(limiteApuesta);
         participanteClonado.setRelacionPago(relacionPago);
+        System.out.println(idEventos);
         Logica.dameLogica().getEventoPorId(idEventos).getParticipantes()
                 .add(participanteClonado);
         return Boolean.TRUE;

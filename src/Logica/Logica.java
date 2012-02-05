@@ -295,9 +295,9 @@ public class Logica {
     
     public boolean hayConexion(){
              try {
-       InetAddress address = InetAddress.getByName("192.168.1.109");
+       InetAddress address = InetAddress.getByName("192.168.137.1");
                  System.out.println("a: " + address.getHostName());
-       if (address.getHostName().equals("hector-vaio")){
+       if (address.getHostName().equals("192.168.137.1")){
            return true;
        }
        else
